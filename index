@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muchas Más Apps — Totalplay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ocean-deep:#073B4C;
+    --ocean:#0B6E8C;
+    --sun:#FFD23F;
+    --coral:#FF6B4A;
+    --sand:#FFF6E4;
+    --foam:#EAF7FB;
+    --ink:#052A36;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Nunito Sans', sans-serif;
+    background:var(--sand);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:900px;margin:0 auto;overflow:hidden;}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    background:linear-gradient(180deg,var(--ocean-deep) 0%, var(--ocean) 60%, #1596B8 100%);
+    padding:36px 24px 70px;
+    color:white;
+    text-align:center;
+    overflow:hidden;
+  }
+  .hero::before,.hero::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,0.10);
+  }
+  .hero::before{width:260px;height:260px;top:-120px;left:-80px;}
+  .hero::after{width:180px;height:180px;bottom:-90px;right:-60px;}
+  .badge{
+    display:inline-block;
+    background:rgba(255,255,255,0.16);
+    border:1px solid rgba(255,255,255,0.4);
+    padding:6px 18px;
+    border-radius:999px;
+    font-size:12px;
+    letter-spacing:2px;
+    font-weight:700;
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  h1.title{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:800;
+    font-size:clamp(38px,7vw,64px);
+    line-height:0.95;
+    margin:0 0 6px;
+    color:var(--sun);
+    text-shadow:3px 3px 0 var(--coral);
+    letter-spacing:1px;
+  }
+  .subtitle{
+    font-size:16px;
+    font-weight:600;
+    max-width:480px;
+    margin:14px auto 0;
+    opacity:0.95;
+  }
+  .meta-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:22px;
+    font-size:13px;
+    font-weight:700;
+  }
+  .meta-chip{
+    background:var(--ink);
+    color:var(--sun);
+    padding:6px 14px;
+    border-radius:8px;
+  }
+
+  /* WAVE DIVIDER */
+  .wave{display:block;width:100%;height:60px;margin-top:-2px;}
+  .wave path{fill:var(--sand);}
+
+  /* APP STACK — signature element */
+  .app-stack-wrap{
+    text-align:center;
+    padding:0 20px 10px;
+    margin-top:-46px;
+    position:relative;
+    z-index:2;
+  }
+  .app-stack{
+    display:inline-flex;
+    gap:10px;
+    background:white;
+    padding:14px 20px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(7,59,76,0.18);
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+  }
+  .app-pill{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:var(--foam);
+    border-radius:14px;
+    padding:8px 14px;
+    font-weight:800;
+    font-size:13px;
+    color:var(--ink);
+  }
+  .app-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+  .d-red{background:#E50914;}
+  .d-purple{background:#6A5ACD;}
+  .d-black{background:#000;}
+  .d-navy{background:#5A4FCF;}
+  .d-blue{background:#0063E5;}
+
+  .plus-label{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    color:var(--coral);
+    margin-top:12px;
+  }
+
+  /* SECTIONS */
+  section.block{padding:36px 24px;}
+  .section-eyebrow{
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--coral);
+    margin-bottom:6px;
+  }
+  h2.section-title{
+    font-family:'Baloo 2', sans-serif;
+    font-size:clamp(24px,4vw,32px);
+    color:var(--ocean-deep);
+    margin:0 0 18px;
+  }
+
+  /* PLAN CARDS */
+  .plan-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:12px;
+  }
+  .plan-card{
+    background:white;
+    border-radius:16px;
+    padding:16px 14px;
+    border:2px solid var(--foam);
+    position:relative;
+    transition:transform .15s ease;
+  }
+  .plan-card.featured{
+    border-color:var(--sun);
+    background:linear-gradient(160deg,white,var(--foam));
+  }
+  .plan-card .megas{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:22px;
+    color:var(--ocean-deep);
+    line-height:1;
+  }
+  .plan-card .megas span{font-size:12px;font-weight:600;color:#5b7a85;display:block;margin-top:2px;}
+  .plan-card .price{
+    margin-top:10px;
+    font-family:'Baloo 2', sans-serif;
+    font-size:26px;
+    font-weight:800;
+    color:var(--coral);
+  }
+  .plan-card .price small{font-size:12px;color:var(--ink);font-weight:600;}
+  .plan-card .extra{
+    margin-top:8px;
+    font-size:11px;
+    font-weight:700;
+    color:var(--ocean);
+    background:var(--foam);
+    display:inline-block;
+    padding:2px 8px;
+    border-radius:6px;
+  }
+  .card-apps{
+    margin-top:12px;
+    padding-top:12px;
+    border-top:1px dashed #cfe3e8;
+    display:flex;
+    flex-wrap:wrap;
+    gap:5px;
+  }
+  .card-apps .tag{
+    font-size:10.5px;
+    font-weight:800;
+    padding:3px 8px;
+    border-radius:7px;
+    background:var(--foam);
+    color:var(--ocean-deep);
+    white-space:nowrap;
+  }
+  .card-apps .tag.temp{
+    background:#FFF1D6;
+    color:#a15b00;
+  }
+  .ads-badge{
+    display:inline-block;
+    margin-top:8px;
+    font-size:10.5px;
+    font-weight:800;
+    padding:3px 9px;
+    border-radius:7px;
+    letter-spacing:0.3px;
+  }
+  .ads-badge.ads{
+    background:#FDEDEA;
+    color:#B3401E;
+  }
+  .ads-badge.noads{
+    background:#E4F6EC;
+    color:#1A7A46;
+  }
+  .model-block{
+    background:white;
+    border-radius:16px;
+    padding:18px 20px;
+    margin-top:16px;
+    border:2px dashed #B7D8E0;
+  }
+  .model-block h4{
+    margin:0 0 12px;
+    font-family:'Baloo 2',sans-serif;
+    font-size:15px;
+    color:var(--ocean-deep);
+  }
+  .model-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:8px;
+    font-size:13px;
+  }
+  .model-row .app-name{
+    font-weight:800;
+    min-width:100px;
+    color:var(--ink);
+  }
+  .model-row .arrow{color:var(--coral);font-weight:800;}
+  .model-code{
+    font-family:'Nunito Sans',sans-serif;
+    font-weight:800;
+    font-size:12px;
+    background:var(--ocean-deep);
+    color:var(--sun);
+    padding:5px 12px;
+    border-radius:8px;
+    letter-spacing:0.3px;
+  }
+
+  /* LOCK SCREEN */
+  #lockScreen{
+    position:fixed;
+    inset:0;
+    z-index:999;
+    background:linear-gradient(180deg,var(--ocean-deep) 0%, var(--ocean) 55%, #1596B8 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    overflow:auto;
+  }
+  #lockScreen::before,#lockScreen::after{
+    content:"";
+    position:fixed;
+    border-radius:50%;
+    background:rgba(255,255,255,0.08);
+  }
+  #lockScreen::before{width:300px;height:300px;top:-140px;left:-100px;}
+  #lockScreen::after{width:220px;height:220px;bottom:-110px;right:-80px;}
+  .lock-card{
+    position:relative;
+    background:white;
+    border-radius:24px;
+    padding:38px 30px 32px;
+    max-width:360px;
+    width:100%;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(0,0,0,0.25);
+  }
+  .lock-icon{
+    font-size:44px;
+    margin-bottom:6px;
+  }
+  .lock-card h2{
+    font-family:'Baloo 2',sans-serif;
+    font-size:24px;
+    color:var(--ocean-deep);
+    margin:0 0 6px;
+  }
+  .lock-card p{
+    font-size:13px;
+    color:#5b7a85;
+    margin:0 0 20px;
+  }
+  .lock-input{
+    width:100%;
+    padding:13px 16px;
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-align:center;
+    border:2px solid var(--foam);
+    border-radius:12px;
+    color:var(--ink);
+    margin-bottom:14px;
+    font-family:'Nunito Sans',sans-serif;
+  }
+  .lock-input:focus{outline:none;border-color:var(--ocean);}
+  .lock-button{
+    width:100%;
+    padding:13px;
+    font-family:'Baloo 2',sans-serif;
+    font-weight:700;
+    font-size:16px;
+    background:var(--coral);
+    color:white;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+  }
+  .lock-button:hover{background:#ff5738;}
+  .lock-error{
+    color:#c0392b;
+    font-size:12.5px;
+    font-weight:700;
+    margin-top:12px;
+    min-height:16px;
+  }
+  .lock-welcome{
+    display:none;
+  }
+  .lock-welcome.show{display:block;}
+  .lock-welcome .wave-emoji{font-size:40px;}
+  .lock-welcome h2{color:var(--ocean-deep);}
+  .lock-welcome .name{
+    color:var(--coral);
+    font-family:'Baloo 2',sans-serif;
+  }
+  #mainContent{display:none;}
+
+  .tab-toggle{
+    display:flex;
+    gap:8px;
+    margin-bottom:18px;
+  }
+  .tab-toggle button{
+    font-family:'Nunito Sans',sans-serif;
+    font-weight:800;
+    font-size:13px;
+    padding:10px 18px;
+    border-radius:10px;
+    border:2px solid var(--ocean);
+    background:white;
+    color:var(--ocean);
+    cursor:pointer;
+  }
+  .tab-toggle button.active{
+    background:var(--ocean);
+    color:white;
+  }
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;}
+
+  /* PROMO STRIP */
+  .promo-strip{
+    background:var(--ocean-deep);
+    color:white;
+    border-radius:20px;
+    padding:26px 22px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:18px;
+  }
+  .promo-item{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+  }
+  .promo-icon{
+    font-family:'Baloo 2',sans-serif;
+    font-weight:800;
+    font-size:15px;
+    background:var(--sun);
+    color:var(--ink);
+    width:34px;height:34px;
+    border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .promo-item h3{margin:0 0 4px;font-size:15px;font-family:'Baloo 2',sans-serif;color:var(--sun);}
+  .promo-item p{margin:0;font-size:13px;line-height:1.4;opacity:0.9;}
+
+  /* RULES */
+  .rules-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:14px;
+  }
+  .rule-card{
+    background:white;
+    border-radius:14px;
+    padding:16px 18px;
+    border-left:5px solid var(--coral);
+  }
+  .rule-card h4{
+    margin:0 0 8px;
+    font-family:'Baloo 2',sans-serif;
+    font-size:15px;
+    color:var(--ocean-deep);
+  }
+  .rule-card ul{margin:0;padding-left:18px;font-size:13px;line-height:1.6;}
+  .rule-card.no ul{color:#a13d2a;}
+  .rule-card.yes{border-left-color:#2a9d5c;}
+  .rule-card.yes ul{color:#1f6b3f;}
+
+  .discount-table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
+    font-size:13px;
+  }
+  .discount-table th{
+    background:var(--ocean);
+    color:white;
+    padding:10px;
+    font-family:'Baloo 2',sans-serif;
+    text-align:left;
+  }
+  .discount-table td{
+    padding:9px 10px;
+    border-bottom:1px solid var(--foam);
+  }
+  .discount-table tr:last-child td{border-bottom:none;}
+
+  footer{
+    background:var(--ink);
+    color:var(--sand);
+    text-align:center;
+    padding:26px 20px 34px;
+  }
+  footer .tag{
+    font-family:'Baloo 2',sans-serif;
+    color:var(--sun);
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:1px;
+  }
+  footer .fine{font-size:11px;opacity:0.6;margin-top:8px;}
+
+  @media (max-width:520px){
+    .app-stack{padding:10px 12px;}
+    .app-pill{font-size:11px;padding:6px 10px;}
+  }
+</style>
+</head>
+<body>
+
+<div id="lockScreen">
+  <div class="lock-card">
+    <div id="lockForm">
+      <div class="lock-icon">🔒</div>
+      <h2>Acceso exclusivo</h2>
+      <p id="lockSubtitle">Ingresa tu número de empleado para ver la promoción</p>
+      <input type="text" id="empInput" class="lock-input" placeholder="Número de empleado" inputmode="numeric" autocomplete="off">
+      <button class="lock-button" id="lockSubmitBtn" onclick="checkEmployee()" disabled>Entrar</button>
+      <div class="lock-error" id="lockError"></div>
+    </div>
+    <div id="lockWelcome" class="lock-welcome">
+      <div class="wave-emoji">🏖️</div>
+      <h2>¡Bienvenido(a)!</h2>
+      <p style="margin-bottom:4px;">Qué gusto verte,</p>
+      <p class="name" style="font-size:19px;font-weight:700;margin-bottom:4px;" id="welcomeName"></p>
+      <p style="margin-bottom:22px;font-size:13px;color:#5b7a85;">Distrito: <strong id="welcomeDistrito"></strong></p>
+      <button class="lock-button" onclick="enterSite()">Ver la promoción</button>
+    </div>
+  </div>
+</div>
+
+<div id="mainContent">
+<div class="page">
+
+  <div class="hero">
+    <span class="badge">Oferta Residencial · Nacional</span>
+    <h1 class="title">¡Muchas<br>Más Apps!</h1>
+    <p class="subtitle">Más sol, más diversión… y muchos más streamings. Tu cliente elige hasta 5 apps incluidas en su plan.</p>
+    <div class="meta-row">
+      <span class="meta-chip">Vigencia: 22 julio 2026</span>
+      <span class="meta-chip">#VamosPorLaVenta</span>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 900 60" preserveAspectRatio="none"><path d="M0,20 C150,60 300,0 450,20 C600,40 750,0 900,20 L900,60 L0,60 Z"></path></svg>
+
+  <div class="app-stack-wrap">
+    <div class="app-stack">
+      <div class="app-pill"><span class="app-dot d-red"></span>Netflix</div>
+      <div class="app-pill"><span class="app-dot d-black"></span>Apple TV</div>
+      <div class="app-pill"><span class="app-dot d-navy"></span>HBO Max</div>
+      <div class="app-pill"><span class="app-dot d-blue"></span>Disney+</div>
+      <div class="app-pill"><span class="app-dot d-purple"></span>Universal+</div>
+    </div>
+    <div class="plus-label">Elige la(s) que quieras, según disponibilidad del plan ☀️</div>
+  </div>
+
+  <section class="block">
+    <div class="section-eyebrow">Planes con promoción</div>
+    <h2 class="section-title">Totalplayer: TV + Internet o solo Internet</h2>
+
+    <div class="tab-toggle">
+      <button class="active" onclick="showTab('tv')">📺 TV + Internet</button>
+      <button onclick="showTab('net')">🌐 Solo Internet</button>
+    </div>
+
+    <div id="tv" class="tab-panel active">
+      <div class="plan-grid">
+        <div class="plan-card">
+          <div class="megas">150<span>Megas simétricos</span></div>
+          <div class="price">$599<small>/mes</small></div>
+          <div class="card-apps"><span class="tag temp">Netflix · 5 meses</span><span class="tag temp">Universal+ · 5 meses</span><span class="tag temp">Apple TV · 5 meses</span></div>
+          <div class="ads-badge ads">Con anuncios</div>
+        </div>
+        <div class="plan-card">
+          <div class="megas">250<span>Megas simétricos</span></div>
+          <div class="price">$699<small>/mes</small></div>
+          <div class="card-apps"><span class="tag temp">Netflix · 5 meses</span><span class="tag temp">Universal+ · 5 meses</span><span class="tag temp">Apple TV · 5 meses</span></div>
+          <div class="ads-badge ads">Con anuncios</div>
+        </div>
+        <div class="plan-card">
+          <div class="megas">350<span>Megas simétricos</span></div>
+          <div class="price">$799<small>/mes</small></div>
+          <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Universal+</span><span class="tag">Apple TV</span></div>
+          <div class="ads-badge ads">Con anuncios</div>
+        </div>
+        <div class="plan-card featured">
+          <div class="megas">500<span>+190 canales (122 HD)</span></div>
+          <div class="price">$999<small>/mes</small></div>
+          <div class="extra">Más popular</div>
+          <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Universal+</span><span class="tag">Apple TV</span><span class="tag">Disney+</span></div>
+          <div class="ads-badge ads">Con anuncios</div>
+        </div>
+        <div class="plan-card">
+          <div class="megas">1,000<span>+69h Anytime · WiFi 7</span></div>
+          <div class="price">$1,200<small>/mes</small></div>
+          <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Apple TV</span><span class="tag">HBO Max</span><span class="tag">Disney+</span><span class="tag">Universal+</span></div>
+          <div class="ads-badge ads">Con anuncios</div>
+        </div>
+        <div class="plan-card">
+          <div class="megas">5,000<span>Surround · WiFi 7</span></div>
+          <div class="price">$2,499<small>/mes</small></div>
+          <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Apple TV</span><span class="tag">HBO Max</span><span class="tag">Disney+</span><span class="tag">Universal+</span></div>
+          <div class="ads-badge noads">Sin anuncios</div>
+        </div>
+        <div class="plan-card">
+          <div class="megas">10,000<span>Surround · WiFi 7</span></div>
+          <div class="price">$2,999<small>/mes</small></div>
+          <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Apple TV</span><span class="tag">HBO Max</span><span class="tag">Disney+</span><span class="tag">Universal+</span></div>
+          <div class="ads-badge noads">Sin anuncios</div>
+        </div>
+      </div>
+      <p style="font-size:11.5px;color:#5b7a85;margin-top:14px;">Apps con etiqueta ámbar son promocionales (tiempo limitado); el resto se mantienen incluidas de forma indefinida. Solo los planes de 5,000 y 10,000 Megas incluyen las apps sin anuncios; el resto las incluye con anuncios.</p>
+    </div>
+
+    <div id="net" class="tab-panel">
+      <div class="plan-grid">
+        <div class="plan-card">
+          <div class="megas">150<span>Megas simétricos</span></div>
+          <div class="price">$460<small>/mes</small></div>
+          <div class="card-apps"><span class="tag temp">Netflix · 3 meses</span><span class="tag temp">Universal+ · 3 meses</span><span class="tag temp">Apple TV · 3 meses</span></div>
+          <div class="ads-badge ads">Con anuncios</div>
+        </div>
+        <div class="plan-card">
+          <div class="megas">250<span>Megas simétricos</span></div>
+          <div class="price">$560<small>/mes</small></div>
+          <div class="card-apps"><span class="tag temp">Netflix · 3 meses</span><span class="tag temp">Universal+ · 3 meses</span><span class="tag temp">Apple TV · 3 meses</span></div>
+          <div class="ads-badge ads">Con anuncios</div>
+        </div>
+        <div class="plan-card">
+          <div class="megas">350<span>Megas simétricos</span></div>
+          <div class="price">$660<small>/mes</small></div>
+          <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Universal+</span><span class="tag">Apple TV</span></div>
+          <div class="ads-badge ads">Con anuncios</div>
+        </div>
+        <div class="plan-card featured">
+          <div class="megas">500<span>14 canales en App</span></div>
+          <div class="price">$860<small>/mes</small></div>
+          <div class="extra">Más popular</div>
+          <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Apple TV</span><span class="tag">Disney+</span><span class="tag">Universal+</span></div>
+          <div class="ads-badge ads">Con anuncios</div>
+        </div>
+        <div class="plan-card">
+          <div class="megas">1,000<span>Megas simétricos</span></div>
+          <div class="price">$1,000<small>/mes</small></div>
+          <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Apple TV</span><span class="tag">HBO Max</span><span class="tag">Disney+</span><span class="tag">Universal+</span></div>
+          <div class="ads-badge ads">Con anuncios</div>
+        </div>
+        <div class="plan-card">
+          <div class="megas">5,000<span>Megas simétricos</span></div>
+          <div class="price">$1,999<small>/mes</small></div>
+          <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Apple TV</span><span class="tag">HBO Max</span><span class="tag">Disney+</span><span class="tag">Universal+</span></div>
+          <div class="ads-badge noads">Sin anuncios</div>
+        </div>
+        <div class="plan-card">
+          <div class="megas">10,000<span>Megas simétricos</span></div>
+          <div class="price">$2,499<small>/mes</small></div>
+          <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Apple TV</span><span class="tag">HBO Max</span><span class="tag">Disney+</span><span class="tag">Universal+</span></div>
+          <div class="ads-badge noads">Sin anuncios</div>
+        </div>
+      </div>
+      <p style="font-size:11.5px;color:#5b7a85;margin-top:14px;">Apps con etiqueta ámbar son promocionales (tiempo limitado); el resto se mantienen incluidas de forma indefinida. En 500 Megas el plan no incluye HBO Max. Solo los planes de 5,000 y 10,000 Megas incluyen las apps sin anuncios; el resto las incluye con anuncios.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="section-eyebrow">Cierra la venta</div>
+    <h2 class="section-title">Promociones que se pueden combinar</h2>
+    <div class="promo-strip">
+      <div class="promo-item">
+        <div class="promo-icon">TV</div>
+        <div><h3>TV Adicional · $99/mes</h3><p>Precio indefinido. Aplica en la primera TV adicional, planes 100 a 10,000 Megas.</p></div>
+      </div>
+      <div class="promo-item">
+        <div class="promo-icon">Wi</div>
+        <div><h3>WiFi Pro · $59/mes</h3><p>Precio indefinido. Aplica en el primer WiFi Pro contratado.</p></div>
+      </div>
+      <div class="promo-item">
+        <div class="promo-icon">♥</div>
+        <div><h3>Descuento por lealtad</h3><p>Se activa a partir del mes 6 de contratación.</p></div>
+      </div>
+      <div class="promo-item">
+        <div class="promo-icon">$</div>
+        <div><h3>Portabilidad</h3><p>$200 en TV + Internet · $100 en Internet.</p></div>
+      </div>
+      <div class="promo-item">
+        <div class="promo-icon">7</div>
+        <div><h3>WiFi 7 incluido</h3><p>Disponible desde 500 Megas en adelante.</p></div>
+      </div>
+      <div class="promo-item">
+        <div class="promo-icon">%</div>
+        <div><h3>Precio Especial</h3><p>Exclusivo en planes 250, 350, 1,000, 5,000 y 10,000 Megas. Convive con todas las promos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="section-eyebrow">Alternativa sin Más Apps</div>
+    <h2 class="section-title">Descuento Especial por 5 meses</h2>
+    <p style="margin-top:-8px;font-size:13px;color:#3d5a63;">El cliente elige entre el streaming en promoción <strong>o</strong> este descuento — no se combinan.</p>
+    <table class="discount-table">
+      <tr><th>Plan</th><th>TV + Internet</th><th>Internet</th></tr>
+      <tr><td>150 Megas</td><td>$60</td><td>$60</td></tr>
+      <tr><td>250 Megas</td><td>$60</td><td>$60</td></tr>
+      <tr><td>350 Megas</td><td>$70</td><td>$70</td></tr>
+      <tr><td>500 Megas</td><td>N/A</td><td>$70</td></tr>
+      <tr><td>1,000 Megas</td><td>$150</td><td>$150</td></tr>
+      <tr><td>5,000 / 10,000 Megas</td><td>N/A</td><td>N/A</td></tr>
+    </table>
+  </section>
+
+  <section class="block">
+    <div class="section-eyebrow">Reglas de negocio</div>
+    <h2 class="section-title">Lo que sí y lo que no convive</h2>
+    <div class="rules-grid">
+      <div class="rule-card yes">
+        <h4>Más Apps · Sí convive con</h4>
+        <ul>
+          <li>Descuento por lealtad</li>
+          <li>Promociones sobre Nuevo Totalplay TV</li>
+          <li>Adicionales de contenido e instalables</li>
+          <li>Precio Especial (250, 350, 5,000, 10,000 Megas)</li>
+          <li>Descuento de portabilidad</li>
+          <li>Plan de Verano (antes Plan Futbolero)</li>
+        </ul>
+      </div>
+      <div class="rule-card no">
+        <h4>Más Apps · No convive con</h4>
+        <ul>
+          <li>Descuento a empleados</li>
+          <li>Descuento Especial por 5 meses</li>
+        </ul>
+      </div>
+      <div class="rule-card no">
+        <h4>Descuento 5 meses · No convive con</h4>
+        <ul>
+          <li>Plan de Verano (antes Plan Futbolero)</li>
+          <li>Promociones de Más Apps</li>
+          <li>Descuento a empleados</li>
+          <li>Precio Especial en 5,000 y 10,000 Megas</li>
+        </ul>
+      </div>
+      <div class="rule-card no">
+        <h4>Importante</h4>
+        <ul>
+          <li>Match (Netflix), Unbox (Amazon), HBO Max Básico, Disney+ Estándar y Apple TV no conviven con Entretenimiento Avanzado ni Intermedio</li>
+          <li>Todas las promos se pierden si el cliente cambia a un plan no elegible o cancela el servicio</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="model-block">
+      <h4>📋 Cómo modelar la promo Más Apps</h4>
+      <div class="model-row"><span class="app-name">Netflix</span><span class="arrow">→</span><span class="model-code">MÁS APPS - NETFLIX INCLUIDO</span></div>
+      <div class="model-row"><span class="app-name">Universal+</span><span class="arrow">→</span><span class="model-code">MÁS APPS - UNIVERSAL+ INCLUIDO</span></div>
+      <div class="model-row"><span class="app-name">Apple TV</span><span class="arrow">→</span><span class="model-code">MÁS APPS - APPLE TV INCLUIDO</span></div>
+      <div class="model-row"><span class="app-name">HBO Max</span><span class="arrow">→</span><span class="model-code">MÁS APPS - MAX BÁSICO INCLUIDO</span></div>
+      <div class="model-row"><span class="app-name">Disney+</span><span class="arrow">→</span><span class="model-code">MÁS APPS - DISNEY+ INCLUIDO</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="tag">#VamosPorLaVenta ☀️</div>
+    <div class="fine">Material de uso interno · Dirigido a Telemarketing, Autoempresarios, Cambaceo, Desarrollo, Cadenas y Punto de Venta.<br>Ante cualquier duda, acude con tu jefe inmediato.</div>
+  </footer>
+
+</div>
+</div>
+
+<script>
+function showTab(id){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-toggle button').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// Fuente de datos: Google Sheet (número de empleado, nombre y distrito)
+const SHEET_ID = '16x2bu-GiMWqAroBRz1airnhkNNI_Ip0R';
+const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/export?format=csv';
+
+let EMPLEADOS = null; // se llena al cargar la página: { "12345": { nombre, distrito } }
+let loadError = false;
+
+function parseCSVLine(line){
+  // separador simple por coma (los nombres y distritos no usan comas)
+  return line.split(',').map(function(c){ return c.trim().replace(/^"|"$/g,''); });
+}
+
+function loadEmployees(){
+  const subtitle = document.getElementById('lockSubtitle');
+  const btn = document.getElementById('lockSubmitBtn');
+  btn.disabled = true;
+  subtitle.textContent = 'Cargando datos de acceso…';
+
+  fetch(SHEET_CSV_URL)
+    .then(function(res){
+      if(!res.ok) throw new Error('HTTP ' + res.status);
+      return res.text();
+    })
+    .then(function(csvText){
+      const lines = csvText.split(/\r?\n/).filter(function(l){ return l.trim().length; });
+      const map = {};
+      for(let i = 1; i < lines.length; i++){ // salta encabezado
+        const cols = parseCSVLine(lines[i]);
+        const numero = (cols[0] || '').trim();
+        const nombre = (cols[1] || '').trim();
+        const distrito = (cols[2] || '').trim();
+        if(!numero || numero.toUpperCase() === 'VACANTE') continue;
+        map[numero] = { nombre: nombre, distrito: distrito };
+      }
+      EMPLEADOS = map;
+      subtitle.textContent = 'Ingresa tu número de empleado para ver la promoción';
+      btn.disabled = false;
+    })
+    .catch(function(err){
+      loadError = true;
+      subtitle.textContent = 'No se pudo verificar tu acceso. Revisa tu conexión e intenta de nuevo.';
+      btn.disabled = false;
+    });
+}
+loadEmployees();
+
+function toTitleCase(str){
+  return str.toLowerCase().split(' ').map(function(w){
+    return w.length ? w.charAt(0).toUpperCase() + w.slice(1) : w;
+  }).join(' ');
+}
+
+function checkEmployee(){
+  const input = document.getElementById('empInput');
+  const num = input.value.trim();
+  const errorEl = document.getElementById('lockError');
+
+  if(EMPLEADOS === null){
+    errorEl.textContent = loadError ? 'No se pudo cargar la validación. Intenta de nuevo.' : 'Espera un momento, seguimos cargando…';
+    if(loadError) loadEmployees();
+    return;
+  }
+  if(!num){
+    errorEl.textContent = 'Ingresa tu número de empleado.';
+    return;
+  }
+  const registro = EMPLEADOS[num];
+  if(registro){
+    errorEl.textContent = '';
+    document.getElementById('lockForm').style.display = 'none';
+    document.getElementById('welcomeName').textContent = toTitleCase(registro.nombre);
+    document.getElementById('welcomeDistrito').textContent = toTitleCase(registro.distrito);
+    document.getElementById('lockWelcome').classList.add('show');
+  } else {
+    errorEl.textContent = 'Número de empleado no válido. Intenta de nuevo.';
+  }
+}
+
+function enterSite(){
+  document.getElementById('lockScreen').style.display = 'none';
+  document.getElementById('mainContent').style.display = 'block';
+}
+
+document.getElementById('empInput').addEventListener('keydown', function(e){
+  if(e.key === 'Enter'){ checkEmployee(); }
+});
+</script>
+</body>
+</html>
