@@ -751,48 +751,65 @@ function showTab(id){
 }
 
 // Fuente de datos: Google Sheet (número de empleado, nombre y distrito)
+// Se usa la API de Google Visualization con JSONP (carga vía <script>) para
+// evitar el bloqueo de CORS que ocurre con fetch() directo a export?format=csv.
 const SHEET_ID = '16x2bu-GiMWqAroBRz1airnhkNNI_Ip0R';
-const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/export?format=csv';
 
 let EMPLEADOS = null; // se llena al cargar la página: { "12345": { nombre, distrito } }
 let loadError = false;
 
-function parseCSVLine(line){
-  // separador simple por coma (los nombres y distritos no usan comas)
-  return line.split(',').map(function(c){ return c.trim().replace(/^"|"$/g,''); });
-}
+// Google llama automáticamente a google.visualization.Query.setResponse(json)
+// cuando el <script> termina de cargar; no necesitamos la librería completa,
+// solo este "stub" para capturar la respuesta.
+window.google = window.google || {};
+window.google.visualization = window.google.visualization || {};
+window.google.visualization.Query = {
+  setResponse: function(response){
+    const subtitle = document.getElementById('lockSubtitle');
+    const btn = document.getElementById('lockSubmitBtn');
+    try{
+      if(response.status === 'error'){ throw new Error('gviz error'); }
+      const rows = response.table.rows;
+      const map = {};
+      rows.forEach(function(row){
+        const c = row.c;
+        const numero = c[0] && c[0].v != null ? String(c[0].v).trim() : '';
+        const nombre = c[1] && c[1].v != null ? String(c[1].v).trim() : '';
+        const distrito = c[2] && c[2].v != null ? String(c[2].v).trim() : '';
+        if(!numero || numero.toUpperCase() === 'VACANTE' || numero.toUpperCase() === 'NUMERO EMPLEADO') return;
+        map[numero] = { nombre: nombre, distrito: distrito };
+      });
+      EMPLEADOS = map;
+      subtitle.textContent = 'Ingresa tu número de empleado para ver la promoción';
+      btn.disabled = false;
+    } catch(err){
+      loadError = true;
+      subtitle.textContent = 'No se pudo verificar tu acceso. Revisa tu conexión e intenta de nuevo.';
+      btn.disabled = false;
+    }
+  }
+};
 
 function loadEmployees(){
   const subtitle = document.getElementById('lockSubtitle');
   const btn = document.getElementById('lockSubmitBtn');
   btn.disabled = true;
+  loadError = false;
   subtitle.textContent = 'Cargando datos de acceso…';
 
-  fetch(SHEET_CSV_URL)
-    .then(function(res){
-      if(!res.ok) throw new Error('HTTP ' + res.status);
-      return res.text();
-    })
-    .then(function(csvText){
-      const lines = csvText.split(/\r?\n/).filter(function(l){ return l.trim().length; });
-      const map = {};
-      for(let i = 1; i < lines.length; i++){ // salta encabezado
-        const cols = parseCSVLine(lines[i]);
-        const numero = (cols[0] || '').trim();
-        const nombre = (cols[1] || '').trim();
-        const distrito = (cols[2] || '').trim();
-        if(!numero || numero.toUpperCase() === 'VACANTE') continue;
-        map[numero] = { nombre: nombre, distrito: distrito };
-      }
-      EMPLEADOS = map;
-      subtitle.textContent = 'Ingresa tu número de empleado para ver la promoción';
-      btn.disabled = false;
-    })
-    .catch(function(err){
-      loadError = true;
-      subtitle.textContent = 'No se pudo verificar tu acceso. Revisa tu conexión e intenta de nuevo.';
-      btn.disabled = false;
-    });
+  // Quita un intento previo por si el usuario da "reintentar"
+  const oldScript = document.getElementById('gvizScript');
+  if(oldScript) oldScript.remove();
+
+  const script = document.createElement('script');
+  script.id = 'gvizScript';
+  script.src = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=out:json&t=' + Date.now();
+  script.onerror = function(){
+    loadError = true;
+    subtitle.textContent = 'No se pudo verificar tu acceso. Revisa tu conexión e intenta de nuevo.';
+    btn.disabled = false;
+  };
+  document.body.appendChild(script);
 }
 loadEmployees();
 
