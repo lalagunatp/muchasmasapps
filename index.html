@@ -274,6 +274,122 @@
     letter-spacing:0.3px;
   }
 
+  /* CONSECUTIVO DE PROMOCIONES */
+  .promo-hero{
+    text-align:center;
+    max-width:560px;
+    margin:0 auto 28px;
+    font-size:14px;
+    color:#3d5a63;
+  }
+  .promo-block{
+    background:white;
+    border-radius:20px;
+    padding:24px 24px 22px;
+    margin-bottom:22px;
+    border:2px solid var(--foam);
+  }
+  .promo-block h3, .promo-card h3{
+    font-family:'Baloo 2',sans-serif;
+    font-size:19px;
+    color:var(--ocean-deep);
+    margin:0 0 12px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .promo-block ul, .promo-card ul{
+    margin:0 0 14px;
+    padding-left:20px;
+    font-size:13.5px;
+    line-height:1.6;
+    color:var(--ink);
+  }
+  .promo-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:16px;
+    margin-bottom:22px;
+  }
+  .promo-card{
+    background:white;
+    border-radius:18px;
+    padding:20px 20px 18px;
+    border:2px solid var(--foam);
+    display:flex;
+    flex-direction:column;
+  }
+  .promo-card.highlight{
+    border-color:var(--sun);
+    background:linear-gradient(160deg,white,#FFF9E8);
+  }
+  .price-tag{
+    display:inline-block;
+    align-self:flex-start;
+    font-family:'Baloo 2',sans-serif;
+    font-weight:700;
+    font-size:16px;
+    color:white;
+    background:var(--coral);
+    padding:6px 14px;
+    border-radius:10px;
+    margin-bottom:12px;
+  }
+  .promo-card .model-code, .promo-block .model-code{
+    align-self:flex-start;
+    margin-top:auto;
+  }
+  .lose-details{
+    margin-top:12px;
+    margin-bottom:14px;
+    font-size:12.5px;
+  }
+  .lose-details summary{
+    cursor:pointer;
+    font-weight:800;
+    color:#B3401E;
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .lose-details summary::before{
+    content:'⚠️';
+    font-size:12px;
+  }
+  .lose-details summary::-webkit-details-marker{display:none;}
+  .lose-details ul{
+    margin:8px 0 0;
+    padding-left:18px;
+    color:#a13d2a;
+    line-height:1.5;
+  }
+  .consecutivo-table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:12.5px;
+    margin-bottom:14px;
+  }
+  .consecutivo-table th{
+    background:var(--ocean);
+    color:white;
+    padding:8px 4px;
+    font-family:'Baloo 2',sans-serif;
+    text-align:center;
+  }
+  .consecutivo-table td{
+    padding:8px 4px;
+    text-align:center;
+    border-bottom:1px solid var(--foam);
+    font-weight:700;
+  }
+  .consecutivo-table td.row-label{
+    text-align:left;
+    font-weight:800;
+    color:var(--ocean-deep);
+    background:var(--foam);
+  }
+
   /* LOCK SCREEN */
   #lockScreen{
     position:fixed;
@@ -741,6 +857,143 @@
     </div>
   </section>
 
+  <section class="block" id="consecutivo" style="background:linear-gradient(180deg,var(--foam),var(--sand));border-radius:28px;margin:0 16px 30px;">
+    <div class="section-eyebrow">Vigencia: 22 al 31 de julio 2026</div>
+    <h2 class="section-title">🔥 Consecutivo de Promociones</h2>
+    <p class="promo-hero">En el verano no solo aumenta el calor, ¡también tus ventas! Usa estas promociones a tu favor y súmalas a Muchas Más Apps.</p>
+
+    <div class="promo-block">
+      <h3>🏆 Descuento por Lealtad</h3>
+      <ul>
+        <li>Aplica en planes Totalplay TV + Internet y Totalplay Internet, para clientes <strong>nuevos y actuales</strong>.</li>
+        <li>Se refleja en el estado de cuenta a partir del <strong>6to mes</strong>.</li>
+        <li>Convive con adicionales de contenido (Max, NBA, Disney+, Universal+, etc.) e instalables (TV adicional, WiFi Pro, Nuevo Totalplay TV).</li>
+        <li>No convive con descuento a empleados ni gratuidades.</li>
+      </ul>
+      <table class="consecutivo-table">
+        <tr><td class="row-label">Megas</td><th>100</th><th>150</th><th>250</th><th>350</th><th>500</th><th>1,000</th><th>5,000</th><th>10,000</th></tr>
+        <tr><td class="row-label">Con TV</td><td>$30</td><td>$30</td><td>$30</td><td>$40</td><td>$50</td><td>$100</td><td>$100</td><td>$100</td></tr>
+        <tr><td class="row-label">Sin TV</td><td>$20</td><td>$20</td><td>$20</td><td>$30</td><td>$60</td><td>$80</td><td>$80</td><td>$80</td></tr>
+      </table>
+      <span class="model-code">Se modela automático · confirma en tu APP de Ventas → Descuentos Especiales</span>
+    </div>
+
+    <div class="promo-grid">
+      <div class="promo-card">
+        <h3>🎁 Activación Sin Costo</h3>
+        <ul>
+          <li>Todos los planes TV + Internet e Internet, de 100 a 10,000 Megas.</li>
+          <li>Aplica en oferta base, especiales, bundles y Nuevo Totalplay TV.</li>
+          <li>No requiere venta exprés.</li>
+          <li>Todos los canales de venta.</li>
+        </ul>
+        <span class="model-code">ACTIVACIÓN SIN COSTO</span>
+      </div>
+
+      <div class="promo-card">
+        <h3>📱 Descuento de Portabilidad</h3>
+        <p class="price-tag">$200 TV+Internet · $100 Internet</p>
+        <ul>
+          <li>Solo clientes nuevos, planes de 100 a 10,000 Megas.</li>
+          <li>Se aplica al estado de cuenta siguiente, una vez concluida la portabilidad.</li>
+          <li>El cliente la sigue desde su App o Mi Totalplay.</li>
+        </ul>
+        <span class="model-code">Lo modela Centro de Soluciones (Portabilidad)</span>
+      </div>
+
+      <div class="promo-card">
+        <h3>📺 Tu Experiencia al 100</h3>
+        <p class="price-tag">+$100 nacional · $93 frontera /mes</p>
+        <ul>
+          <li>Nuevo Totalplay TV (VSB) como equipo principal.</li>
+          <li>Planes de TV de 150 a 350 Megas.</li>
+          <li>Clientes nuevos y actuales · precio por tiempo indefinido.</li>
+          <li>Aplica con Netflix, Amazon, Disney+ y Max Básico incluido.</li>
+        </ul>
+        <span class="model-code">TU EXPERIENCIA AL 100</span>
+        <details class="lose-details">
+          <summary>El cliente pierde la promo si…</summary>
+          <ul>
+            <li>Cae en morosidad</li>
+            <li>Cancela el servicio</li>
+            <li>Cambia a un plan no elegible</li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="promo-card">
+        <h3>📡 Nuevo Totalplay TV Incluido</h3>
+        <ul>
+          <li>Planes de TV de <strong>500 a 10,000 Megas</strong>: el Nuevo Totalplay TV sustituye a la caja 4K, sin costo extra.</li>
+          <li>Clientes nuevos y actuales.</li>
+          <li>Aplica con Netflix, Amazon, Disney+ y HBO Max Básico incluido.</li>
+        </ul>
+        <span class="model-code">NUEVO TOTALPLAY TV - INCLUIDO</span>
+        <details class="lose-details">
+          <summary>El cliente pierde la promo si…</summary>
+          <ul>
+            <li>Cancela el servicio</li>
+            <li>Cambia a un plan no elegible</li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="promo-card">
+        <h3>➕ Nuevo Totalplay TV Adicional</h3>
+        <p class="price-tag">+$199 nacional · $186 frontera /mes</p>
+        <ul>
+          <li>Como servicio de TV adicional, en planes de 100 a 10,000 Megas.</li>
+          <li>Clientes nuevos y actuales.</li>
+          <li>Solo aplica en la 1ª TV adicional; la 2ª se cobra a precio regular ($280).</li>
+          <li>Oferta base y especiales con Amazon, Netflix, Disney+ y HBO Max Básico con anuncios.</li>
+        </ul>
+        <span class="model-code">NUEVO TOTALPLAY TV - ADICIONAL</span>
+        <details class="lose-details">
+          <summary>El cliente pierde la promo si…</summary>
+          <ul>
+            <li>Cae en morosidad</li>
+            <li>Cancela el servicio</li>
+            <li>Cambia a un plan no elegible</li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="promo-card highlight">
+        <h3>💼 Promo Totalplayers 2026</h3>
+        <p class="price-tag">20% dto. + doble de Megas</p>
+        <ul>
+          <li>Exclusiva para <strong>colaboradores de Grupo Salinas</strong>.</li>
+          <li>20% de descuento sobre la renta, planes con o sin TV de 150 a 10,000 Megas.</li>
+          <li>Doble de Megas en planes de 150 a 500 Megas; el plan de 100 Megas solo obtiene 50 Megas extra.</li>
+          <li>Vigencia de 12 meses · el servicio debe estar a nombre del colaborador.</li>
+          <li>Para activar o renovar: comunicarse a Centro de Soluciones.</li>
+        </ul>
+        <span class="model-code">PROMO TOTALPLAYERS 2026</span>
+        <details class="lose-details">
+          <summary>El cliente pierde la promo si…</summary>
+          <ul>
+            <li>Cae en morosidad</li>
+            <li>Cancela el servicio</li>
+            <li>Cambia a un plan no elegible</li>
+            <li>Deja de laborar en Grupo Salinas</li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="promo-card">
+        <h3>🎬 HOT GO — 50% x 3 meses</h3>
+        <ul>
+          <li>El cliente paga <strong>50% de descuento</strong> el primer, segundo y tercer mes.</li>
+          <li>A partir del 4to mes, paga el precio vigente.</li>
+          <li>Planes Totalplay TV + Internet y Totalplay Internet.</li>
+          <li>Se contrata desde Telemarketing, App de Ventas, MC, STB y Dashboard Web.</li>
+        </ul>
+        <span class="model-code">HOTGO</span>
+      </div>
+    </div>
+    <p class="helper-note">Consulta siempre la vigencia de cada promoción antes de ofrecerla; no todas conviven entre sí.</p>
+  </section>
+
   <footer>
     <div class="tag">#VamosPorLaVenta ☀️</div>
     <div class="fine">Material de uso interno · Dirigido a Telemarketing, Autoempresarios, Cambaceo, Desarrollo, Cadenas y Punto de Venta.<br>Ante cualquier duda, acude con tu jefe inmediato.</div>
@@ -778,12 +1031,17 @@ window.google.visualization.Query = {
       if(response.status === 'error'){ throw new Error('gviz error'); }
       const rows = response.table.rows;
       const map = {};
+      function cellVal(cell){
+        if(!cell) return '';
+        const val = (cell.v != null && cell.v !== '') ? cell.v : cell.f;
+        return val != null ? String(val).trim() : '';
+      }
       rows.forEach(function(row){
         const c = row.c;
-        const numero = c[0] && c[0].v != null ? String(c[0].v).trim() : '';
-        const nombre = c[1] && c[1].v != null ? String(c[1].v).trim() : '';
-        const distrito = c[2] && c[2].v != null ? String(c[2].v).trim() : '';
-        const posicion = c[3] && c[3].v != null ? String(c[3].v).trim() : '';
+        const numero = cellVal(c[0]);
+        const nombre = cellVal(c[1]);
+        const distrito = cellVal(c[2]);
+        const posicion = cellVal(c[3]);
         if(!numero || numero.toUpperCase() === 'VACANTE' || numero.toUpperCase() === 'NUMERO EMPLEADO') return;
         map[numero] = { nombre: nombre, distrito: distrito, posicion: posicion };
       });
@@ -811,7 +1069,7 @@ function loadEmployees(){
 
   const script = document.createElement('script');
   script.id = 'gvizScript';
-  script.src = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=out:json&t=' + Date.now();
+  script.src = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=out:json&tq=' + encodeURIComponent('select A,B,C,D') + '&headers=1&t=' + Date.now();
   script.onerror = function(){
     loadError = true;
     subtitle.textContent = 'No se pudo verificar tu acceso. Revisa tu conexión e intenta de nuevo.';
