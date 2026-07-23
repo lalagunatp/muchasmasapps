@@ -6,6 +6,7 @@
 <title>Muchas Más Apps — Totalplay</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --ocean-deep:#073B4C;
@@ -16,6 +17,8 @@
     --foam:#EAF7FB;
     --ink:#052A36;
   }
+  html{scroll-behavior:smooth;}
+  section.block, #inicio{scroll-margin-top:20px;}
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
@@ -660,6 +663,376 @@
     .app-stack{gap:6px;}
     .app-pill{font-size:10px;padding:5px 8px;}
   }
+
+  /* ===================== MENÚ HAMBURGUESA ===================== */
+  #hamburgerBtn{
+    position:fixed;
+    top:18px;
+    right:18px;
+    z-index:500;
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    background:var(--ocean-deep);
+    border:none;
+    box-shadow:0 8px 20px rgba(7,59,76,0.35);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    gap:5px;
+  }
+  #hamburgerBtn .bar{
+    position:absolute;
+    width:22px;
+    height:3px;
+    border-radius:3px;
+    background:var(--sun);
+    transition:transform .25s ease, opacity .2s ease;
+  }
+  #hamburgerBtn .bar:nth-child(1){transform:translateY(-7px);}
+  #hamburgerBtn .bar:nth-child(3){transform:translateY(7px);}
+  #hamburgerBtn.open .bar:nth-child(1){transform:translateY(0) rotate(45deg);}
+  #hamburgerBtn.open .bar:nth-child(2){opacity:0;}
+  #hamburgerBtn.open .bar:nth-child(3){transform:translateY(0) rotate(-45deg);}
+
+  #navOverlay{
+    position:fixed;
+    inset:0;
+    background:rgba(5,42,54,0.45);
+    backdrop-filter:blur(2px);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .25s ease;
+    z-index:400;
+  }
+  #navOverlay.show{opacity:1;pointer-events:auto;}
+
+  #navPanel{
+    position:fixed;
+    top:0;
+    right:0;
+    height:100%;
+    width:280px;
+    max-width:80vw;
+    background:linear-gradient(180deg,var(--ocean-deep),var(--ocean));
+    z-index:450;
+    box-shadow:-10px 0 30px rgba(0,0,0,0.25);
+    transform:translateX(100%);
+    transition:transform .3s ease;
+    display:flex;
+    flex-direction:column;
+    padding:90px 0 24px;
+    overflow-y:auto;
+  }
+  #navPanel.show{transform:translateX(0);}
+  #navPanel .nav-title{
+    font-family:'Baloo 2',sans-serif;
+    color:var(--sun);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    padding:0 26px 14px;
+    opacity:0.85;
+  }
+  #navPanel a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:white;
+    text-decoration:none;
+    font-family:'Nunito Sans',sans-serif;
+    font-weight:700;
+    font-size:15px;
+    padding:14px 26px;
+    border-left:4px solid transparent;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  #navPanel a .nav-icon{font-size:18px;width:22px;text-align:center;}
+  #navPanel a:hover, #navPanel a:active{
+    background:rgba(255,255,255,0.08);
+    border-left-color:var(--sun);
+  }
+  #navPanel .nav-footer{
+    margin-top:auto;
+    padding:18px 26px 0;
+    font-size:11px;
+    color:rgba(255,255,255,0.55);
+    border-top:1px solid rgba(255,255,255,0.15);
+  }
+  #navPanel .nav-parent{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    width:100%;
+    color:white;
+    background:none;
+    border:none;
+    text-decoration:none;
+    font-family:'Nunito Sans',sans-serif;
+    font-weight:700;
+    font-size:15px;
+    padding:14px 26px;
+    border-left:4px solid transparent;
+    cursor:pointer;
+    text-align:left;
+  }
+  #navPanel .nav-parent:hover{background:rgba(255,255,255,0.08);}
+  #navPanel .nav-caret{
+    margin-left:auto;
+    font-size:12px;
+    transition:transform .2s ease;
+  }
+  #navPanel .nav-parent.open .nav-caret{transform:rotate(180deg);}
+  #navPanel .nav-submenu{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .3s ease;
+    background:rgba(0,0,0,0.15);
+  }
+  #navPanel .nav-submenu.open{max-height:400px;}
+  #navPanel .nav-submenu a{
+    padding:11px 26px 11px 44px;
+    font-size:13.5px;
+    font-weight:600;
+  }
+  #navPanel .nav-submenu a .nav-icon{font-size:15px;width:18px;}
+
+  /* ===================== WIDGET: PLANES + COMISIONES ===================== */
+  /* Todo escopado bajo .com-widget con variables propias (--com-*) para no
+     pisar los colores/clases del resto de la página. */
+  .com-widget{
+    --com-cream:#faf8f2;
+    --com-ink:#12130f;
+    --com-lime:#c9db2b;
+    --com-magenta:#e6007e;
+    --com-ledger:#0c3b2e;
+    --com-gold:#d9a62e;
+    --com-paper:#ffffff;
+    --com-gray:#6b7066;
+    background:var(--com-cream);
+    border-radius:28px;
+    margin:0 16px 30px;
+    overflow:hidden;
+    font-family:'Space Grotesk', sans-serif;
+    color:var(--com-ink);
+  }
+  .com-hero{
+    background:var(--com-ink);
+    color:var(--com-cream);
+    padding:44px 24px 36px;
+    position:relative;
+    overflow:hidden;
+  }
+  .com-hero::before{
+    content:"";
+    position:absolute;
+    top:-40%; right:-10%;
+    width:280px; height:280px;
+    border-radius:50%;
+    background:var(--com-lime);
+    opacity:.15;
+    filter:blur(10px);
+  }
+  .com-eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:11px;
+    color:var(--com-lime);
+    margin-bottom:12px;
+  }
+  .com-hero h3{
+    font-family:'Archivo Black', sans-serif;
+    font-size:clamp(24px, 5vw, 34px);
+    line-height:1.1;
+    max-width:560px;
+    margin:0;
+  }
+  .com-hero .com-accent{ color:var(--com-lime); }
+  .com-hero p{
+    margin-top:14px;
+    max-width:480px;
+    color:#cfd2c8;
+    font-size:13.5px;
+    line-height:1.5;
+  }
+  .com-toggle{
+    display:flex;
+    padding:0 24px;
+    position:relative;
+    z-index:2;
+    margin-top:-24px;
+  }
+  .com-toggle-inner{
+    display:flex;
+    background:var(--com-paper);
+    border-radius:999px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+    padding:6px;
+    width:100%;
+    max-width:360px;
+  }
+  .com-toggle button{
+    flex:1;
+    border:none;
+    background:transparent;
+    padding:11px 16px;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:13px;
+    border-radius:999px;
+    cursor:pointer;
+    color:var(--com-ink);
+    transition:.2s;
+  }
+  .com-toggle button.active{
+    background:var(--com-ink);
+    color:var(--com-lime);
+  }
+  .com-main{
+    padding:28px 24px 8px;
+  }
+  .com-section-title{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--com-gray);
+    margin:0 0 14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .com-section-title::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:#ddd7c6;
+  }
+  .com-plans{ display:flex; flex-direction:column; gap:14px; }
+  .com-plan-card{
+    display:grid;
+    grid-template-columns:1fr 200px;
+    background:var(--com-paper);
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 4px 18px rgba(0,0,0,.05);
+    border:1px solid #ece7d8;
+  }
+  @media (max-width:640px){
+    .com-plan-card{ grid-template-columns:1fr; }
+  }
+  .com-plan-info{ padding:18px 20px; }
+  .com-plan-speed{
+    font-family:'Archivo Black', sans-serif;
+    font-size:21px;
+  }
+  .com-plan-speed .com-new-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9.5px;
+    background:var(--com-magenta);
+    color:#fff;
+    padding:3px 8px;
+    border-radius:999px;
+    vertical-align:middle;
+    margin-left:8px;
+    letter-spacing:.06em;
+  }
+  .com-plan-price{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+    color:var(--com-gray);
+    margin-top:4px;
+  }
+  .com-plan-price b{ color:var(--com-ink); font-size:15px; }
+  .com-streaming-tag{
+    display:inline-block;
+    font-size:11.5px;
+    padding:5px 11px;
+    border-radius:8px;
+    font-weight:600;
+  }
+  .com-tag-none{ background:#f0efe9; color:var(--com-gray); }
+  .com-tag-trial{ background:#fff2d6; color:#8a6100; }
+  .com-tag-life{ background:#e4f2ea; color:var(--com-ledger); }
+  .com-tag-life::before{ content:"✦ "; color:var(--com-gold); }
+  .com-apps-row{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    margin-top:12px;
+    flex-wrap:wrap;
+  }
+  .com-apps-empty{
+    font-size:12px;
+    color:var(--com-gray);
+    font-style:italic;
+  }
+  .com-app-chip{
+    padding:5px 11px;
+    border-radius:8px;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:11px;
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+  .com-ads-badge{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    letter-spacing:.03em;
+    padding:4px 9px;
+    border-radius:999px;
+    font-weight:600;
+    margin-left:2px;
+  }
+  .com-ads-con{ background:#fde8c8; color:#8a5300; }
+  .com-ads-sin{ background:#dcefe0; color:var(--com-ledger); }
+  .com-stub{
+    background:var(--com-ledger);
+    color:#eef5ee;
+    padding:18px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:9px;
+  }
+  .com-stub-row{ display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
+  .com-stub-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9.5px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:#9fd6b8;
+  }
+  .com-stub-amount{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:17px;
+  }
+  .com-stub-amount.big{ color:var(--com-lime); font-size:20px; }
+  .com-stub-amount.pending{ font-size:13px; color:#7fa595; font-style:italic; font-weight:400; }
+  .com-footer{
+    padding:20px 24px 30px;
+    font-size:11.5px;
+    color:var(--com-gray);
+    line-height:1.6;
+  }
+  .com-footer .com-flag{ color:var(--com-magenta); font-weight:700; }
+
+  @media (max-width:520px){
+    .com-main{padding:22px 16px 4px;}
+    .com-hero{padding:32px 18px 30px;}
+    .com-footer{padding:16px 18px 24px;}
+    .com-toggle{padding:0 16px;}
+  }
 </style>
 </head>
 <body>
@@ -687,7 +1060,40 @@
 </div>
 
 <div id="mainContent">
-<div class="page">
+
+<button id="hamburgerBtn" onclick="toggleNav()" aria-label="Abrir menú">
+  <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+</button>
+<div id="navOverlay" onclick="closeNav()"></div>
+<nav id="navPanel">
+  <div class="nav-title">Ir a…</div>
+  <a href="#inicio" onclick="closeNav()"><span class="nav-icon">🏖️</span>Inicio</a>
+  <a href="#planes" onclick="closeNav()"><span class="nav-icon">📶</span>Planes y Megas</a>
+  <a href="#promos-adicionales" onclick="closeNav()"><span class="nav-icon">🔥</span>Promos que cierran venta</a>
+  <a href="#descuento-especial" onclick="closeNav()"><span class="nav-icon">💰</span>Descuento Especial 5 meses</a>
+  <a href="#reglas" onclick="closeNav()"><span class="nav-icon">📋</span>Reglas de negocio</a>
+
+  <button type="button" class="nav-parent" onclick="toggleSubmenu(this)">
+    <span class="nav-icon">🏆</span>Consecutivo de Promociones
+    <span class="nav-caret">▾</span>
+  </button>
+  <div class="nav-submenu">
+    <a href="#consecutivo" onclick="closeNav()"><span class="nav-icon">📄</span>Ver todo</a>
+    <a href="#lealtad" onclick="closeNav()"><span class="nav-icon">🏆</span>Descuento por Lealtad</a>
+    <a href="#activacion" onclick="closeNav()"><span class="nav-icon">🎁</span>Activación Sin Costo</a>
+    <a href="#portabilidad" onclick="closeNav()"><span class="nav-icon">📱</span>Descuento de Portabilidad</a>
+    <a href="#experiencia100" onclick="closeNav()"><span class="nav-icon">📺</span>Tu Experiencia al 100</a>
+    <a href="#tv-incluido" onclick="closeNav()"><span class="nav-icon">📡</span>Nuevo Totalplay TV Incluido</a>
+    <a href="#tv-adicional" onclick="closeNav()"><span class="nav-icon">➕</span>Nuevo Totalplay TV Adicional</a>
+    <a href="#totalplayers" onclick="closeNav()"><span class="nav-icon">💼</span>Promo Totalplayers 2026</a>
+    <a href="#hotgo" onclick="closeNav()"><span class="nav-icon">🎬</span>HOT GO 50% x 3 meses</a>
+  </div>
+
+  <a href="#comisiones" onclick="closeNav()"><span class="nav-icon">💵</span>Planes + Comisiones</a>
+  <div class="nav-footer">#VamosPorLaVenta · Material de uso interno</div>
+</nav>
+
+<div class="page" id="inicio">
 
   <div class="hero">
     <span class="badge">Oferta Residencial · Nacional</span>
@@ -711,7 +1117,7 @@
     <div class="plus-label">Elige la(s) que quieras, según disponibilidad del plan ☀️</div>
   </div>
 
-  <section class="block">
+  <section class="block" id="planes">
     <div class="section-eyebrow">Planes con promoción</div>
     <h2 class="section-title">Totalplayer: TV + Internet o solo Internet</h2>
 
@@ -819,7 +1225,7 @@
     </div>
   </section>
 
-  <section class="block">
+  <section class="block" id="promos-adicionales">
     <div class="section-eyebrow">Cierra la venta</div>
     <h2 class="section-title">Promociones que se pueden combinar</h2>
     <div class="promo-strip">
@@ -850,7 +1256,7 @@
     </div>
   </section>
 
-  <section class="block">
+  <section class="block" id="descuento-especial">
     <div class="section-eyebrow">Alternativa sin Más Apps</div>
     <h2 class="section-title">Descuento Especial por 5 meses</h2>
     <p style="margin-top:-8px;font-size:13px;color:#3d5a63;">El cliente elige entre el streaming en promoción <strong>o</strong> este descuento — no se combinan.</p>
@@ -867,7 +1273,7 @@
     </div>
   </section>
 
-  <section class="block">
+  <section class="block" id="reglas">
     <div class="section-eyebrow">Reglas de negocio</div>
     <h2 class="section-title">Lo que sí y lo que no convive</h2>
     <div class="rules-grid">
@@ -922,7 +1328,7 @@
     <h2 class="section-title">🔥 Consecutivo de Promociones</h2>
     <p class="promo-hero">En el verano no solo aumenta el calor, ¡también tus ventas! Usa estas promociones a tu favor y súmalas a Muchas Más Apps.</p>
 
-    <div class="promo-block">
+    <div class="promo-block" id="lealtad">
       <h3>🏆 Descuento por Lealtad</h3>
       <ul>
         <li>Aplica en planes Totalplay TV + Internet y Totalplay Internet, para clientes <strong>nuevos y actuales</strong>.</li>
@@ -941,7 +1347,7 @@
     </div>
 
     <div class="promo-grid">
-      <div class="promo-card">
+      <div class="promo-card" id="activacion">
         <h3>🎁 Activación Sin Costo</h3>
         <ul>
           <li>Todos los planes TV + Internet e Internet, de 100 a 10,000 Megas.</li>
@@ -952,7 +1358,7 @@
         <span class="model-code">ACTIVACIÓN SIN COSTO</span>
       </div>
 
-      <div class="promo-card">
+      <div class="promo-card" id="portabilidad">
         <h3>📱 Descuento de Portabilidad</h3>
         <p class="price-tag">$200 TV+Internet · $100 Internet</p>
         <ul>
@@ -963,7 +1369,7 @@
         <span class="model-code">Lo modela Centro de Soluciones (Portabilidad)</span>
       </div>
 
-      <div class="promo-card">
+      <div class="promo-card" id="experiencia100">
         <h3>📺 Tu Experiencia al 100</h3>
         <p class="price-tag">+$100 nacional · $93 frontera /mes</p>
         <ul>
@@ -983,7 +1389,7 @@
         </details>
       </div>
 
-      <div class="promo-card">
+      <div class="promo-card" id="tv-incluido">
         <h3>📡 Nuevo Totalplay TV Incluido</h3>
         <ul>
           <li>Planes de TV de <strong>500 a 10,000 Megas</strong>: el Nuevo Totalplay TV sustituye a la caja 4K, sin costo extra.</li>
@@ -1000,7 +1406,7 @@
         </details>
       </div>
 
-      <div class="promo-card">
+      <div class="promo-card" id="tv-adicional">
         <h3>➕ Nuevo Totalplay TV Adicional</h3>
         <p class="price-tag">+$199 nacional · $186 frontera /mes</p>
         <ul>
@@ -1020,7 +1426,7 @@
         </details>
       </div>
 
-      <div class="promo-card highlight">
+      <div class="promo-card highlight" id="totalplayers">
         <h3>💼 Promo Totalplayers 2026</h3>
         <p class="price-tag">20% dto. + doble de Megas</p>
         <ul>
@@ -1042,7 +1448,7 @@
         </details>
       </div>
 
-      <div class="promo-card">
+      <div class="promo-card" id="hotgo">
         <h3>🎬 HOT GO — 50% x 3 meses</h3>
         <ul>
           <li>El cliente paga <strong>50% de descuento</strong> el primer, segundo y tercer mes.</li>
@@ -1056,6 +1462,42 @@
     <p class="helper-note">Consulta siempre la vigencia de cada promoción antes de ofrecerla; no todas conviven entre sí.</p>
   </section>
 
+  <section class="block" id="comisiones" style="padding:0 16px 30px;">
+    <div class="com-widget">
+      <div class="com-hero">
+        <div class="com-eyebrow">Comunicado interno · Equipo comercial</div>
+        <h3>Cada plan que colocas <span class="com-accent">se convierte en comisión recurrente.</span></h3>
+        <p>Nuevos planes de Internet e Internet + TV, con la comisión exacta que ganas por cada uno — desde el primer mes y de forma recurrente a partir del tercero.</p>
+      </div>
+
+      <div class="com-toggle">
+        <div class="com-toggle-inner">
+          <button id="com-btn-internet" class="active" onclick="comShowSection('internet')">Internet</button>
+          <button id="com-btn-tv" onclick="comShowSection('tv')">Internet + TV</button>
+        </div>
+      </div>
+
+      <div class="com-main">
+        <div id="com-section-internet">
+          <div class="com-section-title">Planes de Internet</div>
+          <div class="com-plans" id="com-plans-internet"></div>
+        </div>
+        <div id="com-section-tv" style="display:none;">
+          <div class="com-section-title">Planes de Internet + TV</div>
+          <div class="com-plans" id="com-plans-tv"></div>
+        </div>
+      </div>
+
+      <div class="com-footer">
+        <p>Datos de precio y comisión tomados de la tabla oficial "Totalplay Residencial · Comisiones · Cambaceo y Punto de Venta · Oferta Base".</p>
+        <p style="margin-top:8px;">Comisiones de streaming: Netflix, Universal+ y Apple TV con anuncios; Disney+ se suma a partir de 500 MB; HBO Max a partir de 1,000 MB. A partir de 5,000 MB todas las apps van sin anuncios.</p>
+        <p style="margin-top:8px;"><span class="com-flag">Precio ajustado:</span> las tarifas al cliente en 250, 350 y 500 MB se tomaron de las imágenes oficiales "Planes Totalplay TV + Internet" y "Planes Totalplay Internet". Las comisiones se dejaron igual, tomadas de la tabla de Cambaceo y Punto de Venta.</p>
+        <p style="margin-top:8px;">El badge "Con anuncios / Sin anuncios" aplica a Netflix, Universal+, Disney+ y HBO Max. Apple TV no tiene versión con anuncios, se incluye igual en ambos casos.</p>
+        <p style="margin-top:8px;">El plan de <b>1,000 MB</b> tiene precio de lista $1,470 / $1,640, con precio promo de $1,000 / $1,200 (requiere modelar la promoción de PRECIO ESPECIAL).</p>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="tag">#VamosPorLaVenta ☀️</div>
     <div class="fine">Material de uso interno · Dirigido a Telemarketing, Autoempresarios, Cambaceo, Desarrollo, Cadenas y Punto de Venta.<br>Ante cualquier duda, acude con tu jefe inmediato.</div>
@@ -1065,6 +1507,123 @@
 </div>
 
 <script>
+/* ===================== WIDGET: PLANES + COMISIONES ===================== */
+const COM_APPS = {
+  netflix:  { name:"Netflix",    color:"#E50914" },
+  universal:{ name:"Universal+", color:"#6C2EB5" },
+  appletv:  { name:"Apple TV",   color:"#111111" },
+  hbomax:   { name:"HBO Max",    color:"#5B21B6" },
+  disney:   { name:"Disney+",    color:"#0F2FA6" },
+};
+
+const comInternetPlans = [
+  { speed:"100 MB", isNew:true, price:"$390", streaming:"none", apps:[], ads:null, label:"Sin streaming incluido", c1:"$75", c2:"$150" },
+  { speed:"150 MB", price:"$460", streaming:"trial", apps:["netflix","universal","appletv"], ads:"con", label:"Prueba · 3 meses", c1:"$100", c2:"$250" },
+  { speed:"250 MB", price:"$560", streaming:"trial", apps:["netflix","universal","appletv"], ads:"con", label:"Prueba · 3 meses", c1:"$200", c2:"$400" },
+  { speed:"350 MB", price:"$660", streaming:"life", apps:["netflix","universal","appletv"], ads:"con", label:"De por vida", c1:"$350", c2:"$650" },
+  { speed:"500 MB", price:"$860", streaming:"life", apps:["netflix","universal","appletv","disney"], ads:"con", label:"De por vida", c1:"$500", c2:"$1,300" },
+  { speed:"1,000 MB", price:"$1,000", streaming:"life", apps:["netflix","universal","appletv","disney","hbomax"], ads:"con", label:"De por vida", c1:"$800", c2:"$2,100" },
+  { speed:"5,000 MB", price:"$1,999", streaming:"life", apps:["netflix","universal","appletv","disney","hbomax"], ads:"sin", label:"De por vida", c1:"$1,000", c2:"$2,800" },
+  { speed:"10,000 MB", price:"$2,499", streaming:"life", apps:["netflix","universal","appletv","disney","hbomax"], ads:"sin", label:"De por vida", c1:"$1,300", c2:"$3,500" },
+];
+
+const comTvPlans = [
+  { speed:"100 MB + TV", isNew:true, price:"$490", streaming:"none", apps:[], ads:null, label:"Sin streaming incluido", c1:"$150", c2:"$380" },
+  { speed:"150 MB + TV", price:"$599", streaming:"trial", apps:["netflix","universal","appletv"], ads:"con", label:"Prueba · 5 meses", c1:"$200", c2:"$500" },
+  { speed:"250 MB + TV", price:"$699", streaming:"trial", apps:["netflix","universal","appletv"], ads:"con", label:"Prueba · 5 meses", c1:"$400", c2:"$800" },
+  { speed:"350 MB + TV", price:"$799", streaming:"life", apps:["netflix","universal","appletv"], ads:"con", label:"De por vida", c1:"$600", c2:"$1,300" },
+  { speed:"500 MB + TV", price:"$999", streaming:"life", apps:["netflix","universal","appletv","disney"], ads:"con", label:"De por vida", c1:"$750", c2:"$1,600" },
+  { speed:"1,000 MB + TV", price:"$1,200", streaming:"life", apps:["netflix","universal","appletv","disney","hbomax"], ads:"con", label:"De por vida", c1:"$1,000", c2:"$2,900" },
+  { speed:"5,000 MB + TV", price:"$2,499", streaming:"life", apps:["netflix","universal","appletv","disney","hbomax"], ads:"sin", label:"De por vida", c1:"$1,500", c2:"$4,400" },
+  { speed:"10,000 MB + TV", price:"$2,999", streaming:"life", apps:["netflix","universal","appletv","disney","hbomax"], ads:"sin", label:"De por vida", c1:"$1,800", c2:"$5,300" },
+];
+
+function comTagClass(streaming){
+  if(streaming==="none") return "com-tag-none";
+  if(streaming==="trial") return "com-tag-trial";
+  return "com-tag-life";
+}
+
+function comRenderApps(p){
+  if(!p.apps || p.apps.length===0){
+    return '<div class="com-apps-row com-apps-empty">Sin apps de streaming</div>';
+  }
+  const chips = p.apps.map(function(key){
+    const a = COM_APPS[key];
+    return '<div class="com-app-chip" style="background:' + a.color + '">' + a.name + '</div>';
+  }).join("");
+  const adsBadge = p.ads === "con"
+    ? '<span class="com-ads-badge com-ads-con">Con anuncios</span>'
+    : '<span class="com-ads-badge com-ads-sin">Sin anuncios</span>';
+  return '<div class="com-apps-row">' + chips + adsBadge + '</div>';
+}
+
+function comRenderPlans(list, containerId){
+  const container = document.getElementById(containerId);
+  container.innerHTML = list.map(function(p){
+    return '\
+    <div class="com-plan-card">\
+      <div class="com-plan-info">\
+        <div class="com-plan-speed">' + p.speed + (p.isNew ? ' <span class="com-new-tag">NUEVO</span>' : '') + '</div>\
+        <div class="com-plan-price">Precio cliente: <b>' + p.price + '</b>/mes</div>\
+        ' + comRenderApps(p) + '\
+        <div class="com-streaming-tag ' + comTagClass(p.streaming) + '" style="margin-top:8px;">' + p.label + '</div>\
+      </div>\
+      <div class="com-stub">\
+        <div class="com-stub-row">\
+          <span class="com-stub-label">Primeras 3 mens.</span>\
+          <span class="com-stub-amount ' + (p.c1 ? '' : 'pending') + '">' + (p.c1 ? p.c1 : 'Por confirmar') + '</span>\
+        </div>\
+        <div class="com-stub-row">\
+          <span class="com-stub-label">Desde la 3ra (recurrente)</span>\
+          <span class="com-stub-amount ' + (p.c2 ? 'big' : 'pending') + '">' + (p.c2 ? p.c2 : 'Por confirmar') + '</span>\
+        </div>\
+      </div>\
+    </div>';
+  }).join("");
+}
+
+comRenderPlans(comInternetPlans, "com-plans-internet");
+comRenderPlans(comTvPlans, "com-plans-tv");
+
+function comShowSection(which){
+  document.getElementById("com-section-internet").style.display = which==="internet" ? "block" : "none";
+  document.getElementById("com-section-tv").style.display = which==="tv" ? "block" : "none";
+  document.getElementById("com-btn-internet").classList.toggle("active", which==="internet");
+  document.getElementById("com-btn-tv").classList.toggle("active", which==="tv");
+}
+
+function toggleSubmenu(btn){
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+}
+
+function toggleNav(){
+  const panel = document.getElementById('navPanel');
+  const overlay = document.getElementById('navOverlay');
+  const btn = document.getElementById('hamburgerBtn');
+  const isOpen = panel.classList.toggle('show');
+  overlay.classList.toggle('show', isOpen);
+  btn.classList.toggle('open', isOpen);
+}
+function closeNav(){
+  document.getElementById('navPanel').classList.remove('show');
+  document.getElementById('navOverlay').classList.remove('show');
+  document.getElementById('hamburgerBtn').classList.remove('open');
+}
+document.querySelectorAll('#navPanel a[href^="#"]').forEach(function(link){
+  link.addEventListener('click', function(e){
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if(target){
+      closeNav();
+      setTimeout(function(){
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      }, 150);
+    }
+  });
+});
+
 function showTab(id){
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab-toggle button').forEach(b=>b.classList.remove('active'));
