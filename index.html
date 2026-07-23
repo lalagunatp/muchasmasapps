@@ -1089,7 +1089,7 @@
     <a href="#hotgo" onclick="closeNav()"><span class="nav-icon">🎬</span>HOT GO 50% x 3 meses</a>
   </div>
 
-  <a href="#comisiones" onclick="closeNav()"><span class="nav-icon">💵</span>Planes + Comisiones</a>
+  <a href="#comisiones" id="navComisiones" onclick="closeNav()"><span class="nav-icon">💵</span>Planes + Comisiones</a>
   <div class="nav-footer">#VamosPorLaVenta · Material de uso interno</div>
 </nav>
 
@@ -1638,6 +1638,26 @@ const SHEET_ID = '16x2bu-GiMWqAroBRz1airnhkNNI_Ip0R';
 
 let EMPLEADOS = null; // se llena al cargar la página: { "12345": { nombre, distrito, posicion } }
 let loadError = false;
+let canSeeComisiones = false;
+
+// Puestos autorizados para ver la sección "Planes + Comisiones"
+const PUESTOS_COMISIONES = [
+  'DIRECTOR DISTRITAL',
+  'LIDER VENTAS',
+  'LIDER DE VENTAS',
+  'COACH VENTAS',
+  'VENDEDOR',
+  'PROMOVENDEDOR PUNTO DE VENTA',
+  'COACH PROMOVENDEDOR PUNTO DE VENTA'
+].map(normPuesto);
+
+function normPuesto(s){
+  return String(s || '')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // quita acentos
+    .toUpperCase()
+    .replace(/\s+/g, ' ')
+    .trim();
+}
 
 // Google llama automáticamente a google.visualization.Query.setResponse(json)
 // cuando el <script> termina de cargar; no necesitamos la librería completa,
@@ -1728,6 +1748,7 @@ function checkEmployee(){
     document.getElementById('welcomeDistrito').textContent = toTitleCase(registro.distrito);
     document.getElementById('welcomePosicion').textContent = toTitleCase(registro.posicion);
     document.getElementById('lockWelcome').classList.add('show');
+    canSeeComisiones = PUESTOS_COMISIONES.indexOf(normPuesto(registro.posicion)) !== -1;
   } else {
     errorEl.textContent = 'Número de empleado no válido. Intenta de nuevo.';
   }
@@ -1736,6 +1757,13 @@ function checkEmployee(){
 function enterSite(){
   document.getElementById('lockScreen').style.display = 'none';
   document.getElementById('mainContent').style.display = 'block';
+
+  const comSection = document.getElementById('comisiones');
+  const navCom = document.getElementById('navComisiones');
+  if(!canSeeComisiones){
+    if(comSection) comSection.style.display = 'none';
+    if(navCom) navCom.style.display = 'none';
+  }
 }
 
 document.getElementById('empInput').addEventListener('keydown', function(e){
