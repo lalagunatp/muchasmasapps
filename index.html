@@ -1019,6 +1019,13 @@
   }
   .com-stub-amount.big{ color:var(--com-lime); font-size:20px; }
   .com-stub-amount.pending{ font-size:13px; color:#7fa595; font-style:italic; font-weight:400; }
+  .com-plan-total{
+    margin-top:6px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+    color:var(--com-gray);
+  }
+  .com-plan-total b{ color:var(--com-ledger); font-size:17px; }
   .com-footer{
     padding:20px 24px 30px;
     font-size:11.5px;
@@ -1090,6 +1097,7 @@
   </div>
 
   <a href="#comisiones" id="navComisiones" onclick="closeNav()"><span class="nav-icon">💵</span>Planes + Comisiones</a>
+  <a href="#comisiones-tecnico" id="navComisionesTecnico" onclick="closeNav()"><span class="nav-icon">🛠️</span>Comisiones Venta Técnico</a>
   <div class="nav-footer">#VamosPorLaVenta · Material de uso interno</div>
 </nav>
 
@@ -1498,6 +1506,40 @@
     </div>
   </section>
 
+  <section class="block" id="comisiones-tecnico" style="padding:0 16px 30px;">
+    <div class="com-widget">
+      <div class="com-hero">
+        <div class="com-eyebrow">Comunicado interno · Canal Venta Técnico</div>
+        <h3>Comisiones <span class="com-accent">Venta Técnico</span></h3>
+        <p>Comisión total por plan instalado, dividida en 1er y 2do pago. Acceso exclusivo para el canal Venta Técnico.</p>
+      </div>
+
+      <div class="com-toggle">
+        <div class="com-toggle-inner">
+          <button id="com-btn-2p" class="active" onclick="comShowSectionTecnico('2p')">Plan 2P</button>
+          <button id="com-btn-3p" onclick="comShowSectionTecnico('3p')">Plan 3P</button>
+        </div>
+      </div>
+
+      <div class="com-main">
+        <div id="com-section-2p">
+          <div class="com-section-title">Plan instalado 2P</div>
+          <div class="com-plans" id="com-plans-2p"></div>
+        </div>
+        <div id="com-section-3p" style="display:none;">
+          <div class="com-section-title">Plan instalado 3P</div>
+          <div class="com-plans" id="com-plans-3p"></div>
+        </div>
+      </div>
+
+      <div class="com-footer">
+        <p>Datos de comisión tomados de la tabla oficial "Totalplay · Comisiones Venta Técnico".</p>
+        <p style="margin-top:8px;">2P = plan Internet instalado · 3P = plan Internet + TV instalado.</p>
+        <p style="margin-top:8px;">La comisión se paga en dos partes iguales: 1er pago y 2do pago.</p>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="tag">#VamosPorLaVenta ☀️</div>
     <div class="fine">Material de uso interno · Dirigido a Telemarketing, Autoempresarios, Cambaceo, Desarrollo, Cadenas y Punto de Venta.<br>Ante cualquier duda, acude con tu jefe inmediato.</div>
@@ -1593,6 +1635,62 @@ function comShowSection(which){
   document.getElementById("com-btn-tv").classList.toggle("active", which==="tv");
 }
 
+/* ===================== WIDGET: COMISIONES VENTA TÉCNICO ===================== */
+const comTecnico2P = [
+  { speed:"100 megas", total:"$145", c1:"$72.50", c2:"$72.50" },
+  { speed:"150 megas", total:"$240", c1:"$120", c2:"$120" },
+  { speed:"Veloz 250 megas", total:"$380", c1:"$190", c2:"$190" },
+  { speed:"Turbo 350 megas", total:"$605", c1:"$302.50", c2:"$302.50" },
+  { speed:"Sónico 500 megas", total:"$1,192", c1:"$596", c2:"$596" },
+  { speed:"Plan 1,200 GB", total:"$1,940", c1:"$970", c2:"$970" },
+  { speed:"Plan 5 GB", total:"$2,550", c1:"$1,275", c2:"$1,275" },
+  { speed:"Plan 10 GB", total:"$3,150", c1:"$1,575", c2:"$1,575" },
+];
+
+const comTecnico3P = [
+  { speed:"100 megas", total:"$365", c1:"$182.50", c2:"$182.50" },
+  { speed:"150 TV megas", total:"$479", c1:"$239.50", c2:"$239.50" },
+  { speed:"Veloz TV 250 megas", total:"$770", c1:"$385", c2:"$385" },
+  { speed:"Turbo TV 350 megas", total:"$1,201", c1:"$600.50", c2:"$600.50" },
+  { speed:"Sónico TV 500 megas", total:"$1,448", c1:"$724", c2:"$724" },
+  { speed:"Plan 1,200 GB TV", total:"$2,680", c1:"$1,340", c2:"$1,340" },
+  { speed:"Plan 5 GB TV", total:"$4,050", c1:"$2,025", c2:"$2,025" },
+  { speed:"Plan 10 GB TV", total:"$4,850", c1:"$2,425", c2:"$2,425" },
+];
+
+function comRenderPlansTecnico(list, containerId){
+  const container = document.getElementById(containerId);
+  container.innerHTML = list.map(function(p){
+    return '\
+    <div class="com-plan-card">\
+      <div class="com-plan-info">\
+        <div class="com-plan-speed">' + p.speed + '</div>\
+        <div class="com-plan-total">Comisión total: <b>' + p.total + '</b></div>\
+      </div>\
+      <div class="com-stub">\
+        <div class="com-stub-row">\
+          <span class="com-stub-label">1er pago</span>\
+          <span class="com-stub-amount">' + p.c1 + '</span>\
+        </div>\
+        <div class="com-stub-row">\
+          <span class="com-stub-label">2do pago</span>\
+          <span class="com-stub-amount big">' + p.c2 + '</span>\
+        </div>\
+      </div>\
+    </div>';
+  }).join("");
+}
+
+comRenderPlansTecnico(comTecnico2P, "com-plans-2p");
+comRenderPlansTecnico(comTecnico3P, "com-plans-3p");
+
+function comShowSectionTecnico(which){
+  document.getElementById("com-section-2p").style.display = which==="2p" ? "block" : "none";
+  document.getElementById("com-section-3p").style.display = which==="3p" ? "block" : "none";
+  document.getElementById("com-btn-2p").classList.toggle("active", which==="2p");
+  document.getElementById("com-btn-3p").classList.toggle("active", which==="3p");
+}
+
 function toggleSubmenu(btn){
   btn.classList.toggle('open');
   btn.nextElementSibling.classList.toggle('open');
@@ -1639,6 +1737,7 @@ const SHEET_ID = '16x2bu-GiMWqAroBRz1airnhkNNI_Ip0R';
 let EMPLEADOS = null; // se llena al cargar la página: { "12345": { nombre, distrito, posicion } }
 let loadError = false;
 let canSeeComisiones = false;
+let canSeeTecnico = false;
 
 // Puestos autorizados para ver la sección "Planes + Comisiones"
 const PUESTOS_COMISIONES = [
@@ -1648,7 +1747,17 @@ const PUESTOS_COMISIONES = [
   'COACH VENTAS',
   'VENDEDOR',
   'PROMOVENDEDOR PUNTO DE VENTA',
-  'COACH PROMOVENDEDOR PUNTO DE VENTA'
+  'COACH PROMOVENDEDOR PUNTO DE VENTA',
+  'LIDER DE CANALES Y VENTA TECNICO'
+].map(normPuesto);
+
+// Autorización para "Comisiones Venta Técnico": por prefijo de número de
+// empleado (SLK / CRC / ECO) o por puesto (Director Distrital / Coach de
+// Ventas Técnico).
+const PREFIJOS_TECNICO = ['SLK', 'CRC', 'ECO'];
+const PUESTOS_TECNICO = [
+  'DIRECTOR DISTRITAL',
+  'COACH DE VENTAS TECNICO'
 ].map(normPuesto);
 
 function normPuesto(s){
@@ -1749,6 +1858,10 @@ function checkEmployee(){
     document.getElementById('welcomePosicion').textContent = toTitleCase(registro.posicion);
     document.getElementById('lockWelcome').classList.add('show');
     canSeeComisiones = PUESTOS_COMISIONES.indexOf(normPuesto(registro.posicion)) !== -1;
+    const numUpper = num.toUpperCase();
+    const prefijoTecnico = PREFIJOS_TECNICO.some(function(pre){ return numUpper.indexOf(pre) === 0; });
+    const puestoTecnico = PUESTOS_TECNICO.indexOf(normPuesto(registro.posicion)) !== -1;
+    canSeeTecnico = prefijoTecnico || puestoTecnico;
   } else {
     errorEl.textContent = 'Número de empleado no válido. Intenta de nuevo.';
   }
@@ -1763,6 +1876,13 @@ function enterSite(){
   if(!canSeeComisiones){
     if(comSection) comSection.style.display = 'none';
     if(navCom) navCom.style.display = 'none';
+  }
+
+  const tecSection = document.getElementById('comisiones-tecnico');
+  const navTec = document.getElementById('navComisionesTecnico');
+  if(!canSeeTecnico){
+    if(tecSection) tecSection.style.display = 'none';
+    if(navTec) navTec.style.display = 'none';
   }
 }
 
