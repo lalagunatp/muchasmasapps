@@ -851,6 +851,9 @@
     overscroll-behavior:contain;
   }
   #navPanel.show{transform:translateX(0);}
+  /* Sin esto, el panel comprime sus elementos cuando no caben en la
+     pantalla y el submenú se ve recortado en lugar de poder desplazarse. */
+  #navPanel > *{flex-shrink:0;}
   #navPanel .nav-title{
     font-family:'Baloo 2',sans-serif;
     color:var(--sun);
