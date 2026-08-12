@@ -2195,6 +2195,247 @@
     font-weight:700;
   }
 
+  /* ── VENDE MÁS TIPS · HUB ── */
+  .tips-hub{
+    background:white;
+    border-radius:22px;
+    padding:26px 22px 22px;
+    border:2px solid var(--foam);
+  }
+  .tips-hub h3{
+    font-family:'Baloo 2', sans-serif;
+    font-size:24px;
+    color:var(--ocean-deep);
+    margin:0 0 8px;
+  }
+  .tips-hub-lema{
+    font-size:14.5px;
+    color:#3d5a63;
+    line-height:1.55;
+    margin:0 0 20px;
+  }
+  .tips-nav-cards{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  @media (min-width:640px){ .tips-nav-cards{grid-template-columns:repeat(3,1fr);} }
+  a.tips-nav-card{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    background:linear-gradient(160deg,white,var(--foam));
+    border:2px solid var(--foam);
+    border-radius:16px;
+    padding:16px 16px 14px;
+    text-decoration:none;
+    color:inherit;
+    transition:transform .15s ease, border-color .15s ease;
+  }
+  a.tips-nav-card:active{transform:scale(.97);}
+  a.tips-nav-card .tnc-icon{font-size:26px;}
+  a.tips-nav-card h4{
+    font-family:'Baloo 2', sans-serif;
+    font-size:16.5px;
+    color:var(--ocean-deep);
+    margin:0;
+  }
+  a.tips-nav-card p{font-size:12.5px;color:#3d5a63;margin:0;line-height:1.4;}
+  a.tips-nav-card .tnc-go{
+    margin-top:4px;
+    font-size:12px;
+    font-weight:800;
+    color:var(--coral);
+  }
+
+  /* ── VENDE MÁS TIPS · AHORRA MÁS CON TV ── */
+  .ta-block{
+    background:white;
+    border-radius:22px;
+    padding:26px 20px 22px;
+    border:2px solid var(--foam);
+  }
+  .ta-block h3{
+    font-family:'Baloo 2', sans-serif;
+    font-size:22px;
+    color:var(--ocean-deep);
+    margin:0 0 8px;
+    text-align:center;
+  }
+  .ta-lema{font-size:14px;color:#3d5a63;text-align:center;margin:0 0 20px;line-height:1.5;}
+  .ta-stat-bar{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    background:var(--foam);
+    border-radius:16px;
+    padding:14px 12px;
+    margin-bottom:24px;
+  }
+  .ta-stat{text-align:center;min-width:78px;}
+  .ta-stat .ta-stat-app{font-size:11px;font-weight:800;color:var(--ocean);text-transform:uppercase;letter-spacing:.02em;}
+  .ta-stat .ta-stat-monto{font-family:'Baloo 2', sans-serif;font-size:19px;color:var(--ocean-deep);}
+  .ta-stat.ta-stat-total .ta-stat-monto{color:var(--coral);}
+  .ta-group-title{
+    font-family:'Baloo 2', sans-serif;
+    font-size:17px;
+    color:var(--ocean-deep);
+    margin:0 0 12px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .ta-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+    margin-bottom:26px;
+  }
+  @media (min-width:640px){ .ta-grid{grid-template-columns:repeat(3,1fr);} }
+  .ta-card{
+    background:var(--sand);
+    border:2px solid var(--foam);
+    border-radius:16px;
+    padding:16px 14px;
+    position:relative;
+  }
+  .ta-card.life{
+    background:linear-gradient(160deg,#FFE4EF,#FFF3F8);
+    border-color:#F491BC;
+  }
+  .ta-card .ta-megas{
+    font-family:'Baloo 2', sans-serif;
+    font-size:20px;
+    color:var(--ocean-deep);
+    line-height:1;
+  }
+  .ta-card .ta-megas span{font-size:11.5px;font-weight:700;color:#5b7a85;display:block;margin-top:2px;}
+  .ta-card .ta-pp{
+    margin-top:8px;
+    font-family:'Baloo 2', sans-serif;
+    font-size:24px;
+    font-weight:800;
+    color:var(--coral);
+  }
+  .ta-card .ta-pp small{font-size:11px;color:var(--ink);font-weight:600;}
+  .ta-badge-life{
+    display:inline-block;
+    margin-top:6px;
+    font-size:10.5px;
+    font-weight:800;
+    color:#a1146b;
+    background:#FCD5E7;
+    padding:3px 9px;
+    border-radius:7px;
+  }
+  .ta-calc{
+    margin-top:10px;
+    padding-top:10px;
+    border-top:1px dashed #cfe3e8;
+    font-size:12px;
+    color:#3d5a63;
+  }
+  .ta-calc div{display:flex;justify-content:space-between;padding:2px 0;}
+  .ta-calc .ta-neg{color:#1A7A46;font-weight:700;}
+  .ta-final{
+    margin-top:10px;
+    padding-top:10px;
+    border-top:2px solid rgba(0,0,0,.06);
+  }
+  .ta-final .ta-final-label{font-size:10.5px;font-weight:800;color:#5b7a85;text-transform:uppercase;letter-spacing:.02em;}
+  .ta-final .ta-final-monto{font-family:'Baloo 2', sans-serif;font-size:22px;color:var(--ocean-deep);}
+  .ta-closing{
+    background:linear-gradient(135deg,var(--ocean-deep),var(--ocean));
+    color:white;
+    border-radius:18px;
+    padding:20px 20px 18px;
+    text-align:center;
+    margin-bottom:6px;
+  }
+  .ta-closing p{margin:0 0 8px;font-size:14.5px;line-height:1.5;}
+  .ta-closing .ta-ahorro{
+    font-family:'Baloo 2', sans-serif;
+    font-size:26px;
+    color:var(--sun);
+  }
+  .ta-figura{margin:22px 0 0;text-align:center;}
+  .ta-figura img{max-width:100%;border-radius:14px;}
+
+  /* ── VENDE MÁS TIPS · COMPARATIVO 150 vs 350 ── */
+  .tc-block{
+    background:white;
+    border-radius:22px;
+    padding:26px 20px 22px;
+    border:2px solid var(--foam);
+  }
+  .tc-block h3{
+    font-family:'Baloo 2', sans-serif;
+    font-size:22px;
+    color:var(--ocean-deep);
+    margin:0 0 8px;
+    text-align:center;
+  }
+  .tc-lema{font-size:14px;color:#3d5a63;text-align:center;margin:0 0 22px;line-height:1.5;}
+  .tc-insight{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    background:var(--foam);
+    border-left:4px solid var(--coral);
+    border-radius:12px;
+    padding:14px 16px;
+    margin-bottom:22px;
+    font-size:13.5px;
+    line-height:1.5;
+    color:#204049;
+  }
+  .tc-insight .tc-ico{font-size:20px;}
+  .tc-insight strong{color:var(--ocean-deep);}
+  .tc-compare{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+    margin-bottom:10px;
+  }
+  @media (min-width:640px){ .tc-compare{grid-template-columns:1fr 1fr;} }
+  .tc-plan{
+    border:2px solid var(--foam);
+    border-radius:16px;
+    padding:14px 16px 16px;
+  }
+  .tc-plan.tc-350{background:linear-gradient(160deg,#E4F6EC,#F2FBF6);border-color:#9FDCB8;}
+  .tc-plan h4{
+    font-family:'Baloo 2', sans-serif;
+    font-size:16px;
+    color:var(--ocean-deep);
+    margin:0 0 10px;
+  }
+  .tc-steps{display:flex;flex-direction:column;gap:0;}
+  .tc-step{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:7px 0;
+    border-bottom:1px dashed #cfe3e8;
+    font-size:12.5px;
+  }
+  .tc-step:last-child{border-bottom:none;}
+  .tc-step .tc-step-label{color:#3d5a63;}
+  .tc-step .tc-step-price{font-family:'Baloo 2', sans-serif;font-size:16px;color:var(--ocean-deep);}
+  .tc-step.tc-jump .tc-step-price{color:var(--coral);}
+  .tc-step.tc-jump .tc-step-label::after{content:" ⚠️";}
+  .tc-figuras{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+    margin-top:24px;
+  }
+  @media (min-width:640px){ .tc-figuras{grid-template-columns:1fr 1fr;} }
+  .tc-figura{margin:0;text-align:center;}
+  .tc-figura img{max-width:100%;border-radius:14px;}
+  .tc-figura figcaption{font-size:12px;color:#5b7a85;margin-top:8px;font-weight:700;}
+
   /* ── VISOR DE IMÁGENES (clic para ampliar) ── */
   .zoomable{cursor:zoom-in;}
   .zoom-pista{
@@ -2876,7 +3117,16 @@
   </div>
   <div class="nav-title">Ir a…</div>
   <a href="#inicio" onclick="closeNav()"><span class="nav-icon">🏖️</span>Inicio</a>
-  <a href="#superbundles-seccion" id="navSuperBundles" onclick="closeNav()"><span class="nav-icon">📺</span>Vende planes con TV</a>
+  <button type="button" class="nav-parent" id="navTips" onclick="toggleSubmenu(this)">
+    <span class="nav-icon">🚀</span>Vende más TIPs
+    <span class="nav-caret">▾</span>
+  </button>
+  <div class="nav-submenu" id="navTipsSub">
+    <a href="#tips-seccion" onclick="closeNav()"><span class="nav-icon">📄</span>Ver todo</a>
+    <a href="#superbundles-seccion" id="navSuperBundles" onclick="closeNav()"><span class="nav-icon">📺</span>Vende planes con TV</a>
+    <a href="#tips-ahorra-seccion" id="navTipsAhorra" onclick="closeNav()"><span class="nav-icon">💰</span>Ahorra más con TV</a>
+    <a href="#tips-comparativo-seccion" id="navTipsComparativo" onclick="closeNav()"><span class="nav-icon">📊</span>150 vs 350 megas</a>
+  </div>
   <button type="button" class="nav-parent" id="navBlacknut" onclick="toggleSubmenu(this)">
     <span class="nav-icon">🎮</span>Blacknut · ¡NUEVO!
     <span class="nav-caret">▾</span>
@@ -2962,6 +3212,35 @@
     <ul id="avisoCambiosLista"></ul>
   </div>
 
+  <section class="block" id="tips-seccion" style="padding:24px 16px 6px;">
+    <div class="tips-hub">
+      <div class="section-eyebrow">🚀 Vende más TIPs</div>
+      <h3>Trucos, argumentos y datos para vender más</h3>
+      <p class="tips-hub-lema">Aquí reunimos todo lo que te ayuda a cerrar una venta mejor: cómo argumentar un plan con TV, cuánto le conviene a tu cliente llevarse las apps de por vida, y la comparación que le abre los ojos entre 150 y 350 megas. Elige por dónde quieres empezar. 👇</p>
+
+      <div class="tips-nav-cards">
+        <a class="tips-nav-card" href="#superbundles-seccion">
+          <span class="tnc-icon">📺</span>
+          <h4>Vende planes con TV</h4>
+          <p>Los argumentos y el speech ganador para convertir una venta de solo internet en una con TV.</p>
+          <span class="tnc-go">Ver argumentos →</span>
+        </a>
+        <a class="tips-nav-card" href="#tips-ahorra-seccion">
+          <span class="tnc-icon">💰</span>
+          <h4>Ahorra más con TV</h4>
+          <p>Cuánto cuestan las apps por separado, y cuánto se ahorra el cliente cuando se las llevas de por vida.</p>
+          <span class="tnc-go">Ver el desglose →</span>
+        </a>
+        <a class="tips-nav-card" href="#tips-comparativo-seccion">
+          <span class="tnc-icon">📊</span>
+          <h4>150 vs 350 megas</h4>
+          <p>La comparación mes a mes que le demuestra al cliente por qué le conviene más velocidad desde hoy.</p>
+          <span class="tnc-go">Ver comparativo →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="superbundles-seccion" style="padding:24px 16px 30px;">
     <div class="sb-block">
 
@@ -3025,6 +3304,184 @@
         <small>#VamosPorLaVenta · Material de uso interno</small>
       </div>
 
+    </div>
+  </section>
+
+  <section class="block" id="tips-ahorra-seccion" style="padding:24px 16px 30px;">
+    <div class="ta-block">
+      <div class="section-eyebrow" style="text-align:center;">🚀 Vende más TIPs</div>
+      <h3>💰 Con TV, tu cliente ahorra más</h3>
+      <p class="ta-lema">¿Cuánto paga tu cliente al finalizar su promoción? Aquí el desglose, plan por plan, para que se lo expliques clarito antes de que se lo pregunte.</p>
+
+      <div class="ta-stat-bar">
+        <div class="ta-stat"><div class="ta-stat-app">🔴 Netflix</div><div class="ta-stat-monto">$110</div></div>
+        <div class="ta-stat"><div class="ta-stat-app">🟣 Universal+</div><div class="ta-stat-monto">$129</div></div>
+        <div class="ta-stat"><div class="ta-stat-app">⚫ Apple TV</div><div class="ta-stat-monto">$139</div></div>
+        <div class="ta-stat ta-stat-total"><div class="ta-stat-app">Costo total</div><div class="ta-stat-monto">$378</div></div>
+      </div>
+
+      <div class="ta-group-title">📺 Planes con TV</div>
+      <div class="ta-grid">
+        <div class="ta-card">
+          <div class="ta-megas">150<span>Megas simétricos</span></div>
+          <div class="ta-pp">$599<small>/mes promo · 5 meses</small></div>
+          <div class="ta-calc">
+            <div><span>+ Costo de apps</span><span>$378</span></div>
+            <div><span>- Descuento lealtad</span><span class="ta-neg">-$30</span></div>
+          </div>
+          <div class="ta-final">
+            <div class="ta-final-label">Al finalizar la promoción</div>
+            <div class="ta-final-monto">$947<small>/mes</small></div>
+          </div>
+        </div>
+        <div class="ta-card">
+          <div class="ta-megas">250<span>Megas simétricos</span></div>
+          <div class="ta-pp">$699<small>/mes promo · 5 meses</small></div>
+          <div class="ta-calc">
+            <div><span>+ Costo de apps</span><span>$378</span></div>
+            <div><span>- Descuento lealtad</span><span class="ta-neg">-$30</span></div>
+          </div>
+          <div class="ta-final">
+            <div class="ta-final-label">Al finalizar la promoción</div>
+            <div class="ta-final-monto">$1,047<small>/mes</small></div>
+          </div>
+        </div>
+        <div class="ta-card life">
+          <div class="ta-megas">350<span>Megas simétricos</span></div>
+          <div class="ta-pp">$799<small>/mes</small></div>
+          <span class="ta-badge-life">✦ Apps incluidas de por vida</span>
+          <div class="ta-calc">
+            <div><span>- Descuento lealtad</span><span class="ta-neg">-$40</span></div>
+          </div>
+          <div class="ta-final">
+            <div class="ta-final-label">Precio fijo, sin sorpresas</div>
+            <div class="ta-final-monto">$759<small>/mes</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ta-group-title">📶 Planes solo Internet</div>
+      <div class="ta-grid">
+        <div class="ta-card">
+          <div class="ta-megas">150<span>Megas simétricos</span></div>
+          <div class="ta-pp">$460<small>/mes promo · 3 meses</small></div>
+          <div class="ta-calc">
+            <div><span>+ Costo de apps</span><span>$378</span></div>
+            <div><span>- Descuento lealtad</span><span class="ta-neg">-$20</span></div>
+          </div>
+          <div class="ta-final">
+            <div class="ta-final-label">Al finalizar la promoción</div>
+            <div class="ta-final-monto">$818<small>/mes</small></div>
+          </div>
+        </div>
+        <div class="ta-card">
+          <div class="ta-megas">250<span>Megas simétricos</span></div>
+          <div class="ta-pp">$560<small>/mes promo · 3 meses</small></div>
+          <div class="ta-calc">
+            <div><span>+ Costo de apps</span><span>$378</span></div>
+            <div><span>- Descuento lealtad</span><span class="ta-neg">-$20</span></div>
+          </div>
+          <div class="ta-final">
+            <div class="ta-final-label">Al finalizar la promoción</div>
+            <div class="ta-final-monto">$918<small>/mes</small></div>
+          </div>
+        </div>
+        <div class="ta-card life">
+          <div class="ta-megas">350<span>Megas simétricos</span></div>
+          <div class="ta-pp">$660<small>/mes</small></div>
+          <span class="ta-badge-life">✦ Apps incluidas de por vida</span>
+          <div class="ta-calc">
+            <div><span>- Descuento lealtad</span><span class="ta-neg">-$30</span></div>
+          </div>
+          <div class="ta-final">
+            <div class="ta-final-label">Precio fijo, sin sorpresas</div>
+            <div class="ta-final-monto">$630<small>/mes</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ta-closing">
+        <p>¡Con el plan de <strong>350 megas</strong> en 2P y 3P, por solo <strong>$100 más al mes</strong> tu cliente se lleva las apps incluidas <strong>sin costo extra</strong>!</p>
+        <div class="ta-ahorro">Al año ahorra $4,536</div>
+      </div>
+
+      <figure class="ta-figura">
+        <img class="zoomable" src="tips-ahorra-mas-prev.jpg" data-grande="tips-ahorra-mas.jpg"
+             data-titulo="Con TV, ahorra más · Planes con TV y planes solo Internet"
+             alt="Infografía con el desglose de precios y ahorro de los planes con TV y solo Internet de 150, 250 y 350 megas"
+             loading="lazy">
+        <figcaption style="text-align:center;margin-top:8px;"><span class="zoom-pista">🔍 Toca para ver la ficha completa</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block" id="tips-comparativo-seccion" style="padding:24px 16px 30px;">
+    <div class="tc-block">
+      <div class="section-eyebrow" style="text-align:center;">🚀 Vende más TIPs</div>
+      <h3>📊 Vende velocidad, no solo internet</h3>
+      <p class="tc-lema">Haz que el cliente compare el costo a largo plazo entre 150 y 350 megas. Cuando ve el "brinco" que da su mensualidad al terminar la promoción, entiende por qué le conviene más velocidad desde el día uno.</p>
+
+      <div class="tc-insight">
+        <span class="tc-ico">📺</span>
+        <p><strong>Con TV:</strong> al terminar los 5 meses de streaming sin costo, un cliente con el plan de <strong>150 megas paga $188 más al mes</strong> que si hubiera contratado el plan de <strong>350 megas</strong>.</p>
+      </div>
+      <div class="tc-compare">
+        <div class="tc-plan">
+          <h4>150 megas</h4>
+          <div class="tc-steps">
+            <div class="tc-step"><span class="tc-step-label">Mes 1 a 5 · con promoción</span><span class="tc-step-price">$599</span></div>
+            <div class="tc-step tc-jump"><span class="tc-step-label">Mes 6 en adelante</span><span class="tc-step-price">$947</span></div>
+          </div>
+        </div>
+        <div class="tc-plan tc-350">
+          <h4>350 megas · apps incluidas</h4>
+          <div class="tc-steps">
+            <div class="tc-step"><span class="tc-step-label">Mes 1 a 5</span><span class="tc-step-price">$799</span></div>
+            <div class="tc-step"><span class="tc-step-label">Mes 6 en adelante · con lealtad</span><span class="tc-step-price">$759</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tc-insight" style="margin-top:22px;">
+        <span class="tc-ico">📶</span>
+        <p><strong>Sin TV:</strong> al terminar los 3 meses de streaming sin costo, un cliente con el plan de <strong>150 megas paga $179 más</strong> en su mes 4 y 5 que si hubiera contratado el plan de <strong>350 megas</strong>. A partir del 6to mes, la diferencia sube a <strong>$189</strong>.</p>
+      </div>
+      <div class="tc-compare">
+        <div class="tc-plan">
+          <h4>150 megas</h4>
+          <div class="tc-steps">
+            <div class="tc-step"><span class="tc-step-label">Mes 1 a 3 · con promoción</span><span class="tc-step-price">$460</span></div>
+            <div class="tc-step tc-jump"><span class="tc-step-label">Mes 4 y 5</span><span class="tc-step-price">$839</span></div>
+            <div class="tc-step tc-jump"><span class="tc-step-label">Mes 6 en adelante · con lealtad</span><span class="tc-step-price">$819</span></div>
+          </div>
+        </div>
+        <div class="tc-plan tc-350">
+          <h4>350 megas · apps incluidas</h4>
+          <div class="tc-steps">
+            <div class="tc-step"><span class="tc-step-label">Mes 1 a 5</span><span class="tc-step-price">$660</span></div>
+            <div class="tc-step"><span class="tc-step-label">Mes 6 en adelante · con lealtad</span><span class="tc-step-price">$630</span></div>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size:13.5px;color:#3d5a63;text-align:center;margin:20px 0 4px;font-weight:700;">Vende más velocidad, más beneficios y un mejor precio de por vida. 🚀</p>
+
+      <div class="tc-figuras">
+        <figure class="tc-figura">
+          <img class="zoomable" src="tips-comparativo-tv-prev.jpg" data-grande="tips-comparativo-tv.jpg"
+               data-titulo="Comparativo planes 150 y 350 megas con TV"
+               alt="Línea de tiempo mes a mes comparando el plan de 150 y 350 megas con TV"
+               loading="lazy">
+          <figcaption>Comparativo con TV, mes a mes<br><span class="zoom-pista">🔍 Toca para ampliar</span></figcaption>
+        </figure>
+        <figure class="tc-figura">
+          <img class="zoomable" src="tips-comparativo-sintv-prev.jpg" data-grande="tips-comparativo-sintv.jpg"
+               data-titulo="Comparativo planes 150 y 350 megas sin TV"
+               alt="Línea de tiempo mes a mes comparando el plan de 150 y 350 megas sin TV"
+               loading="lazy">
+          <figcaption>Comparativo sin TV, mes a mes<br><span class="zoom-pista">🔍 Toca para ampliar</span></figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -6310,7 +6767,10 @@ window.addEventListener('pagehide', tocarSesion);
 // el DIRECTOR DISTRITAL la sigue viendo, con un aviso de que ya terminó.
 
 const SECCIONES = [
-  { id:'superbundles-seccion',nav:'navSuperBundles',      nombre:'Vende planes con TV',         fin:'2026-08-31' },
+  { id:'tips-seccion',            nav:null,                   nombre:'Vende más TIPs',              fin:null },
+  { id:'superbundles-seccion',    nav:'navSuperBundles',      nombre:'Vende planes con TV',         fin:'2026-08-31' },
+  { id:'tips-ahorra-seccion',     nav:'navTipsAhorra',        nombre:'Ahorra más con TV',           fin:'2026-08-31' },
+  { id:'tips-comparativo-seccion',nav:'navTipsComparativo',   nombre:'150 vs 350 megas',            fin:'2026-08-31' },
   { id:'blacknut-seccion',    nav:'navBlacknut',          nombre:'Blacknut',                    fin:'2026-09-30',
     navExtra:'navBlacknutSub' },
   { id:'planes',              nav:null,                   nombre:'Planes y Megas',              fin:null },
@@ -6333,6 +6793,7 @@ const SECCIONES = [
 // Bitácora de cambios. La entrada más reciente va arriba.
 // Cada vez que publiques una actualización, agrega una línea con un id nuevo.
 const AVISOS = [
+  { id:'2026-08-11-tips',fecha:'11 de agosto 2026', texto:'¡NUEVO menú "Vende más TIPs"! Ahora agrupa "Vende planes con TV" junto con dos herramientas nuevas: "Ahorra más con TV" (el desglose de precios con y sin promoción) y "150 vs 350 megas" (el comparativo mes a mes para cerrar más ventas de velocidad). Vigencia al 31 de agosto.' },
   { id:'2026-08-10-superbundles',fecha:'10 de agosto 2026', texto:'¡NUEVO! "Haz que cada venta valga más": refuerzo para vender planes con TV. Argumentos, tips y el speech ganador para convencer al cliente. Vigencia al 31 de agosto.' },
   { id:'2026-08-02-vigencias',fecha:'2 de agosto 2026', texto:'Ya quedó el guardado de vigencias: el cambio se aplica al momento y se conserva al volver a entrar, aunque la hoja tarde en contestar.' },
   { id:'2026-08-01-admin',fecha:'1 de agosto 2026', texto:'Administrar contenido ahora confirma contra la hoja que el cambio de vigencia realmente quedó grabado, y permite eliminar definitivamente las secciones que ya terminaron.' },
