@@ -2219,7 +2219,7 @@
     grid-template-columns:1fr;
     gap:12px;
   }
-  @media (min-width:640px){ .tips-nav-cards{grid-template-columns:repeat(3,1fr);} }
+  @media (min-width:640px){ .tips-nav-cards{grid-template-columns:repeat(2,1fr);} }
   a.tips-nav-card{
     display:flex;
     flex-direction:column;
@@ -2435,6 +2435,78 @@
   .tc-figura{margin:0;text-align:center;}
   .tc-figura img{max-width:100%;border-radius:14px;}
   .tc-figura figcaption{font-size:12px;color:#5b7a85;margin-top:8px;font-weight:700;}
+
+  /* ── VENDE MÁS TIPS · DESTACADOS DE TUS APPS ── */
+  .da-block{
+    background:white;
+    border-radius:22px;
+    padding:26px 20px 22px;
+    border:2px solid var(--foam);
+  }
+  .da-block h3{
+    font-family:'Baloo 2', sans-serif;
+    font-size:22px;
+    color:var(--ocean-deep);
+    margin:0 0 8px;
+    text-align:center;
+  }
+  .da-lema{font-size:14px;color:#3d5a63;text-align:center;margin:0 0 18px;line-height:1.5;}
+  .da-tip{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    background:var(--foam);
+    border-left:4px solid var(--coral);
+    border-radius:12px;
+    padding:14px 16px;
+    margin-bottom:22px;
+    font-size:13.5px;
+    line-height:1.5;
+    color:#204049;
+  }
+  .da-tip strong{color:var(--ocean-deep);}
+  .da-platforms{display:flex;flex-direction:column;gap:16px;}
+  @media (min-width:640px){ .da-platforms{display:grid;grid-template-columns:1fr 1fr;gap:16px;} }
+  .da-platform{
+    border:2px solid var(--foam);
+    border-top:5px solid var(--da-color,var(--ocean));
+    border-radius:18px;
+    padding:18px 16px 16px;
+    background:linear-gradient(160deg,white,var(--foam));
+  }
+  .da-head{margin-bottom:12px;}
+  .da-logo{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:800;
+    font-size:17px;
+    color:var(--da-color,var(--ocean-deep));
+    margin-bottom:4px;
+  }
+  .da-diff{font-size:13px;color:#3d5a63;margin:0;line-height:1.45;}
+  .da-features{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-direction:column;gap:6px;}
+  .da-features li{font-size:12.5px;color:#204049;line-height:1.4;padding-left:20px;position:relative;}
+  .da-features li::before{content:"✓";position:absolute;left:0;top:0;color:var(--da-color,var(--ocean));font-weight:800;}
+  .da-group-title{font-size:11px;font-weight:800;color:#5b7a85;text-transform:uppercase;letter-spacing:.04em;margin:0 0 8px;}
+  .da-posters{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;}
+  .da-poster{flex:0 0 auto;width:80px;text-align:center;}
+  .da-poster img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:10px;display:block;box-shadow:0 3px 10px rgba(7,59,76,.18);transition:transform .15s ease;}
+  .da-poster img:active{transform:scale(.95);}
+  .da-poster figcaption{font-size:10.5px;font-weight:700;color:var(--ocean-deep);margin-top:5px;line-height:1.25;}
+  .da-poster .da-poster-tag{display:block;font-size:9px;font-weight:800;color:var(--coral);margin-top:1px;}
+  .da-closing{
+    background:linear-gradient(135deg,var(--ocean-deep),var(--ocean));
+    color:white;
+    border-radius:18px;
+    padding:18px 20px;
+    text-align:center;
+    margin-top:6px;
+    font-size:13.5px;
+    line-height:1.5;
+  }
+  .da-closing strong{color:var(--sun);}
 
   /* ── VISOR DE IMÁGENES (clic para ampliar) ── */
   .zoomable{cursor:zoom-in;}
@@ -3126,6 +3198,7 @@
     <a href="#superbundles-seccion" id="navSuperBundles" onclick="closeNav()"><span class="nav-icon">📺</span>Vende planes con TV</a>
     <a href="#tips-ahorra-seccion" id="navTipsAhorra" onclick="closeNav()"><span class="nav-icon">💰</span>Ahorra más con TV</a>
     <a href="#tips-comparativo-seccion" id="navTipsComparativo" onclick="closeNav()"><span class="nav-icon">📊</span>150 vs 350 megas</a>
+    <a href="#tips-apps-seccion" id="navTipsApps" onclick="closeNav()"><span class="nav-icon">🎬</span>Destacados de tus apps</a>
   </div>
   <button type="button" class="nav-parent" id="navBlacknut" onclick="toggleSubmenu(this)">
     <span class="nav-icon">🎮</span>Blacknut · ¡NUEVO!
@@ -3236,6 +3309,12 @@
           <h4>150 vs 350 megas</h4>
           <p>La comparación mes a mes que le demuestra al cliente por qué le conviene más velocidad desde hoy.</p>
           <span class="tnc-go">Ver comparativo →</span>
+        </a>
+        <a class="tips-nav-card" href="#tips-apps-seccion">
+          <span class="tnc-icon">🎬</span>
+          <h4>Destacados de tus apps</h4>
+          <p>Los estrenos de agosto en Apple TV, Disney+, Netflix, HBO Max y Universal+, para vender con argumentos frescos.</p>
+          <span class="tnc-go">Ver estrenos →</span>
         </a>
       </div>
     </div>
@@ -3481,6 +3560,162 @@
                loading="lazy">
           <figcaption>Comparativo sin TV, mes a mes<br><span class="zoom-pista">🔍 Toca para ampliar</span></figcaption>
         </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="tips-apps-seccion" style="padding:24px 16px 30px;">
+    <div class="da-block">
+      <div class="section-eyebrow" style="text-align:center;">🚀 Vende más TIPs</div>
+      <h3>🎬 Conoce lo que trae cada app</h3>
+      <p class="da-lema">5 plataformas, un mundo de entretenimiento. Aquí tienes el diferenciador de cada una, lo que se lleva tu cliente y los estrenos de agosto que le van a encantar.</p>
+
+      <div class="da-tip">
+        <span>💡</span>
+        <p><strong>Tip para vender más:</strong> no digas solo "tiene Netflix". Menciona un título concreto — "ahorita está <em>Silo</em> en Apple TV" o "ya salió <em>Hoppers</em> en Disney+" — eso genera muchísima más confianza y cierra la venta más rápido.</p>
+      </div>
+
+      <div class="da-platforms">
+
+        <div class="da-platform" style="--da-color:#1c1c1e;">
+          <div class="da-head">
+            <div class="da-logo">🍏 Apple TV</div>
+            <p class="da-diff">Series y películas exclusivas con alta calidad.</p>
+          </div>
+          <ul class="da-features">
+            <li>Disfrútalo en tu Totalplay TV y dispositivos móviles</li>
+            <li>Compártelo en familia: reproducción simultánea hasta en 6 dispositivos</li>
+            <li>Descarga tus contenidos favoritos para ver sin conexión (sujeto a disponibilidad)</li>
+          </ul>
+          <div class="da-group-title">🔥 Estrenos de agosto</div>
+          <div class="da-posters">
+            <figure class="da-poster">
+              <img class="zoomable" src="apps-appletv-silo.jpg" data-titulo="Apple TV · Silo" alt="Poster de la serie Silo en Apple TV" loading="lazy">
+              <figcaption>Silo</figcaption>
+            </figure>
+            <figure class="da-poster">
+              <img class="zoomable" src="apps-appletv-capefear.jpg" data-titulo="Apple TV · Cape Fear" alt="Poster de la película Cape Fear en Apple TV" loading="lazy">
+              <figcaption>Cape Fear</figcaption>
+            </figure>
+            <figure class="da-poster">
+              <img class="zoomable" src="apps-appletv-tedlasso.jpg" data-titulo="Apple TV · Ted Lasso" alt="Poster de la serie Ted Lasso en Apple TV" loading="lazy">
+              <figcaption>Ted Lasso</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="da-platform" style="--da-color:#0063E5;">
+          <div class="da-head">
+            <div class="da-logo">🍿 Disney+</div>
+            <p class="da-diff">Entretenimiento para compartir en familia.</p>
+          </div>
+          <ul class="da-features">
+            <li>Disfrútalo en tu Totalplay TV y dispositivos móviles</li>
+            <li>Reproduce en 2 dispositivos simultáneamente</li>
+            <li>Planes de 5 y 10 Gigas: descarga hasta 25 programas en 10 dispositivos</li>
+          </ul>
+          <div class="da-group-title">🔥 Estrenos de agosto</div>
+          <div class="da-posters">
+            <figure class="da-poster">
+              <img class="zoomable" src="apps-disney-eldiablo.jpg" data-titulo="Disney+ · El Diablo Viste a la Moda 2" alt="Poster de la película El Diablo Viste a la Moda 2 en Disney+" loading="lazy">
+              <figcaption>El Diablo Viste a la Moda 2</figcaption>
+            </figure>
+            <figure class="da-poster">
+              <img class="zoomable" src="apps-disney-hoppers.jpg" data-titulo="Disney+ · Hoppers" alt="Poster de la película animada Hoppers en Disney+" loading="lazy">
+              <figcaption>Hoppers</figcaption>
+            </figure>
+            <figure class="da-poster">
+              <img class="zoomable" src="apps-disney-avatar.jpg" data-titulo="Disney+ · Avatar: Fuego y Ceniza" alt="Poster de Avatar Fuego y Ceniza en Disney+" loading="lazy">
+              <figcaption>Avatar: Fuego y Ceniza</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="da-platform" style="--da-color:#E50914;">
+          <div class="da-head">
+            <div class="da-logo">🎬 Netflix</div>
+            <p class="da-diff">Estrenos y tendencias de los que todos hablan.</p>
+          </div>
+          <ul class="da-features">
+            <li>Disponible en Totalplay TV y dispositivos móviles</li>
+            <li>Reprodúcelo en 2 dispositivos simultáneamente</li>
+            <li>Descarga hasta 15 contenidos para ver sin conexión</li>
+            <li>Disfruta de juegos para la familia desde tus dispositivos móviles</li>
+          </ul>
+          <div class="da-group-title">🔥 Estrenos de agosto</div>
+          <div class="da-posters">
+            <figure class="da-poster">
+              <img class="zoomable" src="apps-netflix-elotropadre.jpg" data-titulo="Netflix · El Otro Padre" alt="Poster de la serie El Otro Padre en Netflix" loading="lazy">
+              <figcaption>El Otro Padre</figcaption>
+            </figure>
+            <figure class="da-poster">
+              <img class="zoomable" src="apps-netflix-miedo.jpg" data-titulo="Netflix · ¿Miedo?" alt="Poster de la serie ¿Miedo? en Netflix" loading="lazy">
+              <figcaption>¿Miedo?</figcaption>
+            </figure>
+            <figure class="da-poster">
+              <img class="zoomable" src="apps-netflix-elize.jpg" data-titulo="Netflix · Elize: Sombras de una Mujer" alt="Poster de la serie Elize Sombras de una Mujer en Netflix" loading="lazy">
+              <figcaption>Elize: Sombras de una Mujer</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="da-platform" style="--da-color:#5A4FCF;">
+          <div class="da-head">
+            <div class="da-logo">🏆 HBO Max</div>
+            <p class="da-diff">Series premiadas, grandes franquicias y las historias originales que solo HBO puede contar.</p>
+          </div>
+          <ul class="da-features">
+            <li>Disfrútalo en tu Totalplay TV y dispositivos móviles</li>
+            <li>Reproduce en 2 dispositivos simultáneamente</li>
+            <li>Planes de 5 y 10 Gigas: descarga hasta 30 programas en 4 dispositivos</li>
+          </ul>
+          <div class="da-group-title">🔥 Estrenos de agosto</div>
+          <div class="da-posters">
+            <figure class="da-poster">
+              <img class="zoomable" src="apps-hbomax-linternas.jpg" data-titulo="HBO Max · Linternas · Nueva serie, 16 de agosto" alt="Poster de la nueva serie Linternas en HBO Max, estreno 16 de agosto" loading="lazy">
+              <figcaption>Linternas<span class="da-poster-tag">Nueva · 16 ago</span></figcaption>
+            </figure>
+            <figure class="da-poster">
+              <img class="zoomable" src="apps-hbomax-freddys.jpg" data-titulo="HBO Max · Five Nights at Freddy's 2" alt="Poster de la película Five Nights at Freddy's 2 en HBO Max" loading="lazy">
+              <figcaption>Five Nights at Freddy's 2</figcaption>
+            </figure>
+            <figure class="da-poster">
+              <img class="zoomable" src="apps-hbomax-caballero.jpg" data-titulo="HBO Max · El Caballero de los Siete Reinos" alt="Poster de la serie El Caballero de los Siete Reinos en HBO Max" loading="lazy">
+              <figcaption>El Caballero de los Siete Reinos</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="da-platform" style="--da-color:#6A5ACD;">
+          <div class="da-head">
+            <div class="da-logo">🎞️ Universal+</div>
+            <p class="da-diff">Series exclusivas de NBCUniversal y 5 canales premium incluidos en tu programación.</p>
+          </div>
+          <ul class="da-features">
+            <li>Disfrútalo en tu Totalplay TV y dispositivos móviles</li>
+            <li>Comparte en familia: reproduce en 4 dispositivos simultáneamente</li>
+          </ul>
+          <div class="da-group-title">🔥 Estrenos de agosto</div>
+          <div class="da-posters">
+            <figure class="da-poster">
+              <img class="zoomable" src="apps-universal-huntingparty.jpg" data-titulo="Universal+ · The Hunting Party" alt="Poster de la serie The Hunting Party en Universal+" loading="lazy">
+              <figcaption>The Hunting Party</figcaption>
+            </figure>
+            <figure class="da-poster">
+              <img class="zoomable" src="apps-universal-from.jpg" data-titulo="Universal+ · From" alt="Poster de la serie From en Universal+" loading="lazy">
+              <figcaption>From</figcaption>
+            </figure>
+            <figure class="da-poster">
+              <img class="zoomable" src="apps-universal-murder.jpg" data-titulo="Universal+ · Murder in a Small Town" alt="Poster de la serie Murder in a Small Town en Universal+" loading="lazy">
+              <figcaption>Murder in a Small Town</figcaption>
+            </figure>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="da-closing">
+        <p>5 plataformas, cientos de estrenos y <strong>una app distinta para cada gusto</strong>. Conocer estos títulos te ayuda a conectar con tu cliente y cerrar la venta más rápido. 🚀</p>
       </div>
     </div>
   </section>
@@ -6771,6 +7006,7 @@ const SECCIONES = [
   { id:'superbundles-seccion',    nav:'navSuperBundles',      nombre:'Vende planes con TV',         fin:'2026-08-31' },
   { id:'tips-ahorra-seccion',     nav:'navTipsAhorra',        nombre:'Ahorra más con TV',           fin:'2026-08-31' },
   { id:'tips-comparativo-seccion',nav:'navTipsComparativo',   nombre:'150 vs 350 megas',            fin:'2026-08-31' },
+  { id:'tips-apps-seccion',       nav:'navTipsApps',          nombre:'Destacados de tus apps',       fin:'2026-08-31' },
   { id:'blacknut-seccion',    nav:'navBlacknut',          nombre:'Blacknut',                    fin:'2026-09-30',
     navExtra:'navBlacknutSub' },
   { id:'planes',              nav:null,                   nombre:'Planes y Megas',              fin:null },
@@ -6793,6 +7029,7 @@ const SECCIONES = [
 // Bitácora de cambios. La entrada más reciente va arriba.
 // Cada vez que publiques una actualización, agrega una línea con un id nuevo.
 const AVISOS = [
+  { id:'2026-08-12-tips-apps',fecha:'12 de agosto 2026', texto:'¡NUEVO en "Vende más TIPs"! Agregamos "Destacados de tus apps": el diferenciador, las características y los estrenos de agosto de Apple TV, Disney+, Netflix, HBO Max y Universal+, para que vendas con argumentos frescos. Vigencia al 31 de agosto.' },
   { id:'2026-08-11-tips',fecha:'11 de agosto 2026', texto:'¡NUEVO menú "Vende más TIPs"! Ahora agrupa "Vende planes con TV" junto con dos herramientas nuevas: "Ahorra más con TV" (el desglose de precios con y sin promoción) y "150 vs 350 megas" (el comparativo mes a mes para cerrar más ventas de velocidad). Vigencia al 31 de agosto.' },
   { id:'2026-08-10-superbundles',fecha:'10 de agosto 2026', texto:'¡NUEVO! "Haz que cada venta valga más": refuerzo para vender planes con TV. Argumentos, tips y el speech ganador para convencer al cliente. Vigencia al 31 de agosto.' },
   { id:'2026-08-02-vigencias',fecha:'2 de agosto 2026', texto:'Ya quedó el guardado de vigencias: el cambio se aplica al momento y se conserva al volver a entrar, aunque la hoja tarde en contestar.' },
