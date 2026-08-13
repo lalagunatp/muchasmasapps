@@ -46,7 +46,7 @@
   /* HERO */
   .hero{
     position:relative;
-    background:linear-gradient(180deg,var(--ocean-deep) 0%, var(--ocean) 60%, #1596B8 100%);
+    background:linear-gradient(180deg,#3D2678 0%, #2F1C5E 55%, #24123F 100%);
     padding:36px 24px 70px;
     color:white;
     text-align:center;
@@ -60,27 +60,12 @@
   }
   .hero::before{width:260px;height:260px;top:-120px;left:-80px;}
   .hero::after{width:180px;height:180px;bottom:-90px;right:-60px;}
-  .badge{
-    display:inline-block;
-    background:rgba(255,255,255,0.16);
-    border:1px solid rgba(255,255,255,0.4);
-    padding:6px 18px;
-    border-radius:999px;
-    font-size:12px;
-    letter-spacing:2px;
-    font-weight:700;
-    text-transform:uppercase;
-    margin-bottom:18px;
-  }
-  h1.title{
-    font-family:'Baloo 2', sans-serif;
-    font-weight:800;
-    font-size:clamp(38px,7vw,64px);
-    line-height:0.95;
-    margin:0 0 6px;
-    color:var(--sun);
-    text-shadow:3px 3px 0 var(--coral);
-    letter-spacing:1px;
+  .hero-logo{
+    display:block;
+    width:100%;
+    max-width:480px;
+    margin:0 auto 6px;
+    filter:drop-shadow(0 6px 14px rgba(0,0,0,.28));
   }
   .subtitle{
     font-size:16px;
@@ -2676,7 +2661,7 @@
   /* Celulares en horizontal (landscape): viewport corto en altura */
   @media (max-height:480px) and (orientation:landscape){
     .hero{padding:18px 20px 44px;}
-    h1.title{font-size:34px;}
+    .hero-logo{max-width:260px;}
     .app-stack-wrap{margin-top:-30px;}
     #lockScreen{padding:14px;}
     .lock-card{padding:22px 20px 18px;max-height:92vh;overflow-y:auto;}
@@ -2688,7 +2673,7 @@
   @media (max-width:520px){
     .logo{font-size:24px;}
     .hero{padding:26px 18px 60px;}
-    h1.title{font-size:42px;}
+    .hero-logo{max-width:320px;}
     .subtitle{font-size:14px;}
     section.block{padding:24px 16px;}
     .app-stack{padding:10px 12px;}
@@ -2711,7 +2696,7 @@
 
   /* Celulares muy angostos */
   @media (max-width:360px){
-    h1.title{font-size:36px;}
+    .hero-logo{max-width:280px;}
     .plan-grid{grid-template-columns:1fr 1fr;}
     .app-stack{gap:6px;}
     .app-pill{font-size:10px;padding:5px 8px;}
@@ -3260,11 +3245,11 @@
 <div class="page" id="inicio">
 
   <div class="hero">
-    <span class="badge">Oferta Residencial · Nacional</span>
-    <h1 class="title">¡Muchas<br>Más Apps!</h1>
-    <p class="subtitle">Más sol, más diversión… y muchos más streamings. Tu cliente elige hasta 5 apps incluidas en su plan.</p>
+    <img class="hero-logo" src="hero-regreso-clases.jpg" alt="Misión Regreso a Clases con Más Apps · Oferta Residencial">
+    <p class="subtitle">Mochila lista, tarea lista y ¡más apps listas! Tu cliente elige hasta 5 apps incluidas en su plan.</p>
     <div class="meta-row">
-      <span class="meta-chip">Vigencia: 22 julio 2026</span>
+      <span class="meta-chip">Alcance: Nacional</span>
+      <span class="meta-chip">Vigencia: 31 agosto 2026</span>
       <span class="meta-chip">#VamosPorLaVenta</span>
     </div>
   </div>
@@ -7031,6 +7016,7 @@ const SECCIONES = [
 // Bitácora de cambios. La entrada más reciente va arriba.
 // Cada vez que publiques una actualización, agrega una línea con un id nuevo.
 const AVISOS = [
+  { id:'2026-08-13-regreso-clases',fecha:'13 de agosto 2026', texto:'¡Nueva imagen! La portada cambió a "Misión Regreso a Clases con Más Apps". Las promociones, precios y reglas de negocio siguen siendo los mismos que ya conoces en Planes y Megas. Vigencia al 31 de agosto.' },
   { id:'2026-08-12-tips-apps',fecha:'12 de agosto 2026', texto:'¡NUEVO en "Vende más TIPs"! Agregamos "Destacados de tus apps": el diferenciador, las características y los estrenos de agosto de Apple TV, Disney+, Netflix, HBO Max y Universal+, para que vendas con argumentos frescos. Vigencia al 31 de agosto.' },
   { id:'2026-08-11-tips',fecha:'11 de agosto 2026', texto:'¡NUEVO menú "Vende más TIPs"! Ahora agrupa "Vende planes con TV" junto con dos herramientas nuevas: "Ahorra más con TV" (el desglose de precios con y sin promoción) y "150 vs 350 megas" (el comparativo mes a mes para cerrar más ventas de velocidad). Vigencia al 31 de agosto.' },
   { id:'2026-08-10-superbundles',fecha:'10 de agosto 2026', texto:'¡NUEVO! "Haz que cada venta valga más": refuerzo para vender planes con TV. Argumentos, tips y el speech ganador para convencer al cliente. Vigencia al 31 de agosto.' },
