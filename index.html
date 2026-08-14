@@ -3370,7 +3370,7 @@
   <div class="nav-submenu" id="navBlacknutSub">
     <a href="#blacknut-seccion" onclick="closeNav()"><span class="nav-icon">📄</span>Ver todo</a>
     <a href="#bn-que-lleva" onclick="closeNav()"><span class="nav-icon">✅</span>¿Qué se lleva tu cliente?</a>
-    <a href="#bn-juegos" onclick="closeNav()"><span class="nav-icon">🕹️</span>Top Juegos Blacknut</a>
+    <a href="#bn-juegos" id="navBnJuegos" onclick="closeNav()"><span class="nav-icon">🕹️</span>Top Juegos Blacknut</a>
     <a href="#bn-precio" onclick="closeNav()"><span class="nav-icon">💲</span>¿Cuánto cuesta?</a>
     <a href="#bn-pasos" onclick="closeNav()"><span class="nav-icon">📝</span>Así se contrata, paso a paso</a>
     <a href="#bn-faq" onclick="closeNav()"><span class="nav-icon">❓</span>Preguntas que te van a hacer</a>
@@ -3729,7 +3729,7 @@
   <section class="block" id="tips-apps-seccion" style="padding:24px 16px 30px;">
     <div class="da-block">
       <div class="section-eyebrow" style="text-align:center;">🚀 Vende más TIPs</div>
-      <h3>🎬 Conoce lo que trae cada app</h3>
+      <h3 id="da-titulo">🎬 Conoce lo que trae cada app</h3>
       <p class="da-lema">5 plataformas, un mundo de entretenimiento. Aquí tienes el diferenciador de cada una, lo que se lleva tu cliente y los estrenos de agosto que le van a encantar.</p>
 
       <div class="da-tip">
@@ -3885,7 +3885,7 @@
   <section class="block" id="streaming-anuncios-seccion" style="padding:24px 16px 30px;">
     <div class="sa-block">
       <div class="section-eyebrow" style="text-align:center;">🚀 Vende más TIPs</div>
-      <h3>🎬 Streaming con anuncios: más entretenimiento por un precio accesible</h3>
+      <h3 id="sa-titulo">🎬 Streaming con anuncios: más entretenimiento por un precio accesible</h3>
       <p class="sa-lema">Los planes con anuncios son una excelente alternativa para disfrutar de grandes plataformas de streaming pagando menos. La experiencia sigue siendo digital, cómoda y con contenido de gran calidad; la diferencia es que aparecen pausas publicitarias breves durante la reproducción.</p>
       <p class="sa-lema">Para el cliente que busca <strong>entretenimiento, variedad y ahorro</strong>, estos planes ofrecen una excelente relación entre precio y beneficios.</p>
 
@@ -4029,7 +4029,7 @@
         <div class="bn-punto"><span class="bn-ico">🇲🇽</span><p>Juegos <strong>escogidos para México</strong>, y se le pueden agregar más.</p></div>
       </div>
 
-      <div class="bn-sub" id="bn-juegos">🕹️ Top Juegos Blacknut <span class="flash-nuevo">⚡ Nuevo</span></div>
+      <div class="bn-sub" id="bn-juegos">🕹️ Top Juegos Blacknut</div>
       <p class="bn-juegos-lema">Un vistazo al catálogo de más de 1,000 juegos, organizado por categoría. Úsalo para recomendarle al cliente el que más le va a gustar, según lo que le encanta jugar.</p>
 
       <div class="bn-juegos-grid">
@@ -7450,6 +7450,7 @@ const SECCIONES = [
 // Bitácora de cambios. La entrada más reciente va arriba.
 // Cada vez que publiques una actualización, agrega una línea con un id nuevo.
 const AVISOS = [
+  { id:'2026-08-14-flash-nuevo',fecha:'14 de agosto 2026', texto:'Ahora lo recién agregado se marca solo con "⚡ Nuevo", tanto en el menú como en el título dentro de la página. La marca se apaga sola a los 15 días, no hay que quitarla a mano.' },
   { id:'2026-08-14-bn-top-juegos',fecha:'14 de agosto 2026', texto:'En Blacknut, "Algunos de los juegos" ahora es "Top Juegos Blacknut ⚡ Nuevo": 10 categorías con 2 juegos cada una (portada y descripción), para recomendar el que más le guste al cliente.' },
   { id:'2026-08-14-fox-fuera',fecha:'14 de agosto 2026', texto:'Se retiró la sección "FOX+ · $149 por 1 mes": la promoción ya había vencido el 31 de julio y no se va a renovar.' },
   { id:'2026-08-14-glosario-avod',fecha:'14 de agosto 2026', texto:'El Glosario ya trae "Streaming con anuncios" y "AVOD", para explicarle al cliente por qué estos planes cuestan menos.' },
@@ -7476,6 +7477,24 @@ const AVISOS = [
   { id:'2026-07-25-alexa',fecha:'25 de julio 2026', texto:'Aviso importante: se desactivan los comandos de voz con Alexa en decodificadores VSB y DIW377.' },
   { id:'2026-07-25-crecelo',fecha:'25 de julio 2026', texto:'Se agregó "Crécelo Simétrico": más velocidad desde $70 al mes (vigencia permanente).' },
   { id:'2026-07-23-vsb',  fecha:'23 de julio 2026', texto:'Se agregó la sección "Un verano con V de VSB".' }
+];
+
+// ═══════════════════════════════════════════════════════════════════
+//  MARCAS "NUEVO"  ·  aparecen solas en el menú y en el título, y se
+//  apagan solas 15 días después de "fecha". No hay que quitarlas a mano.
+//
+// CÓMO MARCAR ALGO COMO NUEVO:
+//   1. Ponle un id al elemento del menú (el <a> o el <button.nav-parent>)
+//      y otro id al título dentro de la página (el que se ve al entrar
+//      a esa sección o subsección).
+//   2. Agrega una línea aquí abajo con esos dos ids y la fecha de hoy.
+//   3. Quítala cuando ya no aplique, o simplemente espera: sola desaparece
+//      a los 15 días.
+const DIAS_NUEVO = 15;
+const NUEVOS = [
+  { navId:'navStreamingAds', tituloId:'sa-titulo',  fecha:'2026-08-13' },
+  { navId:'navTipsApps',     tituloId:'da-titulo',  fecha:'2026-08-12' },
+  { navId:'navBnJuegos',     tituloId:'bn-juegos',  fecha:'2026-08-14' }
 ];
 
 const PUESTO_ADMIN = normPuesto('DIRECTOR DISTRITAL');
@@ -7678,6 +7697,40 @@ function aplicarVigencias(){
   return vencidas;
 }
 
+// Pone (o quita, si ya venció) el flash "⚡ Nuevo" del menú y del título,
+// según la lista NUEVOS. Se puede llamar las veces que sea: no duplica
+// la marca si ya está puesta.
+function marcarNuevos(){
+  const hoy = new Date();
+
+  NUEVOS.forEach(function(item){
+    const vence = new Date(item.fecha + 'T00:00:00');
+    vence.setDate(vence.getDate() + DIAS_NUEVO);
+    const vigente = hoy <= vence;
+
+    [item.navId, item.tituloId].forEach(function(id){
+      if(!id) return;
+      const el = document.getElementById(id);
+      if(!el) return;
+
+      const existente = el.querySelector('.flash-nuevo');
+      if(!vigente){
+        if(existente) existente.remove();
+        return;
+      }
+      if(existente) return;
+
+      const marca = document.createElement('span');
+      marca.className = 'flash-nuevo';
+      marca.textContent = '⚡ Nuevo';
+
+      const caret = el.querySelector('.nav-caret');
+      if(caret) el.insertBefore(marca, caret);
+      else el.appendChild(marca);
+    });
+  });
+}
+
 // ── AVISO DE CAMBIOS ──
 function avisosVistos(){
   try{ return JSON.parse(localStorage.getItem(AVISOS_KEY) || '[]'); }
@@ -7846,6 +7899,7 @@ function enterSite(){
   tocarSesion();
   iniciarVigilancia();
   mostrarAvisoDeCambios(aplicarVigencias());
+  marcarNuevos();
 
   // Trae las vigencias guardadas en la hoja y vuelve a aplicarlas.
   cargarConfigSecciones(function(){
