@@ -2515,18 +2515,19 @@
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-    gap:10px;
+    gap:12px;
     margin:18px 0 24px;
   }
   .sa-res-btn{
-    display:inline-flex;
+    display:flex;
     align-items:center;
-    gap:8px;
+    gap:12px;
+    width:100%;
+    max-width:320px;
+    text-align:left;
     text-decoration:none;
-    font-weight:800;
-    font-size:13px;
-    padding:12px 18px;
-    border-radius:14px;
+    padding:12px 16px;
+    border-radius:16px;
     color:white;
     box-shadow:0 6px 16px rgba(7,59,76,0.16);
     transition:transform .15s ease;
@@ -2534,7 +2535,22 @@
   .sa-res-btn:active{transform:scale(.97);}
   .sa-res-btn.guide{background:linear-gradient(135deg,var(--ocean-deep),var(--ocean));}
   .sa-res-btn.video{background:linear-gradient(135deg,#D32F2F,#FF6B4A);}
-  .sa-res-btn .sa-res-ext{opacity:.8;font-weight:700;}
+  .sa-res-play{
+    flex-shrink:0;
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:rgba(255,255,255,.24);
+    border:1.5px solid rgba(255,255,255,.5);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+  }
+  .sa-res-text{display:flex;flex-direction:column;gap:3px;min-width:0;}
+  .sa-res-text strong{font-size:13px;font-weight:800;line-height:1.3;}
+  .sa-res-text small{display:flex;align-items:center;gap:4px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;opacity:.85;}
+  .sa-res-text .sa-res-ext{opacity:.8;}
   .sa-platforms{display:flex;flex-direction:column;gap:16px;max-width:100%;}
   @media (min-width:700px){ .sa-platforms{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;} }
   .sa-platform{
@@ -3876,8 +3892,20 @@
       <p class="sa-lema">Para el cliente que busca <strong>entretenimiento, variedad y ahorro</strong>, estos planes ofrecen una excelente relación entre precio y beneficios.</p>
 
       <div class="sa-resources">
-        <a class="sa-res-btn guide" href="https://notebook.google.com/notebook/8a38d1e3-3f36-4243-bf64-79a1f35f687b/artifact/d2ff0b30-3c04-443f-a488-2139eeff92a3?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">📘 Guía definitiva para colocar streaming con anuncios<span class="sa-res-ext">↗</span></a>
-        <a class="sa-res-btn video" href="https://youtu.be/IG0UUnjct0Y?si=--Fr_tWD7GiUr7xB" target="_blank" rel="noopener">▶️ ¿Conviene comprar Netflix con anuncios?<span class="sa-res-ext">↗</span></a>
+        <a class="sa-res-btn guide" href="https://drive.google.com/file/d/1jvfFbck-SjJjfQCJfBVB3nHOCtF4EuOz/view?usp=sharing" target="_blank" rel="noopener">
+          <span class="sa-res-play">▶</span>
+          <span class="sa-res-text">
+            <strong>Guía definitiva para colocar streaming con anuncios</strong>
+            <small>🎬 Video · toca para reproducir<span class="sa-res-ext">↗</span></small>
+          </span>
+        </a>
+        <a class="sa-res-btn video" href="https://youtu.be/IG0UUnjct0Y?si=--Fr_tWD7GiUr7xB" target="_blank" rel="noopener">
+          <span class="sa-res-play">▶</span>
+          <span class="sa-res-text">
+            <strong>¿Conviene comprar Netflix con anuncios?</strong>
+            <small>🎬 Video · toca para reproducir<span class="sa-res-ext">↗</span></small>
+          </span>
+        </a>
       </div>
 
       <div class="sa-platforms">
@@ -7291,6 +7319,7 @@ const SECCIONES = [
 // Bitácora de cambios. La entrada más reciente va arriba.
 // Cada vez que publiques una actualización, agrega una línea con un id nuevo.
 const AVISOS = [
+  { id:'2026-08-14-streaming-anuncios-videos',fecha:'14 de agosto 2026', texto:'En "Streaming con anuncios": los botones de video ahora se ven más claros (▶ y "toca para reproducir"), y se actualizó la liga de la Guía definitiva.' },
   { id:'2026-08-13-streaming-anuncios',fecha:'13 de agosto 2026', texto:'¡NUEVA sección "Streaming con anuncios"! El diferenciador, las características, el "para quién es ideal" y el resumen de los planes Estándar con anuncios de Netflix, Disney+ y Universal+, más la guía completa y un video para argumentar mejor esta venta.' },
   { id:'2026-08-13-regreso-clases',fecha:'13 de agosto 2026', texto:'¡Nueva imagen! La portada cambió a "Misión Regreso a Clases con Más Apps". Las promociones, precios y reglas de negocio siguen siendo los mismos que ya conoces en Planes y Megas. Vigencia al 31 de agosto.' },
   { id:'2026-08-12-tips-apps',fecha:'12 de agosto 2026', texto:'¡NUEVO en "Vende más TIPs"! Agregamos "Destacados de tus apps": el diferenciador, las características y los estrenos de agosto de Apple TV, Disney+, Netflix, HBO Max y Universal+, para que vendas con argumentos frescos. Vigencia al 31 de agosto.' },
