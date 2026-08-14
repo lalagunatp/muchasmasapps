@@ -1239,6 +1239,35 @@
     border-radius:999px;
     margin-bottom:10px;
   }
+
+  /* ── MARCA "NUEVO" reutilizable ──
+     Úsala junto al título de cualquier sección o subsección recién agregada
+     o actualizada: <span class="flash-nuevo">⚡ Nuevo</span> */
+  .flash-nuevo{
+    display:inline-flex;
+    align-items:center;
+    gap:3px;
+    background:linear-gradient(135deg,#FF2D78,#FF6B4A);
+    color:white;
+    font-family:'Baloo 2',sans-serif;
+    font-weight:800;
+    font-size:10.5px;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    padding:3px 10px;
+    border-radius:999px;
+    vertical-align:middle;
+    white-space:nowrap;
+    animation:flashNuevoPulso 1.6s ease-in-out infinite;
+  }
+  @keyframes flashNuevoPulso{
+    0%,100%{ box-shadow:0 0 0 0 rgba(255,45,120,.55); transform:scale(1); }
+    50%{ box-shadow:0 0 0 6px rgba(255,45,120,0); transform:scale(1.05); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .flash-nuevo{ animation:none; }
+  }
+
   .bn-block h3{
     font-family:'Baloo 2',sans-serif;
     font-size:clamp(24px,5vw,32px);
@@ -1286,6 +1315,48 @@
   .bn-punto .bn-ico{font-size:26px;line-height:1;flex-shrink:0;}
   .bn-punto p{margin:0;font-size:16px;line-height:1.45;color:#F4E6EE;}
   .bn-punto strong{color:#fff;}
+
+  .bn-juegos-lema{font-size:15px;line-height:1.5;color:#F0DCE6;margin:0 0 16px;max-width:560px;}
+  .bn-juegos-grid{display:flex;flex-direction:column;gap:14px;}
+  @media (min-width:700px){ .bn-juegos-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;} }
+  .bn-cat{
+    min-width:0;
+    max-width:100%;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,100,165,.28);
+    border-radius:16px;
+    padding:14px 16px 6px;
+  }
+  .bn-cat-nombre{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:'Baloo 2',sans-serif;
+    font-weight:800;
+    font-size:12.5px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:#FF64A5;
+    margin-bottom:8px;
+  }
+  .bn-juego{
+    display:flex;
+    gap:12px;
+    padding:10px 0;
+    border-top:1px solid rgba(255,255,255,.1);
+  }
+  .bn-juego:first-of-type{border-top:none;padding-top:0;}
+  .bn-juego img{
+    width:60px;
+    height:90px;
+    object-fit:cover;
+    border-radius:8px;
+    flex-shrink:0;
+    box-shadow:0 4px 12px rgba(0,0,0,.4);
+  }
+  .bn-juego-info{min-width:0;}
+  .bn-juego-info h5{font-family:'Baloo 2',sans-serif;font-size:14px;color:#fff;margin:0 0 4px;line-height:1.25;}
+  .bn-juego-info p{font-size:12px;line-height:1.42;color:#F0DCE6;margin:0;}
 
   .bn-precio-caja{
     display:grid;
@@ -3299,7 +3370,7 @@
   <div class="nav-submenu" id="navBlacknutSub">
     <a href="#blacknut-seccion" onclick="closeNav()"><span class="nav-icon">📄</span>Ver todo</a>
     <a href="#bn-que-lleva" onclick="closeNav()"><span class="nav-icon">✅</span>¿Qué se lleva tu cliente?</a>
-    <a href="#bn-juegos" onclick="closeNav()"><span class="nav-icon">🕹️</span>Algunos de los juegos</a>
+    <a href="#bn-juegos" onclick="closeNav()"><span class="nav-icon">🕹️</span>Top Juegos Blacknut</a>
     <a href="#bn-precio" onclick="closeNav()"><span class="nav-icon">💲</span>¿Cuánto cuesta?</a>
     <a href="#bn-pasos" onclick="closeNav()"><span class="nav-icon">📝</span>Así se contrata, paso a paso</a>
     <a href="#bn-faq" onclick="closeNav()"><span class="nav-icon">❓</span>Preguntas que te van a hacer</a>
@@ -3958,14 +4029,192 @@
         <div class="bn-punto"><span class="bn-ico">🇲🇽</span><p>Juegos <strong>escogidos para México</strong>, y se le pueden agregar más.</p></div>
       </div>
 
-      <div class="bn-sub" id="bn-juegos">🕹️ Algunos de los juegos</div>
-      <figure style="margin:0;">
-        <img class="zoomable" src="bn_juegos.jpg"
-             data-titulo="Algunos juegos disponibles en Blacknut"
-             alt="Portadas de juegos: King of Fighters, Star Wars Outlaws, Metal Slug, Assassin's Creed II, Watch Dogs 2"
-             loading="lazy" style="width:100%;max-width:520px;border-radius:14px;display:block;margin:0 auto;">
-        <figcaption style="text-align:center;margin-top:8px;"><span class="zoom-pista">🔍 Toca para ampliar</span></figcaption>
-      </figure>
+      <div class="bn-sub" id="bn-juegos">🕹️ Top Juegos Blacknut <span class="flash-nuevo">⚡ Nuevo</span></div>
+      <p class="bn-juegos-lema">Un vistazo al catálogo de más de 1,000 juegos, organizado por categoría. Úsalo para recomendarle al cliente el que más le va a gustar, según lo que le encanta jugar.</p>
+
+      <div class="bn-juegos-grid">
+        <div class="bn-cat">
+          <div class="bn-cat-nombre">🎮 Acción</div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-avatar-pandora.jpg" data-titulo="Avatar: Frontiers of Pandora" alt="Portada de Avatar: Frontiers of Pandora" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>Avatar: Frontiers of Pandora</h5>
+              <p>Una imponente aventura en primera persona en la que controlas a un Na'vi para defender Pandora.</p>
+            </div>
+          </div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-spongebob.jpg" data-titulo="SpongeBob SquarePants: Battle for Bikini Bottom – Rehydrated" alt="Portada de SpongeBob SquarePants: Battle for Bikini Bottom Rehydrated" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>SpongeBob SquarePants: Battle for Bikini Bottom – Rehydrated</h5>
+              <p>El aclamado juego de acción en el que salvas a Fondo de Bikini de un ejército de robots.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bn-cat">
+          <div class="bn-cat-nombre">🗺️ Aventura</div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-prince-of-persia.jpg" data-titulo="Prince of Persia: The Lost Crown" alt="Portada de Prince of Persia: The Lost Crown" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>Prince of Persia: The Lost Crown</h5>
+              <p>Exploración y agilidad mental ambientado en una Persia mitológica.</p>
+            </div>
+          </div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-syberia.jpg" data-titulo="Syberia: The World Before" alt="Portada de Syberia: The World Before" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>Syberia: The World Before</h5>
+              <p>Una fascinante aventura cargada de intriga, misterio y viajes en el tiempo.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bn-cat">
+          <div class="bn-cat-nombre">🏆 Deportes</div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-nba2k23.jpg" data-titulo="NBA 2K23" alt="Portada de NBA 2K23" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>NBA 2K23</h5>
+              <p>El rey de los simuladores de baloncesto profesional, para competir al máximo nivel.</p>
+            </div>
+          </div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-ao-tennis2.jpg" data-titulo="AO Tennis 2" alt="Portada de AO Tennis 2" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>AO Tennis 2</h5>
+              <p>El videojuego oficial del Open de Australia, con físicas hiperrealistas y amplias opciones de personalización.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bn-cat">
+          <div class="bn-cat-nombre">🏎️ Carreras</div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-asphalt9.jpg" data-titulo="Asphalt 9: Legends" alt="Portada de Asphalt 9: Legends" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>Asphalt 9: Legends</h5>
+              <p>Carreras con superdeportivos reales y espectaculares piruetas en el aire.</p>
+            </div>
+          </div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-nick-kart-racers2.jpg" data-titulo="Nickelodeon Kart Racers 2: Grand Prix" alt="Portada de Nickelodeon Kart Racers 2: Grand Prix" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>Nickelodeon Kart Racers 2: Grand Prix</h5>
+              <p>Un divertido juego de carreras en pistas alocadas, con los personajes más icónicos.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bn-cat">
+          <div class="bn-cat-nombre">♟️ Estrategia</div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-south-park.jpg" data-titulo="South Park: The Stick of Truth" alt="Portada de South Park: The Stick of Truth" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>South Park: The Stick of Truth</h5>
+              <p>Un juego de rol por turnos fiel a la serie de televisión y lleno de sátira pura.</p>
+            </div>
+          </div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-blackguards2.jpg" data-titulo="Blackguards 2" alt="Portada de Blackguards 2" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>Blackguards 2</h5>
+              <p>Un RPG táctico profundo, enfocado en combates por turnos sobre tableros hexagonales y decisiones oscuras.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bn-cat">
+          <div class="bn-cat-nombre">🧩 Lógica</div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-talos-principle.jpg" data-titulo="The Talos Principle" alt="Portada de The Talos Principle" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>The Talos Principle</h5>
+              <p>Acertijos filosóficos en primera persona, ideal para poner a prueba tu intelecto.</p>
+            </div>
+          </div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-wuppo.jpg" data-titulo="Wuppo: Definitive Edition" alt="Portada de Wuppo: Definitive Edition" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>Wuppo: Definitive Edition</h5>
+              <p>Combina la exploración de un mundo amigable con ingeniosos rompecabezas.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bn-cat">
+          <div class="bn-cat-nombre">🔫 En primera persona</div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-metro2033.jpg" data-titulo="Metro 2033 Redux" alt="Portada de Metro 2033 Redux" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>Metro 2033 Redux</h5>
+              <p>Un shooter postapocalíptico de supervivencia, ambientado en los peligrosos túneles del metro de Moscú.</p>
+            </div>
+          </div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-rage2.jpg" data-titulo="Rage 2" alt="Portada de Rage 2" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>Rage 2</h5>
+              <p>Disparos brutales a toda velocidad, en un mundo abierto caótico y lleno de acción punk.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bn-cat">
+          <div class="bn-cat-nombre">📖 Narrativa</div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-walking-dead-destinies.jpg" data-titulo="The Walking Dead: Destinies" alt="Portada de The Walking Dead: Destinies" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>The Walking Dead: Destinies</h5>
+              <p>Cambia la historia de la serie: toma decisiones cruciales, controla a personajes icónicos y lucha por sobrevivir al apocalipsis zombie.</p>
+            </div>
+          </div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-call-of-the-sea.jpg" data-titulo="Call of the Sea" alt="Portada de Call of the Sea" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>Call of the Sea</h5>
+              <p>Una hermosa historia ambientada en los años 30, investigando la desaparición de una expedición en el Pacífico Sur.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bn-cat">
+          <div class="bn-cat-nombre">👾 Retro</div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-metal-slug.jpg" data-titulo="Metal Slug (Saga)" alt="Portada de Metal Slug (Saga)" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>Metal Slug (Saga)</h5>
+              <p>El clásico e icónico juego run-and-gun de las maquinitas, optimizado a la perfección para la nube.</p>
+            </div>
+          </div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-king-of-fighters.jpg" data-titulo="The King of Fighters (Saga)" alt="Portada de The King of Fighters (Saga)" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>The King of Fighters (Saga)</h5>
+              <p>Uno de los mejores juegos de lucha de todos los tiempos. Desde el año 97 hasta la edición más actual.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bn-cat">
+          <div class="bn-cat-nombre">🧸 Infantiles</div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-gigantosaurus.jpg" data-titulo="Gigantosaurus: Dino Kart" alt="Portada de Gigantosaurus: Dino Kart" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>Gigantosaurus: Dino Kart</h5>
+              <p>Juego de carreras basado en la serie de Disney, perfecto para los más pequeños: los ayuda a mantenerse en la pista sin frustrarse.</p>
+            </div>
+          </div>
+          <div class="bn-juego">
+            <img class="zoomable" src="bn-juego-sisters-party.jpg" data-titulo="The Sisters: Party de Estrellas" alt="Portada de The Sisters: Party de Estrellas" loading="lazy">
+            <div class="bn-juego-info">
+              <h5>The Sisters: Party de Estrellas</h5>
+              <p>Una colorida colección de mini juegos estilo "fiesta" basados en un divertido cómic infantil, ideal para desarrollar su coordinación.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size:11.5px;opacity:.75;margin:14px 0 0;color:#F0DCE6;">Nota: algunos juegos pueden tener un costo adicional.</p>
 
       <div class="bn-sub" id="bn-precio">💲 ¿Cuánto cuesta?</div>
       <div class="bn-precio-caja">
@@ -7201,6 +7450,7 @@ const SECCIONES = [
 // Bitácora de cambios. La entrada más reciente va arriba.
 // Cada vez que publiques una actualización, agrega una línea con un id nuevo.
 const AVISOS = [
+  { id:'2026-08-14-bn-top-juegos',fecha:'14 de agosto 2026', texto:'En Blacknut, "Algunos de los juegos" ahora es "Top Juegos Blacknut ⚡ Nuevo": 10 categorías con 2 juegos cada una (portada y descripción), para recomendar el que más le guste al cliente.' },
   { id:'2026-08-14-fox-fuera',fecha:'14 de agosto 2026', texto:'Se retiró la sección "FOX+ · $149 por 1 mes": la promoción ya había vencido el 31 de julio y no se va a renovar.' },
   { id:'2026-08-14-glosario-avod',fecha:'14 de agosto 2026', texto:'El Glosario ya trae "Streaming con anuncios" y "AVOD", para explicarle al cliente por qué estos planes cuestan menos.' },
   { id:'2026-08-14-streaming-anuncios-videos',fecha:'14 de agosto 2026', texto:'En "Streaming con anuncios": los botones de video ahora se ven más claros (▶ y "toca para reproducir"), y se actualizó la liga de la Guía definitiva.' },
