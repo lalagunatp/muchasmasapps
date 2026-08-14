@@ -2495,6 +2495,156 @@
   }
   .da-closing strong{color:var(--sun);}
 
+  /* ── VENDE MÁS TIPS · STREAMING CON ANUNCIOS ── */
+  .sa-block{
+    background:white;
+    border-radius:22px;
+    padding:26px 20px 22px;
+    border:2px solid var(--foam);
+  }
+  .sa-block h3{
+    font-family:'Baloo 2', sans-serif;
+    font-size:22px;
+    color:var(--ocean-deep);
+    margin:0 0 8px;
+    text-align:center;
+  }
+  .sa-lema{font-size:14px;color:#3d5a63;text-align:center;margin:0 0 6px;line-height:1.55;}
+  .sa-lema + .sa-lema{margin-top:10px;}
+  .sa-resources{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin:18px 0 24px;
+  }
+  .sa-res-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    font-weight:800;
+    font-size:13px;
+    padding:12px 18px;
+    border-radius:14px;
+    color:white;
+    box-shadow:0 6px 16px rgba(7,59,76,0.16);
+    transition:transform .15s ease;
+  }
+  .sa-res-btn:active{transform:scale(.97);}
+  .sa-res-btn.guide{background:linear-gradient(135deg,var(--ocean-deep),var(--ocean));}
+  .sa-res-btn.video{background:linear-gradient(135deg,#D32F2F,#FF6B4A);}
+  .sa-res-btn .sa-res-ext{opacity:.8;font-weight:700;}
+  .sa-platforms{display:flex;flex-direction:column;gap:16px;max-width:100%;}
+  @media (min-width:700px){ .sa-platforms{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;} }
+  .sa-platform{
+    min-width:0;
+    max-width:100%;
+    border:2px solid var(--foam);
+    border-top:5px solid var(--sa-color,var(--ocean));
+    border-radius:18px;
+    padding:18px 16px 16px;
+    background:linear-gradient(160deg,white,var(--foam));
+  }
+  .sa-head{margin-bottom:10px;}
+  .sa-logo{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:800;
+    font-size:16px;
+    color:var(--sa-color,var(--ocean-deep));
+    margin-bottom:4px;
+  }
+  .sa-diff{font-size:13px;font-weight:700;color:#204049;margin:0 0 6px;}
+  .sa-intro{font-size:12.5px;color:#3d5a63;margin:0 0 14px;line-height:1.5;}
+  .sa-features{list-style:none;margin:0 0 14px;padding:0;display:flex;flex-direction:column;gap:8px;}
+  .sa-features li{font-size:12.5px;color:#204049;line-height:1.45;padding-left:20px;position:relative;}
+  .sa-features li::before{content:"✓";position:absolute;left:0;top:0;color:var(--sa-color,var(--ocean));font-weight:800;}
+  .sa-callout{
+    display:flex;
+    gap:8px;
+    align-items:flex-start;
+    background:var(--foam);
+    border-left:4px solid var(--sa-color,var(--ocean));
+    border-radius:10px;
+    padding:10px 12px;
+    margin:0 0 12px;
+    font-size:12px;
+    line-height:1.45;
+    color:#204049;
+  }
+  .sa-callout p{margin:0;}
+  .sa-callout b{color:var(--ocean-deep);}
+  .sa-warning{
+    display:flex;
+    gap:8px;
+    align-items:flex-start;
+    background:#FFF3E0;
+    border-left:4px solid #F5A623;
+    border-radius:10px;
+    padding:10px 12px;
+    margin:0 0 12px;
+    font-size:12px;
+    line-height:1.45;
+    color:#6b4a06;
+  }
+  .sa-warning p{margin:0;}
+  .sa-group-title{font-size:11px;font-weight:800;color:#5b7a85;text-transform:uppercase;letter-spacing:.04em;margin:0 0 8px;}
+  .sa-checklist{list-style:none;margin:0 0 14px;padding:0;display:flex;flex-direction:column;gap:6px;}
+  .sa-checklist li{font-size:12.5px;color:#204049;line-height:1.4;padding-left:22px;position:relative;}
+  .sa-checklist li::before{content:"✔️";position:absolute;left:0;top:0;font-size:11px;}
+  .sa-resumen{
+    background:var(--sa-color,var(--ocean));
+    color:white;
+    border-radius:12px;
+    padding:12px 14px;
+    font-size:12px;
+    font-weight:700;
+    line-height:1.5;
+  }
+  .sa-porque{
+    margin-top:22px;
+    padding-top:22px;
+    border-top:2px dashed var(--foam);
+  }
+  .sa-porque h4{
+    font-family:'Baloo 2', sans-serif;
+    font-size:19px;
+    color:var(--ocean-deep);
+    text-align:center;
+    margin:0 0 8px;
+  }
+  .sa-porque > p{font-size:13.5px;color:#3d5a63;text-align:center;margin:0 0 20px;line-height:1.5;}
+  .sa-ventajas{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:22px;}
+  @media (min-width:640px){ .sa-ventajas{grid-template-columns:1fr 1fr;} }
+  .sa-ventaja{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    background:var(--foam);
+    border-radius:14px;
+    padding:12px 14px;
+  }
+  .sa-ventaja-icon{font-size:19px;}
+  .sa-ventaja h5{font-family:'Baloo 2', sans-serif;font-size:14px;color:var(--ocean-deep);margin:0 0 2px;}
+  .sa-ventaja p{font-size:12px;color:#3d5a63;margin:0;line-height:1.4;}
+  .sa-cierre{
+    background:linear-gradient(135deg,var(--ocean-deep),var(--ocean));
+    color:white;
+    border-radius:18px;
+    padding:20px 20px 18px;
+    text-align:center;
+  }
+  .sa-cierre p{margin:0 0 12px;font-size:14px;line-height:1.5;}
+  .sa-cierre-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;}
+  .sa-cierre-tags span{
+    background:rgba(255,255,255,0.14);
+    border:1px solid rgba(255,255,255,0.3);
+    border-radius:999px;
+    padding:6px 12px;
+    font-size:11.5px;
+    font-weight:700;
+  }
+
   /* ── VISOR DE IMÁGENES (clic para ampliar) ── */
   .zoomable{cursor:zoom-in;}
   .zoom-pista{
@@ -3187,6 +3337,17 @@
     <a href="#tips-comparativo-seccion" id="navTipsComparativo" onclick="closeNav()"><span class="nav-icon">📊</span>150 vs 350 megas</a>
     <a href="#tips-apps-seccion" id="navTipsApps" onclick="closeNav()"><span class="nav-icon">🎬</span>Destacados de tus apps</a>
   </div>
+  <button type="button" class="nav-parent" id="navStreamingAds" onclick="toggleSubmenu(this)">
+    <span class="nav-icon">📢</span>Streaming con anuncios
+    <span class="nav-caret">▾</span>
+  </button>
+  <div class="nav-submenu" id="navStreamingAdsSub">
+    <a href="#streaming-anuncios-seccion" onclick="closeNav()"><span class="nav-icon">📄</span>Ver todo</a>
+    <a href="#sa-netflix" onclick="closeNav()"><span class="nav-icon">🔴</span>Netflix</a>
+    <a href="#sa-disney" onclick="closeNav()"><span class="nav-icon">✨</span>Disney+</a>
+    <a href="#sa-universal" onclick="closeNav()"><span class="nav-icon">🎥</span>Universal+</a>
+    <a href="#sa-porque" onclick="closeNav()"><span class="nav-icon">💰</span>¿Por qué elegirlo?</a>
+  </div>
   <button type="button" class="nav-parent" id="navBlacknut" onclick="toggleSubmenu(this)">
     <span class="nav-icon">🎮</span>Blacknut · ¡NUEVO!
     <span class="nav-caret">▾</span>
@@ -3703,6 +3864,118 @@
 
       <div class="da-closing">
         <p>5 plataformas, cientos de estrenos y <strong>una app distinta para cada gusto</strong>. Conocer estos títulos te ayuda a conectar con tu cliente y cerrar la venta más rápido. 🚀</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="streaming-anuncios-seccion" style="padding:24px 16px 30px;">
+    <div class="sa-block">
+      <div class="section-eyebrow" style="text-align:center;">🚀 Vende más TIPs</div>
+      <h3>🎬 Streaming con anuncios: más entretenimiento por un precio accesible</h3>
+      <p class="sa-lema">Los planes con anuncios son una excelente alternativa para disfrutar de grandes plataformas de streaming pagando menos. La experiencia sigue siendo digital, cómoda y con contenido de gran calidad; la diferencia es que aparecen pausas publicitarias breves durante la reproducción.</p>
+      <p class="sa-lema">Para el cliente que busca <strong>entretenimiento, variedad y ahorro</strong>, estos planes ofrecen una excelente relación entre precio y beneficios.</p>
+
+      <div class="sa-resources">
+        <a class="sa-res-btn guide" href="https://notebook.google.com/notebook/8a38d1e3-3f36-4243-bf64-79a1f35f687b/artifact/d2ff0b30-3c04-443f-a488-2139eeff92a3?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">📘 Guía definitiva para colocar streaming con anuncios<span class="sa-res-ext">↗</span></a>
+        <a class="sa-res-btn video" href="https://youtu.be/IG0UUnjct0Y?si=--Fr_tWD7GiUr7xB" target="_blank" rel="noopener">▶️ ¿Conviene comprar Netflix con anuncios?<span class="sa-res-ext">↗</span></a>
+      </div>
+
+      <div class="sa-platforms">
+
+        <div class="sa-platform" id="sa-netflix" style="--sa-color:#E50914;">
+          <div class="sa-head">
+            <div class="sa-logo">🔴 Netflix — Estándar con anuncios</div>
+            <p class="sa-diff">🍿 Todo el entretenimiento de Netflix, pagando menos</p>
+          </div>
+          <p class="sa-intro">Amplia selección de películas, series y juegos a un precio más accesible que los planes sin publicidad. Ideal para quien quiere Netflix en casa y prefiere ahorrar en la mensualidad.</p>
+          <ul class="sa-features">
+            <li><strong>Gran variedad de contenido:</strong> la mayoría de películas y series de Netflix (algunos títulos pueden no estar disponibles por licencias).</li>
+            <li><strong>Full HD (1080p):</strong> excelente calidad de imagen.</li>
+            <li><strong>Hasta 2 dispositivos</strong> al mismo tiempo, dentro del hogar.</li>
+            <li><strong>Descargas:</strong> hasta 15 por dispositivo al mes, para ver sin conexión.</li>
+            <li><strong>Juegos móviles</strong> de Netflix incluidos, sin anuncios adicionales.</li>
+          </ul>
+          <div class="sa-callout"><span>📢</span><p><b>¿Cómo funcionan los anuncios?</b> Aparecen durante la reproducción y no se pueden saltar ni adelantar. La cantidad y ubicación varía según el contenido.</p></div>
+          <div class="sa-group-title">💡 ¿Para quién es ideal?</div>
+          <ul class="sa-checklist">
+            <li>Personas que buscan ahorrar en su suscripción</li>
+            <li>Familias que usan hasta 2 pantallas al mismo tiempo</li>
+            <li>Quienes principalmente ven series y películas en casa</li>
+            <li>Quienes no tienen problema con algunas pausas comerciales</li>
+          </ul>
+          <div class="sa-resumen">🎯 Netflix con anuncios = gran catálogo + Full HD + 2 dispositivos + juegos + descargas + menor precio.</div>
+        </div>
+
+        <div class="sa-platform" id="sa-disney" style="--sa-color:#0063E5;">
+          <div class="sa-head">
+            <div class="sa-logo">✨ Disney+ — Estándar con anuncios</div>
+            <p class="sa-diff">El universo Disney, Pixar, Marvel, Star Wars y mucho más</p>
+          </div>
+          <p class="sa-intro">Alternativa accesible para disfrutar del amplio catálogo de Disney+: Disney, Pixar, Marvel, Star Wars, National Geographic y Hulu, más contenido adicional según la región.</p>
+          <ul class="sa-features">
+            <li><strong>Marvel y Star Wars:</strong> superhéroes, aventura y ciencia ficción.</li>
+            <li><strong>Disney y Pixar:</strong> películas y series familiares para todas las generaciones.</li>
+            <li><strong>National Geographic:</strong> documentales de naturaleza, ciencia y cultura.</li>
+            <li><strong>Hasta 2 dispositivos</strong> simultáneos.</li>
+            <li><strong>Multidispositivo:</strong> Smart TV, celular, tablet, navegador, consolas y más.</li>
+          </ul>
+          <div class="sa-callout"><span>📢</span><p><b>¿Cómo funcionan los anuncios?</b> Los contenidos bajo demanda pueden incluir pausas antes o durante la reproducción. En eventos deportivos y transmisiones en vivo, la publicidad puede ser parte de la transmisión misma, sin importar el plan.</p></div>
+          <div class="sa-warning"><span>⚠️</span><p><b>Importante:</b> este plan no permite descargar contenido para verlo sin conexión.</p></div>
+          <div class="sa-group-title">💡 ¿Para quién es ideal?</div>
+          <ul class="sa-checklist">
+            <li>Familias</li>
+            <li>Fans de Marvel y Star Wars</li>
+            <li>Quienes disfrutan películas y series familiares</li>
+            <li>Quienes buscan variedad de contenido a precio accesible</li>
+            <li>Quienes principalmente ven contenido conectado a internet</li>
+          </ul>
+          <div class="sa-resumen">🎯 Disney+ con anuncios = Disney + Pixar + Marvel + Star Wars + National Geographic + Hulu + 2 pantallas + precio accesible.</div>
+        </div>
+
+        <div class="sa-platform" id="sa-universal" style="--sa-color:#6A5ACD;">
+          <div class="sa-head">
+            <div class="sa-logo">🎥 Universal+ — Estándar con anuncios</div>
+            <p class="sa-diff">Series, películas y realities para un entretenimiento diferente</p>
+          </div>
+          <p class="sa-intro">Combinación de estrenos, películas, series y realities del universo NBCUniversal, pensada para disfrutar en varios dispositivos a un precio más accesible.</p>
+          <ul class="sa-features">
+            <li><strong>Películas y series</strong> bajo demanda.</li>
+            <li><strong>Realities y programas de entretenimiento:</strong> una de sus propuestas más atractivas.</li>
+            <li><strong>Estrenos exclusivos</strong> de la plataforma.</li>
+            <li><strong>Hasta 4 dispositivos</strong> simultáneos: su gran ventaja frente a las demás.</li>
+          </ul>
+          <div class="sa-callout"><span>📢</span><p><b>¿Cómo funcionan los anuncios?</b> El plan incorpora pausas comerciales durante la reproducción; no pueden omitirse, adelantarse ni bloquearse.</p></div>
+          <div class="sa-group-title">💡 ¿Para quién es ideal?</div>
+          <ul class="sa-checklist">
+            <li>Familias y grupos que usan varias pantallas</li>
+            <li>Quienes disfrutan películas, series y realities</li>
+            <li>Quienes buscan complementar Netflix o Disney+ con otro catálogo</li>
+            <li>Quienes prefieren pagar menos y no les molesta la publicidad</li>
+          </ul>
+          <div class="sa-resumen">🎯 Universal+ con anuncios = películas + series + realities + estrenos + hasta 4 dispositivos + precio accesible.</div>
+        </div>
+
+      </div>
+
+      <div class="sa-porque" id="sa-porque">
+        <h4>💰 ¿Por qué elegir un plan con anuncios?</h4>
+        <p>Los planes con publicidad no significan "menos entretenimiento". Son una forma diferente de pagar por el servicio.</p>
+        <div class="sa-ventajas">
+          <div class="sa-ventaja"><span class="sa-ventaja-icon">💵</span><div><h5>Más accesibles</h5><p>Reducen el costo de la suscripción.</p></div></div>
+          <div class="sa-ventaja"><span class="sa-ventaja-icon">🎬</span><div><h5>Mucho contenido</h5><p>Sigues teniendo acceso a grandes catálogos de películas, series y entretenimiento.</p></div></div>
+          <div class="sa-ventaja"><span class="sa-ventaja-icon">📺</span><div><h5>Experiencia completa</h5><p>Disfruta en Smart TV, celular, tablet, computadora y otros dispositivos compatibles.</p></div></div>
+          <div class="sa-ventaja"><span class="sa-ventaja-icon">👥</span><div><h5>Opciones para el hogar</h5><p>Algunos planes permiten usar varias pantallas al mismo tiempo.</p></div></div>
+          <div class="sa-ventaja"><span class="sa-ventaja-icon">📢</span><div><h5>Publicidad a cambio de ahorro</h5><p>La principal diferencia es aceptar pausas comerciales durante la reproducción.</p></div></div>
+        </div>
+        <div class="sa-cierre">
+          <p>🏆 La idea es simple: si la prioridad de tu cliente es ahorrar y seguir disfrutando de sus plataformas favoritas, un plan con anuncios puede ser una excelente elección.</p>
+          <div class="sa-cierre-tags">
+            <span>🎯 Paga menos</span>
+            <span>🍿 Sigue disfrutando contenido</span>
+            <span>📺 Streaming en sus dispositivos</span>
+            <span>💰 Él decide cuánto gastar</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -6994,6 +7267,8 @@ const SECCIONES = [
   { id:'tips-ahorra-seccion',     nav:'navTipsAhorra',        nombre:'Ahorra más con TV',           fin:'2026-08-31' },
   { id:'tips-comparativo-seccion',nav:'navTipsComparativo',   nombre:'150 vs 350 megas',            fin:'2026-08-31' },
   { id:'tips-apps-seccion',       nav:'navTipsApps',          nombre:'Destacados de tus apps',       fin:'2026-08-31' },
+  { id:'streaming-anuncios-seccion', nav:'navStreamingAds',   nombre:'Streaming con anuncios',       fin:null,
+    navExtra:'navStreamingAdsSub' },
   { id:'blacknut-seccion',    nav:'navBlacknut',          nombre:'Blacknut',                    fin:'2026-09-30',
     navExtra:'navBlacknutSub' },
   { id:'planes',              nav:null,                   nombre:'Planes y Megas',              fin:null },
@@ -7016,6 +7291,7 @@ const SECCIONES = [
 // Bitácora de cambios. La entrada más reciente va arriba.
 // Cada vez que publiques una actualización, agrega una línea con un id nuevo.
 const AVISOS = [
+  { id:'2026-08-13-streaming-anuncios',fecha:'13 de agosto 2026', texto:'¡NUEVA sección "Streaming con anuncios"! El diferenciador, las características, el "para quién es ideal" y el resumen de los planes Estándar con anuncios de Netflix, Disney+ y Universal+, más la guía completa y un video para argumentar mejor esta venta.' },
   { id:'2026-08-13-regreso-clases',fecha:'13 de agosto 2026', texto:'¡Nueva imagen! La portada cambió a "Misión Regreso a Clases con Más Apps". Las promociones, precios y reglas de negocio siguen siendo los mismos que ya conoces en Planes y Megas. Vigencia al 31 de agosto.' },
   { id:'2026-08-12-tips-apps',fecha:'12 de agosto 2026', texto:'¡NUEVO en "Vende más TIPs"! Agregamos "Destacados de tus apps": el diferenciador, las características y los estrenos de agosto de Apple TV, Disney+, Netflix, HBO Max y Universal+, para que vendas con argumentos frescos. Vigencia al 31 de agosto.' },
   { id:'2026-08-11-tips',fecha:'11 de agosto 2026', texto:'¡NUEVO menú "Vende más TIPs"! Ahora agrupa "Vende planes con TV" junto con dos herramientas nuevas: "Ahorra más con TV" (el desglose de precios con y sin promoción) y "150 vs 350 megas" (el comparativo mes a mes para cerrar más ventas de velocidad). Vigencia al 31 de agosto.' },
