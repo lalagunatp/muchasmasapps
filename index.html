@@ -6162,7 +6162,9 @@ function estadoAcceso(iso){
   if(isNaN(d)) return { clase:'nunca', texto:'Nunca ha entrado', orden:4 };
 
   const hoy = new Date();
-  const dias = Math.floor((hoy - d) / 86400000);
+  const dMid   = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  const hoyMid = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
+  const dias = Math.round((hoyMid - dMid) / 86400000);
   const fecha = d.toLocaleDateString('es-MX', { day:'numeric', month:'short' });
   const hora  = d.toLocaleTimeString('es-MX', { hour:'2-digit', minute:'2-digit' });
 
