@@ -705,7 +705,7 @@
   }
   .sb-footer small{font-size:11px;opacity:.6;display:block;margin-top:4px;}
 
-  /* ── UN VERANO CON V DE VSB ── */
+  /* ── MISIÓN REGRESO A CLASES CON VSB ── */
   .vsb-block{
     background:linear-gradient(160deg,#06333F,#0B6E8C);
     border-radius:22px;
@@ -713,14 +713,13 @@
     margin-bottom:22px;
     color:white;
   }
-  .vsb-block h3{
-    font-family:'Baloo 2',sans-serif;
-    font-size:21px;
-    margin:0 0 4px;
-    color:var(--sun);
-    display:flex;
-    align-items:center;
-    gap:8px;
+  .vsb-logo{
+    display:block;
+    width:100%;
+    max-width:300px;
+    margin:0 auto 16px;
+    border-radius:12px;
+    filter:drop-shadow(0 6px 14px rgba(0,0,0,.28));
   }
   .vsb-block .vsb-intro{
     font-size:13px;
@@ -3379,7 +3378,7 @@
   <a href="#promos-adicionales" onclick="closeNav()"><span class="nav-icon">🔥</span>Promos que cierran venta</a>
   <a href="#descuento-especial" onclick="closeNav()"><span class="nav-icon">💰</span>Descuento Especial 5 meses</a>
   <a href="#reglas" onclick="closeNav()"><span class="nav-icon">📋</span>Reglas de negocio</a>
-  <a href="#vsb-seccion" id="navVsb" onclick="closeNav()"><span class="nav-icon">🔊</span>Un verano con V de VSB</a>
+  <a href="#vsb-seccion" id="navVsb" onclick="closeNav()"><span class="nav-icon">🔊</span>Misión Regreso a Clases con VSB</a>
   <a href="#crecelo-seccion" id="navCrecelo" onclick="closeNav()"><span class="nav-icon">⚡</span>Crécelo Simétrico</a>
   <a href="#alexa-seccion" id="navAlexa" onclick="closeNav()"><span class="nav-icon">📢</span>Actualización VSB (Alexa)</a>
   <a href="#manteleta-seccion" id="navManteleta" onclick="closeNav()"><span class="nav-icon">📋</span>Manteleta · Oferta Base</a>
@@ -4697,8 +4696,8 @@
 
   <section class="block" id="vsb-seccion" style="padding:24px 16px 30px;">
     <div class="vsb-block" id="vsb">
-      <h3>🔊 Un verano con V de VSB</h3>
-      <p class="vsb-intro">Este verano el calor se mide en ventas… y el mejor sonido lo pone el Video Sound Box. Vigencia del 22 al 31 de julio de 2026.</p>
+      <img class="vsb-logo" src="hero-vsb-regreso-clases.jpg" alt="Misión Regreso a Clases con VSB · Oferta Residencial">
+      <p class="vsb-intro">¡Que el regreso a clases llegue con todo! Lleva a tu cliente una experiencia que lo tiene todo: internet de alta velocidad, imagen UHD y sonido envolvente con VSB. <span id="vsb-intro-texto" data-vigencia-texto>Vigente del 18 al 31 de agosto de 2026.</span></p>
 
       <div class="vsb-grid">
         <div class="vsb-card destacada">
@@ -4707,19 +4706,19 @@
             <i class="foto-vsb" role="img" aria-label="Video Sound Box"></i>
           </div>
           <h4>Plan de Verano</h4>
-          <div class="vsb-precio">$999<small>/mes</small></div>
+          <div class="vsb-precio">$999<small>/mes · Frontera $931</small></div>
           <ul>
             <li><strong>500 Megas + VSB</strong> — exclusivo de este plan.</li>
             <li>Clientes nuevos y actuales.</li>
-            <li>Aplica con oferta base, Netflix, Amazon, HBO Max Básico, Disney+ y Apple TV.</li>
+            <li>Aplica con oferta base, Netflix, Amazon, HBO Max Básico, Disney+ y Apple TV (licencias estándar con anuncios).</li>
             <li>El modelo de VSB se entrega según disponibilidad en almacén.</li>
           </ul>
-          <span class="model-code">500 megas con Nuevo Totalplay TV → Nuevo Totalplay TV Incluido / Speaker-Futbolero</span>
+          <span class="model-code">500 megas con Video Sound Box → Nuevo TV + Speaker + Más Apps (Netflix, Universal, Disney+, Apple TV) incluidos</span>
           <details class="lose-details">
             <summary>No convive con…</summary>
             <ul>
               <li>Kit VSB + Totalplay Surround</li>
-              <li>VSB por $50 adicionales</li>
+              <li>VSB por $50 adicionales al plan</li>
               <li>Tu Experiencia al 100</li>
               <li>Promociones segmentadas</li>
               <li>Descuento Especial ($70)</li>
@@ -4733,19 +4732,19 @@
             <i class="foto-vsb" role="img" aria-label="Video Sound Box"></i>
           </div>
           <h4>Kit VSB + Surround</h4>
-          <div class="vsb-precio">$249<small>/mes</small></div>
+          <div class="vsb-precio">$249<small>/mes · Frontera $232</small></div>
           <ul>
             <li>En planes de <strong>150 a 350 Megas</strong> con VSB.</li>
             <li>Clientes nuevos y actuales.</li>
-            <li>Aplica con Netflix, Amazon, HBO Max Estándar, Disney+ y Apple TV.</li>
+            <li>Aplica con Netflix (Estándar con anuncios, Estándar y Premium), Amazon, HBO Max Estándar, Disney+ y Apple TV.</li>
           </ul>
           <span class="model-code">150 a 350 con VSB + Totalplay Surround → Kit Video Sound Box + Totalplay Surround</span>
           <details class="lose-details">
             <summary>No convive con…</summary>
             <ul>
-              <li>VSB por $50 adicionales</li>
+              <li>VSB por $50 adicionales al plan</li>
               <li>Tu Experiencia al 100</li>
-              <li>Mini Futbolero y paquete futbolero</li>
+              <li>Paquete de Verano</li>
               <li>Promociones segmentadas</li>
               <li>Promociones sobre Totalplay Surround</li>
             </ul>
@@ -4756,19 +4755,21 @@
           <div class="vsb-foto">
             <i class="foto-vsb" role="img" aria-label="Video Sound Box"></i>
           </div>
-          <h4>VSB por $50 adicionales</h4>
-          <div class="vsb-precio">+$50<small>/mes</small></div>
+          <h4>VSB como TV Principal</h4>
+          <div class="vsb-precio">+$50<small>/mes · Frontera $47</small></div>
           <ul>
             <li>En planes de <strong>250 y 350 Megas</strong> con VSB.</li>
             <li>El cliente recibe el VSB <strong>como TV principal</strong>.</li>
             <li>Clientes nuevos y actuales.</li>
+            <li>Aplica con Netflix (Estándar con anuncios, Estándar y Premium), Amazon, HBO Max Estándar, Disney+ y Apple TV.</li>
           </ul>
           <span class="model-code">250 y 350 megas con VSB → Nuevo Totalplay TV +$50</span>
           <details class="lose-details">
             <summary>No convive con…</summary>
             <ul>
+              <li>Kit VSB + Totalplay Surround</li>
               <li>Tu Experiencia al 100</li>
-              <li>Mini Futbolero y paquete futbolero</li>
+              <li>Paquete de Verano</li>
               <li>Promociones segmentadas</li>
             </ul>
           </details>
@@ -7435,7 +7436,7 @@ const SECCIONES = [
   { id:'promos-adicionales',  nav:null,                   nombre:'Promos que cierran venta',    fin:null },
   { id:'descuento-especial',  nav:null,                   nombre:'Descuento Especial 5 meses',  fin:null },
   { id:'reglas',              nav:null,                   nombre:'Reglas de negocio',           fin:null },
-  { id:'vsb-seccion',         nav:'navVsb',               nombre:'Un verano con V de VSB',      fin:'2026-07-31' },
+  { id:'vsb-seccion',         nav:'navVsb',               nombre:'Misión Regreso a Clases con VSB', inicio:'2026-08-18', fin:'2026-08-31' },
   { id:'crecelo-seccion',     nav:'navCrecelo',           nombre:'Crécelo Simétrico',           fin:null },
   { id:'alexa-seccion',       nav:'navAlexa',             nombre:'Actualización VSB (Alexa)',   fin:null },
   { id:'manteleta-seccion',   nav:'navManteleta',         nombre:'Manteleta · Oferta Base',     fin:'2026-08-31' },
@@ -7450,6 +7451,7 @@ const SECCIONES = [
 // Bitácora de cambios. La entrada más reciente va arriba.
 // Cada vez que publiques una actualización, agrega una línea con un id nuevo.
 const AVISOS = [
+  { id:'2026-08-17-vsb-regreso-clases',fecha:'17 de agosto 2026', texto:'"Un verano con V de VSB" ahora es "Misión Regreso a Clases con VSB": nueva portada e información actualizada de Plan de Verano, Kit VSB + Surround y VSB como TV Principal (con precios de Frontera). Vigente del 18 al 31 de agosto.' },
   { id:'2026-08-14-flash-nuevo',fecha:'14 de agosto 2026', texto:'Ahora lo recién agregado se marca solo con "⚡ Nuevo", tanto en el menú como en el título dentro de la página. La marca se apaga sola a los 15 días, no hay que quitarla a mano.' },
   { id:'2026-08-14-bn-top-juegos',fecha:'14 de agosto 2026', texto:'En Blacknut, "Algunos de los juegos" ahora es "Top Juegos Blacknut ⚡ Nuevo": 10 categorías con 2 juegos cada una (portada y descripción), para recomendar el que más le guste al cliente.' },
   { id:'2026-08-14-fox-fuera',fecha:'14 de agosto 2026', texto:'Se retiró la sección "FOX+ · $149 por 1 mes": la promoción ya había vencido el 31 de julio y no se va a renovar.' },
@@ -7492,6 +7494,7 @@ const AVISOS = [
 //      a los 15 días.
 const DIAS_NUEVO = 15;
 const NUEVOS = [
+  { navId:'navVsb',          tituloId:'vsb-intro-texto', fecha:'2026-08-17' },
   { navId:'navStreamingAds', tituloId:'sa-titulo',  fecha:'2026-08-13' },
   { navId:'navTipsApps',     tituloId:'da-titulo',  fecha:'2026-08-12' },
   { navId:'navBnJuegos',     tituloId:'bn-juegos',  fecha:'2026-08-14' }
@@ -7605,6 +7608,29 @@ function fechaEnPalabras(iso){
   return parseInt(p[2],10) + ' de ' + meses[parseInt(p[1],10)-1] + ' de ' + p[0];
 }
 
+// Texto de vigencia listo para leerse, armado a partir de las mismas fechas
+// que controlan si la sección se oculta. Úsalo en el texto de cualquier
+// sección con un <span data-vigencia-texto> (o similar) dentro: al renovar
+// o extender la promoción en SECCIONES, este texto se actualiza solo, sin
+// tener que ir a buscarlo y corregirlo a mano en la redacción.
+function rangoVigenciaTexto(inicio, fin){
+  if(!fin) return '';
+  if(!inicio) return 'Vigente hasta el ' + fechaEnPalabras(fin) + '.';
+
+  const meses = ['enero','febrero','marzo','abril','mayo','junio',
+                 'julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  const pi = inicio.split('-'), pf = fin.split('-');
+  const diaI = parseInt(pi[2],10), mesI = parseInt(pi[1],10), anioI = pi[0];
+  const mesF = parseInt(pf[1],10), anioF = pf[0];
+
+  if(mesI === mesF && anioI === anioF){
+    return 'Vigente del ' + diaI + ' al ' + fechaEnPalabras(fin) + '.';
+  }
+  const colaInicio = anioI === anioF ? '' : ' de ' + anioI;
+  return 'Vigente del ' + diaI + ' de ' + meses[mesI-1] + colaInicio +
+         ' al ' + fechaEnPalabras(fin) + '.';
+}
+
 function mostrarElemento(id, visible){
   if(!id) return;
   const el = document.getElementById(id);
@@ -7651,6 +7677,12 @@ function aplicarVigencias(){
     const seccion = document.getElementById(item.id);
     if(!seccion) return;
 
+    // Si la sección trae un [data-vigencia-texto], se mantiene sincronizado
+    // con las fechas de arriba: al renovar o extender la promoción, este
+    // texto cambia solo.
+    const textoVigencia = seccion.querySelector('[data-vigencia-texto]');
+    if(textoVigencia) textoVigencia.textContent = rangoVigenciaTexto(item.inicio, item.fin);
+
     // Eliminada por el administrador: fuera para todos.
     if(item.eliminada){
       seccion.style.display = 'none';
@@ -7693,6 +7725,13 @@ function aplicarVigencias(){
       mostrarElemento(item.navExtra, false);
     }
   });
+
+  // Se reaplica aquí (y no solo al cargar la página) porque esta función se
+  // vuelve a llamar cada vez que se guarda un cambio de vigencia, y eso
+  // reescribe el texto de [data-vigencia-texto] — que puede vivir en el
+  // mismo elemento que la marca "⚡ Nuevo". Sin este llamado, esa marca
+  // desaparecería hasta la próxima recarga.
+  marcarNuevos();
 
   return vencidas;
 }
@@ -7899,7 +7938,6 @@ function enterSite(){
   tocarSesion();
   iniciarVigilancia();
   mostrarAvisoDeCambios(aplicarVigencias());
-  marcarNuevos();
 
   // Trae las vigencias guardadas en la hoja y vuelve a aplicarlas.
   cargarConfigSecciones(function(){
