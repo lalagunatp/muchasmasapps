@@ -3396,7 +3396,7 @@
     <a href="#tv-incluido" onclick="closeNav()"><span class="nav-icon">📡</span>Nuevo Totalplay TV Incluido</a>
     <a href="#tv-adicional" onclick="closeNav()"><span class="nav-icon">➕</span>Nuevo Totalplay TV Adicional</a>
     <a href="#totalplayers" onclick="closeNav()"><span class="nav-icon">💼</span>Promo Totalplayers 2026</a>
-    <a href="#promo-contenido" onclick="closeNav()"><span class="nav-icon">🎬</span>Promociones de Contenido</a>
+    <a href="#promo-contenido" id="navPromoContenido" onclick="closeNav()"><span class="nav-icon">🎬</span>Promociones de Contenido</a>
   </div>
 
   <a href="#glosario" id="navGlosario" onclick="closeNav()"><span class="nav-icon">📖</span>Glosario</a>
@@ -5036,7 +5036,7 @@
     </div>
 
     <div class="promo-block" id="promo-contenido">
-      <h3>🎒 Promociones de Contenido</h3>
+      <h3 id="promoContenidoTitulo">🎒 Promociones de Contenido</h3>
       <p style="font-size:13.5px;color:#3d5a63;margin:-4px 0 16px;">Tres apps, mismo truco: <strong>50% de descuento en los primeros meses</strong> para que el cliente las pruebe sin miedo... y ya no las quiera soltar. Ideal para cerrar cuando el cliente duda por precio.</p>
 
       <div class="promo-grid">
@@ -7537,6 +7537,7 @@ const AVISOS = [
 const DIAS_NUEVO = 15;
 const NUEVOS = [
   { navId:'navVsb',          tituloId:'vsb-intro-texto', fecha:'2026-08-17' },
+  { navId:'navPromoContenido', tituloId:'promoContenidoTitulo', fecha:'2026-08-18' },
   { navId:'navStreamingAds', tituloId:'sa-titulo',  fecha:'2026-08-13' },
   { navId:'navTipsApps',     tituloId:'da-titulo',  fecha:'2026-08-12' },
   { navId:'navBnJuegos',     tituloId:'bn-juegos',  fecha:'2026-08-14' }
