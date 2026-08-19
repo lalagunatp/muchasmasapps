@@ -910,6 +910,49 @@
     margin-top:12px;
     min-height:16px;
   }
+  .oculto{display:none !important;}
+  .pin-boxes{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    margin-bottom:16px;
+  }
+  .pin-box{
+    width:100%;
+    max-width:56px;
+    aspect-ratio:1/1;
+    padding:0;
+    margin:0;
+    font-size:22px;
+    font-weight:700;
+    text-align:center;
+    border:2px solid var(--foam);
+    border-radius:12px;
+    color:var(--ink);
+    font-family:'Nunito Sans',sans-serif;
+  }
+  .pin-box:focus{outline:none;border-color:var(--ocean);}
+  .pin-box.lleno{border-color:var(--coral);}
+  .pin-box::-ms-reveal{display:none;}
+  .lock-link{
+    display:block;
+    width:100%;
+    background:none;
+    border:none;
+    color:var(--ocean);
+    font-size:12.5px;
+    font-weight:700;
+    text-decoration:underline;
+    cursor:pointer;
+    margin-top:14px;
+    padding:0;
+  }
+  .lock-hint{
+    font-size:11.5px;
+    color:#5b7a85;
+    margin-top:10px;
+    line-height:1.5;
+  }
   .lock-welcome{
     display:none;
   }
@@ -3303,11 +3346,49 @@
 <div id="lockScreen">
   <div class="lock-card">
     <div id="lockForm">
-      <div class="lock-icon">🔒</div>
-      <h2>Acceso exclusivo</h2>
-      <p id="lockSubtitle">Ingresa tu número de empleado para ver la promoción</p>
-      <input type="text" id="empInput" class="lock-input" placeholder="Número de empleado" autocapitalize="characters" autocomplete="off">
-      <button class="lock-button" id="lockSubmitBtn" onclick="checkEmployee()" disabled>Entrar</button>
+      <div id="pasoNumero">
+        <div class="lock-icon">🔒</div>
+        <h2>Acceso exclusivo</h2>
+        <p id="lockSubtitle">Ingresa tu número de empleado</p>
+        <input type="text" id="empInput" class="lock-input" placeholder="Número de empleado" autocapitalize="characters" autocomplete="off">
+        <button class="lock-button" id="btnSiguienteNumero">Continuar</button>
+      </div>
+
+      <div id="pasoPin" class="oculto">
+        <div class="lock-icon">🔒</div>
+        <h2>Escribe tu PIN</h2>
+        <p>El PIN de 4 dígitos de tu número de empleado</p>
+        <div class="pin-boxes" id="cajaPinActual">
+          <input type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" class="pin-box">
+          <input type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" class="pin-box">
+          <input type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" class="pin-box">
+          <input type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" class="pin-box">
+        </div>
+        <button class="lock-button" id="btnEntrarPin">Entrar</button>
+        <button type="button" class="lock-link" id="btnCambiarNumero">¿No es tu número? Cámbialo</button>
+      </div>
+
+      <div id="pasoNuevoPin" class="oculto">
+        <div class="lock-icon">✨</div>
+        <h2>Crea tu PIN personal</h2>
+        <p>Es tu primera vez o traes el PIN precargado. Elige uno nuevo: solo tú lo vas a saber.</p>
+        <div class="pin-boxes" id="cajaPinNuevo1">
+          <input type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" class="pin-box">
+          <input type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" class="pin-box">
+          <input type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" class="pin-box">
+          <input type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" class="pin-box">
+        </div>
+        <p>Confírmalo</p>
+        <div class="pin-boxes" id="cajaPinNuevo2">
+          <input type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" class="pin-box">
+          <input type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" class="pin-box">
+          <input type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" class="pin-box">
+          <input type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" class="pin-box">
+        </div>
+        <button class="lock-button" id="btnGuardarPin">Guardar mi PIN</button>
+        <p class="lock-hint">Debe ser distinto a tu número de empleado y al PIN precargado, sin dígitos repetidos ni consecutivos (ej. 1234).</p>
+      </div>
+
       <div class="lock-error" id="lockError"></div>
       <button type="button" class="diag-link" onclick="verDiagnostico()">¿No puedes entrar? Ver detalle</button>
       <div id="diagCaja" class="diag-caja" style="display:none;"></div>
@@ -6760,7 +6841,7 @@ function refrescarEquipo(){
   const btn = document.getElementById('eqRefrescar');
   if(btn){ btn.textContent = '⏳ Actualizando…'; btn.disabled = true; }
 
-  loadEmployees(true);   // fuerza leer la plantilla desde la hoja
+  bajarDirectorio(function(){ pintarMiEquipo(); });   // fuerza leer la plantilla desde el backend
   cargarBitacora();
 
   setTimeout(function(){
@@ -6859,44 +6940,62 @@ function togglePort(){
   btn.setAttribute('aria-expanded', abierto ? 'true' : 'false');
 }
 
-// Fuente de datos: Google Sheet (número de empleado, nombre y distrito)
-// Se usa la API de Google Visualization con JSONP (carga vía <script>) para
-// evitar el bloqueo de CORS que ocurre con fetch() directo a export?format=csv.
-const SHEET_ID = '1cfOzkjDzA1Z-lG1v8SOfjjivx5ymSJTshRMI5vN6xtQ';
-
 // ─────────────────────────────────────────────────────────────────────
-// CONFIGURACIÓN DE LA FUENTE DE DATOS
-//
-// OPCIÓN A (la más simple y rápida): sube el archivo CSV al MISMO repositorio
-// de GitHub donde está este HTML y deja aquí solo el nombre del archivo.
-// Al estar en el mismo sitio no hay bloqueos de ningún tipo y carga al instante.
-// ► DESACTIVADO A PROPÓSITO. Se probó y resultó contraproducente: mientras el
-//   archivo no exista en el repositorio, la app se quedaba esperando a que la
-//   red contestara por él ANTES de preguntarle a Google, y eso metía cerca de
-//   un minuto de retraso en cada entrada. Google responde bien (579 registros),
-//   así que se va directo a la hoja.
-//   Si algún día se sube el archivo, basta con poner aquí 'empleados.csv'.
-const CSV_LOCAL = '';
-//
-// OPCIÓN B ◄◄ LA RECOMENDADA SI LA PLANTILLA CAMBIA CADA SEMANA
-// Se actualiza sola: no hay que volver a subir nada nunca.
-// Abre la HOJA DE GOOGLE (no un archivo .xlsx ni .csv suelto en Drive) y ve a
-// Archivo → Compartir → Publicar en la web → elige CSV → Publicar.
-// Pega aquí la URL que te da (contiene "/d/e/2PACX-").
-// Con esto, empleados.csv del repositorio queda solo como red de seguridad
-// para cuando Google no esté disponible, y ya no importa que esté atrasado.
-//   const CSV_PUBLICADO = 'https://docs.google.com/spreadsheets/d/e/2PACX-xxxx/pub?output=csv';
-//
-// OJO: un enlace de tipo "drive.google.com/file/d/.../view" NO funciona:
-// el navegador tiene prohibido leer archivos de Drive por seguridad.
-const CSV_PUBLICADO = '';
-
-// Opcional: nombre de una pestaña específica de la hoja. Vacío = la primera.
-const SHEET_TAB = 'Hoja1';
+// IDENTIDAD: número de empleado + PIN, validados del lado del servidor
+// contra la hoja PLANTILLA (archivo BASE LA LAGUNA 2026). El navegador
+// nunca toca esa hoja ni conoce su ID: solo habla con URL_BACKEND_NIP y
+// recibe un token firmado. Es el mismo backend que usan "Repasa y Vende"
+// y "Mi avance de instalaciones" — así, un solo número + PIN sirve para
+// todas las apps de la carpeta de ventas.
+const URL_BACKEND_NIP = 'https://script.google.com/macros/s/AKfycbzS3CS_JE2GIwfqD_TgPHb6mzJl-9NlMyn-y8k1dkPeq58OS8aSrQDGpDCFu_vkQYFG/exec';
+const PIN_PRECARGADO = '8888';
+let TOKEN_NIP = '';
 // ─────────────────────────────────────────────────────────────────────
 
-let EMPLEADOS = null; // se llena al cargar la página: { "12345": { nombre, distrito, posicion } }
-let loadError = false;
+// Llama al backend de identidad sin bloquear la página, vía JSONP
+// (etiqueta <script>): evita cualquier problema de CORS.
+function llamarBackendNip(params, segundos){
+  return new Promise(function(resolver){
+    const fn = 'nip' + Math.random().toString(36).slice(2, 9);
+    const s = document.createElement('script');
+    const reloj = setTimeout(function(){ limpiar(); resolver(null); }, (segundos || 20) * 1000);
+    function limpiar(){ clearTimeout(reloj); try{ delete window[fn]; }catch(e){ window[fn] = undefined; } s.remove(); }
+    window[fn] = function(j){ limpiar(); resolver(j); };
+    s.onerror = function(){ limpiar(); resolver(null); };
+    const q = Object.keys(params).map(function(k){ return k + '=' + encodeURIComponent(params[k] == null ? '' : params[k]); }).join('&');
+    s.src = URL_BACKEND_NIP + '?' + q + '&callback=' + fn;
+    document.head.appendChild(s);
+  });
+}
+
+// Mismas reglas que valida el servidor; esto solo evita hacerle esperar
+// a la persona un viaje de red por un PIN obviamente inválido.
+function pinInvalido(pin, numero){
+  if(!/^\d{4}$/.test(pin)) return 'El PIN debe ser de 4 dígitos.';
+  if(/^(\d)\1{3}$/.test(pin)) return 'El PIN no puede ser el mismo dígito repetido.';
+  const d = pin.split('').map(Number);
+  let asc = true, desc = true;
+  for(let i = 1; i < d.length; i++){ if(d[i] !== d[i-1]+1) asc = false; if(d[i] !== d[i-1]-1) desc = false; }
+  if(asc || desc) return 'El PIN no puede ser una secuencia consecutiva (ej. 1234).';
+  const emp = String(numero || '').replace(/\D/g, '');
+  if(pin === String(numero || '') || (emp && pin === emp.slice(-4))) return 'El PIN no puede ser igual a tu número de empleado.';
+  if(pin === PIN_PRECARGADO) return 'Elige un PIN distinto al precargado.';
+  return '';
+}
+
+// Lee el "exp" del token sin el secreto (solo la parte pública), para saber
+// si vale la pena restaurar la sesión guardada o de plano pedir login.
+function tokenVigente(token){
+  try{
+    let b64 = String(token || '').split('.')[0].replace(/-/g, '+').replace(/_/g, '/');
+    while(b64.length % 4) b64 += '=';
+    const payload = JSON.parse(decodeURIComponent(escape(atob(b64))));
+    return !!payload.exp && Date.now() < payload.exp;
+  }catch(e){ return false; }
+}
+// ─────────────────────────────────────────────────────────────────────
+
+let EMPLEADOS = null; // se llena tras entrar: { "12345": { nombre, distrito, posicion, jefe } }
 let canSeeComisiones = false;
 let canSeeTecnico = false;
 let canSeeAvance = false;
@@ -6949,54 +7048,17 @@ function normPuesto(s){
     .trim();
 }
 
-// Google llama automáticamente a google.visualization.Query.setResponse(json)
-// cuando el <script> termina de cargar; no necesitamos la librería completa,
-// solo este "stub" para capturar la respuesta.
-window.google = window.google || {};
-window.google.visualization = window.google.visualization || {};
-
 // La lista se guarda en el propio dispositivo. Se considera "fresca" durante
 // 12 h (se usa al instante, sin gastar datos). Pasado ese tiempo se intenta
-// refrescar, pero si la red o Google fallan se sigue usando la copia guardada:
-// así, quien ya entró una vez nunca se queda fuera por un problema externo.
+// refrescar, pero si la red o el backend fallan se sigue usando la copia
+// guardada: así, quien ya entró una vez nunca se queda fuera por un
+// problema externo.
 const CACHE_KEY = 'tp_empleados_v4';
 const CACHE_HORAS_FRESCO = 12;
-let loadTimer = null;
-let intentos = 0;
-
-// Google decide el "tipo" de cada columna. Si la columna A tiene mayoría de
-// números, los IDs con letras (SLK…, CRC…, ECO…) llegan vacíos y se pierden.
-// Con headers=0 la fila de encabezado (texto) obliga a Google a tratar toda
-// la columna como texto, así llegan TODOS. Si esa variante fallara, se
-// reintenta con la clásica.
-const VARIANTES = ['headers=0', 'headers=1'];
-let varianteActual = 0;
 
 // Bitácora de lo que pasó al buscar la lista, para poder decirle a la
 // persona (y a quien da soporte) exactamente dónde se atoró.
 const DIAG_CARGA = [];
-
-// Cuando se busca la lista viva (Google) a petición de alguien que no aparece
-// en la copia local, aquí se guarda a quién avisarle en cuanto haya respuesta.
-let avisarCargaViva = null;
-function resolverCargaViva(){
-  const f = avisarCargaViva;
-  avisarCargaViva = null;
-  if(f) f();
-}
-
-// Fuerza una consulta a la fuente viva, sin tocar lo que ya está en pantalla.
-function buscarListaViva(alTerminar){
-  avisarCargaViva = alTerminar;
-  // Red de seguridad: si nadie contesta, no dejamos a la persona esperando.
-  setTimeout(function(){ resolverCargaViva(); }, 22000);
-  if(CSV_PUBLICADO){
-    cargarDesdeCSV(CSV_PUBLICADO, cargarDesdeGviz, 'CSV publicado de Google');
-  } else {
-    varianteActual = 0;
-    cargarDesdeGviz();
-  }
-}
 
 function anotarDiag(ruta, ok, detalle){
   DIAG_CARGA.push({ ruta: ruta, ok: ok, detalle: detalle || '', hora: new Date() });
@@ -7061,300 +7123,56 @@ function leerCache(){
   }catch(e){ return null; }
 }
 
-function finalizarCarga(map){
-  EMPLEADOS = map;
-  loadError = false;
-  if(loadTimer){ clearTimeout(loadTimer); loadTimer = null; }
-  setLockMsg('Ingresa tu número de empleado para ver la promoción');
-  habilitarBoton(true);
-
-  // Si volvió antes de 2 minutos, se le devuelve la vista sin pedirle el número.
-  const sesion = leerSesion();
-  if(sesion && map[sesion]){
-    aplicarPermisos(map[sesion], sesion);
-    enterSite();
-    return;
-  }
-
-  const inp = document.getElementById('empInput');
-  if(inp) inp.focus();
-}
-
-function fallarCarga(msg){
-  if(loadTimer){ clearTimeout(loadTimer); loadTimer = null; }
-
-  // Si ya hay lista cargada, esto fue un refresco de fondo que no prosperó:
-  // no se le dice nada a la persona, sigue trabajando con lo que ya tenía.
-  if(EMPLEADOS !== null){
-    anotarDiag('Actualización en segundo plano', false, 'se sigue usando la lista que ya estaba');
-    habilitarBoton(true);
-    resolverCargaViva();
-    return;
-  }
-
-  // Antes de dejar a nadie fuera: si hay una copia guardada en el dispositivo
-  // —aunque ya no esté fresca— se usa. Solo se bloquea a quien nunca ha entrado.
-  const c = leerCache();
-  if(c){
-    finalizarCarga(c.datos);
-    setLockMsg('Ingresa tu número de empleado para ver la promoción');
-    anotarDiag('Copia guardada en este teléfono', true, Object.keys(c.datos).length + ' registros');
-    return;
-  }
-
-  loadError = true;
-  setLockMsg(msg || 'Sin conexión. Revisa tu internet y presiona Entrar para reintentar.');
-  habilitarBoton(true);
-}
-
-window.google.visualization.Query = {
-  setResponse: function(response){
-    try{
-      if(!response || response.status === 'error' || !response.table){
-        throw new Error('respuesta inválida');
-      }
-      const rows = response.table.rows || [];
-      const map = {};
-      let filasIgnoradas = 0;
-
-      function cellVal(cell){
-        if(!cell) return '';
-        // .v = valor crudo, .f = valor formateado (respaldo si .v viene nulo)
-        const val = (cell.v !== null && cell.v !== undefined && cell.v !== '') ? cell.v : cell.f;
-        return (val !== null && val !== undefined) ? String(val).trim() : '';
-      }
-
-      rows.forEach(function(row){
-        const c = row.c || [];
-        const numero   = cellVal(c[0]);
-        const nombre   = cellVal(c[1]);
-        const distrito = cellVal(c[2]);
-        const posicion = cellVal(c[3]);
-        // La hoja puede llegar solo hasta la columna D. Si no hay columnas de
-        // jefe, estas quedan vacías y la app funciona igual (sin "Mi equipo").
-        const jefe     = cellVal(c[4]);
-        const jefeNom  = cellVal(c[5]);
-
-        // Fila con nombre pero sin número: Google devolvió la celda vacía
-        // porque la columna está tipada como número y el ID trae letras.
-        if(!numero && nombre){ filasIgnoradas++; return; }
-        if(!numero) return;
-
-        const numUp = normId(numero);
-        if(numUp === 'VACANTE' || numUp === 'NUMEROEMPLEADO') return;
-        map[numUp] = { nombre: nombre, distrito: distrito, posicion: posicion, jefe: normId(jefe), jefeNom: jefeNom };
-      });
-
-      if(Object.keys(map).length === 0){ throw new Error('sin registros'); }
-
-      // Si se perdieron filas por el tipo de columna y aún queda otra
-      // variante por probar, reintentamos automáticamente antes de rendirnos.
-      if(filasIgnoradas > 0 && varianteActual < VARIANTES.length - 1){
-        varianteActual++;
-        cargarDesdeGviz();
-        return;
-      }
-
-      guardarCache(map);
-      if(EMPLEADOS === null){ finalizarCarga(map); }
-      else { EMPLEADOS = map; datosActualizados(); }
-      anotarDiag('Google Sheets (gviz)', true, Object.keys(map).length + ' registros');
-      resolverCargaViva();
-
-      if(filasIgnoradas > 0){
-        console.warn('[Acceso] ' + filasIgnoradas + ' empleado(s) con número alfanumérico (SLK/CRC/ECO) NO se cargaron.\n' +
-          'Causa: Google clasificó la columna A como numérica y vacía las celdas con letras.\n' +
-          'Solución definitiva: Archivo → Compartir → Publicar en la web → CSV, y pega esa URL en CSV_PUBLICADO dentro de este HTML.');
-      }
-    } catch(err){
-      anotarDiag('Google Sheets (gviz)', false, String(err && err.message ? err.message : err));
-      // Antes de rendirse, se prueban las demás formas de pedir la hoja.
-      if(varianteActual < VARIANTES.length - 1){
-        varianteActual++;
-        cargarDesdeGviz();
-        return;
-      }
-      fallarCarga('No se pudieron cargar los datos de acceso. Presiona Entrar para reintentar.');
-      resolverCargaViva();
-    }
-  }
-};
-
-// Parser de CSV que respeta comillas y comas dentro de campos.
-function parseCSV(texto){
-  const filas = [];
-  let campo = '', fila = [], enComillas = false;
-  for(let i = 0; i < texto.length; i++){
-    const ch = texto[i];
-    if(enComillas){
-      if(ch === '"'){
-        if(texto[i+1] === '"'){ campo += '"'; i++; }
-        else { enComillas = false; }
-      } else { campo += ch; }
-    } else {
-      if(ch === '"'){ enComillas = true; }
-      else if(ch === ','){ fila.push(campo); campo = ''; }
-      else if(ch === '\n'){ fila.push(campo); filas.push(fila); fila = []; campo = ''; }
-      else if(ch !== '\r'){ campo += ch; }
-    }
-  }
-  if(campo.length || fila.length){ fila.push(campo); filas.push(fila); }
-  return filas;
-}
-
-// Construye el mapa de empleados a partir de filas [num, nombre, distrito, posicion]
-function construirMapa(filas){
-  const map = {};
-  let ignoradas = 0;
-  filas.forEach(function(f){
-    const numero   = (f[0] || '').trim();
-    const nombre   = (f[1] || '').trim();
-    const distrito = (f[2] || '').trim();
-    const posicion = (f[3] || '').trim();
-    const jefe     = (f[4] || '').trim();
-    const jefeNom  = (f[5] || '').trim();
-    if(!numero && nombre){ ignoradas++; return; }
-    if(!numero) return;
-    const numUp = normId(numero);
-    if(numUp === 'VACANTE' || numUp === 'NUMEROEMPLEADO') return;
-    map[numUp] = { nombre: nombre, distrito: distrito, posicion: posicion, jefe: normId(jefe), jefeNom: jefeNom };
-  });
-  return { map: map, ignoradas: ignoradas };
-}
-
-// RUTA A: CSV publicado. Es texto plano, así que Google no "adivina" tipos
-// de columna y los IDs con letras llegan intactos. Es la vía más confiable.
-function cargarDesdeCSV(url, siFalla, etiqueta){
-  etiqueta = etiqueta || url;
-  if(EMPLEADOS === null) setLockMsg('Cargando datos de acceso…');
-  habilitarBoton(false);
-
-  const ctrl = ('AbortController' in window) ? new AbortController() : null;
-  // Corto a propósito: un respaldo que tarda deja de ser respaldo.
-  const to = setTimeout(function(){ if(ctrl) ctrl.abort(); }, 6000);
-
-  fetch(url, ctrl ? { signal: ctrl.signal, cache: 'no-store' } : { cache: 'no-store' })
-    .then(function(r){
-      if(!r.ok) throw new Error('HTTP ' + r.status);
-      return r.text();
-    })
-    .then(function(txt){
-      clearTimeout(to);
-      const res = construirMapa(parseCSV(txt));
-      if(Object.keys(res.map).length === 0) throw new Error('sin registros');
-      guardarCache(res.map);
-      if(EMPLEADOS === null){ finalizarCarga(res.map); }
-      else { EMPLEADOS = res.map; datosActualizados(); }
-      anotarDiag(etiqueta, true, Object.keys(res.map).length + ' registros');
-      resolverCargaViva();
-      pintarDiagnostico();
-    })
-    .catch(function(err){
-      clearTimeout(to);
-      anotarDiag(etiqueta, false, String(err && err.message ? err.message : err));
-      if(typeof siFalla === 'function') siFalla();
-    });
-}
-
-// RUTA B: consulta JSONP. Funciona sin configuración extra, pero depende de
-// cómo Google clasifique el tipo de la columna A.
-function cargarDesdeGviz(){
-  intentos++;
-  habilitarBoton(false);
-  loadError = false;
-  setLockMsg('Cargando datos de acceso…');
-
-  const oldScript = document.getElementById('gvizScript');
-  if(oldScript) oldScript.remove();
-
-  const script = document.createElement('script');
-  script.id = 'gvizScript';
-  script.async = true;
-  // No se usa "select A,B,C,D,E,F": si algún día la hoja tuviera menos
-  // columnas de las pedidas, Google responde con error y NADIE puede entrar.
-  // Sin "select" devuelve las columnas que existan (hoy A-G) y aquí se toman
-  // las seis primeras; las de más se ignoran solas.
-  script.src = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID +
-               '/gviz/tq?tqx=out:json' +
-               (SHEET_TAB ? '&sheet=' + encodeURIComponent(SHEET_TAB) : '') +
-               '&' + VARIANTES[varianteActual];
-  script.onerror = function(){
-    anotarDiag('Google Sheets (gviz)', false, 'el navegador no pudo abrir docs.google.com');
-    fallarCarga('No se pudo conectar con Google. Presiona Entrar para reintentar.');
-    resolverCargaViva();
-  };
-
-  if(loadTimer) clearTimeout(loadTimer);
-  loadTimer = setTimeout(function(){
-    if(EMPLEADOS === null){
-      fallarCarga('La conexión está tardando demasiado. Presiona Entrar para reintentar.');
-    }
-    resolverCargaViva();
-  }, 30000);
-
-  document.body.appendChild(script);
-}
-
-// ORDEN DE BÚSQUEDA (de lo más confiable a lo menos):
-//   1. Copia guardada en el propio teléfono  → instantánea, sin red.
-//   2. empleados.csv del MISMO repositorio   → si la página abrió, el archivo
-//      abre. No pasa por Google, así que no lo tumban ni el bloqueo de la red
-//      corporativa ni los permisos de la hoja.
-//   3. CSV publicado de Google Sheets        → si se configuró.
-//   4. Consulta gviz a Google Sheets         → la vía original.
-// Entrar nunca depende de que Google conteste; Google solo sirve para
-// mantener la lista al día por detrás.
-function loadEmployees(forzarRed){
+// Directorio (para "Mi equipo"): se pide al backend ya autenticado con el
+// token de la sesión, nunca antes de entrar. Copia local como respaldo,
+// igual que antes, para no depender de la red en cada visita.
+function cargarDirectorio(alTerminar){
   const cache = leerCache();
-
-  // Hay copia guardada: se entra al instante, sin esperar a la red ni gastar datos.
-  if(cache && !forzarRed){
-    finalizarCarga(cache.datos);
+  if(cache){
+    EMPLEADOS = cache.datos;
     anotarDiag('Copia guardada en este teléfono', true,
       Object.keys(cache.datos).length + ' registros' + (cache.fresco ? '' : ' (se buscará una más nueva)'));
-    setTimeout(refrescarEnSegundoPlano, cache.fresco ? 2500 : 800);
+    if(alTerminar) alTerminar(true);
+    if(!cache.fresco) bajarDirectorio(function(){});
     return;
   }
-
-  buscarLista(function(){
-    fallarCarga('No se pudo cargar la lista de acceso. Presiona Entrar para reintentar.');
-  });
+  bajarDirectorio(alTerminar);
 }
 
-// Recorre las fuentes en orden hasta que alguna entregue la lista.
-function buscarLista(siFallanTodas){
-  const rutas = [];
-  if(CSV_LOCAL)     rutas.push({ url: CSV_LOCAL,     etq: 'Archivo del propio sitio (' + CSV_LOCAL + ')' });
-  if(CSV_PUBLICADO) rutas.push({ url: CSV_PUBLICADO, etq: 'CSV publicado de Google' });
-
-  let i = 0;
-  (function siguiente(){
-    if(i < rutas.length){
-      const r = rutas[i++];
-      cargarDesdeCSV(r.url, siguiente, r.etq);
-    } else {
-      cargarDesdeGviz();
+function bajarDirectorio(alTerminar){
+  llamarBackendNip({ accion: 'directorio', token: TOKEN_NIP }, 20).then(function(r){
+    if(!r || !r.ok){
+      anotarDiag('Directorio (backend)', false, (r && r.error) || 'sin respuesta');
+      if(alTerminar) alTerminar(EMPLEADOS !== null);
+      return;
     }
-  })();
-}
-
-// Actualiza la lista sin interrumpir a quien ya está dentro.
-// Aquí el orden se invierte: primero se busca en Google, que es donde está
-// la plantilla viva, y el archivo del repositorio queda como respaldo. Así
-// la lista local nunca se queda congelada.
-function refrescarEnSegundoPlano(){
-  if(CSV_PUBLICADO){
-    cargarDesdeCSV(CSV_PUBLICADO, cargarDesdeGviz, 'CSV publicado de Google');
-  } else {
-    cargarDesdeGviz();
-  }
-}
-
-// Arranca en cuanto el documento esté listo (sin bloquear el render).
-if(document.readyState === 'loading'){
-  document.addEventListener('DOMContentLoaded', loadEmployees);
-} else {
-  loadEmployees();
+    const datos = r.datos || [];
+    const map = {};
+    datos.forEach(function(d){
+      const numero = d[0] != null ? String(d[0]) : '';
+      if(!numero) return;
+      const numUp = normId(numero);
+      if(numUp === 'VACANTE' || numUp === 'NUMEROEMPLEADO') return;
+      map[numUp] = {
+        nombre: d[1] != null ? String(d[1]) : '',
+        distrito: d[2] != null ? String(d[2]) : '',
+        posicion: d[3] != null ? String(d[3]) : '',
+        jefe: d[4] != null ? normId(d[4]) : '',
+        jefeNom: ''
+      };
+    });
+    if(Object.keys(map).length === 0){
+      anotarDiag('Directorio (backend)', false, 'sin registros');
+      if(alTerminar) alTerminar(EMPLEADOS !== null);
+      return;
+    }
+    guardarCache(map);
+    const yaHabiaLista = EMPLEADOS !== null;
+    EMPLEADOS = map;
+    anotarDiag('Directorio (backend)', true, Object.keys(map).length + ' registros');
+    if(alTerminar) alTerminar(true);
+    if(yaHabiaLista) datosActualizados();
+  });
 }
 
 function toTitleCase(str){
@@ -7368,8 +7186,8 @@ const SESION_MINUTOS = 2;
 const SESION_KEY = 'tp_sesion';
 let vigilante = null;
 
-function guardarSesion(num){
-  try{ localStorage.setItem(SESION_KEY, JSON.stringify({ n: num, t: Date.now() })); }catch(e){}
+function guardarSesion(num, token, registro){
+  try{ localStorage.setItem(SESION_KEY, JSON.stringify({ n: num, tok: token, reg: registro, t: Date.now() })); }catch(e){}
 }
 function tocarSesion(){
   try{
@@ -7380,14 +7198,18 @@ function tocarSesion(){
     localStorage.setItem(SESION_KEY, JSON.stringify(o));
   }catch(e){}
 }
+// Solo se restaura sola si, además de estar dentro de los últimos minutos,
+// el token que firmó el backend sigue vigente. Sin token válido, se pide
+// número y PIN de nuevo: la sesión guardada nunca sustituye al login real.
 function leerSesion(){
   try{
     const raw = localStorage.getItem(SESION_KEY);
     if(!raw) return null;
     const o = JSON.parse(raw);
-    if(!o || !o.n) return null;
+    if(!o || !o.n || !o.tok) return null;
     if(Date.now() - o.t > SESION_MINUTOS * 60000) return null;
-    return o.n;
+    if(!tokenVigente(o.tok)) return null;
+    return o;
   }catch(e){ return null; }
 }
 function cerrarSesion(){
@@ -7401,9 +7223,10 @@ function bloquearPorInactividad(){
   canSeeComisiones = false;
   canSeeTecnico = false;
   canSeeAvance = false;
-  yaConsultoListaViva = false;
   puestoActual = '';
   empleadoActual = '';
+  TOKEN_NIP = '';
+  EMPLEADOS = null;
   BITACORA = null;
   pintarUsuarioMenu(null);
   const secAdm = document.getElementById('admin-seccion');
@@ -7413,14 +7236,11 @@ function bloquearPorInactividad(){
   const navAv = document.getElementById('navAvanceComisiones');
   if(navAv) navAv.style.display = 'none';
 
-  const inp = document.getElementById('empInput');
-  if(inp) inp.value = '';
   const bienvenida = document.getElementById('lockWelcome');
   if(bienvenida) bienvenida.classList.remove('show');
-  const form = document.getElementById('lockForm');
-  if(form) form.style.display = '';
+  mostrarPasoNumero();
   setLockErr('');
-  setLockMsg('Por seguridad se cerró la sesión. Ingresa de nuevo tu número de empleado.');
+  setLockMsg('Por seguridad se cerró la sesión. Ingresa de nuevo tu número de empleado y tu PIN.');
 
   document.getElementById('mainContent').style.display = 'none';
   document.getElementById('lockScreen').style.display = '';
@@ -7873,11 +7693,7 @@ function aplicarPermisos(registro, numUpper){
   canSeeAvance = PUESTOS_AVANCE.indexOf(normPuesto(registro.posicion)) !== -1;
 }
 
-// Ya se consultó la lista viva por un número que no aparecía: no se repite
-// la consulta en cada intento, para no dejar a la persona esperando de más.
-let yaConsultoListaViva = false;
-
-function darLaBienvenida(registro, numUpper){
+function darLaBienvenida(registro, numUpper, token){
   const errorEl = document.getElementById('lockError');
   if(errorEl) errorEl.textContent = '';
   document.getElementById('lockForm').style.display = 'none';
@@ -7885,55 +7701,148 @@ function darLaBienvenida(registro, numUpper){
   document.getElementById('welcomeDistrito').textContent = toTitleCase(registro.distrito);
   document.getElementById('welcomePosicion').textContent = toTitleCase(registro.posicion);
   document.getElementById('lockWelcome').classList.add('show');
+  TOKEN_NIP = token;
   aplicarPermisos(registro, numUpper);
-  guardarSesion(numUpper);
+  guardarSesion(numUpper, token, registro);
 }
 
-function checkEmployee(){
+// ── Login por número + PIN, en tres pasos ──
+let NUMERO_TEMP = '';
+let PB_ACTUAL, PB_NUEVO1, PB_NUEVO2;
+
+// Casillas de PIN segmentadas: una por dígito, con avance automático,
+// retroceso con Backspace y pegar el PIN completo de un jalón.
+function pinBoxes(idGrupo){
+  const caja = document.getElementById(idGrupo);
+  const inputs = caja ? caja.querySelectorAll('.pin-box') : [];
+  const grupo = {
+    valor: function(){ let v = ''; for(let i = 0; i < inputs.length; i++) v += inputs[i].value; return v; },
+    limpiar: function(){ for(let i = 0; i < inputs.length; i++){ inputs[i].value = ''; inputs[i].classList.remove('lleno'); } },
+    enfocar: function(){ if(inputs[0]) inputs[0].focus(); },
+    alCompletar: function(){}
+  };
+  for(let i = 0; i < inputs.length; i++){
+    (function(i){
+      inputs[i].addEventListener('input', function(){
+        this.value = this.value.replace(/\D/g, '').slice(0, 1);
+        this.classList.toggle('lleno', !!this.value);
+        if(this.value && inputs[i+1]) inputs[i+1].focus();
+        if(this.value && i === inputs.length - 1) grupo.alCompletar();
+      });
+      inputs[i].addEventListener('keydown', function(e){
+        if(e.key === 'Backspace' && !this.value && inputs[i-1]) inputs[i-1].focus();
+        if(e.key === 'Enter') grupo.alCompletar();
+      });
+      inputs[i].addEventListener('paste', function(e){
+        const texto = ((e.clipboardData || window.clipboardData).getData('text') || '').replace(/\D/g, '');
+        if(!texto) return;
+        e.preventDefault();
+        for(let k = 0; k < inputs.length; k++){ inputs[k].value = texto[k] || ''; inputs[k].classList.toggle('lleno', !!texto[k]); }
+        const ultimo = Math.min(texto.length, inputs.length) - 1;
+        if(ultimo >= 0) inputs[ultimo].focus();
+        if(texto.length >= inputs.length) grupo.alCompletar();
+      });
+    })(i);
+  }
+  return grupo;
+}
+
+function iniciarLoginPin(){
+  PB_ACTUAL = pinBoxes('cajaPinActual');
+  PB_NUEVO1 = pinBoxes('cajaPinNuevo1');
+  PB_NUEVO2 = pinBoxes('cajaPinNuevo2');
+  PB_ACTUAL.alCompletar = intentarEntrarPin;
+  PB_NUEVO1.alCompletar = function(){ PB_NUEVO2.enfocar(); };
+  PB_NUEVO2.alCompletar = guardarPinNuevo;
+}
+
+function mostrarPasoNumero(){
+  const pNum = document.getElementById('pasoNumero');
+  const pPin = document.getElementById('pasoPin');
+  const pNuevo = document.getElementById('pasoNuevoPin');
+  const form = document.getElementById('lockForm');
+  const bienvenida = document.getElementById('lockWelcome');
+  if(form) form.style.display = '';
+  if(bienvenida) bienvenida.classList.remove('show');
+  if(pPin) pPin.classList.add('oculto');
+  if(pNuevo) pNuevo.classList.add('oculto');
+  if(pNum) pNum.classList.remove('oculto');
+  setLockErr('');
+  NUMERO_TEMP = ''; TOKEN_NIP = '';
+  const inp = document.getElementById('empInput');
+  if(inp){ inp.value = ''; inp.focus(); }
+}
+function mostrarPasoPin(){
+  document.getElementById('pasoNumero').classList.add('oculto');
+  document.getElementById('pasoNuevoPin').classList.add('oculto');
+  document.getElementById('pasoPin').classList.remove('oculto');
+  setLockErr('');
+  PB_ACTUAL.limpiar();
+  PB_ACTUAL.enfocar();
+}
+function mostrarPasoNuevoPin(){
+  document.getElementById('pasoNumero').classList.add('oculto');
+  document.getElementById('pasoPin').classList.add('oculto');
+  document.getElementById('pasoNuevoPin').classList.remove('oculto');
+  setLockErr('');
+  PB_NUEVO1.limpiar(); PB_NUEVO2.limpiar();
+  PB_NUEVO1.enfocar();
+}
+
+function pedirPin(){
   const input = document.getElementById('empInput');
-  const num = input.value.trim();
-  const errorEl = document.getElementById('lockError');
+  const num = String(input.value || '').trim();
+  if(!num){ setLockErr('Ingresa tu número de empleado.'); return; }
+  NUMERO_TEMP = num;
+  mostrarPasoPin();
+}
 
-  if(EMPLEADOS === null){
-    if(loadError){
-      errorEl.textContent = 'Reintentando…';
-      loadEmployees(true);
-    } else {
-      errorEl.textContent = 'Espera un momento, seguimos cargando…';
+function intentarEntrarPin(){
+  const pin = PB_ACTUAL.valor();
+  if(!/^\d{4}$/.test(pin)){ setLockErr('Escribe tu PIN de 4 dígitos.'); return; }
+  const btn = document.getElementById('btnEntrarPin');
+  if(btn){ btn.disabled = true; btn.textContent = 'Validando…'; }
+  llamarBackendNip({ accion: 'loginGeneral', numero: NUMERO_TEMP, pin: pin }, 20).then(function(r){
+    if(btn){ btn.disabled = false; btn.textContent = 'Entrar'; }
+    if(!r || !r.ok){
+      const msg = {
+        noAutorizado: 'El número ' + NUMERO_TEMP + ' no está en la lista de acceso. Verifícalo con tu líder.',
+        pinIncorrecto: 'PIN incorrecto. Verifícalo con tu líder si no lo recuerdas.'
+      }[r && r.error] || ((r && r.error) || 'No se pudo verificar tu acceso.');
+      setLockErr(msg);
+      PB_ACTUAL.limpiar(); PB_ACTUAL.enfocar();
+      return;
     }
-    return;
-  }
-  if(!num){
-    errorEl.textContent = 'Ingresa tu número de empleado.';
-    return;
-  }
-  const numUpper = normId(num);
-  const registro = EMPLEADOS[numUpper];
+    const numUpper = normId(r.numero);
+    const registro = { nombre: r.nombre || '', distrito: r.distrito || '', posicion: r.posicion || '' };
+    if(r.debeCambiarPin){
+      NUMERO_TEMP = numUpper;
+      TOKEN_NIP = r.token;
+      window._registroPendiente = registro;
+      mostrarPasoNuevoPin();
+      return;
+    }
+    darLaBienvenida(registro, numUpper, r.token);
+  });
+}
 
-  if(registro){ darLaBienvenida(registro, numUpper); return; }
-
-  // No aparece en la lista que tenemos. Antes de rechazarlo, se revisa la
-  // fuente viva: puede ser un alta de esta semana que todavía no está en la
-  // copia guardada ni en el archivo del repositorio. Esto es lo que hace que
-  // el personal nuevo entre sin esperar a que se actualice el archivo.
-  if(!yaConsultoListaViva){
-    yaConsultoListaViva = true;
-    errorEl.textContent = 'Buscando tu número en la lista más reciente…';
-    habilitarBoton(false);
-    buscarListaViva(function(){
-      habilitarBoton(true);
-      const r2 = EMPLEADOS ? EMPLEADOS[numUpper] : null;
-      if(r2){
-        anotarDiag('Alta reciente', true, 'el número se encontró en la lista viva');
-        darLaBienvenida(r2, numUpper);
-      } else {
-        errorEl.textContent = 'Número de empleado no válido. Intenta de nuevo.';
-      }
-    });
-    return;
-  }
-
-  errorEl.textContent = 'Número de empleado no válido. Intenta de nuevo.';
+function guardarPinNuevo(){
+  const p1 = PB_NUEVO1.valor(), p2 = PB_NUEVO2.valor();
+  if(!/^\d{4}$/.test(p1) || !/^\d{4}$/.test(p2)){ setLockErr('Completa los dos PIN de 4 dígitos.'); return; }
+  const err = pinInvalido(p1, NUMERO_TEMP);
+  if(err){ setLockErr(err); PB_NUEVO1.limpiar(); PB_NUEVO2.limpiar(); PB_NUEVO1.enfocar(); return; }
+  if(p1 !== p2){ setLockErr('Los dos PIN no coinciden.'); PB_NUEVO2.limpiar(); PB_NUEVO2.enfocar(); return; }
+  const btn = document.getElementById('btnGuardarPin');
+  if(btn){ btn.disabled = true; btn.textContent = 'Guardando…'; }
+  llamarBackendNip({ accion: 'cambiarPin', token: TOKEN_NIP, pinNuevo: p1 }, 20).then(function(r){
+    if(btn){ btn.disabled = false; btn.textContent = 'Guardar mi PIN'; }
+    if(!r || !r.ok){
+      setLockErr((r && r.error) || 'No se pudo guardar tu PIN.');
+      PB_NUEVO1.limpiar(); PB_NUEVO2.limpiar(); PB_NUEVO1.enfocar();
+      return;
+    }
+    darLaBienvenida(window._registroPendiente || {}, NUMERO_TEMP, r.token);
+  });
 }
 
 // Pone en el menú el nombre y el puesto de quien entró.
@@ -7992,12 +7901,31 @@ function enterSite(){
   if(empleadoActual){
     anotarAcceso(empleadoActual);
     cargarBitacora();
+    cargarDirectorio(function(){ pintarMiEquipo(); });
   }
 }
 
 document.getElementById('empInput').addEventListener('keydown', function(e){
-  if(e.key === 'Enter'){ checkEmployee(); }
+  if(e.key === 'Enter'){ pedirPin(); }
 });
+document.getElementById('btnSiguienteNumero').addEventListener('click', pedirPin);
+document.getElementById('btnEntrarPin').addEventListener('click', intentarEntrarPin);
+document.getElementById('btnCambiarNumero').addEventListener('click', mostrarPasoNumero);
+document.getElementById('btnGuardarPin').addEventListener('click', guardarPinNuevo);
+iniciarLoginPin();
+
+// Si hay una sesión guardada con token todavía vigente, se entra directo
+// sin pedir número ni PIN otra vez. Si no, se muestra el paso de número.
+(function(){
+  const s = leerSesion();
+  if(s && s.reg){
+    TOKEN_NIP = s.tok;
+    aplicarPermisos(s.reg, s.n);
+    enterSite();
+  } else {
+    mostrarPasoNumero();
+  }
+})();
 </script>
 </body>
 </html>
