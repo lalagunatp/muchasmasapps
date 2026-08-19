@@ -6754,7 +6754,7 @@ function dibujarEquipo(){
         ? '<p class="eq-vacio" style="color:#B3401E;">Esta persona no tiene a nadie asignado en la plantilla.</p>'
         : '<p class="eq-vacio">🎉 ¡Todos los de este grupo ya entraron!</p>');
 
-  pintarDiagnostico();
+  pintarDiagnosticoEquipo();
 }
 
 // Muestra en la propia página cómo se armó el organigrama, para poder
@@ -6787,7 +6787,7 @@ function buscarEnPlantilla(){
   }
 }
 
-function pintarDiagnostico(){
+function pintarDiagnosticoEquipo(){
   const caja = document.getElementById('eqDiag');
   if(!caja || !diagEquipo) return;
   const d = diagEquipo;
