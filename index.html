@@ -6100,7 +6100,10 @@ document.addEventListener('keydown', function(e){
 // Dirección del Apps Script publicado y la clave (debe ser idéntica
 // a la del script). Si algún día vuelves a publicar y cambia la liga,
 // solo se cambia aquí.
-const BITACORA_URL   = 'https://script.google.com/macros/s/AKfycbykzRwQ-IQsozHeBxo68SsmfQVgXa97ogMw_jMUcLtTUdznqE7AxPpsFNBTwtcqBUJxMQ/exec';
+// Desde el 2026-08-19 este Apps Script vive dentro de BASE LA LAGUNA
+// 2026 (proyecto independiente, no atado a la hoja) y lee PLANTILLA
+// para completar nombre/distrito/posición/jefe de cada acceso nuevo.
+const BITACORA_URL   = 'https://script.google.com/macros/s/AKfycbwf7ewGlvHBqIyMmj1o1whUpwg7Gl7jyPE2iDWkyOjrfK--sFhdNlyD1QWHZMt4Hv-o7g/exec';
 const BITACORA_CLAVE = 'TPLAGUNA2026';
 
 let BITACORA = null;      // { numeroEmpleado: {ultimo, veces} }
