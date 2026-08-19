@@ -7184,7 +7184,7 @@ function toTitleCase(str){
   }).join(' ');
 }
 
-// ── SESIÓN: se cierra sola tras 2 minutos fuera de la página ──
+// ── SESIÓN: se cierra sola tras 2 minutos sin actividad real ──
 const SESION_MINUTOS = 2;
 const SESION_KEY = 'tp_sesion';
 let vigilante = null;
@@ -7251,26 +7251,40 @@ function bloquearPorInactividad(){
   window.scrollTo(0, 0);
 }
 
+// Antes esto solo refrescaba la sesión por tener la pestaña visible, sin
+// importar si la persona seguía usándola: dejar la pantalla prendida sin
+// tocar nada nunca la cerraba. Ahora revisa proactivamente si ya pasó el
+// tiempo de inactividad y bloquea de inmediato, aunque la pestaña siga
+// abierta y a la vista.
 function iniciarVigilancia(){
   if(vigilante) clearInterval(vigilante);
-  // Mientras la persona tiene la página a la vista, la sesión se mantiene viva.
   vigilante = setInterval(function(){
-    if(!document.hidden) tocarSesion();
-  }, 20000);
+    if(!leerSesion()) bloquearPorInactividad();
+  }, 15000);
 }
 
-document.addEventListener('visibilitychange', function(){
-  if(document.hidden){
-    tocarSesion();               // marca el momento en que se fue
-  } else {
-    const abierto = document.getElementById('mainContent').style.display === 'block';
-    if(abierto){
-      if(leerSesion()) tocarSesion();
-      else bloquearPorInactividad();
-    }
-  }
+// Solo la actividad real (tocar, hacer clic, escribir, hacer scroll)
+// mantiene viva la sesión. Con limitador para no escribir en localStorage
+// en cada pixel de un scroll rápido.
+let ultimoToque = 0;
+function tocarSesionSiActivo(){
+  if(document.getElementById('mainContent').style.display !== 'block') return;
+  const ahora = Date.now();
+  if(ahora - ultimoToque < 2000) return;
+  ultimoToque = ahora;
+  tocarSesion();
+}
+['click', 'touchstart', 'keydown', 'scroll'].forEach(function(ev){
+  document.addEventListener(ev, tocarSesionSiActivo, { passive: true });
 });
-window.addEventListener('pagehide', tocarSesion);
+
+// Al volver de otra pestaña o app, se revisa de inmediato en vez de
+// esperar al siguiente tick del vigilante.
+document.addEventListener('visibilitychange', function(){
+  if(document.hidden) return;
+  const abierto = document.getElementById('mainContent').style.display === 'block';
+  if(abierto && !leerSesion()) bloquearPorInactividad();
+});
 
 // ═══════════════════════════════════════════════════════════════════
 //  VIGENCIAS Y AVISOS  ·  ÚNICA ZONA QUE HAY QUE TOCAR AL ACTUALIZAR
