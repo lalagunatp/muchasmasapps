@@ -6179,12 +6179,18 @@ function cargarBitacora(){
 // Así, cualquier puesto (Gestor, Analista, Instructor, Líder Administrativo,
 // Coach de Ventas Técnico, etc.) queda bajo el jefe que diga la plantilla.
 let sinLineaReporte = {};
+let jefeVacante = {};    // el jefe existe en la plantilla, pero su puesto está vacante (marcado con 8888)
 
 let diagEquipo = null;   // qué pasó al armar el organigrama
+
+// La plantilla marca un puesto de jefe vacante poniendo 8888 en la columna
+// del número de jefe (columna I / NUMERO LR), en vez de dejarla vacía.
+const NUM_JEFE_VACANTE = '8888';
 
 function armarJerarquia(){
   hijosDe = {};
   sinLineaReporte = {};
+  jefeVacante = {};
 
   // Índices para encontrar al jefe aunque el dato venga distinto:
   //  · por nombre (columna F)
@@ -6211,11 +6217,13 @@ function armarJerarquia(){
   }
 
   const noResueltos = [];
+  const vacantes = [];
   let sinDato = 0, porNum = 0, porNom = 0, directo = 0;
 
   for(const n in EMPLEADOS){
     const e = EMPLEADOS[n];
     let jefe = e.jefe || '';
+    let esVacante = false;
 
     if(!jefe){
       sinDato++;
@@ -6225,7 +6233,13 @@ function armarJerarquia(){
       // 1) por valor numérico
       const dig = jefe.replace(/[^0-9]/g, '');
       if(dig && porNumero[dig]){ jefe = porNumero[dig]; porNum++; }
-      else {
+      else if(dig === NUM_JEFE_VACANTE){
+        // No es un error de datos: la plantilla usa 8888 para marcar que
+        // ese puesto de jefe todavía no tiene quién lo ocupe.
+        esVacante = true;
+        vacantes.push({ quien: e.nombre, nom: e.jefeNom || '' });
+        jefe = '';
+      } else {
         // 2) por nombre de la columna F
         const pn = porNombre[normPuesto(e.jefeNom || '')];
         if(pn){ jefe = pn; porNom++; }
@@ -6240,7 +6254,8 @@ function armarJerarquia(){
       const dir = directorDe[normPuesto(e.distrito)];
       if(dir && dir !== n){
         jefe = dir;
-        sinLineaReporte[n] = true;
+        if(esVacante) jefeVacante[n] = true;
+        else sinLineaReporte[n] = true;
       }
     }
     if(!jefe || jefe === n) continue;
@@ -6254,7 +6269,8 @@ function armarJerarquia(){
     porNumero: porNum,
     porNombre: porNom,
     sinDato: sinDato,
-    noResueltos: noResueltos
+    noResueltos: noResueltos,
+    vacantes: vacantes
   };
 
   if(noResueltos.length){
@@ -6666,7 +6682,9 @@ function dibujarEquipo(){
   directos.forEach(function(n){
     const e = EMPLEADOS[n];
     const tieneGente = (hijosDe[n] || []).length > 0;
-    const aviso = sinLineaReporte[n]
+    const aviso = jefeVacante[n]
+      ? '<div class="eq-sinjefe">🪑 El puesto de su líder está vacante en la plantilla</div>'
+      : sinLineaReporte[n]
       ? '<div class="eq-sinjefe">⚠️ Le falta su línea de reporte en la plantilla</div>' : '';
 
     if(tieneGente){
@@ -6781,6 +6799,7 @@ function pintarDiagnostico(){
     '<tr><td>Rescatadas comparando solo dígitos</td><td><b>' + d.porNumero + '</b></td></tr>' +
     '<tr><td>Rescatadas por el nombre del jefe</td><td><b>' + d.porNombre + '</b></td></tr>' +
     '<tr><td>Sin nada en la columna E</td><td><b>' + d.sinDato + '</b></td></tr>' +
+    '<tr><td>Con el puesto de su jefe vacante (8888)</td><td><b>' + d.vacantes.length + '</b></td></tr>' +
     '<tr><td>Con un jefe que no existe</td><td><b>' + d.noResueltos.length + '</b></td></tr>' +
     '<tr><td>Registro de accesos</td><td><b>' +
       (ultimoErrorBitacora ? '⚠️ con falla' : (BITACORA && Object.keys(BITACORA).length ? '✅ ' + Object.keys(BITACORA).length + ' registros' : '✅ sin registros aún')) +
