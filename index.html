@@ -6179,13 +6179,18 @@ function cargarBitacora(){
 // Así, cualquier puesto (Gestor, Analista, Instructor, Líder Administrativo,
 // Coach de Ventas Técnico, etc.) queda bajo el jefe que diga la plantilla.
 let sinLineaReporte = {};
-let jefeVacante = {};    // el jefe existe en la plantilla, pero su puesto está vacante (marcado con 8888)
+let jefeVacante = {};    // el puesto del jefe existe en la plantilla, pero está vacante
 
 let diagEquipo = null;   // qué pasó al armar el organigrama
 
-// La plantilla marca un puesto de jefe vacante poniendo 8888 en la columna
-// del número de jefe (columna I / NUMERO LR), en vez de dejarla vacía.
+// La plantilla marca un puesto de jefe vacante de dos formas distintas
+// según la fila: a veces con el número 8888, a veces escribiendo
+// literalmente la palabra VACANTE en la columna del jefe (columna I /
+// NUMERO LR). Ninguna de las dos es un error de datos.
 const NUM_JEFE_VACANTE = '8888';
+function esMarcaDeVacante(jefeNorm, dig){
+  return dig === NUM_JEFE_VACANTE || jefeNorm.indexOf('VACANTE') === 0;
+}
 
 function armarJerarquia(){
   hijosDe = {};
@@ -6233,9 +6238,9 @@ function armarJerarquia(){
       // 1) por valor numérico
       const dig = jefe.replace(/[^0-9]/g, '');
       if(dig && porNumero[dig]){ jefe = porNumero[dig]; porNum++; }
-      else if(dig === NUM_JEFE_VACANTE){
-        // No es un error de datos: la plantilla usa 8888 para marcar que
-        // ese puesto de jefe todavía no tiene quién lo ocupe.
+      else if(esMarcaDeVacante(jefe, dig)){
+        // No es un error de datos: la plantilla marca así que ese puesto
+        // de jefe todavía no tiene quién lo ocupe.
         esVacante = true;
         vacantes.push({ quien: e.nombre, nom: e.jefeNom || '' });
         jefe = '';
@@ -6799,7 +6804,7 @@ function pintarDiagnosticoEquipo(){
     '<tr><td>Rescatadas comparando solo dígitos</td><td><b>' + d.porNumero + '</b></td></tr>' +
     '<tr><td>Rescatadas por el nombre del jefe</td><td><b>' + d.porNombre + '</b></td></tr>' +
     '<tr><td>Sin nada en la columna E</td><td><b>' + d.sinDato + '</b></td></tr>' +
-    '<tr><td>Con el puesto de su jefe vacante (8888)</td><td><b>' + d.vacantes.length + '</b></td></tr>' +
+    '<tr><td>Con el puesto de su jefe vacante</td><td><b>' + d.vacantes.length + '</b></td></tr>' +
     '<tr><td>Con un jefe que no existe</td><td><b>' + d.noResueltos.length + '</b></td></tr>' +
     '<tr><td>Registro de accesos</td><td><b>' +
       (ultimoErrorBitacora ? '⚠️ con falla' : (BITACORA && Object.keys(BITACORA).length ? '✅ ' + Object.keys(BITACORA).length + ' registros' : '✅ sin registros aún')) +
