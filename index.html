@@ -4959,7 +4959,7 @@
 
   <section class="block" id="manteleta-seccion" style="padding:24px 16px 30px;">
     <div class="manteleta-block">
-      <h3>📋 Manteleta · Oferta Base</h3>
+      <h3 id="manteleta-titulo">📋 Manteleta · Oferta Base</h3>
       <p class="manteleta-lema">La hoja de consulta rápida con todo en un solo lugar: precios de pronto pago y de lista, descuento por lealtad, canales incluidos, apps empaquetadas y precios por separado. <strong>Toca cualquier hoja para verla en grande.</strong></p>
 
       <div class="manteleta-hojas">
@@ -6912,24 +6912,48 @@ function closeNav(){
   document.getElementById('hamburgerBtn').classList.remove('open');
 }
 // Lleva a la sección elegida. Se coloca de golpe (no deslizando) y se
-// vuelve a ajustar dos veces, porque las imágenes se cargan conforme
-// baja la página y mueven el contenido de lugar.
+// sigue reajustando cuadro a cuadro durante un rato, porque las imágenes
+// se cargan conforme baja la página y mueven el contenido de lugar — con
+// timeouts fijos, en una conexión lenta el ajuste terminaba antes de que
+// las imágenes acabaran de cargar y la sección quedaba desfasada. Se
+// detiene solo (para no pelearse con el dedo del usuario) en cuanto toca
+// la pantalla o mueve la rueda del mouse.
 function irASeccion(destino){
   const target = document.querySelector(destino);
   if(!target) return;
+
+  closeNav();
+
+  let cancelado = false;
+  function cancelar(){ cancelado = true; }
+  window.addEventListener('touchstart', cancelar, { once:true, passive:true });
+  window.addEventListener('wheel', cancelar, { once:true, passive:true });
 
   function colocar(){
     const y = target.getBoundingClientRect().top + window.pageYOffset - 12;
     window.scrollTo({ top: Math.max(y, 0), behavior: 'auto' });
   }
 
-  closeNav();
-  setTimeout(colocar, 80);   // apenas se cierra el menú
-  setTimeout(colocar, 400);  // ya que cargaron las imágenes de arriba
-  setTimeout(colocar, 900);  // ajuste final
+  const inicio = Date.now();
+  const DURACION = 1600; // ms que se sigue corrigiendo por si siguen cargando imágenes
+  function paso(){
+    if(cancelado) return;
+    colocar();
+    if(Date.now() - inicio < DURACION){
+      requestAnimationFrame(paso);
+    }
+  }
+
+  setTimeout(function(){       // apenas se cierra el menú
+    if(cancelado) return;
+    requestAnimationFrame(paso);
+  }, 80);
 }
 
-document.querySelectorAll('#navPanel a[href^="#"]').forEach(function(link){
+// Cualquier liga interna que apunte a un id (menú, submenú, o las tarjetas
+// de "Ver todo" dentro de la página) usa la misma función, así todas
+// llegan al lugar correcto aunque la página siga acomodando imágenes.
+document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(function(link){
   link.addEventListener('click', function(e){
     e.preventDefault();
     irASeccion(link.getAttribute('href'));
@@ -7402,7 +7426,8 @@ const NUEVOS = [
   { navId:'navPromoContenido', tituloId:'promoContenidoTitulo', fecha:'2026-08-18' },
   { navId:'navStreamingAds', tituloId:'sa-titulo',  fecha:'2026-08-13' },
   { navId:'navTipsApps',     tituloId:'da-titulo',  fecha:'2026-08-12' },
-  { navId:'navBnJuegos',     tituloId:'bn-juegos',  fecha:'2026-08-14' }
+  { navId:'navBnJuegos',     tituloId:'bn-juegos',  fecha:'2026-08-14' },
+  { navId:'navManteleta',    tituloId:'manteleta-titulo', fecha:'2026-08-20' }
 ];
 
 const PUESTO_ADMIN = normPuesto('DIRECTOR DISTRITAL');
