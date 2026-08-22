@@ -3517,7 +3517,7 @@
     <a href="#bn-pasos" onclick="closeNav()"><span class="nav-icon">📝</span>Así se contrata, paso a paso</a>
     <a href="#bn-faq" onclick="closeNav()"><span class="nav-icon">❓</span>Preguntas que te van a hacer</a>
   </div>
-  <a href="#planes" onclick="closeNav()"><span class="nav-icon">📶</span>Planes y Megas</a>
+  <a href="#planes" id="navPlanes" onclick="closeNav()"><span class="nav-icon">📶</span>Planes y Megas</a>
   <a href="#promos-adicionales" onclick="closeNav()"><span class="nav-icon">🔥</span>Promos que cierran venta</a>
   <a href="#descuento-especial" onclick="closeNav()"><span class="nav-icon">💰</span>Descuento Especial 5 meses</a>
   <a href="#reglas" onclick="closeNav()"><span class="nav-icon">📋</span>Reglas de negocio</a>
@@ -4512,7 +4512,7 @@
 
   <section class="block" id="planes">
     <div class="section-eyebrow">Planes con promoción</div>
-    <h2 class="section-title">Totalplayer: TV + Internet o solo Internet</h2>
+    <h2 class="section-title" id="planes-titulo">Totalplayer: TV + Internet o solo Internet</h2>
 
     <div class="tab-toggle">
       <button class="active" onclick="showTab('tv')">📺 TV + Internet</button>
@@ -4556,7 +4556,7 @@
           <a class="ads-badge ads gl-link" href="#gl-streaming-anuncios">Con anuncios</a>
         </div>
         <div class="plan-card">
-          <div class="megas">350<span>Megas simétricos</span></div>
+          <div class="megas" id="plan350-titulo">350<span>Megas simétricos</span></div>
           <div class="price">$799<small>/mes</small></div>
           <div class="plan-promo-vsb">
             <i class="foto-vsb" role="img" aria-label="Video Sound Box"></i>
@@ -4565,6 +4565,7 @@
           <ul class="plan-feats">
             <li>+190 canales (122 HD)</li>
             <li><a class="gl-link" href="#gl-anytime">+69h Anytime</a></li>
+            <li><a class="gl-link" href="#gl-wifi7">WiFi 7</a></li>
             <li>VSB como TV principal, con <a class="gl-link" href="#gl-dolby-atmos">Dolby Atmos</a></li>
           </ul>
           <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Universal+</span><span class="tag">Apple TV</span></div>
@@ -7587,7 +7588,9 @@ const NUEVOS = [
   { navId:'navTipsApps',     tituloId:'da-titulo',  fecha:'2026-08-12' },
   { navId:'navBnJuegos',     tituloId:'bn-juegos',  fecha:'2026-08-14' },
   { navId:'navManteleta',    tituloId:'manteleta-titulo', fecha:'2026-08-20' },
-  { navId:null,              tituloId:'vsb-promo350-titulo', fecha:'2026-08-21' }
+  { navId:null,              tituloId:'vsb-promo350-titulo', fecha:'2026-08-21' },
+  { navId:'navPlanes',       tituloId:'planes-titulo', fecha:'2026-08-21' },
+  { navId:null,              tituloId:'plan350-titulo', fecha:'2026-08-21' }
 ];
 
 const PUESTO_ADMIN = normPuesto('DIRECTOR DISTRITAL');
