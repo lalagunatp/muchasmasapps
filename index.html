@@ -200,6 +200,10 @@
     padding:2px 8px;
     border-radius:6px;
   }
+  .plan-card .extra.promo{
+    color:#a15b00;
+    background:#FFF1D6;
+  }
   .card-apps{
     margin-top:12px;
     padding-top:12px;
@@ -260,6 +264,12 @@
     left:2px;
     color:var(--ocean);
     font-weight:800;
+  }
+  .plan-feats li a{
+    color:inherit;
+    text-decoration:none;
+    border-bottom:1px dashed var(--ocean);
+    cursor:pointer;
   }
 
   /* BOTÓN DESCUENTO DE PORTABILIDAD */
@@ -793,6 +803,16 @@
     font-size:12px;
     color:var(--ink);
     font-weight:600;
+  }
+  .vsb-vigencia{
+    display:inline-block;
+    margin-top:6px;
+    font-size:11px;
+    font-weight:700;
+    color:#a15b00;
+    background:#FFF1D6;
+    padding:3px 9px;
+    border-radius:7px;
   }
   .vsb-card ul{
     margin:12px 0 14px;
@@ -4496,9 +4516,11 @@
         <div class="plan-card">
           <div class="megas">350<span>Megas simétricos</span></div>
           <div class="price">$799<small>/mes</small></div>
+          <div class="extra promo">🎒 VSB sin costo · 21 al 31 ago</div>
           <ul class="plan-feats">
             <li>+190 canales (122 HD)</li>
             <li>+69h Anytime</li>
+            <li>VSB como TV principal, con <a href="#gl-dolby-atmos">Dolby Atmos</a></li>
           </ul>
           <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Universal+</span><span class="tag">Apple TV</span></div>
           <div class="ads-badge ads">Con anuncios</div>
@@ -4711,6 +4733,26 @@
           <li>Todas las promos se pierden si el cliente cambia a un plan no elegible o cancela el servicio</li>
         </ul>
       </div>
+      <div class="rule-card yes">
+        <h4>350 Megas + VSB (21-31 ago) · Sí convive con</h4>
+        <ul>
+          <li>Promociones sobre adicionales de contenido</li>
+          <li>Otros adicionales instalables (WiFi Pro, TV adicional, VSB adicional)</li>
+          <li>Streamings</li>
+          <li>Descuento a empleados</li>
+          <li>Descuento de portabilidad ($200)</li>
+        </ul>
+      </div>
+      <div class="rule-card no">
+        <h4>350 Megas + VSB (21-31 ago) · No convive con</h4>
+        <ul>
+          <li>Kit VSB + Totalplay Surround</li>
+          <li>VSB por $50 adicionales al plan</li>
+          <li>Tu Experiencia al 100</li>
+          <li>Promociones segmentadas</li>
+          <li>Descuento Especial ($70)</li>
+        </ul>
+      </div>
     </div>
 
     <div class="model-block">
@@ -4783,6 +4825,32 @@
       <div class="vsb-grid">
         <div class="vsb-card destacada">
           <div class="vsb-foto">
+            <i class="foto-vsb" role="img" aria-label="Video Sound Box"></i>
+          </div>
+          <h4 id="vsb-promo350-titulo">350 Megas + VSB sin costo</h4>
+          <div class="vsb-precio">$799<small>/mes</small></div>
+          <span class="vsb-vigencia">Vigente del 21 al 31 de agosto</span>
+          <ul>
+            <li><strong>350 Megas + VSB</strong> incluido como TV principal — sin costo adicional, en vez de la caja 4K.</li>
+            <li>Incluye Netflix, Universal+ y Apple TV (licencias con anuncios).</li>
+            <li>Clientes nuevos y actuales.</li>
+            <li>El modelo de VSB se entrega según disponibilidad en almacén.</li>
+          </ul>
+          <span class="model-code">350 megas con VSB → Mini Verano + Precio Especial + Más Apps (Netflix Ads, Universal Ads, Apple TV Ads incluido)</span>
+          <details class="lose-details">
+            <summary>No convive con…</summary>
+            <ul>
+              <li>Kit VSB + Totalplay Surround</li>
+              <li>VSB por $50 adicionales al plan</li>
+              <li>Tu Experiencia al 100</li>
+              <li>Promociones segmentadas</li>
+              <li>Descuento Especial ($70)</li>
+            </ul>
+          </details>
+        </div>
+
+        <div class="vsb-card">
+          <div class="vsb-foto">
             <i class="foto-bocinas" role="img" aria-label="Bocinas Totalplay Surround"></i>
             <i class="foto-vsb" role="img" aria-label="Video Sound Box"></i>
           </div>
@@ -4843,6 +4911,7 @@
             <li>El cliente recibe el VSB <strong>como TV principal</strong>.</li>
             <li>Clientes nuevos y actuales.</li>
             <li>Aplica con Netflix (Estándar con anuncios, Estándar y Premium), Amazon, HBO Max Estándar, Disney+ y Apple TV.</li>
+            <li>Del 21 al 31 de agosto, en <strong>350 Megas</strong> esto ya viene <strong>sin costo</strong> — usa la promo destacada al inicio de esta sección.</li>
           </ul>
           <span class="model-code">250 y 350 megas con VSB → Nuevo Totalplay TV +$50</span>
           <details class="lose-details">
@@ -4857,7 +4926,7 @@
         </div>
       </div>
 
-      <p style="font-size:11.5px;opacity:.85;margin:16px 0 0;">Las tres conviven con adicionales de contenido, otros instalables (WiFi Pro, TV adicional, VSB adicional), streamings, megas adicionales, descuento a empleados y descuento de portabilidad ($200).</p>
+      <p style="font-size:11.5px;opacity:.85;margin:16px 0 0;">Las cuatro conviven con adicionales de contenido, otros instalables (WiFi Pro, TV adicional, VSB adicional), streamings, megas adicionales, descuento a empleados y descuento de portabilidad ($200).</p>
     </div>
   </section>
 
@@ -5209,7 +5278,7 @@
         </div>
       </details>
 
-      <details class="gl-item">
+      <details class="gl-item" id="gl-dolby-atmos">
         <summary>Dolby Atmos</summary>
         <p><strong>¿Qué es?</strong> Una tecnología de sonido envolvente que crea una experiencia de audio <strong>tridimensional</strong>: el sonido parece venir de cualquier dirección, incluso desde arriba.</p>
         <p class="gl-sub">¿Cómo funciona?</p>
@@ -5234,6 +5303,8 @@
           <li>Audio más preciso en videojuegos.</li>
           <li>Música con mayor calidad y detalle.</li>
         </ul>
+        <p class="gl-sub">En Totalplay</p>
+        <p>El <a href="#vsb-seccion">Video Sound Box (VSB)</a> es el equipo que trae este sonido a la sala del cliente — un buen argumento extra al ofrecerlo.</p>
       </details>
 
       <details class="gl-item">
@@ -6922,6 +6993,11 @@ function irASeccion(destino){
   const target = document.querySelector(destino);
   if(!target) return;
 
+  // si el destino vive dentro de un <details> cerrado (p. ej. un término
+  // del Glosario), lo abrimos para que se vea, no solo se marque la posición.
+  const desplegable = target.closest('details');
+  if(desplegable) desplegable.open = true;
+
   closeNav();
 
   let cancelado = false;
@@ -7378,6 +7454,7 @@ const SECCIONES = [
 // Bitácora de cambios. La entrada más reciente va arriba.
 // Cada vez que publiques una actualización, agrega una línea con un id nuevo.
 const AVISOS = [
+  { id:'2026-08-21-vsb-350-gratis',fecha:'21 de agosto 2026', texto:'¡NUEVO! Del 21 al 31 de agosto, el plan de 350 Megas TV + Internet lleva el VSB sin costo como TV principal (con Dolby Atmos). Ya está en Planes y Megas, en Misión Regreso a Clases con VSB y en Reglas de negocio.' },
   { id:'2026-08-20-manteleta',fecha:'20 de agosto 2026', texto:'Se actualizó la Manteleta de Oferta Base con los precios y promociones vigentes del 17 de agosto al 17 de septiembre del 2026.' },
   { id:'2026-08-17-vsb-regreso-clases',fecha:'17 de agosto 2026', texto:'"Un verano con V de VSB" ahora es "Misión Regreso a Clases con VSB": nueva portada e información actualizada de Plan de Verano, Kit VSB + Surround y VSB como TV Principal. Vigente hasta el 31 de agosto.' },
   { id:'2026-08-14-flash-nuevo',fecha:'14 de agosto 2026', texto:'Ahora lo recién agregado se marca solo con "⚡ Nuevo", tanto en el menú como en el título dentro de la página. La marca se apaga sola a los 15 días, no hay que quitarla a mano.' },
@@ -7427,7 +7504,8 @@ const NUEVOS = [
   { navId:'navStreamingAds', tituloId:'sa-titulo',  fecha:'2026-08-13' },
   { navId:'navTipsApps',     tituloId:'da-titulo',  fecha:'2026-08-12' },
   { navId:'navBnJuegos',     tituloId:'bn-juegos',  fecha:'2026-08-14' },
-  { navId:'navManteleta',    tituloId:'manteleta-titulo', fecha:'2026-08-20' }
+  { navId:'navManteleta',    tituloId:'manteleta-titulo', fecha:'2026-08-20' },
+  { navId:null,              tituloId:'vsb-promo350-titulo', fecha:'2026-08-21' }
 ];
 
 const PUESTO_ADMIN = normPuesto('DIRECTOR DISTRITAL');
