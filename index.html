@@ -265,11 +265,52 @@
     color:var(--ocean);
     font-weight:800;
   }
-  .plan-feats li a{
+  /* Términos que llevan al Glosario (WiFi 7, Surround, VSB, Dolby Atmos…):
+     mismo color del texto que los rodea + subrayado punteado, para que se
+     note que son tocables sin romper el diseño de cada tarjeta. */
+  .gl-link{
     color:inherit;
     text-decoration:none;
-    border-bottom:1px dashed var(--ocean);
+    border-bottom:1px dashed currentColor;
     cursor:pointer;
+  }
+  .ads-badge.gl-link{cursor:pointer;}
+  .plan-promo-vsb{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:8px;
+  }
+  .plan-promo-vsb .foto-vsb{
+    width:46px;
+    height:30px;
+    flex-shrink:0;
+  }
+  .plan-promo-vsb .extra{margin-top:0;}
+  .btn-volver{
+    position:fixed;
+    left:50%;
+    bottom:22px;
+    z-index:480;
+    background:var(--ocean-deep);
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:999px;
+    font-family:'Nunito Sans',sans-serif;
+    font-weight:800;
+    font-size:13px;
+    box-shadow:0 8px 20px rgba(7,59,76,0.35);
+    cursor:pointer;
+    opacity:0;
+    pointer-events:none;
+    transform:translate(-50%, 20px);
+    transition:opacity .25s ease, transform .25s ease;
+  }
+  .btn-volver.show{
+    opacity:1;
+    pointer-events:auto;
+    transform:translate(-50%, 0);
   }
 
   /* BOTÓN DESCUENTO DE PORTABILIDAD */
@@ -3430,6 +3471,7 @@
 <button id="hamburgerBtn" onclick="toggleNav()" aria-label="Abrir menú">
   <span class="bar"></span><span class="bar"></span><span class="bar"></span>
 </button>
+<button type="button" id="btnVolver" class="btn-volver" onclick="volverAtras()">← Regresar</button>
 <div id="navOverlay" onclick="closeNav()"></div>
 <nav id="navPanel">
   <div class="nav-usuario" id="navUsuario">
@@ -4498,32 +4540,35 @@
           <div class="price">$599<small>/mes</small></div>
           <ul class="plan-feats">
             <li>+190 canales (122 HD)</li>
-            <li>+69h Anytime</li>
+            <li><a class="gl-link" href="#gl-anytime">+69h Anytime</a></li>
           </ul>
           <div class="card-apps"><span class="tag temp">Netflix · 5 meses</span><span class="tag temp">Universal+ · 5 meses</span><span class="tag temp">Apple TV · 5 meses</span></div>
-          <div class="ads-badge ads">Con anuncios</div>
+          <a class="ads-badge ads gl-link" href="#gl-streaming-anuncios">Con anuncios</a>
         </div>
         <div class="plan-card">
           <div class="megas">250<span>Megas simétricos</span></div>
           <div class="price">$699<small>/mes</small></div>
           <ul class="plan-feats">
             <li>+190 canales (122 HD)</li>
-            <li>+69h Anytime</li>
+            <li><a class="gl-link" href="#gl-anytime">+69h Anytime</a></li>
           </ul>
           <div class="card-apps"><span class="tag temp">Netflix · 5 meses</span><span class="tag temp">Universal+ · 5 meses</span><span class="tag temp">Apple TV · 5 meses</span></div>
-          <div class="ads-badge ads">Con anuncios</div>
+          <a class="ads-badge ads gl-link" href="#gl-streaming-anuncios">Con anuncios</a>
         </div>
         <div class="plan-card">
           <div class="megas">350<span>Megas simétricos</span></div>
           <div class="price">$799<small>/mes</small></div>
-          <div class="extra promo">🎒 VSB sin costo · 21 al 31 ago</div>
+          <div class="plan-promo-vsb">
+            <i class="foto-vsb" role="img" aria-label="Video Sound Box"></i>
+            <div class="extra promo">🎒 VSB sin costo · 21 al 31 ago</div>
+          </div>
           <ul class="plan-feats">
             <li>+190 canales (122 HD)</li>
-            <li>+69h Anytime</li>
-            <li>VSB como TV principal, con <a href="#gl-dolby-atmos">Dolby Atmos</a></li>
+            <li><a class="gl-link" href="#gl-anytime">+69h Anytime</a></li>
+            <li>VSB como TV principal, con <a class="gl-link" href="#gl-dolby-atmos">Dolby Atmos</a></li>
           </ul>
           <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Universal+</span><span class="tag">Apple TV</span></div>
-          <div class="ads-badge ads">Con anuncios</div>
+          <a class="ads-badge ads gl-link" href="#gl-streaming-anuncios">Con anuncios</a>
         </div>
         <div class="plan-card featured">
           <div class="megas">500<span>Megas simétricos</span></div>
@@ -4531,31 +4576,31 @@
           <div class="extra">Más popular</div>
           <ul class="plan-feats">
             <li>+190 canales (122 HD)</li>
-            <li>+69h Anytime</li>
-            <li>WiFi 7</li>
+            <li><a class="gl-link" href="#gl-anytime">+69h Anytime</a></li>
+            <li><a class="gl-link" href="#gl-wifi7">WiFi 7</a></li>
           </ul>
           <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Universal+</span><span class="tag">Apple TV</span><span class="tag">Disney+</span></div>
-          <div class="ads-badge ads">Con anuncios</div>
+          <a class="ads-badge ads gl-link" href="#gl-streaming-anuncios">Con anuncios</a>
         </div>
         <div class="plan-card">
           <div class="megas">1,000<span>Megas simétricos</span></div>
           <div class="price">$1,200<small>/mes</small></div>
           <ul class="plan-feats">
             <li>+190 canales (122 HD)</li>
-            <li>+69h Anytime</li>
-            <li>WiFi 7</li>
+            <li><a class="gl-link" href="#gl-anytime">+69h Anytime</a></li>
+            <li><a class="gl-link" href="#gl-wifi7">WiFi 7</a></li>
           </ul>
           <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Apple TV</span><span class="tag">HBO Max</span><span class="tag">Disney+</span><span class="tag">Universal+</span></div>
-          <div class="ads-badge ads">Con anuncios</div>
+          <a class="ads-badge ads gl-link" href="#gl-streaming-anuncios">Con anuncios</a>
         </div>
         <div class="plan-card">
           <div class="megas">5,000<span>Megas simétricos</span></div>
           <div class="price">$2,499<small>/mes</small></div>
           <ul class="plan-feats">
             <li>+190 canales (122 HD)</li>
-            <li>+69h Anytime</li>
-            <li>WiFi 7</li>
-            <li>Surround</li>
+            <li><a class="gl-link" href="#gl-anytime">+69h Anytime</a></li>
+            <li><a class="gl-link" href="#gl-wifi7">WiFi 7</a></li>
+            <li><a class="gl-link" href="#gl-surround">Surround</a></li>
           </ul>
           <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Apple TV</span><span class="tag">HBO Max</span><span class="tag">Disney+</span><span class="tag">Universal+</span></div>
           <div class="ads-badge noads">Sin anuncios</div>
@@ -4565,9 +4610,9 @@
           <div class="price">$2,999<small>/mes</small></div>
           <ul class="plan-feats">
             <li>+190 canales (122 HD)</li>
-            <li>+69h Anytime</li>
-            <li>WiFi 7</li>
-            <li>Surround</li>
+            <li><a class="gl-link" href="#gl-anytime">+69h Anytime</a></li>
+            <li><a class="gl-link" href="#gl-wifi7">WiFi 7</a></li>
+            <li><a class="gl-link" href="#gl-surround">Surround</a></li>
           </ul>
           <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Apple TV</span><span class="tag">HBO Max</span><span class="tag">Disney+</span><span class="tag">Universal+</span></div>
           <div class="ads-badge noads">Sin anuncios</div>
@@ -4585,7 +4630,7 @@
             <li>14 canales en App Totalplay</li>
           </ul>
           <div class="card-apps"><span class="tag temp">Netflix · 3 meses</span><span class="tag temp">Universal+ · 3 meses</span><span class="tag temp">Apple TV · 3 meses</span></div>
-          <div class="ads-badge ads">Con anuncios</div>
+          <a class="ads-badge ads gl-link" href="#gl-streaming-anuncios">Con anuncios</a>
         </div>
         <div class="plan-card">
           <div class="megas">250<span>Megas simétricos</span></div>
@@ -4594,7 +4639,7 @@
             <li>14 canales en App Totalplay</li>
           </ul>
           <div class="card-apps"><span class="tag temp">Netflix · 3 meses</span><span class="tag temp">Universal+ · 3 meses</span><span class="tag temp">Apple TV · 3 meses</span></div>
-          <div class="ads-badge ads">Con anuncios</div>
+          <a class="ads-badge ads gl-link" href="#gl-streaming-anuncios">Con anuncios</a>
         </div>
         <div class="plan-card">
           <div class="megas">350<span>Megas simétricos</span></div>
@@ -4603,7 +4648,7 @@
             <li>14 canales en App Totalplay</li>
           </ul>
           <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Universal+</span><span class="tag">Apple TV</span></div>
-          <div class="ads-badge ads">Con anuncios</div>
+          <a class="ads-badge ads gl-link" href="#gl-streaming-anuncios">Con anuncios</a>
         </div>
         <div class="plan-card featured">
           <div class="megas">500<span>Megas simétricos</span></div>
@@ -4613,7 +4658,7 @@
             <li>14 canales en App Totalplay</li>
           </ul>
           <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Apple TV</span><span class="tag">Disney+</span><span class="tag">Universal+</span></div>
-          <div class="ads-badge ads">Con anuncios</div>
+          <a class="ads-badge ads gl-link" href="#gl-streaming-anuncios">Con anuncios</a>
         </div>
         <div class="plan-card">
           <div class="megas">1,000<span>Megas simétricos</span></div>
@@ -4622,7 +4667,7 @@
             <li>14 canales en App Totalplay</li>
           </ul>
           <div class="card-apps"><span class="tag">Netflix</span><span class="tag">Apple TV</span><span class="tag">HBO Max</span><span class="tag">Disney+</span><span class="tag">Universal+</span></div>
-          <div class="ads-badge ads">Con anuncios</div>
+          <a class="ads-badge ads gl-link" href="#gl-streaming-anuncios">Con anuncios</a>
         </div>
         <div class="plan-card">
           <div class="megas">5,000<span>Megas simétricos</span></div>
@@ -4657,7 +4702,7 @@
       </div>
       <div class="promo-item">
         <div class="promo-icon">Wi</div>
-        <div><h3>WiFi Pro · $59/mes</h3><p>Precio indefinido. Aplica en el primer WiFi Pro contratado.</p></div>
+        <div><h3><a class="gl-link" href="#gl-wifipro">WiFi Pro</a> · $59/mes</h3><p>Precio indefinido. Aplica en el primer WiFi Pro contratado.</p></div>
       </div>
       <div class="promo-item">
         <div class="promo-icon">♥</div>
@@ -4669,7 +4714,7 @@
       </div>
       <div class="promo-item">
         <div class="promo-icon">7</div>
-        <div><h3>WiFi 7 incluido</h3><p>Disponible desde 500 Megas en adelante.</p></div>
+        <div><h3><a class="gl-link" href="#gl-wifi7">WiFi 7</a> incluido</h3><p>Disponible desde 500 Megas en adelante.</p></div>
       </div>
       <div class="promo-item">
         <div class="promo-icon">%</div>
@@ -4737,7 +4782,7 @@
         <h4>350 Megas + VSB (21-31 ago) · Sí convive con</h4>
         <ul>
           <li>Promociones sobre adicionales de contenido</li>
-          <li>Otros adicionales instalables (WiFi Pro, TV adicional, VSB adicional)</li>
+          <li>Otros adicionales instalables (<a class="gl-link" href="#gl-wifipro">WiFi Pro</a>, TV adicional, VSB adicional)</li>
           <li>Streamings</li>
           <li>Descuento a empleados</li>
           <li>Descuento de portabilidad ($200)</li>
@@ -4926,7 +4971,7 @@
         </div>
       </div>
 
-      <p style="font-size:11.5px;opacity:.85;margin:16px 0 0;">Las cuatro conviven con adicionales de contenido, otros instalables (WiFi Pro, TV adicional, VSB adicional), streamings, megas adicionales, descuento a empleados y descuento de portabilidad ($200).</p>
+      <p style="font-size:11.5px;opacity:.85;margin:16px 0 0;">Las cuatro conviven con adicionales de contenido, otros instalables (<a class="gl-link" href="#gl-wifipro">WiFi Pro</a>, TV adicional, VSB adicional), streamings, megas adicionales, descuento a empleados y descuento de portabilidad ($200).</p>
     </div>
   </section>
 
@@ -5065,7 +5110,7 @@
       <ul>
         <li>Aplica en planes Totalplay TV + Internet y Totalplay Internet, para clientes <strong>nuevos y actuales</strong>.</li>
         <li>Se refleja en el estado de cuenta a partir del <strong>6to mes</strong>.</li>
-        <li>Convive con adicionales de contenido (Max, NBA, Disney+, Universal+, etc.) e instalables (TV adicional, WiFi Pro, Nuevo Totalplay TV).</li>
+        <li>Convive con adicionales de contenido (Max, NBA, Disney+, Universal+, etc.) e instalables (TV adicional, <a class="gl-link" href="#gl-wifipro">WiFi Pro</a>, Nuevo Totalplay TV).</li>
         <li>No convive con descuento a empleados ni gratuidades.</li>
       </ul>
       <div class="table-scroll">
@@ -5167,7 +5212,7 @@
           <li>Doble de Megas en planes de 150 a 500 Megas; el plan de 100 Megas solo obtiene 50 Megas extra.</li>
           <li>Vigencia de 12 meses · el servicio debe estar a nombre del colaborador.</li>
           <li>Para activar o renovar: comunicarse a Centro de Soluciones.</li>
-          <li>Convive con adicionales de contenido (HBO Max, NBA, Disney+, etc.) e instalables (TV adicional y WiFi Pro).</li>
+          <li>Convive con adicionales de contenido (HBO Max, NBA, Disney+, etc.) e instalables (TV adicional y <a class="gl-link" href="#gl-wifipro">WiFi Pro</a>).</li>
           <li>No convive con bonos, descuentos sobre la renta, Bundles ni megas adicionales (excepto SPEI + Megas).</li>
         </ul>
         <div class="mod-tip">💡 El descuento se refleja en la 2ª factura. Si el plan ya trae otra promo de descuento activa, esta sigue vigente hasta el fin de su ciclo en Dashboard; después de eso se puede modelar el beneficio, y aplicará hasta la 3ª factura.</div>
@@ -5240,7 +5285,7 @@
     <p class="gl-intro">Lo que significa cada término y cómo explicárselo al cliente. Toca cada uno para abrirlo y ciérralo cuando termines.</p>
 
     <div class="gl-lista">
-      <details class="gl-item">
+      <details class="gl-item" id="gl-anytime">
         <summary>+69h Anytime</summary>
         <p>Más de <strong>69 horas de contenido bajo demanda</strong> que el cliente puede ver a la hora que quiera, sin depender de la programación en vivo.</p>
       </details>
@@ -5313,18 +5358,18 @@
         <p>Explícaselo así: "no nada más ve rápido, también sube rápido". Sirve para videollamadas, clases en línea, subir videos y trabajar desde casa.</p>
       </details>
 
-      <details class="gl-item">
+      <details class="gl-item" id="gl-streaming-anuncios">
         <summary>Streaming con anuncios</summary>
         <p><strong>¿Qué es?</strong> Una opción inteligente y económica para ver series y películas favoritas por internet, a cambio de comerciales breves que respetan el entretenimiento del cliente y le permiten disfrutar de un gran catálogo sin gastar de más.</p>
         <p>Lo mejor es que la publicidad no es invasiva ni molesta: los comerciales son cortos, aparecen solo en pausas naturales —como en la televisión de siempre— y nunca interrumpen el final de un programa. Es el equilibrio perfecto entre entretenimiento de calidad y ahorro.</p>
       </details>
 
-      <details class="gl-item">
+      <details class="gl-item" id="gl-surround">
         <summary>Surround</summary>
         <p>Es <strong>Totalplay Surround</strong>: el sistema de sonido envolvente que se incluye en los planes de <strong>5,000 y 10,000 Megas</strong>. Se modela como <strong>TOTALPLAY SURROUND - INCLUIDO</strong>.</p>
       </details>
 
-      <details class="gl-item">
+      <details class="gl-item" id="gl-wifi7">
         <summary>WiFi 7</summary>
         <p><strong>¿Qué es?</strong> La generación más reciente de conexión inalámbrica (IEEE 802.11be). Da <strong>mayor velocidad, menos retraso y una conexión mucho más estable</strong> cuando hay muchos dispositivos conectados.</p>
         <p class="gl-sub">La forma fácil de explicarlo</p>
@@ -5367,7 +5412,7 @@
         <p class="gl-aviso">⚠️ <strong>Importante:</strong> para aprovechar WiFi 7 se necesita un módem compatible y dispositivos que también soporten esta tecnología.</p>
       </details>
 
-      <details class="gl-item">
+      <details class="gl-item" id="gl-wifipro">
         <summary>WiFi Pro</summary>
         <p>Equipo adicional que <strong>amplía la cobertura del WiFi</strong> en la casa, para que llegue buena señal a los cuartos más alejados. Se cobra aparte cada mes.</p>
       </details>
@@ -6989,6 +7034,13 @@ function closeNav(){
 // las imágenes acabaran de cargar y la sección quedaba desfasada. Se
 // detiene solo (para no pelearse con el dedo del usuario) en cuanto toca
 // la pantalla o mueve la rueda del mouse.
+// Cada corrida de irASeccion (o del botón "← Regresar") sube este contador
+// y guarda su propio número; si otra corrida empieza antes de que la actual
+// termine sus 1.6s de reajuste, la vieja se cancela sola al comparar el
+// número. Sin esto, "Regresar" antes de que termine el reajuste del salto
+// anterior se quedaba peleando y el scroll no se movía.
+let corridaNav = 0;
+
 function irASeccion(destino){
   const target = document.querySelector(destino);
   if(!target) return;
@@ -7000,6 +7052,7 @@ function irASeccion(destino){
 
   closeNav();
 
+  const miCorrida = ++corridaNav;
   let cancelado = false;
   function cancelar(){ cancelado = true; }
   window.addEventListener('touchstart', cancelar, { once:true, passive:true });
@@ -7013,7 +7066,7 @@ function irASeccion(destino){
   const inicio = Date.now();
   const DURACION = 1600; // ms que se sigue corrigiendo por si siguen cargando imágenes
   function paso(){
-    if(cancelado) return;
+    if(cancelado || corridaNav !== miCorrida) return;
     colocar();
     if(Date.now() - inicio < DURACION){
       requestAnimationFrame(paso);
@@ -7021,9 +7074,30 @@ function irASeccion(destino){
   }
 
   setTimeout(function(){       // apenas se cierra el menú
-    if(cancelado) return;
+    if(cancelado || corridaNav !== miCorrida) return;
     requestAnimationFrame(paso);
   }, 80);
+}
+
+// Botón flotante "← Regresar": cuando el vendedor toca un término que lo
+// manda al Glosario (clase .gl-link, p. ej. "WiFi 7" o "Dolby Atmos" dentro
+// de una tarjeta de plan), guardamos dónde estaba parado y mostramos este
+// botón para que regrese de un toque, sin usar el botón "atrás" del navegador.
+let posVolver = null;
+function mostrarBotonVolver(){
+  const btn = document.getElementById('btnVolver');
+  if(btn) btn.classList.add('show');
+}
+function ocultarBotonVolver(){
+  const btn = document.getElementById('btnVolver');
+  if(btn) btn.classList.remove('show');
+}
+function volverAtras(){
+  if(posVolver === null) return;
+  corridaNav++; // cancela cualquier reajuste de scroll que siga corriendo del salto anterior
+  window.scrollTo({ top: posVolver, behavior:'auto' });
+  posVolver = null;
+  ocultarBotonVolver();
 }
 
 // Cualquier liga interna que apunte a un id (menú, submenú, o las tarjetas
@@ -7032,6 +7106,13 @@ function irASeccion(destino){
 document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(function(link){
   link.addEventListener('click', function(e){
     e.preventDefault();
+    if(link.classList.contains('gl-link')){
+      posVolver = window.scrollY;
+      mostrarBotonVolver();
+    } else {
+      posVolver = null;
+      ocultarBotonVolver();
+    }
     irASeccion(link.getAttribute('href'));
   });
 });
@@ -7454,6 +7535,7 @@ const SECCIONES = [
 // Bitácora de cambios. La entrada más reciente va arriba.
 // Cada vez que publiques una actualización, agrega una línea con un id nuevo.
 const AVISOS = [
+  { id:'2026-08-21-glosario-links',fecha:'21 de agosto 2026', texto:'Términos como WiFi 7, Surround, WiFi Pro, +69h Anytime, Dolby Atmos y Streaming con anuncios ahora son ligas: tócalos donde los veas y te llevan a su definición en el Glosario, con un botón "← Regresar" para volver justo a donde estabas. La tarjeta de 350 Megas + VSB también ya trae la foto del equipo.' },
   { id:'2026-08-21-vsb-350-gratis',fecha:'21 de agosto 2026', texto:'¡NUEVO! Del 21 al 31 de agosto, el plan de 350 Megas TV + Internet lleva el VSB sin costo como TV principal (con Dolby Atmos). Ya está en Planes y Megas, en Misión Regreso a Clases con VSB y en Reglas de negocio.' },
   { id:'2026-08-20-manteleta',fecha:'20 de agosto 2026', texto:'Se actualizó la Manteleta de Oferta Base con los precios y promociones vigentes del 17 de agosto al 17 de septiembre del 2026.' },
   { id:'2026-08-17-vsb-regreso-clases',fecha:'17 de agosto 2026', texto:'"Un verano con V de VSB" ahora es "Misión Regreso a Clases con VSB": nueva portada e información actualizada de Plan de Verano, Kit VSB + Surround y VSB como TV Principal. Vigente hasta el 31 de agosto.' },
