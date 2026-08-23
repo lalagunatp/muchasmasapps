@@ -5352,11 +5352,12 @@
           <button type="button" class="tpz-btn-guardar" onclick="tpzGuardarTel()">Guardar</button>
         </div>
         <div class="tpz-tel-error" id="tpzTelError"></div>
-        <p class="tpz-ayuda">52 (México) + a veces 1, según cómo esté dado de alta tu WhatsApp + tu número a 10 dígitos. Ejemplo: si tu número es 55 1234 5678, prueba primero con 5215512345678.</p>
+        <p class="tpz-ayuda">Si pones solo tus 10 dígitos, se agrega el 52 (México) solo. Guarda y toca "Probar mi número": si WhatsApp no lo reconoce, vuelve a capturarlo agregando un 1 después del 52 (ej. 5215512345678).</p>
       </div>
 
       <div id="tpzTelGuardado" class="tpz-tel-guardado" style="display:none;">
         <span>📱 Tu WhatsApp: <strong id="tpzTelTexto"></strong></span>
+        <a href="#" id="tpzBtnProbar" class="tpz-btn-editar" onclick="return tpzProbar()">Probar mi número</a>
         <button type="button" class="tpz-btn-editar" onclick="tpzEditarTel()">Cambiar número</button>
       </div>
 
@@ -8236,11 +8237,14 @@ function tpzPintarUI(){
 function tpzGuardarTel(){
   const input = document.getElementById('tpzTelInput');
   const err = document.getElementById('tpzTelError');
-  const tel = (input.value || '').replace(/\D/g, '');
+  let tel = (input.value || '').replace(/\D/g, '');
   if(tel.length < 10 || tel.length > 15){
     if(err) err.textContent = 'Ingresa tu WhatsApp completo, con código de país (10 a 15 dígitos).';
     return;
   }
+  // Si solo capturó los 10 dígitos locales, le falta el código de país y
+  // WhatsApp no lo reconoce (por eso el aviso "Probar mi número" abajo).
+  if(tel.length === 10) tel = '52' + tel;
   if(err) err.textContent = '';
   try{ localStorage.setItem(TPZ_TEL_KEY, tel); }catch(e){}
   tpzPintarUI();
@@ -8251,6 +8255,13 @@ function tpzEditarTel(){
   tpzPintarUI();
   const input = document.getElementById('tpzTelInput');
   if(input) input.focus();
+}
+
+function tpzProbar(){
+  const tel = tpzLeerTel();
+  if(!tel) return false;
+  window.open('https://wa.me/' + tel, '_blank');
+  return false;
 }
 
 function tpzEnviar(){
