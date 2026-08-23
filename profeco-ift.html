@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Tu internet te da lo que mereces?</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
+  :root {
+    --tp-dark: #0B1D3A;
+    --tp-blue: #004B93;
+    --tp-accent: #00C8FF;
+    --tp-green: #00E676;
+    --tp-red: #FF5252;
+    --tp-orange: #FFB74D;
+    --tp-light: #E8F4FD;
+    --tp-white: #FFFFFF;
+    --tp-gray: #8A9BB5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--tp-dark);
+    color: var(--tp-white);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 24px;
+    background: linear-gradient(170deg, #0B1D3A 0%, #003366 50%, #004B93 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,200,255,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -150px; left: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(0,230,118,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(0,200,255,0.15);
+    border: 1px solid rgba(0,200,255,0.3);
+    color: var(--tp-accent);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 40px;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 700;
+    line-height: 1.1;
+    max-width: 700px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 .highlight {
+    color: var(--tp-accent);
+    position: relative;
+  }
+
+  .hero h1 .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 2px; left: 0;
+    width: 100%; height: 3px;
+    background: var(--tp-accent);
+    opacity: 0.4;
+    border-radius: 2px;
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: var(--tp-gray);
+    margin-top: 20px;
+    max-width: 480px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  .scroll-cue {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--tp-gray);
+    font-size: 13px;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+    animation: pulse-down 2s ease-in-out infinite;
+  }
+
+  .scroll-cue .arrow {
+    width: 24px; height: 24px;
+    border-right: 2px solid var(--tp-accent);
+    border-bottom: 2px solid var(--tp-accent);
+    transform: rotate(45deg);
+  }
+
+  @keyframes pulse-down {
+    0%, 100% { transform: translateY(0); opacity: 0.6; }
+    50% { transform: translateY(8px); opacity: 1; }
+  }
+
+  /* ── SECCIÓN DE PREGUNTAS ── */
+  .questions-section {
+    padding: 80px 24px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--tp-accent);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 700;
+    margin-bottom: 48px;
+    line-height: 1.2;
+  }
+
+  /* ── TARJETA DE PREGUNTA ── */
+  .q-card {
+    background: linear-gradient(135deg, rgba(0,75,147,0.25) 0%, rgba(11,29,58,0.9) 100%);
+    border: 1px solid rgba(0,200,255,0.1);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .q-card:hover {
+    border-color: rgba(0,200,255,0.3);
+  }
+
+  .q-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, var(--tp-accent), var(--tp-green));
+    border-radius: 4px 0 0 4px;
+  }
+
+  .q-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: rgba(0,200,255,0.1);
+    position: absolute;
+    top: 16px; right: 24px;
+    line-height: 1;
+  }
+
+  .q-question {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--tp-accent);
+    margin-bottom: 16px;
+    padding-right: 48px;
+    line-height: 1.4;
+  }
+
+  .q-answer {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .q-answer strong {
+    color: var(--tp-white);
+  }
+
+  .q-data {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .q-stat {
+    background: rgba(0,200,255,0.08);
+    border: 1px solid rgba(0,200,255,0.15);
+    border-radius: 12px;
+    padding: 14px 18px;
+    flex: 1;
+    min-width: 140px;
+  }
+
+  .q-stat-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--tp-green);
+  }
+
+  .q-stat-value.bad {
+    color: var(--tp-red);
+  }
+
+  .q-stat-value.mid {
+    color: var(--tp-orange);
+  }
+
+  .q-stat-label {
+    font-size: 12px;
+    color: var(--tp-gray);
+    margin-top: 4px;
+    line-height: 1.3;
+  }
+
+  /* ── COMPARATIVA VISUAL ── */
+  .compare-section {
+    padding: 60px 24px 80px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .bar-group {
+    margin-bottom: 24px;
+  }
+
+  .bar-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+
+  .bar-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .bar-name.is-tp { color: var(--tp-accent); }
+
+  .bar-score {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    color: var(--tp-gray);
+  }
+
+  .bar-track {
+    width: 100%;
+    height: 28px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 8px;
+    transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+  }
+
+  .bar-fill.tp { background: linear-gradient(90deg, var(--tp-blue), var(--tp-accent)); }
+  .bar-fill.other { background: rgba(138,155,181,0.35); }
+
+  /* ── CTA FINAL ── */
+  .cta-section {
+    text-align: center;
+    padding: 80px 24px 100px;
+    background: linear-gradient(180deg, transparent 0%, rgba(0,75,147,0.2) 100%);
+  }
+
+  .cta-section h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .cta-section p {
+    font-size: 17px;
+    color: var(--tp-gray);
+    max-width: 500px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--tp-accent), #0090CC);
+    color: var(--tp-dark);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 16px 48px;
+    border-radius: 60px;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 24px rgba(0,200,255,0.25);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,200,255,0.35);
+  }
+
+  .source-note {
+    margin-top: 48px;
+    font-size: 11px;
+    color: rgba(138,155,181,0.5);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 11px;
+    color: rgba(138,155,181,0.3);
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .q-card { padding: 28px 20px; }
+    .q-number { font-size: 36px; top: 12px; right: 16px; }
+    .q-question { font-size: 17px; padding-right: 36px; }
+    .q-data { flex-direction: column; }
+    .hero { padding: 32px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════ HERO ══════ -->
+<section class="hero">
+  <div class="badge">Basado en datos reales de PROFECO e IFT</div>
+  <h1>¿Tu internet te da lo que <span class="highlight">realmente mereces</span>?</h1>
+  <p class="hero-sub">Responde estas 5 preguntas y descubre por qué miles de familias ya eligieron la mejor conexión de México.</p>
+  <div class="scroll-cue">
+    <span>Descúbrelo</span>
+    <div class="arrow"></div>
+  </div>
+</section>
+
+<!-- ══════ PREGUNTAS ══════ -->
+<section class="questions-section">
+  <div class="section-eyebrow">Ponte a prueba</div>
+  <h2 class="section-title">5 preguntas que tu proveedor<br>no quiere que hagas</h2>
+
+  <!-- PREGUNTA 1 -->
+  <div class="q-card">
+    <div class="q-number">01</div>
+    <div class="q-question">¿Tu internet se cae justo cuando más lo necesitas?</div>
+    <p class="q-answer">
+      Las redes de cobre (ADSL) y coaxial (HFC) que usan otros proveedores se <strong>saturan en horas pico</strong>.
+      Totalplay opera con <strong>fibra óptica pura hasta tu hogar</strong>, la tecnología más estable que existe.
+      Mientras T·l·m·x arrastra infraestructura obsoleta y M·g·c·ble e ·zz· sufren microcortes por saturación de red compartida,
+      Totalplay fue calificado como <strong>"Sobresaliente en tecnología y velocidad"</strong>.
+    </p>
+    <div class="q-data">
+      <div class="q-stat">
+        <div class="q-stat-value">9.0</div>
+        <div class="q-stat-label">Calificación máxima<br>Totalplay</div>
+      </div>
+      <div class="q-stat">
+        <div class="q-stat-value mid">8.9</div>
+        <div class="q-stat-label">Calificación máxima<br>T·l·m·x</div>
+      </div>
+      <div class="q-stat">
+        <div class="q-stat-value bad">8.5</div>
+        <div class="q-stat-label">Calificación máxima<br>M·g·c·ble</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREGUNTA 2 -->
+  <div class="q-card">
+    <div class="q-number">02</div>
+    <div class="q-question">¿Cuántos días esperas para que resuelvan tu problema?</div>
+    <p class="q-answer">
+      Si tienes un problema con T·l·m·x, puedes esperar <strong>hasta 20 días hábiles</strong>.
+      Con M·g·c·ble, hasta 12 días. ¿Y D··h? Hasta 13 días con apenas un 62% de resolución.
+      En Totalplay, tu problema se atiende en un rango de <strong>1 a 8 días hábiles</strong>
+      con un porcentaje de atención de <strong>hasta 97%</strong>.
+    </p>
+    <div class="q-data">
+      <div class="q-stat">
+        <div class="q-stat-value">1-8 días</div>
+        <div class="q-stat-label">Tiempo de atención<br>Totalplay</div>
+      </div>
+      <div class="q-stat">
+        <div class="q-stat-value bad">Hasta 20</div>
+        <div class="q-stat-label">Días hábiles<br>T·l·m·x</div>
+      </div>
+      <div class="q-stat">
+        <div class="q-stat-value bad">Hasta 13</div>
+        <div class="q-stat-label">Días hábiles<br>D··h</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREGUNTA 3 -->
+  <div class="q-card">
+    <div class="q-number">03</div>
+    <div class="q-question">¿Tu proveedor realmente resuelve cuando le llamas?</div>
+    <p class="q-answer">
+      No basta con contestar el teléfono: lo que importa es que <strong>tu problema se resuelva</strong>.
+      Totalplay alcanza un <strong>97% de resolución efectiva</strong>.
+      Mientras tanto, D··h apenas logra un 62%, M·g·c·ble un 72% en su peor escenario
+      y T·l·m·x un 71%. Si quieres que te resuelvan, ya sabes con quién estar.
+    </p>
+    <div class="q-data">
+      <div class="q-stat">
+        <div class="q-stat-value">97%</div>
+        <div class="q-stat-label">Resolución<br>Totalplay</div>
+      </div>
+      <div class="q-stat">
+        <div class="q-stat-value bad">62%</div>
+        <div class="q-stat-label">Resolución mínima<br>D··h</div>
+      </div>
+      <div class="q-stat">
+        <div class="q-stat-value bad">71%</div>
+        <div class="q-stat-label">Resolución mínima<br>T·l·m·x</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREGUNTA 4 -->
+  <div class="q-card">
+    <div class="q-number">04</div>
+    <div class="q-question">¿Sigues conectado con tecnología del siglo pasado?</div>
+    <p class="q-answer">
+      El cable coaxial de ·zz· y M·g·c·ble <strong>comparte el ancho de banda con tus vecinos</strong>:
+      entre más gente conectada, más lento va. El cobre de T·l·m·x en zonas rurales
+      directamente <strong>no soporta altas velocidades</strong>.
+      Totalplay utiliza <strong>fibra óptica FTTH</strong> (Fiber To The Home),
+      con una conexión dedicada y simétrica directo a tu hogar.
+      Es la misma tecnología que usan los países más conectados del mundo.
+    </p>
+    <div class="q-data">
+      <div class="q-stat">
+        <div class="q-stat-value">FTTH</div>
+        <div class="q-stat-label">Fibra óptica pura<br>Totalplay</div>
+      </div>
+      <div class="q-stat">
+        <div class="q-stat-value mid">HFC</div>
+        <div class="q-stat-label">Cable coaxial<br>·zz· / M·g·c·ble</div>
+      </div>
+      <div class="q-stat">
+        <div class="q-stat-value bad">ADSL</div>
+        <div class="q-stat-label">Cobre obsoleto<br>T·l·m·x (zonas)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREGUNTA 5 -->
+  <div class="q-card">
+    <div class="q-number">05</div>
+    <div class="q-question">¿Quién tiene la mejor calificación general entre los grandes?</div>
+    <p class="q-answer">
+      Según evaluaciones de organismos como PROFECO e IFT, Totalplay obtiene una calificación general
+      de <strong>8.2 a 9.0 sobre 10</strong>, destacando como <strong>"Sobresaliente en tecnología y velocidad"</strong>.
+      Es la calificación más alta entre los principales proveedores de internet residencial a nivel nacional
+      con presencia en las grandes ciudades.
+    </p>
+  </div>
+</section>
+
+<!-- ══════ COMPARATIVA ══════ -->
+<section class="compare-section">
+  <div class="section-eyebrow">La comparación habla</div>
+  <h2 class="section-title">Calificación general<br>por proveedor</h2>
+
+  <div class="bar-group">
+    <div class="bar-label">
+      <span class="bar-name is-tp">Totalplay</span>
+      <span class="bar-score">Hasta 9.0 / 10</span>
+    </div>
+    <div class="bar-track">
+      <div class="bar-fill tp" style="width: 90%;"></div>
+    </div>
+  </div>
+
+  <div class="bar-group">
+    <div class="bar-label">
+      <span class="bar-name">T·l·m·x</span>
+      <span class="bar-score">Hasta 8.9 / 10</span>
+    </div>
+    <div class="bar-track">
+      <div class="bar-fill other" style="width: 89%;"></div>
+    </div>
+  </div>
+
+  <div class="bar-group">
+    <div class="bar-label">
+      <span class="bar-name">·zz·</span>
+      <span class="bar-score">Hasta 9.2 / 10</span>
+    </div>
+    <div class="bar-track">
+      <div class="bar-fill other" style="width: 92%;"></div>
+    </div>
+  </div>
+
+  <div class="bar-group">
+    <div class="bar-label">
+      <span class="bar-name">M·g·c·ble</span>
+      <span class="bar-score">Hasta 8.5 / 10</span>
+    </div>
+    <div class="bar-track">
+      <div class="bar-fill other" style="width: 85%;"></div>
+    </div>
+  </div>
+
+  <div class="bar-group">
+    <div class="bar-label">
+      <span class="bar-name">D··h / On Int.</span>
+      <span class="bar-score">Hasta 7.5 / 10</span>
+    </div>
+    <div class="bar-track">
+      <div class="bar-fill other" style="width: 75%;"></div>
+    </div>
+  </div>
+
+  <div class="bar-group">
+    <div class="bar-label">
+      <span class="bar-name">Bl·· T.</span>
+      <span class="bar-score">Hasta 7.8 / 10</span>
+    </div>
+    <div class="bar-track">
+      <div class="bar-fill other" style="width: 78%;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CTA ══════ -->
+<section class="cta-section">
+  <h2>Si respondiste "sí" a<br>cualquier pregunta…</h2>
+  <p>Es momento de cambiar a la conexión que sí cumple. Fibra óptica pura, atención real y la mejor calificación del mercado.</p>
+  <a href="https://wa.me/?text=%C2%A1Hola!%20Me%20interesa%20conocer%20los%20planes%20de%20Totalplay.%20%C2%BFMe%20pueden%20dar%20informaci%C3%B3n%3F" target="_blank" id="ctaWhatsApp" class="cta-btn">📲 Conoce los planes Totalplay</a>
+
+  <p class="source-note">
+    Datos basados en el Estudio de Calidad de Servicios de Telecomunicaciones de PROFECO,
+    reportes del IFT (Instituto Federal de Telecomunicaciones) y evaluaciones de satisfacción
+    del consumidor publicadas en fuentes oficiales. Las calificaciones reflejan promedios inferidos
+    de múltiples indicadores públicos.
+  </p>
+</section>
+
+<div class="footer">
+  Material informativo interno · Totalplay Telecomunicaciones
+</div>
+
+<script>
+  // El botón "Conoce los planes Totalplay" manda el mensaje al vendedor que
+  // compartió este flyer, no a un número fijo: ese número llega en la URL
+  // (?tel=...), agregado por la app de ventas al generar el link para enviar
+  // por WhatsApp. Sin ese parámetro, el botón abre el selector de contactos
+  // de WhatsApp en vez de forzar un número.
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var tel = (params.get('tel') || '').replace(/\D/g, '');
+    var texto = '¡Hola! Me interesa conocer los planes de Totalplay. ¿Me pueden dar información?';
+    var btn = document.getElementById('ctaWhatsApp');
+    if (!btn) return;
+    btn.href = (tel ? 'https://wa.me/' + tel : 'https://wa.me/') +
+      '?text=' + encodeURIComponent(texto);
+  })();
+</script>
+
+</body>
+</html>
