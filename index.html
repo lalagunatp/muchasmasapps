@@ -814,7 +814,7 @@
   }
   .sb-footer small{font-size:11px;opacity:.6;display:block;margin-top:4px;}
 
-  /* ── MISIÓN REGRESO A CLASES CON VSB ── */
+  /* ── TOTALPLAY VSB ── */
   .vsb-block{
     background:linear-gradient(160deg,#06333F,#0B6E8C);
     border-radius:22px;
@@ -829,6 +829,12 @@
     margin:0 auto 16px;
     border-radius:12px;
     filter:drop-shadow(0 6px 14px rgba(0,0,0,.28));
+  }
+  .vsb-titulo{
+    font-family:'Baloo 2',system-ui,sans-serif;
+    font-size:22px;
+    line-height:1.2;
+    margin:0 0 14px;
   }
   .vsb-block .vsb-intro{
     font-size:13px;
@@ -902,16 +908,6 @@
     font-size:12px;
     color:var(--ink);
     font-weight:600;
-  }
-  .vsb-vigencia{
-    display:inline-block;
-    margin-top:6px;
-    font-size:11px;
-    font-weight:700;
-    color:#a15b00;
-    background:#FFF1D6;
-    padding:3px 9px;
-    border-radius:7px;
   }
   .vsb-card ul{
     margin:12px 0 14px;
@@ -3579,7 +3575,7 @@
   <a href="#promos-adicionales" onclick="closeNav()"><span class="nav-icon">🔥</span>Promos que cierran venta</a>
   <a href="#descuento-especial" onclick="closeNav()"><span class="nav-icon">💰</span>Descuento Especial 5 meses</a>
   <a href="#reglas" onclick="closeNav()"><span class="nav-icon">📋</span>Reglas de negocio</a>
-  <a href="#vsb-seccion" id="navVsb" onclick="closeNav()"><span class="nav-icon">🔊</span>Misión Regreso a Clases con VSB</a>
+  <a href="#vsb-seccion" id="navVsb" onclick="closeNav()"><span class="nav-icon">🔊</span>Totalplay VSB</a>
   <a href="#crecelo-seccion" id="navCrecelo" onclick="closeNav()"><span class="nav-icon">⚡</span>Crécelo Simétrico</a>
   <a href="#alexa-seccion" id="navAlexa" onclick="closeNav()"><span class="nav-icon">📢</span>Actualización VSB (Alexa)</a>
   <a href="#manteleta-seccion" id="navManteleta" onclick="closeNav()"><span class="nav-icon">📋</span>Manteleta · Oferta Base</a>
@@ -4620,7 +4616,7 @@
           <div class="price">$799<small>/mes</small></div>
           <div class="plan-promo-vsb">
             <i class="foto-vsb" role="img" aria-label="Video Sound Box"></i>
-            <div class="extra promo">🎒 VSB sin costo · 21 al 31 ago</div>
+            <div class="extra promo">🔊 VSB sin costo</div>
           </div>
           <ul class="plan-feats">
             <li>+190 canales (122 HD)</li>
@@ -4840,7 +4836,7 @@
         </ul>
       </div>
       <div class="rule-card yes">
-        <h4>350 Megas + VSB (21-31 ago) · Sí convive con</h4>
+        <h4>350 Megas + VSB · Sí convive con</h4>
         <ul>
           <li>Promociones sobre adicionales de contenido</li>
           <li>Otros adicionales instalables (<a class="gl-link" href="#gl-wifipro">WiFi Pro</a>, TV adicional, VSB adicional)</li>
@@ -4850,7 +4846,7 @@
         </ul>
       </div>
       <div class="rule-card no">
-        <h4>350 Megas + VSB (21-31 ago) · No convive con</h4>
+        <h4>350 Megas + VSB · No convive con</h4>
         <ul>
           <li>Kit VSB + Totalplay Surround</li>
           <li>VSB por $50 adicionales al plan</li>
@@ -4925,8 +4921,8 @@
 
   <section class="block" id="vsb-seccion" style="padding:24px 16px 30px;">
     <div class="vsb-block" id="vsb">
-      <img class="vsb-logo" src="hero-vsb-regreso-clases.jpg" alt="Misión Regreso a Clases con VSB · Oferta Residencial">
-      <p class="vsb-intro">¡Que el regreso a clases llegue con todo! Lleva a tu cliente una experiencia que lo tiene todo: internet de alta velocidad, imagen UHD y sonido envolvente con VSB. <span id="vsb-intro-texto" data-vigencia-texto>Vigente hasta el 31 de agosto de 2026.</span></p>
+      <h3 class="vsb-titulo">🔊 Totalplay VSB</h3>
+      <p class="vsb-intro">Lleva a tu cliente una experiencia que lo tiene todo: internet de alta velocidad, imagen UHD y sonido envolvente con el Video Sound Box. <span id="vsb-intro-texto" data-vigencia-texto>Vigente del 29 de septiembre al 15 de octubre de 2026.</span></p>
 
       <div class="vsb-grid">
         <div class="vsb-card destacada">
@@ -4935,14 +4931,13 @@
           </div>
           <h4 id="vsb-promo350-titulo">350 Megas + VSB sin costo</h4>
           <div class="vsb-precio">$799<small>/mes</small></div>
-          <span class="vsb-vigencia">Vigente del 21 al 31 de agosto</span>
           <ul>
             <li><strong>350 Megas + VSB</strong> incluido como TV principal — sin costo adicional, en vez de la caja 4K.</li>
-            <li>Incluye Netflix, Universal+ y Apple TV (licencias con anuncios).</li>
+            <li>Incluye Netflix, Disney+ y Apple TV (licencias con anuncios).</li>
             <li>Clientes nuevos y actuales.</li>
             <li>El modelo de VSB se entrega según disponibilidad en almacén.</li>
           </ul>
-          <span class="model-code">350 megas con VSB → Mini Verano + Precio Especial + Más Apps (Netflix Ads, Universal Ads, Apple TV Ads incluido)</span>
+          <span class="model-code">350 megas con VSB → Mini Verano + Precio Especial + Más Apps (Netflix Ads, Disney+ Ads, Apple TV Ads incluido)</span>
           <details class="lose-details">
             <summary>No convive con…</summary>
             <ul>
@@ -5017,7 +5012,7 @@
             <li>El cliente recibe el VSB <strong>como TV principal</strong>.</li>
             <li>Clientes nuevos y actuales.</li>
             <li>Aplica con Netflix (Estándar con anuncios, Estándar y Premium), Amazon, HBO Max Estándar, Disney+ y Apple TV.</li>
-            <li>Del 21 al 31 de agosto, en <strong>350 Megas</strong> esto ya viene <strong>sin costo</strong> — usa la promo destacada al inicio de esta sección.</li>
+            <li>En <strong>350 Megas</strong> esto ya viene <strong>sin costo</strong> — usa la promo destacada al inicio de esta sección.</li>
           </ul>
           <span class="model-code">250 y 350 megas con VSB → Nuevo Totalplay TV +$50</span>
           <details class="lose-details">
@@ -7628,7 +7623,7 @@ const SECCIONES = [
   { id:'promos-adicionales',  nav:null,                   nombre:'Promos que cierran venta',    fin:null },
   { id:'descuento-especial',  nav:null,                   nombre:'Descuento Especial 5 meses',  fin:null },
   { id:'reglas',              nav:null,                   nombre:'Reglas de negocio',           fin:null },
-  { id:'vsb-seccion',         nav:'navVsb',               nombre:'Misión Regreso a Clases con VSB', fin:'2026-08-31' },
+  { id:'vsb-seccion',         nav:'navVsb',               nombre:'Totalplay VSB',               inicio:'2026-09-29', fin:'2026-10-15' },
   { id:'crecelo-seccion',     nav:'navCrecelo',           nombre:'Crécelo Simétrico',           fin:null },
   { id:'alexa-seccion',       nav:'navAlexa',             nombre:'Actualización VSB (Alexa)',   fin:null },
   { id:'manteleta-seccion',   nav:'navManteleta',         nombre:'Manteleta · Oferta Base',     fin:'2026-10-31' },
@@ -7644,6 +7639,7 @@ const SECCIONES = [
 // Bitácora de cambios. La entrada más reciente va arriba.
 // Cada vez que publiques una actualización, agrega una línea con un id nuevo.
 const AVISOS = [
+  { id:'2026-09-29-vsb',fecha:'29 de septiembre 2026', texto:'La sección de VSB regresa al menú como "Totalplay VSB", ahora con la misma vigencia que el resto de los planes (15 de octubre). Al 350 Megas con VSB se le quitó la marca de agosto y se corrigieron sus apps: ahora es Netflix, Disney+ y Apple TV.' },
   { id:'2026-09-29-diversion',fecha:'29 de septiembre 2026', texto:'¡Nueva campaña! La portada ahora es "La Diversión Ya Está Incluida". En Planes y Megas cambió el reparto de apps: Disney+ sustituye a Universal+ en los planes de 150, 250 y 350 Megas, y en los planes de solo Internet Universal+ ya no viene incluido. Además, en todos los planes las apps se entregan en su versión con anuncios (antes 5,000 y 10,000 aparecían sin anuncios). Vigencia del 29 de septiembre al 15 de octubre.' },
   { id:'2026-09-29-manteleta',fecha:'29 de septiembre 2026', texto:'Se actualizó la Manteleta de Oferta Base con los precios y promociones vigentes del 29 de septiembre al 31 de octubre del 2026.' },
   { id:'2026-08-23-test-prospectos',fecha:'23 de agosto 2026', texto:'Nueva sección "Test Prospectos": una liga (quenecesitointernet) para que el cliente conteste un test rápido y decida qué velocidad le conviene. Configura tu WhatsApp una sola vez ahí mismo — cuando el cliente termine el test y toque el botón final, te va a escribir a ti.' },
@@ -7693,7 +7689,7 @@ const AVISOS = [
 //      a los 15 días.
 const DIAS_NUEVO = 15;
 const NUEVOS = [
-  { navId:'navVsb',          tituloId:'vsb-intro-texto', fecha:'2026-08-17' },
+  { navId:'navVsb',          tituloId:'vsb-intro-texto', fecha:'2026-09-29' },
   { navId:'navPromoContenido', tituloId:'promoContenidoTitulo', fecha:'2026-08-18' },
   { navId:'navStreamingAds', tituloId:'sa-titulo',  fecha:'2026-08-13' },
   { navId:'navTipsApps',     tituloId:'da-titulo',  fecha:'2026-08-12' },
