@@ -6,7 +6,7 @@
    número de CACHE (v2 → v3 → v4…). Ese cambio es lo que hace que los
    celulares que ya lo tienen instalado reciban la versión nueva. */
 
-const CACHE = 'tp-fuerzaventas-v44';
+const CACHE = 'tp-fuerzaventas-v45';
 
 const ARCHIVOS = [
   './',
@@ -28,10 +28,13 @@ const ARCHIVOS = [
   './bn_paso6.jpg',
   './bn_paso7.jpg',
   './bn_flyer.jpg',
-  './modelado-5000.jpg',
-  './modelado-10000.jpg',
-  './modelado-5000-prev.jpg',
-  './modelado-10000-prev.jpg'
+  './mod-150-250.jpg',
+  './mod-350-vsb.jpg',
+  './mod-350-sintv.jpg',
+  './mod-500-vsb.jpg',
+  './mod-500-sintv.jpg',
+  './mod-1000-vsb.jpg',
+  './mod-1000-sintv.jpg'
 ];
 
 self.addEventListener('install', function(e){

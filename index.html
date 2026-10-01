@@ -2461,6 +2461,43 @@
     .c3-fila.combo b{font-size:20px;}
   }
 
+  /* ── MODELADOR DE PLANES (Más Apps) ── */
+  .md-block{background:#fff;border-radius:22px;padding:20px 18px;margin-top:18px;border:2px solid #B9DA2E;
+    box-shadow:0 8px 22px rgba(120,150,20,.12);}
+  .md-eyebrow{font-size:11.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#D63A8A;}
+  .md-block h3{margin:4px 0 6px;font-family:'Baloo 2',sans-serif;font-size:22px;line-height:1.15;color:var(--ocean-deep);}
+  .md-lema{font-size:13.5px;line-height:1.5;color:#3d5a63;margin:0 0 14px;}
+  .md-paso-sel{font-size:12px;font-weight:800;color:#5b7a85;text-transform:uppercase;letter-spacing:1px;margin:12px 0 6px;}
+  .md-ops{display:flex;flex-wrap:wrap;gap:7px;}
+  .md-op{font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;padding:9px 14px;border-radius:999px;
+    background:#F3F8E3;color:#3c4a10;border:2px solid #DCEBA8;}
+  .md-op.activo{background:#9BC21A;border-color:#9BC21A;color:#fff;box-shadow:0 4px 10px rgba(155,194,26,.35);}
+  .md-op:disabled{opacity:.35;cursor:not-allowed;}
+  .md-res{margin-top:16px;border-radius:18px;background:#FBFDF4;border:1px solid #E3EFC2;padding:16px 14px;}
+  .md-res h4{margin:0;font-family:'Baloo 2',sans-serif;font-size:18px;color:#5b7a00;line-height:1.2;}
+  .md-res .md-apps{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 2px;}
+  .md-res .md-apps span{font-size:11.5px;font-weight:800;background:#FCE4F0;color:#A0185E;border-radius:999px;padding:4px 10px;}
+  .md-pasos{display:grid;gap:8px;margin-top:14px;}
+  .md-pasoc{display:flex;gap:12px;align-items:flex-start;background:#fff;border-radius:14px;padding:12px;border:1px solid #EDF3DA;
+    font-size:13.5px;line-height:1.5;color:#204049;}
+  .md-num{flex:none;width:30px;height:30px;border-radius:50%;background:#D63A8A;color:#fff;font-family:'Baloo 2',sans-serif;
+    font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;}
+  .md-codigos{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:6px;}
+  .md-codigos li{display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;background:var(--ocean-deep);color:var(--sun);
+    border-radius:10px;padding:8px 12px;font-size:12.5px;font-weight:800;letter-spacing:.2px;}
+  .md-codigos li::before{content:"";flex:none;width:18px;height:18px;border-radius:5px;border:2px solid var(--sun);}
+  .md-codigos li.hecho{background:#9BC21A;color:#fff;}
+  .md-codigos li.hecho::before{content:"✓";border-color:#fff;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;}
+  .md-codigos li small{font-weight:700;color:#fff;opacity:.8;margin-left:auto;font-size:11px;}
+  .md-pista{font-size:12px;color:#5b7a85;font-weight:700;margin:8px 0 0;}
+  .md-auto{margin-top:12px;background:#FFF7D6;border-left:5px solid var(--sun);border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.45;color:#5a4500;}
+  .md-total{margin-top:8px;background:#E8F5FB;border-left:5px solid var(--ocean);border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.45;color:#0b4b5f;}
+  .md-foto{margin:14px 0 0;}
+  .md-foto img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid #e3e9d0;}
+  .md-foto figcaption{text-align:center;margin-top:6px;}
+  .md-listo{margin-top:14px;text-align:center;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:16px;color:#D63A8A;}
+  .md-ir{display:inline-block;margin-top:10px;font-size:13px;font-weight:800;color:var(--ocean);text-decoration:none;}
+
   /* ── LIGAS A LAS PLATAFORMAS (Conoce …) ── */
   .conoce-link{
     display:inline-flex;align-items:center;gap:5px;
@@ -3894,6 +3931,7 @@
   <a href="#promos-adicionales" onclick="closeNav()"><span class="nav-icon">🔥</span>Promos que cierran venta</a>
   <a href="#descuento-especial" onclick="closeNav()"><span class="nav-icon">💰</span>Descuento Especial 5 meses</a>
   <a href="#reglas" onclick="closeNav()"><span class="nav-icon">📋</span>Reglas de negocio</a>
+  <a href="#modelado" id="navModelado" onclick="closeNav()"><span class="nav-icon">📝</span>Cómo modelar los planes</a>
   <a href="#vsb-seccion" id="navVsb" onclick="closeNav()"><span class="nav-icon">🔊</span>Totalplay VSB</a>
   <a href="#crecelo-seccion" id="navCrecelo" onclick="closeNav()"><span class="nav-icon">⚡</span>Crécelo Simétrico</a>
   <a href="#alexa-seccion" id="navAlexa" onclick="closeNav()"><span class="nav-icon">📢</span>Actualización VSB (Alexa)</a>
@@ -5294,6 +5332,7 @@
       <button onclick="showTab('net')">🌐 Solo Internet</button>
     </div>
     <p class="conoce-pista">👆 Toca cualquier app de un plan para conocer todo lo que ofrece ↗</p>
+    <p class="conoce-pista" style="margin-top:4px;">📝 ¿Dudas para modelarlo en la App? <a href="#modelado" style="color:var(--ocean);font-weight:800;">Ve la guía paso a paso →</a></p>
 
     <button type="button" class="port-btn" id="portBtn" onclick="togglePort()" aria-expanded="false">
       <span>📱 Descuento de portabilidad: <strong id="portMonto">$200</strong></span>
@@ -5577,65 +5616,25 @@
       </div>
     </div>
 
-    <div class="model-block">
-      <h4>📋 Cómo modelar la promo Más Apps</h4>
-      <p class="model-rango">Planes de <strong>150 a 1,000 megas</strong></p>
-      <div class="model-row"><span class="app-name">Netflix</span><span class="arrow">→</span><span class="model-code">MÁS APPS - NETFLIX INCLUIDO</span></div>
-      <div class="model-row"><span class="app-name">Universal+</span><span class="arrow">→</span><span class="model-code">MÁS APPS - UNIVERSAL+ INCLUIDO</span></div>
-      <div class="model-row"><span class="app-name">Apple TV</span><span class="arrow">→</span><span class="model-code">MÁS APPS - APPLE TV INCLUIDO</span></div>
-      <div class="model-row"><span class="app-name">HBO Max</span><span class="arrow">→</span><span class="model-code">MÁS APPS - MAX BÁSICO INCLUIDO</span></div>
-      <div class="model-row"><span class="app-name">Disney+</span><span class="arrow">→</span><span class="model-code">MÁS APPS - DISNEY+ INCLUIDO</span></div>
+    <div class="md-block" id="modelado">
+      <div class="md-eyebrow">📝 Modelado · Más Apps</div>
+      <h3 id="md-titulo">¿Cómo modelo este plan? Te guío en 3 pasos</h3>
+      <p class="md-lema">Elige la velocidad y si tu cliente va con TV o sin TV. Te digo qué apps sumar, qué promociones capturar en <strong>Descuentos Especiales</strong> y te enseño las pantallas reales. Ve palomeando cada promoción conforme la modelas. ✅</p>
 
-      <div class="mod-tip">💡 Recuerda modelar la promoción de <strong>PRECIO ESPECIAL</strong> para llegar al precio señalado.</div>
-    </div>
-
-    <div class="model-block" style="margin-top:18px;">
-      <h4>🚀 Cómo modelar los planes de 5,000 y 10,000 megas</h4>
-      <p class="model-rango">Estos dos van diferente: se arranca con <strong>Netflix Estándar de 2 pantallas</strong>, no con la versión con anuncios.</p>
-
-      <div class="mod-pasos">
-        <div class="mod-paso">
-          <span class="mod-num">1</span>
-          <div>Después de elegir la velocidad y si el cliente lleva <strong>Nuevo Totalplay TV</strong> o va sin TV, modela <strong>Netflix Estándar (2 pantallas)</strong>.</div>
-        </div>
-        <div class="mod-paso">
-          <span class="mod-num">2</span>
-          <div>Confirma que el plan haya quedado <strong>modelado con Netflix</strong> antes de seguir.</div>
-        </div>
-        <div class="mod-paso">
-          <span class="mod-num">3</span>
-          <div>En <strong>Descuentos Especiales</strong> agrega las promociones de la lista de abajo.</div>
-        </div>
+      <div class="md-paso-sel">1 · Velocidad</div>
+      <div class="md-ops" id="mdVel">
+        <button type="button" class="md-op" data-vel="150" onclick="mdElegir('vel',this)">150 y 250 megas</button>
+        <button type="button" class="md-op" data-vel="350" onclick="mdElegir('vel',this)">350 megas</button>
+        <button type="button" class="md-op" data-vel="500" onclick="mdElegir('vel',this)">500 megas</button>
+        <button type="button" class="md-op" data-vel="1000" onclick="mdElegir('vel',this)">1,000 a 10,000 megas</button>
+      </div>
+      <div class="md-paso-sel">2 · ¿Con TV o sin TV?</div>
+      <div class="md-ops" id="mdTv">
+        <button type="button" class="md-op" data-tv="tv" onclick="mdElegir('tv',this)">📺 Con TV</button>
+        <button type="button" class="md-op" data-tv="sintv" onclick="mdElegir('tv',this)">🌐 Sin TV</button>
       </div>
 
-      <p class="model-rango" style="margin-top:16px;">En Descuentos Especiales modela estas promociones:</p>
-      <div class="model-row"><span class="app-name">Apple TV</span><span class="arrow">→</span><span class="model-code">MÁS APPS - APPLE TV INCLUIDO</span></div>
-      <div class="model-row"><span class="app-name">Netflix</span><span class="arrow">→</span><span class="model-code">MÁS APPS - NETFLIX INCLUIDO</span></div>
-      <div class="model-row"><span class="app-name">Universal+</span><span class="arrow">→</span><span class="model-code">MÁS APPS - UNIVERSAL+ INCLUIDO</span></div>
-      <div class="model-row"><span class="app-name">Disney+</span><span class="arrow">→</span><span class="model-code">MÁS APPS - DISNEY+ STD INCLUIDO</span></div>
-      <div class="model-row"><span class="app-name">HBO Max</span><span class="arrow">→</span><span class="model-code">MÁS APPS - PAQUETE HBO MAX INCLUIDO</span></div>
-      <div class="model-row"><span class="app-name">Totalplay TV</span><span class="arrow">→</span><span class="model-code">NUEVO TOTALPLAY TV - INCLUIDO</span></div>
-      <div class="model-row"><span class="app-name">Surround</span><span class="arrow">→</span><span class="model-code">TOTALPLAY SURROUND - INCLUIDO</span></div>
-      <div class="model-row"><span class="app-name">Descuento</span><span class="arrow">→</span><span class="model-code">DESCUENTO ESPECIAL 5GB</span></div>
-
-      <div class="mod-tip">💡 Al modelar Apple TV, HBO Max, Disney+ y Universal+, <strong>los adicionales se modelan solos</strong>. No los captures aparte.</div>
-
-      <div class="mod-fotos">
-        <figure>
-          <img class="zoomable" src="modelado-5000-prev.jpg" data-grande="modelado-5000.jpg"
-               data-titulo="Modelado · 5,000 megas + Netflix Estándar + Universal+ + HBO Max + Disney+ + Apple TV"
-               alt="Pantallas del modelado de un plan de 5,000 megas" loading="lazy">
-          <figcaption>5,000 megas<br><span class="zoom-pista">🔍 Toca para ampliar</span></figcaption>
-        </figure>
-        <figure>
-          <img class="zoomable" src="modelado-10000-prev.jpg" data-grande="modelado-10000.jpg"
-               data-titulo="Modelado · 10,000 megas + Netflix Estándar + Universal+ + HBO Max + Disney+ + Apple TV"
-               alt="Pantallas del modelado de un plan de 10,000 megas" loading="lazy">
-          <figcaption>10,000 megas<br><span class="zoom-pista">🔍 Toca para ampliar</span></figcaption>
-        </figure>
-      </div>
-
-      <p style="font-size:12.5px;color:#5b7a85;margin:14px 0 0;">Después de estos pasos, continúa tu proceso normal.</p>
+      <div class="md-res" id="mdRes" style="display:none;"></div>
     </div>
   </section>
 
@@ -8108,6 +8107,114 @@ function ligarApps(){
 if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ligarApps);
 else ligarApps();
 
+// ═══════════════════════════════════════════════════════════════════
+//  MODELADOR DE PLANES · Más Apps (infografías de modelado)
+// ═══════════════════════════════════════════════════════════════════
+// Una entrada por infografía. "codigos" son las promociones de Descuentos
+// Especiales tal como aparecen en la App de Ventas; "nota" es opcional.
+const MODELADO = {
+  '150-tv': {
+    titulo:'Planes 150 y 250 megas con TV', img:'mod-150-250.jpg',
+    apps:['Netflix Estándar con anuncios','Apple TV','Disney+ Estándar con anuncios'],
+    paso1:'Después de seleccionar la velocidad y elegir el plan <strong>con TV</strong>, modela <strong>Netflix Estándar con anuncios</strong> y <strong>Disney+ Estándar con anuncios</strong>.',
+    paso2:'Confirma que hayas modelado el plan con <strong>Netflix Estándar con anuncios</strong> y <strong>Disney+ Estándar con anuncios</strong>.',
+    codigos:[['MÁS APPS - APPLE TV POR 5 MESES'],['MÁS APPS - NETFLIX ADS POR 5 MESES'],['MÁS APPS - DISNEY ADS POR 5 MESES'],['PRECIO ESPECIAL','solo en 250 megas']],
+    auto:'Al modelar la promoción de Apple TV, el adicional se modela en automático.',
+    nota:'Con TV las apps van por <strong>5 meses</strong>. El <strong>Precio Especial</strong> solo aplica en el plan de 250 megas.'
+  },
+  '150-sintv': {
+    titulo:'Planes 150 y 250 megas sin TV', img:'mod-150-250.jpg',
+    apps:['Netflix Estándar con anuncios','Apple TV','Disney+ Estándar con anuncios'],
+    paso1:'Después de seleccionar la velocidad y elegir el plan <strong>sin TV</strong>, modela <strong>Netflix Estándar con anuncios</strong> y <strong>Disney+ Estándar con anuncios</strong>.',
+    paso2:'Confirma que hayas modelado el plan con <strong>Netflix Estándar con anuncios</strong> y <strong>Disney+ Estándar con anuncios</strong>.',
+    codigos:[['MÁS APPS - APPLE TV POR 3 MESES'],['MÁS APPS - NETFLIX ADS POR 3 MESES'],['MÁS APPS - DISNEY ADS POR 3 MESES'],['PRECIO ESPECIAL','solo en 250 megas']],
+    auto:'Al modelar la promoción de Apple TV, el adicional se modela en automático.',
+    nota:'Sin TV las apps van por <strong>3 meses</strong>. El <strong>Precio Especial</strong> solo aplica en el plan de 250 megas.'
+  },
+  '350-tv': {
+    titulo:'Planes 350 megas con VSB', img:'mod-350-vsb.jpg',
+    apps:['Netflix Estándar con anuncios','Apple TV','Disney+ Estándar con anuncios'],
+    paso1:'Después de seleccionar la velocidad, selecciona <strong>Nuevo Totalplay TV</strong> y suma <strong>Netflix Estándar con anuncios</strong> y <strong>Disney+ Estándar con anuncios</strong>.',
+    paso2:'Confirma que hayas modelado el plan con <strong>Netflix Estándar con anuncios</strong> y <strong>Disney+ Estándar con anuncios</strong>.',
+    codigos:[['MÁS APPS - APPLE TV INCLUIDO'],['MÁS APPS - NETFLIX ADS INCLUIDO'],['MÁS APPS - DISNEY ADS INCLUIDO 5 MESES'],['NUEVO TOTALPLAY TV INCLUIDO'],['PRECIO ESPECIAL']],
+    auto:'Al modelar la promoción de Apple TV, el adicional se modela en automático.'
+  },
+  '350-sintv': {
+    titulo:'Planes 350 megas sin TV', img:'mod-350-sintv.jpg',
+    apps:['Netflix Estándar con anuncios','Apple TV','Disney+ Estándar con anuncios'],
+    paso1:'Después de seleccionar la velocidad, selecciona la opción <strong>"Sin TV"</strong> y suma <strong>Netflix Estándar con anuncios</strong> y <strong>Disney+ Estándar con anuncios</strong>.',
+    paso2:'Confirma que hayas modelado el plan con <strong>Netflix Estándar con anuncios</strong> y <strong>Disney+ Estándar con anuncios</strong>.',
+    codigos:[['MÁS APPS - APPLE TV INCLUIDO'],['MÁS APPS - NETFLIX ADS INCLUIDO'],['MÁS APPS - DISNEY ADS INCLUIDO 3 MESES'],['PRECIO ESPECIAL']],
+    auto:'Al modelar la promoción de Apple TV, el adicional se modela en automático.'
+  },
+  '500-tv': {
+    titulo:'Planes 500 megas con VSB + Totalplay Surround', img:'mod-500-vsb.jpg',
+    apps:['Netflix Estándar con anuncios','Apple TV','Disney+ Estándar con anuncios','Universal+ con anuncios'],
+    paso1:'Después de seleccionar la velocidad, selecciona <strong>Nuevo Totalplay TV</strong> y suma <strong>Netflix Estándar con anuncios</strong> y <strong>Disney+ Estándar con anuncios</strong>.',
+    paso2:'Confirma que hayas modelado el plan con <strong>Netflix Estándar con anuncios</strong> y <strong>Disney+ Estándar con anuncios</strong>.',
+    codigos:[['MÁS APPS - APPLE TV INCLUIDO'],['MÁS APPS - NETFLIX ADS INCLUIDO'],['MÁS APPS - UNIVERSAL+ INCLUIDO'],['MÁS APPS - DISNEY ADS INCLUIDO'],['NUEVO TOTALPLAY TV INCLUIDO'],['SPEAKERS INCLUIDO']],
+    auto:'Al modelar las promociones de Apple TV y Universal+, los adicionales se modelan en automático.'
+  },
+  '500-sintv': {
+    titulo:'Planes 500 megas sin TV', img:'mod-500-sintv.jpg',
+    apps:['Netflix Estándar con anuncios','Apple TV','Disney+ Estándar con anuncios'],
+    paso1:'Después de seleccionar la velocidad, selecciona la opción <strong>"Sin TV"</strong> y suma <strong>Netflix Estándar con anuncios</strong> y <strong>Disney+ Estándar con anuncios</strong>.',
+    paso2:'Confirma que hayas modelado el plan con <strong>Netflix Estándar con anuncios</strong> y <strong>Disney+ Estándar con anuncios</strong>.',
+    codigos:[['MÁS APPS - APPLE TV INCLUIDO'],['MÁS APPS - NETFLIX ADS INCLUIDO'],['MÁS APPS - DISNEY ADS INCLUIDO']],
+    auto:'Al modelar la promoción de Apple TV, el adicional se modela en automático.'
+  },
+  '1000-tv': {
+    titulo:'Planes 1,000 a 10,000 megas con VSB + Totalplay Surround', img:'mod-1000-vsb.jpg',
+    apps:['Netflix Estándar con anuncios','Apple TV','Disney+ Estándar con anuncios','Universal+ con anuncios','HBO Max Básico con anuncios'],
+    paso1:'Después de seleccionar la velocidad, selecciona <strong>Nuevo Totalplay TV</strong> y suma <strong>Netflix Estándar con anuncios</strong>, <strong>Disney+ Estándar con anuncios</strong> y <strong>HBO Max Básico con anuncios</strong>.',
+    paso2:'Confirma que hayas modelado el plan con <strong>Netflix Estándar con anuncios</strong>, <strong>Disney+ Estándar con anuncios</strong> y <strong>HBO Max Básico con anuncios</strong>.',
+    codigos:[['MÁS APPS - APPLE TV INCLUIDO'],['MÁS APPS - NETFLIX ADS INCLUIDO'],['MÁS APPS - UNIVERSAL+ INCLUIDO'],['MÁS APPS - DISNEY ADS INCLUIDO'],['MÁS APPS - MAX BÁSICO INCLUIDO'],['NUEVO TOTALPLAY TV INCLUIDO'],['SPEAKERS INCLUIDO'],['PRECIO ESPECIAL']],
+    auto:'Al modelar las promociones de Apple TV y Universal+, los adicionales se modelan en automático.'
+  },
+  '1000-sintv': {
+    titulo:'Planes 1,000 a 10,000 megas sin TV', img:'mod-1000-sintv.jpg',
+    apps:['Netflix Estándar con anuncios','Apple TV','Disney+ Estándar con anuncios','HBO Max Básico con anuncios'],
+    paso1:'Después de seleccionar la velocidad, selecciona la opción <strong>"Sin TV"</strong> y suma <strong>Netflix Estándar con anuncios</strong>, <strong>Disney+ Estándar con anuncios</strong> y <strong>HBO Max Básico con anuncios</strong>.',
+    paso2:'Confirma que hayas modelado el plan con <strong>Netflix Estándar con anuncios</strong>, <strong>Disney+ Estándar con anuncios</strong> y <strong>HBO Max Básico con anuncios</strong>.',
+    codigos:[['MÁS APPS - APPLE TV INCLUIDO'],['MÁS APPS - NETFLIX ADS INCLUIDO'],['MÁS APPS - DISNEY ADS INCLUIDO'],['MÁS APPS - MAX BÁSICO INCLUIDO'],['PRECIO ESPECIAL']],
+    auto:'Al modelar la promoción de Apple TV, el adicional se modela en automático.'
+  }
+};
+const mdSel = { vel:null, tv:null };
+
+function mdElegir(tipo, btn){
+  mdSel[tipo] = btn.getAttribute('data-' + tipo);
+  btn.parentNode.querySelectorAll('.md-op').forEach(function(b){ b.classList.toggle('activo', b === btn); });
+  mdPintar();
+}
+
+function mdPintar(){
+  const caja = document.getElementById('mdRes');
+  if(!mdSel.vel || !mdSel.tv){ caja.style.display = 'none'; return; }
+  const d = MODELADO[mdSel.vel + '-' + mdSel.tv];
+  if(!d){ caja.style.display = 'none'; return; }
+  let h = '<h4>📋 ' + d.titulo + '</h4>' +
+    '<div class="md-apps">' + d.apps.map(function(a){ return '<span>' + a + '</span>'; }).join('') + '</div>' +
+    '<div class="md-pasos">' +
+      '<div class="md-pasoc"><span class="md-num">1</span><div>' + d.paso1 + '</div></div>' +
+      '<div class="md-pasoc"><span class="md-num">2</span><div>' + d.paso2 + '</div></div>' +
+      '<div class="md-pasoc"><span class="md-num">3</span><div>En el apartado de <strong>Descuentos Especiales</strong> modela estas promociones:' +
+        '<ul class="md-codigos">' + d.codigos.map(function(c){
+          return '<li onclick="this.classList.toggle(&quot;hecho&quot;)">' + c[0] + (c[1] ? '<small>' + c[1] + '</small>' : '') + '</li>';
+        }).join('') + '</ul>' +
+        '<p class="md-pista">👆 Toca cada promoción conforme la vayas modelando para palomearla.</p>' +
+      '</div></div>' +
+    '</div>' +
+    '<div class="md-auto">⚡ ' + d.auto + '</div>' +
+    (d.nota ? '<div class="md-auto">📌 ' + d.nota + '</div>' : '') +
+    '<div class="md-total">💡 <strong>No te asustes con el total de "Confirma tu plan":</strong> ahí todavía no vienen los descuentos. Al modelar las promociones de Descuentos Especiales, el precio baja al del plan.</div>' +
+    '<figure class="md-foto"><img class="zoomable" src="' + d.img + '" data-titulo="Modelado · ' + d.titulo + '" alt="Pantallas del modelado: ' + d.titulo + '" loading="lazy">' +
+      '<figcaption><span class="zoom-pista">🔍 Toca para ver las pantallas en grande</span></figcaption></figure>' +
+    '<div class="md-listo">🎯 ¡Listo! Ya puedes continuar tu venta de manera normal.</div>';
+  caja.innerHTML = h;
+  caja.style.display = '';
+}
+
 // Paramount+: dice al momento si el plan del cliente (por megas) admite la promo.
 function pmVerificar(btn){
   btn.parentNode.querySelectorAll('.pm-op').forEach(function(b){ b.classList.toggle('activo', b === btn); });
@@ -8555,6 +8662,7 @@ const SECCIONES = [
 // ignoran solos y se pueden borrar de esta lista sin problema.
 const DIAS_AVISOS = 30;
 const AVISOS = [
+  { id:'2026-10-01-modelado',fecha:'1 de octubre 2026', texto:'¡Nuevo "Cómo modelar los planes"! Eliges la velocidad (150 a 10,000 megas) y si va con TV o sin TV, y te muestra los 3 pasos, las promociones que debes capturar en Descuentos Especiales (palomeándolas conforme avanzas) y las pantallas reales de la App. Sustituye la guía anterior de 5,000 y 10,000 megas: ahora todos los planes se modelan con Netflix Estándar con anuncios.' },
   { id:'2026-10-01-glosario-zuffa',fecha:'1 de octubre 2026', texto:'El Glosario ya trae "Zuffa": qué es, su origen con la UFC y la nueva Zuffa Boxing. En la sección de Paramount+, toca la palabra ZUFFA y te lleva directo a su definición.' },
   { id:'2026-10-01-paramount',fecha:'1 de octubre 2026', texto:'¡NUEVA sección "UFC y ZUFFA por Paramount+"! En planes de 150 a 500 megas tu cliente agrega Paramount+ por $119 al mes ($30 de descuento indefinido). Trae la cartelera de UFC de octubre, un verificador de "¿le aplica?" por megas, reglas de negocio, preguntas frecuentes, el speech y el mensaje para WhatsApp. Vigente del 1 al 31 de octubre.' },
   { id:'2026-10-01-ligas-apps',fecha:'1 de octubre 2026', texto:'¡Conoce cada plataforma! Ahora las apps de los planes (Netflix, Disney+, Apple TV, HBO Max, Universal+ y Amazon) son ligas: tócalas y te llevan a la página de Totalplay con todo lo que ofrece cada una. También hay botones "Conoce…" en Combo 3 Apps, Streaming con anuncios, Destacados de tus apps, VSB, Blacknut y en HOT GO, FOX+, Qello y Karaoke.' },
@@ -8579,6 +8687,7 @@ const AVISOS = [
 //      a los 15 días.
 const DIAS_NUEVO = 15;
 const NUEVOS = [
+  { navId:'navModelado',     tituloId:'md-titulo',  fecha:'2026-10-01' },
   { navId:'navParamount',    tituloId:'pm-titulo',  fecha:'2026-10-01' },
   { navId:'navDazn',         tituloId:'dz-titulo',  fecha:'2026-10-01' },
   { navId:'navCombo3',       tituloId:'c3-titulo',  fecha:'2026-10-01' },
