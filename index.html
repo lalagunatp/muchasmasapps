@@ -2478,6 +2478,91 @@
   a.app-pill::after{content:"↗";font-size:11px;opacity:.6;margin-left:-2px;}
   .conoce-pista{font-size:12px;font-weight:700;color:#5b7a85;margin:10px 0 0;text-align:center;}
 
+  /* ── UFC Y ZUFFA POR PARAMOUNT+ ── */
+  .pm-block{
+    --pm-az:#0064FF;
+    --pm-az2:#3D8BFF;
+    background:#000;color:#fff;border-radius:26px;overflow:hidden;
+    box-shadow:0 14px 34px rgba(0,40,120,.35);
+  }
+  .pm-img{display:block;width:100%;height:auto;}
+  .pm-cuerpo{padding:4px 18px 22px;}
+  .pm-top{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0 4px;}
+  .pm-tag{background:var(--pm-az);color:#fff;font-weight:800;font-size:11.5px;letter-spacing:1.5px;
+    text-transform:uppercase;padding:5px 12px;border-radius:999px;}
+  .pm-tag.sec{background:#141414;border:1px solid #333;}
+  .pm-tag:empty{display:none;}
+  .pm-lema{text-align:center;font-size:15px;line-height:1.55;margin:10px auto 16px;max-width:540px;}
+  .pm-lema strong{color:var(--pm-az2);}
+
+  .pm-precio{margin:18px auto 0;max-width:460px;text-align:center;border:2px solid var(--pm-az);
+    border-radius:22px;padding:16px 14px;background:radial-gradient(circle at 50% 0%,rgba(0,100,255,.35),#000 70%);}
+  .pm-precio .pm-por{font-style:italic;font-weight:800;font-size:16px;}
+  .pm-precio .pm-monto{font-family:'Archivo Black',sans-serif;font-size:58px;line-height:1;color:#fff;}
+  .pm-precio .pm-monto sup{font-size:26px;color:var(--pm-az2);vertical-align:top;position:relative;top:8px;}
+  .pm-precio .pm-monto small{font-size:20px;font-family:'Nunito Sans',sans-serif;font-weight:800;font-style:italic;}
+  .pm-desglose{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:12px;}
+  .pm-desglose span{background:#141414;border:1px solid #333;border-radius:999px;padding:5px 11px;font-size:12px;font-weight:800;}
+  .pm-desglose .ok{background:var(--pm-az);border-color:var(--pm-az);}
+  .pm-precio p{margin:10px 0 0;font-size:13px;font-weight:700;opacity:.9;}
+
+  .pm-sub{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:19px;margin:26px 0 10px;
+    display:flex;align-items:flex-start;gap:8px;}
+  .pm-sub::before{content:"";flex:none;width:6px;height:22px;margin-top:3px;border-radius:3px;background:var(--pm-az);}
+
+  .pm-rounds{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;}
+  .pm-round{background:#0d0d0d;border:1px solid #262626;border-radius:16px;padding:12px 14px;position:relative;overflow:hidden;}
+  .pm-round::after{content:attr(data-r);position:absolute;right:10px;top:4px;font-family:'Archivo Black',sans-serif;
+    font-size:38px;color:rgba(61,139,255,.18);}
+  .pm-round b{display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--pm-az2);}
+  .pm-round h5{margin:2px 0 4px;font-family:'Baloo 2',sans-serif;font-size:17px;}
+  .pm-round p{margin:0;font-size:13px;line-height:1.45;color:#ddd;}
+  .pm-frase{text-align:center;font-style:italic;font-weight:800;font-size:15px;margin:14px 0 0;}
+
+  .pm-cartelera-img{display:block;width:100%;max-width:520px;margin:0 auto;border-radius:14px;}
+  .pm-peleas{display:grid;gap:8px;margin-top:12px;}
+  .pm-pelea{display:flex;align-items:center;gap:12px;background:linear-gradient(90deg,#1a1508,#0d0d0d);
+    border:1px solid #3a2f10;border-radius:14px;padding:10px 12px;}
+  .pm-fecha{flex:none;width:54px;text-align:center;background:#C9A227;color:#111;border-radius:10px;padding:5px 0;
+    font-family:'Archivo Black',sans-serif;font-size:18px;line-height:1;}
+  .pm-fecha small{display:block;font-family:'Nunito Sans',sans-serif;font-weight:800;font-size:10px;margin-top:2px;}
+  .pm-pelea h5{margin:0;font-size:14.5px;font-family:'Baloo 2',sans-serif;line-height:1.2;}
+  .pm-pelea p{margin:2px 0 0;font-size:12px;color:#c9c9c9;}
+  .pm-pelea .ev{color:#E3C55B;font-weight:800;}
+
+  .pm-verif{background:#0d0d0d;border:1px solid #262626;border-radius:18px;padding:14px;}
+  .pm-verif p{margin:0 0 10px;font-size:13.5px;}
+  .pm-ops{display:flex;flex-wrap:wrap;gap:7px;}
+  .pm-op{font:inherit;font-size:13px;font-weight:800;color:#fff;cursor:pointer;background:#1a1a1a;
+    border:1.5px solid #3a3a3a;border-radius:999px;padding:7px 13px;}
+  .pm-op.activo{background:#fff;color:#000;border-color:#fff;}
+  .pm-resp{display:none;margin-top:12px;border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.45;font-weight:700;}
+  .pm-resp.si{display:block;background:#e3eeff;color:#002f7a;border-left:6px solid var(--pm-az);}
+  .pm-resp.no{display:block;background:#ffe3e3;color:#7a0000;border-left:6px solid #ff3b3b;}
+
+  .pm-reglas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;}
+  .pm-regla{background:#fff;color:#111;border-radius:16px;padding:14px 14px 12px;border-top:6px solid var(--pm-az);}
+  .pm-regla.no{border-top-color:#ff3b3b;}
+  .pm-regla h5{margin:0 0 6px;font-family:'Baloo 2',sans-serif;font-size:15px;}
+  .pm-regla ul{margin:0;padding-left:18px;font-size:13px;line-height:1.5;}
+
+  .pm-faq details{background:#0d0d0d;border:1px solid #262626;border-radius:14px;margin-bottom:8px;}
+  .pm-faq summary{cursor:pointer;padding:12px 14px;font-weight:800;font-size:14px;list-style:none;}
+  .pm-faq summary::-webkit-details-marker{display:none;}
+  .pm-faq summary::after{content:"＋";float:right;color:var(--pm-az2);}
+  .pm-faq details[open] summary::after{content:"－";}
+  .pm-faq details p{margin:0;padding:0 14px 12px;font-size:13.5px;line-height:1.5;color:#ddd;}
+
+  .pm-speech{background:#0d0d0d;border-left:6px solid var(--pm-az);border-radius:14px;padding:14px;font-size:14px;line-height:1.55;}
+  .pm-speech q{font-style:italic;}
+  .pm-cta{margin-top:20px;text-align:center;background:linear-gradient(135deg,#0050D0,var(--pm-az2));border-radius:20px;padding:18px 14px;}
+  .pm-cta h4{margin:0 0 4px;font-family:'Baloo 2',sans-serif;font-size:21px;line-height:1.15;}
+  .pm-cta p{margin:0 0 12px;font-size:13.5px;font-weight:700;}
+  .pm-cta .gl-btn{font-size:13.5px;padding:11px 16px;margin:4px;}
+  .pm-cta .gl-btn.ver{background:#000;}
+  .pm-cta .conoce-link{font-size:13.5px;padding:11px 16px;margin:4px;background:#fff;color:#0050D0;}
+  .pm-pie{font-size:11px;opacity:.7;text-align:center;margin:14px 0 0;}
+
   /* ── NFL GAME PASS EN DAZN ── */
   .dz-block{
     --dz-am:#FFE600;
@@ -3770,6 +3855,7 @@
   <a href="#inicio" onclick="closeNav()"><span class="nav-icon">🎒</span>Inicio</a>
   <a href="#combo3-seccion" id="navCombo3" onclick="closeNav()"><span class="nav-icon">🔥</span>Combo 3 Apps · $209</a>
   <a href="#dazn-seccion" id="navDazn" onclick="closeNav()"><span class="nav-icon">🏈</span>NFL Game Pass en DAZN</a>
+  <a href="#paramount-seccion" id="navParamount" onclick="closeNav()"><span class="nav-icon">🥊</span>UFC y ZUFFA · Paramount+ $119</a>
   <button type="button" class="nav-parent" id="navTips" onclick="toggleSubmenu(this)">
     <span class="nav-icon">🚀</span>Vende más TIPs
     <span class="nav-caret">▾</span>
@@ -4143,6 +4229,128 @@
           <a href="#planes" class="gl-btn ver">📶 Ver Planes y Megas</a>
         </div>
         <p class="dz-pie">Comunicado Nacional "NFL Game Pass en DAZN" · Vigente a partir del 8 de septiembre de 2026 · Material de uso interno · #VamosPorLaVenta</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="paramount-seccion" style="padding:14px 16px 10px;">
+    <div class="pm-block">
+      <img class="pm-img" src="ufc-titulo.jpg" alt="Noquea la objeción y gana la venta: UFC y ZUFFA en exclusiva por Paramount+">
+      <div class="pm-cuerpo">
+        <div class="pm-top" id="pm-titulo">
+          <span class="pm-tag">🥊 Nuevo en Totalplay</span>
+          <span class="pm-tag sec" data-vigencia-texto>Vigente del 1 al 31 de octubre de 2026.</span>
+        </div>
+        <p class="pm-lema">Hay objeciones que se esquivan… y otras que se mandan directo a la lona. Con <strong>UFC y ZUFFA en exclusiva por Paramount+</strong>, tienes un nuevo gancho para entrar al combate con tus clientes y convertir su pasión por las peleas en una oportunidad de venta. 🥊</p>
+      </div>
+      <img class="pm-img zoomable" src="ufc-banner.jpg" data-titulo="UFC solo en Paramount+" alt="Peleadores de UFC: El tiro está aquí, UFC solo en Paramount+" loading="lazy">
+      <div class="pm-cuerpo">
+
+        <div class="pm-precio">
+          <div class="pm-por">Paramount+ por solo</div>
+          <div class="pm-monto"><sup>$</sup>119 <small>al mes</small></div>
+          <div class="pm-desglose">
+            <span>Precio regular $149</span>
+            <span class="ok">−$30 de descuento</span>
+            <span>De manera indefinida</span>
+          </div>
+          <p>Aplica en planes de <strong>150 a 500 megas</strong>, Totalplay TV + Internet y Totalplay Internet. El descuento de $30 es de manera indefinida.</p>
+        </div>
+
+        <div class="pm-sub">🥊 Tip de campeón: la pelea en 3 rounds</div>
+        <div class="pm-rounds">
+          <div class="pm-round" data-r="1"><b>El gancho</b><h5>UFC y ZUFFA</h5><p>En exclusiva por Paramount+. Pregunta: "¿Te gustan las peleas?"</p></div>
+          <div class="pm-round" data-r="2"><b>El argumento</b><h5>$30 de ahorro al mes</h5><p>Descuento indefinido mientras siga en un plan de 150 a 500 megas.</p></div>
+          <div class="pm-round" data-r="3"><b>El cierre</b><h5>$119 al mes</h5><p>"¿Te lo sumo a tu plan desde hoy?"</p></div>
+        </div>
+        <p class="pm-frase">No vendas un adicional, vende una razón para decir que sí. ¡Lleva la conversación al octágono y deja la objeción en la lona!</p>
+
+        <div class="pm-sub">📺 ¿Qué puede ver tu cliente este mes?</div>
+        <img class="pm-cartelera-img zoomable" src="ufc-cartelera.jpg" data-titulo="Cartelera UFC de octubre en Paramount+" alt="Cartelera UFC de octubre" loading="lazy">
+        <div class="pm-peleas">
+          <div class="pm-pelea"><div class="pm-fecha">3<small>OCT · SÁB</small></div><div><h5>Figueiredo vs Talbott · Walker vs Parkin</h5><p><span class="ev">UFC 332</span> · Peso gallo y peso pesado</p></div></div>
+          <div class="pm-pelea"><div class="pm-fecha">17<small>OCT · SÁB</small></div><div><h5>Buckley vs Malott</h5><p><span class="ev">UFC Fight Night</span></p></div></div>
+          <div class="pm-pelea"><div class="pm-fecha">24<small>OCT · SÁB</small></div><div><h5>Volkanovski vs Evloev</h5><p><span class="ev">UFC 333</span> · Peso pluma, pelea por el título</p></div></div>
+        </div>
+
+        <div class="pm-sub">✅ ¿Le aplica a tu cliente? Revísalo en un toque</div>
+        <div class="pm-verif">
+          <p>¿De cuántos megas es el plan de tu cliente?</p>
+          <div class="pm-ops">
+            <button type="button" class="pm-op" data-pm="no" onclick="pmVerificar(this)">100</button>
+            <button type="button" class="pm-op" data-pm="si" onclick="pmVerificar(this)">150</button>
+            <button type="button" class="pm-op" data-pm="si" onclick="pmVerificar(this)">250</button>
+            <button type="button" class="pm-op" data-pm="si" onclick="pmVerificar(this)">350</button>
+            <button type="button" class="pm-op" data-pm="si" onclick="pmVerificar(this)">500</button>
+            <button type="button" class="pm-op" data-pm="no" onclick="pmVerificar(this)">1,000</button>
+            <button type="button" class="pm-op" data-pm="no" onclick="pmVerificar(this)">5,000</button>
+            <button type="button" class="pm-op" data-pm="no" onclick="pmVerificar(this)">10,000</button>
+          </div>
+          <div class="pm-resp" id="pmResp" aria-live="polite"></div>
+        </div>
+
+        <div class="pm-sub">📋 Reglas de negocio</div>
+        <div class="pm-reglas">
+          <div class="pm-regla">
+            <h5>✅ Aplica</h5>
+            <ul>
+              <li>Clientes <strong>nuevos y actuales</strong>.</li>
+              <li>Al contratar un plan Totalplay TV + Internet o Totalplay Internet de <strong>150 a 500 megas</strong>, el cliente puede agregar Paramount+ con <strong>$30 de descuento de manera indefinida</strong>.</li>
+              <li>En oferta base, Match (Netflix Estándar con anuncios, Estándar y Premium), Unbox (Amazon), Disney+ Estándar con anuncios, HBO Max Básico con anuncios, Apple TV y NFL Game Pass en DAZN.</li>
+            </ul>
+          </div>
+          <div class="pm-regla">
+            <h5>🤝 Convive con</h5>
+            <ul>
+              <li>Promociones de Más Apps.</li>
+              <li>Descuento Especial por 5 meses y Precio Especial.</li>
+              <li>Descuento por Lealtad y Descuento por Portabilidad.</li>
+              <li>Promociones segmentadas.</li>
+              <li>Promociones sobre Nuevo Totalplay TV incluido.</li>
+              <li>Promociones sobre adicionales instalables y de contenido.</li>
+            </ul>
+          </div>
+          <div class="pm-regla no">
+            <h5>❌ Pierde la promoción si…</h5>
+            <ul>
+              <li>Cambia a un plan donde no sea elegible la promoción.</li>
+              <li>Cancela el servicio.</li>
+            </ul>
+          </div>
+          <div class="pm-regla no">
+            <h5>⚠️ Morosidad y cancelación</h5>
+            <ul>
+              <li>Si la cuenta entra en morosidad se suspende Paramount+; al salir de morosidad se reactiva automáticamente.</li>
+              <li>Toda cuenta cancelada, de forma voluntaria o involuntaria, deja de tener acceso a la aplicación.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pm-sub">❓ Preguntas que te van a hacer</div>
+        <div class="pm-faq">
+          <details><summary>¿El descuento de $30 es solo por unos meses?</summary>
+            <p>No. Es de manera indefinida, mientras el cliente siga en un plan elegible (150 a 500 megas) y no cancele el servicio.</p></details>
+          <details><summary>¿Y si después subo mi plan a 1,000 megas o más?</summary>
+            <p>Pierde la promoción, porque cambia a un plan donde no es elegible. Explícaselo antes de cerrar para evitar sorpresas.</p></details>
+          <details><summary>Ya tengo Netflix, Amazon, Disney+, HBO Max, Apple TV o NFL Game Pass, ¿me aplica?</summary>
+            <p>Sí. La promoción aplica en oferta base y en las ofertas con Netflix, Amazon, Disney+ Estándar con anuncios, HBO Max Básico con anuncios, Apple TV y NFL Game Pass en DAZN.</p></details>
+          <details><summary>¿Qué pasa si me atraso en mi pago?</summary>
+            <p>Se suspende Paramount+ mientras la cuenta esté en morosidad, y se reactiva sola en cuanto la cuenta se pone al corriente.</p></details>
+          <details><summary>Ya soy cliente de Totalplay, ¿lo puedo agregar?</summary>
+            <p>Sí. Aplica para clientes nuevos y actuales con plan de 150 a 500 megas.</p></details>
+        </div>
+
+        <div class="pm-sub">🎯 Así lo ofreces</div>
+        <div class="pm-speech"><q>¿Te gustan las peleas? UFC ahora está en exclusiva en Paramount+, y con tu plan Totalplay te lo dejo en solo $119 al mes: son $30 menos cada mes, y no es por unos meses: el descuento es indefinido. Este mes vienen Volkanovski vs Evloev y Buckley vs Malott. ¿Te lo sumo a tu plan?</q></div>
+
+        <div class="pm-cta">
+          <h4>¡Noquea la objeción y gana la venta! 🥊</h4>
+          <p>Ofrécelo a cada cliente con plan de 150 a 500 megas. Tienes hasta el <span data-vigencia-fin="corta">31 de octubre</span>.</p>
+          <a href="#" class="gl-btn wa" onclick="return pmCompartir()">📲 Mándale la promo por WhatsApp</a>
+          <a class="conoce-link" data-app="paramount"></a>
+          <a href="#planes" class="gl-btn ver">📶 Ver Planes y Megas</a>
+        </div>
+        <p class="pm-pie">Comunicado Nacional "UFC y ZUFFA en exclusiva por Paramount+" · <span data-vigencia-rango>Del 1 al 31 de octubre de 2026</span> · Material de uso interno · #VamosPorLaVenta</p>
       </div>
     </div>
   </section>
@@ -7837,7 +8045,8 @@ const LIGAS_APPS = {
   fox:       { nombre:'FOX+',             color:'#0B2D6B', url:'https://totalplay.com.mx/foxmas' },
   hotgo:     { nombre:'HOT GO',           color:'#D81B60', url:'https://totalplay.com.mx/hotpack' },
   blacknut:  { nombre:'Blacknut',         color:'#111111', url:'https://www.totalplay.com.mx/blacknut' },
-  karaoke:   { nombre:'Stingray Karaoke', color:'#7B1FA2', url:'https://totalplay.com.mx/stingraykaraoke' }
+  karaoke:   { nombre:'Stingray Karaoke', color:'#7B1FA2', url:'https://totalplay.com.mx/stingraykaraoke' },
+  paramount: { nombre:'Paramount+',       color:'#0064FF', url:'https://www.totalplay.com.mx/paramountplus' }
 };
 
 function appDeTexto(t){
@@ -7848,6 +8057,7 @@ function appDeTexto(t){
   if(t.indexOf('hbo') !== -1)       return 'hbo';
   if(t.indexOf('disney') !== -1)    return 'disney';
   if(t.indexOf('universal') !== -1) return 'universal';
+  if(t.indexOf('paramount') !== -1) return 'paramount';
   return null;
 }
 
@@ -7879,6 +8089,32 @@ function ligarApps(){
 }
 if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ligarApps);
 else ligarApps();
+
+// Paramount+: dice al momento si el plan del cliente (por megas) admite la promo.
+function pmVerificar(btn){
+  btn.parentNode.querySelectorAll('.pm-op').forEach(function(b){ b.classList.toggle('activo', b === btn); });
+  const resp = document.getElementById('pmResp');
+  const megas = btn.textContent.trim();
+  if(btn.dataset.pm === 'si'){
+    resp.className = 'pm-resp si';
+    resp.textContent = '✅ ¡Sí aplica! Con ' + megas + ' megas tu cliente agrega Paramount+ por $119 al mes ($30 de descuento indefinido). ¡Ofrécelo!';
+  } else {
+    resp.className = 'pm-resp no';
+    resp.textContent = '❌ No aplica en ' + megas + ' megas: la promoción es solo para planes de 150 a 500 megas.';
+  }
+}
+
+// Paramount+: abre WhatsApp con el mensaje listo para el cliente.
+function pmCompartir(){
+  const fin = finDeSeccion('paramount-seccion');
+  const msg = '¡Hola! 🥊 ¿Te gustan las peleas? UFC y ZUFFA ahora están en exclusiva en Paramount+, ' +
+    'y con tu plan Totalplay te lo dejo en solo $119 al mes: $30 de descuento cada mes, de manera indefinida.\n\n' +
+    'Aplica en planes de 150 a 500 megas, para clientes nuevos y actuales.' +
+    (fin ? ' Promoción vigente al ' + fechaEnPalabras(fin).replace(/ de \d{4}$/, '') + '.' : '') +
+    '\n\n¿Te lo sumo a tu plan?';
+  window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+  return false;
+}
 
 // NFL Game Pass en DAZN: alterna la tabla de precios TV + Internet / Internet.
 function daznTab(btn, idTabla){
@@ -8267,6 +8503,7 @@ document.addEventListener('visibilitychange', function(){
 const SECCIONES = [
   { id:'combo3-seccion',          nav:'navCombo3',            nombre:'Combo Especial 3 Apps',        inicio:'2026-10-01', fin:'2026-10-31' },
   { id:'dazn-seccion',            nav:'navDazn',              nombre:'NFL Game Pass en DAZN',        inicio:'2026-09-08', fin:null },
+  { id:'paramount-seccion',       nav:'navParamount',         nombre:'UFC y ZUFFA por Paramount+',   inicio:'2026-10-01', fin:'2026-10-31' },
   { id:'tips-seccion',            nav:null,                   nombre:'Vende más TIPs',              fin:null },
   { id:'superbundles-seccion',    nav:'navSuperBundles',      nombre:'Vende planes con TV',         fin:'2026-08-31' },
   { id:'tips-ahorra-seccion',     nav:'navTipsAhorra',        nombre:'Ahorra más con TV',           fin:'2026-08-31' },
@@ -8294,8 +8531,13 @@ const SECCIONES = [
 ];
 
 // Bitácora de cambios. La entrada más reciente va arriba.
-// Cada vez que publiques una actualización, agrega una línea con un id nuevo.
+// Cada vez que publiques una actualización, agrega una línea con un id nuevo
+// que empiece con la fecha (AAAA-MM-DD). En "Novedades desde tu última visita"
+// solo salen los avisos de los últimos DIAS_AVISOS días; los más viejos se
+// ignoran solos y se pueden borrar de esta lista sin problema.
+const DIAS_AVISOS = 30;
 const AVISOS = [
+  { id:'2026-10-01-paramount',fecha:'1 de octubre 2026', texto:'¡NUEVA sección "UFC y ZUFFA por Paramount+"! En planes de 150 a 500 megas tu cliente agrega Paramount+ por $119 al mes ($30 de descuento indefinido). Trae la cartelera de UFC de octubre, un verificador de "¿le aplica?" por megas, reglas de negocio, preguntas frecuentes, el speech y el mensaje para WhatsApp. Vigente del 1 al 31 de octubre.' },
   { id:'2026-10-01-ligas-apps',fecha:'1 de octubre 2026', texto:'¡Conoce cada plataforma! Ahora las apps de los planes (Netflix, Disney+, Apple TV, HBO Max, Universal+ y Amazon) son ligas: tócalas y te llevan a la página de Totalplay con todo lo que ofrece cada una. También hay botones "Conoce…" en Combo 3 Apps, Streaming con anuncios, Destacados de tus apps, VSB, Blacknut y en HOT GO, FOX+, Qello y Karaoke.' },
   { id:'2026-10-01-dazn',fecha:'1 de octubre 2026', texto:'¡NUEVA sección "NFL Game Pass en DAZN"! Por solo $100 adicionales al mes tu cliente tiene toda la NFL (contratado directo cuesta $3,100 por temporada). Trae precios por plan, beneficios, qué incluye y qué no, preguntas frecuentes, reglas de negocio, el argumento de venta y el mensaje listo para WhatsApp. Además, FOX+ queda en $199 al mes con 25% de descuento el primer mes.' },
   { id:'2026-10-01-consecutivo',fecha:'1 de octubre 2026', texto:'Regresa el Consecutivo de Promociones, vigente del 1 al 31 de octubre. Cambios: el Nuevo Totalplay TV Incluido ahora aplica desde 350 Megas (antes 500), y vuelve FOX+ ($199 al mes) con 25% de descuento el primer mes en Promociones de Contenido. Además, las fechas de vigencia que ves en cada sección ahora se actualizan solas cuando se renueva la promoción.' },
@@ -8303,38 +8545,6 @@ const AVISOS = [
   { id:'2026-09-29-vsb',fecha:'29 de septiembre 2026', texto:'La sección de VSB regresa al menú como "Totalplay VSB", ahora con la misma vigencia que el resto de los planes (15 de octubre). Al 350 Megas con VSB se le quitó la marca de agosto y se corrigieron sus apps: ahora es Netflix, Disney+ y Apple TV.' },
   { id:'2026-09-29-diversion',fecha:'29 de septiembre 2026', texto:'¡Nueva campaña! La portada ahora es "La Diversión Ya Está Incluida". En Planes y Megas cambió el reparto de apps: Disney+ sustituye a Universal+ en los planes de 150, 250 y 350 Megas, y en los planes de solo Internet Universal+ ya no viene incluido. Además, en todos los planes las apps se entregan en su versión con anuncios (antes 5,000 y 10,000 aparecían sin anuncios). Vigencia del 29 de septiembre al 15 de octubre.' },
   { id:'2026-09-29-manteleta',fecha:'29 de septiembre 2026', texto:'Se actualizó la Manteleta de Oferta Base con los precios y promociones vigentes del 29 de septiembre al 31 de octubre del 2026.' },
-  { id:'2026-08-23-test-prospectos',fecha:'23 de agosto 2026', texto:'Nueva sección "Test Prospectos": una liga (quenecesitointernet) para que el cliente conteste un test rápido y decida qué velocidad le conviene. Configura tu WhatsApp una sola vez ahí mismo — cuando el cliente termine el test y toque el botón final, te va a escribir a ti.' },
-  { id:'2026-08-21-glosario-links',fecha:'21 de agosto 2026', texto:'Términos como WiFi 7, Surround, WiFi Pro, +69h Anytime, Dolby Atmos y Streaming con anuncios ahora son ligas: tócalos donde los veas y te llevan a su definición en el Glosario, con un botón "← Regresar" para volver justo a donde estabas. La tarjeta de 350 Megas + VSB también ya trae la foto del equipo.' },
-  { id:'2026-08-21-vsb-350-gratis',fecha:'21 de agosto 2026', texto:'¡NUEVO! Del 21 al 31 de agosto, el plan de 350 Megas TV + Internet lleva el VSB sin costo como TV principal (con Dolby Atmos). Ya está en Planes y Megas, en Misión Regreso a Clases con VSB y en Reglas de negocio.' },
-  { id:'2026-08-20-manteleta',fecha:'20 de agosto 2026', texto:'Se actualizó la Manteleta de Oferta Base con los precios y promociones vigentes del 17 de agosto al 17 de septiembre del 2026.' },
-  { id:'2026-08-17-vsb-regreso-clases',fecha:'17 de agosto 2026', texto:'"Un verano con V de VSB" ahora es "Misión Regreso a Clases con VSB": nueva portada e información actualizada de Plan de Verano, Kit VSB + Surround y VSB como TV Principal. Vigente hasta el 31 de agosto.' },
-  { id:'2026-08-14-flash-nuevo',fecha:'14 de agosto 2026', texto:'Ahora lo recién agregado se marca solo con "⚡ Nuevo", tanto en el menú como en el título dentro de la página. La marca se apaga sola a los 15 días, no hay que quitarla a mano.' },
-  { id:'2026-08-14-bn-top-juegos',fecha:'14 de agosto 2026', texto:'En Blacknut, "Algunos de los juegos" ahora es "Top Juegos Blacknut ⚡ Nuevo": 10 categorías con 2 juegos cada una (portada y descripción), para recomendar el que más le guste al cliente.' },
-  { id:'2026-08-14-fox-fuera',fecha:'14 de agosto 2026', texto:'Se retiró la sección "FOX+ · $149 por 1 mes": la promoción ya había vencido el 31 de julio y no se va a renovar.' },
-  { id:'2026-08-14-glosario-avod',fecha:'14 de agosto 2026', texto:'El Glosario ya trae "Streaming con anuncios" y "AVOD", para explicarle al cliente por qué estos planes cuestan menos.' },
-  { id:'2026-08-14-streaming-anuncios-videos',fecha:'14 de agosto 2026', texto:'En "Streaming con anuncios": los botones de video ahora se ven más claros (▶ y "toca para reproducir"), y se actualizó la liga de la Guía definitiva.' },
-  { id:'2026-08-13-streaming-anuncios',fecha:'13 de agosto 2026', texto:'¡NUEVA sección "Streaming con anuncios"! El diferenciador, las características, el "para quién es ideal" y el resumen de los planes Estándar con anuncios de Netflix, Disney+ y Universal+, más la guía completa y un video para argumentar mejor esta venta.' },
-  { id:'2026-08-13-regreso-clases',fecha:'13 de agosto 2026', texto:'¡Nueva imagen! La portada cambió a "Misión Regreso a Clases con Más Apps". Las promociones, precios y reglas de negocio siguen siendo los mismos que ya conoces en Planes y Megas. Vigencia al 31 de agosto.' },
-  { id:'2026-08-12-tips-apps',fecha:'12 de agosto 2026', texto:'¡NUEVO en "Vende más TIPs"! Agregamos "Destacados de tus apps": el diferenciador, las características y los estrenos de agosto de Apple TV, Disney+, Netflix, HBO Max y Universal+, para que vendas con argumentos frescos. Vigencia al 31 de agosto.' },
-  { id:'2026-08-11-tips',fecha:'11 de agosto 2026', texto:'¡NUEVO menú "Vende más TIPs"! Ahora agrupa "Vende planes con TV" junto con dos herramientas nuevas: "Ahorra más con TV" (el desglose de precios con y sin promoción) y "150 vs 350 megas" (el comparativo mes a mes para cerrar más ventas de velocidad). Vigencia al 31 de agosto.' },
-  { id:'2026-08-10-superbundles',fecha:'10 de agosto 2026', texto:'¡NUEVO! "Haz que cada venta valga más": refuerzo para vender planes con TV. Argumentos, tips y el speech ganador para convencer al cliente. Vigencia al 31 de agosto.' },
-  { id:'2026-08-02-vigencias',fecha:'2 de agosto 2026', texto:'Ya quedó el guardado de vigencias: el cambio se aplica al momento y se conserva al volver a entrar, aunque la hoja tarde en contestar.' },
-  { id:'2026-08-01-admin',fecha:'1 de agosto 2026', texto:'Administrar contenido ahora confirma contra la hoja que el cambio de vigencia realmente quedó grabado, y permite eliminar definitivamente las secciones que ya terminaron.' },
-  { id:'2026-08-01-acceso2',fecha:'1 de agosto 2026', texto:'Se quitó el retraso al entrar: la app esperaba casi un minuto a un archivo de respaldo antes de consultar la plantilla. Ahora va directo y abre de inmediato.' },
-  { id:'2026-08-01-altas',fecha:'1 de agosto 2026', texto:'Si alguien de alta reciente no aparece en la lista guardada, la app ahora consulta sola la versión más nueva antes de rechazarlo. El personal nuevo entra el mismo día.' },
-  { id:'2026-08-01-acceso',fecha:'1 de agosto 2026', texto:'Se reforzó el acceso: la app ya no depende de que Google conteste para dejarte entrar. Si algo falla, el botón "¿No puedes entrar?" te dice exactamente dónde se atoró.' },
-  { id:'2026-08-01-vigencias',fecha:'1 de agosto 2026', texto:'Se corrigió Administrar contenido: al renovar la fecha de una sección, esta vuelve a aparecer en el menú al momento, sin tener que recargar.' },
-  { id:'2026-08-01-ligas',fecha:'1 de agosto 2026', texto:'En el menú ya están Carpeta de ventas NEGOCIOS, Cómo vincular las apps, Repasa y vende y Seguimiento comisiones. También se corrigió el guardado de vigencias en Administrar contenido.' },
-  { id:'2026-07-31-glosario2',fecha:'31 de julio 2026', texto:'El Glosario ya trae Club Totalplay WiFi (con video para mandar por WhatsApp), WiFi 7 a detalle y Dolby Atmos. En Mi equipo ya se ve el registro de acceso de cada jefe, líder, coach y gerente.' },
-  { id:'2026-07-31-glosario',fecha:'31 de julio 2026', texto:'Nuevo Glosario con los términos de la oferta. Además, Planes y Megas ya muestra el descuento de portabilidad y el detalle completo de cada plan.' },
-  { id:'2026-07-30-tecnico',fecha:'30 de julio 2026', texto:'Se actualizó Comisiones Venta Técnico con la tabla completa: comisión por app, bundles con Speakers y todos los adicionales.' },
-  { id:'2026-07-30-modelado',fecha:'30 de julio 2026', texto:'Nuevo en Reglas de negocio: cómo modelar los planes de 5,000 y 10,000 megas. Y Blacknut ya trae sus preguntas frecuentes.' },
-  { id:'2026-07-28-comisiones',fecha:'28 de julio 2026', texto:'Se actualizó Planes + Comisiones con la tabla completa de Cambaceo y Punto de Venta: comisión por app, bundles con Speakers y todos los adicionales.' },
-  { id:'2026-07-27-blacknut',fecha:'27 de julio 2026', texto:'¡NUEVO! Llega Blacknut: más de 1,000 videojuegos sin consola, $269 al mes con 20% de descuento el primer mes.' },
-  { id:'2026-07-26-manteleta',fecha:'26 de julio 2026', texto:'Se agregó la Manteleta de Oferta Base: precios, canales y apps en una sola hoja. Toca las imágenes para verlas en grande.' },
-  { id:'2026-07-25-alexa',fecha:'25 de julio 2026', texto:'Aviso importante: se desactivan los comandos de voz con Alexa en decodificadores VSB y DIW377.' },
-  { id:'2026-07-25-crecelo',fecha:'25 de julio 2026', texto:'Se agregó "Crécelo Simétrico": más velocidad desde $70 al mes (vigencia permanente).' },
-  { id:'2026-07-23-vsb',  fecha:'23 de julio 2026', texto:'Se agregó la sección "Un verano con V de VSB".' }
 ];
 
 // ═══════════════════════════════════════════════════════════════════
@@ -8350,6 +8560,7 @@ const AVISOS = [
 //      a los 15 días.
 const DIAS_NUEVO = 15;
 const NUEVOS = [
+  { navId:'navParamount',    tituloId:'pm-titulo',  fecha:'2026-10-01' },
   { navId:'navDazn',         tituloId:'dz-titulo',  fecha:'2026-10-01' },
   { navId:'navCombo3',       tituloId:'c3-titulo',  fecha:'2026-10-01' },
   { navId:'navVsb',          tituloId:'vsb-intro-texto', fecha:'2026-09-29' },
@@ -8669,6 +8880,17 @@ function marcarNuevos(){
 }
 
 // ── AVISO DE CAMBIOS ──
+// Solo se muestran las novedades de los últimos DIAS_AVISOS días. La fecha
+// sale del inicio del id del aviso (AAAA-MM-DD-...).
+function avisoReciente(aviso){
+  const m = /^(\d{4}-\d{2}-\d{2})/.exec(aviso.id || '');
+  if(!m) return true;
+  const limite = new Date();
+  limite.setHours(0, 0, 0, 0);
+  limite.setDate(limite.getDate() - DIAS_AVISOS);
+  return new Date(m[1] + 'T00:00:00') >= limite;
+}
+
 function avisosVistos(){
   try{ return JSON.parse(localStorage.getItem(AVISOS_KEY) || '[]'); }
   catch(e){ return []; }
@@ -8687,7 +8909,9 @@ function mostrarAvisoDeCambios(vencidas){
   if(!caja || !lista) return;
 
   const vistos = avisosVistos();
-  const nuevos = AVISOS.filter(function(a){ return vistos.indexOf(a.id) === -1; });
+  const nuevos = AVISOS.filter(function(a){
+    return vistos.indexOf(a.id) === -1 && avisoReciente(a);
+  });
 
   // Ocultamientos por vencimiento: se avisan una sola vez por promoción.
   const avisosVenc = [];
