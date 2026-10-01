@@ -3714,10 +3714,11 @@
     <a href="#activacion" onclick="closeNav()"><span class="nav-icon">🎁</span>Activación Sin Costo</a>
     <a href="#portabilidad" onclick="closeNav()"><span class="nav-icon">📱</span>Descuento de Portabilidad</a>
     <a href="#experiencia100" onclick="closeNav()"><span class="nav-icon">📺</span>Tu Experiencia al 100</a>
-    <a href="#tv-incluido" onclick="closeNav()"><span class="nav-icon">📡</span>Nuevo Totalplay TV Incluido</a>
+    <a href="#tv-incluido" id="navTvIncluido" onclick="closeNav()"><span class="nav-icon">📡</span>Nuevo Totalplay TV Incluido</a>
     <a href="#tv-adicional" onclick="closeNav()"><span class="nav-icon">➕</span>Nuevo Totalplay TV Adicional</a>
     <a href="#totalplayers" onclick="closeNav()"><span class="nav-icon">💼</span>Promo Totalplayers 2026</a>
     <a href="#promo-contenido" id="navPromoContenido" onclick="closeNav()"><span class="nav-icon">🎬</span>Promociones de Contenido</a>
+    <a href="#fox-plus" id="navFoxPlus" onclick="closeNav()"><span class="nav-icon">🏆</span>FOX+ · $149 con 25% el 1er mes</a>
   </div>
 
   <a href="#test-prospectos-seccion" id="navTestProspectos" onclick="closeNav()"><span class="nav-icon">🧭</span>Test Prospectos</a>
@@ -3888,13 +3889,13 @@
 
       <div class="c3-cta">
         <h4>Triple poder = más ventas y más comisiones 🚀</h4>
-        <p>Ofrécelo en cada visita y en cada llamada. Tienes hasta el 31 de octubre.</p>
+        <p>Ofrécelo en cada visita y en cada llamada. Tienes hasta el <span data-vigencia-fin="corta">31 de octubre</span>.</p>
         <div class="c3-cta-btns">
           <a href="#" class="gl-btn wa" onclick="return c3Compartir()">📲 Mándale la promo por WhatsApp</a>
           <a href="#planes" class="gl-btn ver">📶 Ver Planes y Megas</a>
         </div>
       </div>
-      <p class="c3-nota">Comunicado Residencial Nacional "Triple poder para tu venta" · Del 1 al 31 de octubre de 2026 · Material de uso interno.</p>
+      <p class="c3-nota">Comunicado Residencial Nacional "Triple poder para tu venta" · <span data-vigencia-rango>Del 1 al 31 de octubre de 2026</span> · Material de uso interno.</p>
     </div>
   </section>
 
@@ -3940,7 +3941,7 @@
         <span class="sb-tag">🔥 Refuerzo de Ventas</span>
         <h3>Haz que cada venta<br><em>valga más</em></h3>
         <p class="sb-sub">No vendas solo internet — ofrece una experiencia completa de entretenimiento para toda la familia.</p>
-        <div class="sb-vigencia">📅 Vigencia: 31 de agosto 2026</div>
+        <div class="sb-vigencia">📅 Vigencia: <span data-vigencia-fin>31 de agosto de 2026</span></div>
       </div>
 
       <div class="sb-tip">
@@ -4815,7 +4816,7 @@
       </div>
 
       <p class="bn-frase">Porque cuando vives la experiencia,<br>venderla es mucho más fácil.</p>
-      <p style="font-size:13px;opacity:.75;margin:16px 0 0;text-align:center;">Vigencia de esta información: hasta el 30 de septiembre de 2026 · Nacional y Frontera.</p>
+      <p style="font-size:13px;opacity:.75;margin:16px 0 0;text-align:center;">Vigencia de esta información: hasta el <span data-vigencia-fin>30 de septiembre de 2026</span> · Nacional y Frontera.</p>
     </div>
   </section>
 
@@ -5405,20 +5406,21 @@
         </figure>
       </div>
 
-      <p style="font-size:11.5px;color:#5b7a85;margin:16px 0 0;">Oferta base · 29 de septiembre al 31 de octubre del 2026 · Nacional. La disponibilidad de canales puede variar por ciudad debido a restricciones de transmisión.</p>
+      <p style="font-size:11.5px;color:#5b7a85;margin:16px 0 0;">Oferta base · <span data-vigencia-rango>Del 29 de septiembre al 31 de octubre de 2026</span> · Nacional. La disponibilidad de canales puede variar por ciudad debido a restricciones de transmisión.</p>
     </div>
   </section>
 
   <section class="block" id="consecutivo" style="background:linear-gradient(180deg,var(--foam),var(--sand));border-radius:28px;margin:0 16px 30px;">
-    <div class="section-eyebrow">Vigencia: 18 al 31 de agosto 2026</div>
+    <div class="section-eyebrow" data-vigencia-texto>Vigente del 1 al 31 de octubre de 2026.</div>
     <h2 class="section-title">🎒 Consecutivo de Promociones</h2>
-    <p class="promo-hero">¡Este regreso a clases, vende más! Aprovecha estas promociones y conviértelas en tu mejor argumento para cerrar.</p>
+    <p class="promo-hero">¡Totalplayer! Complementa tu oferta con estas promociones y cierra más ventas: súmalas al plan de tu cliente y conviértelas en tu mejor argumento para cerrar.</p>
 
     <div class="promo-block" id="lealtad">
       <h3>🏆 Descuento por Lealtad</h3>
       <ul>
         <li>Aplica en planes Totalplay TV + Internet y Totalplay Internet, para clientes <strong>nuevos y actuales</strong>.</li>
         <li>Se refleja en el estado de cuenta a partir del <strong>6to mes</strong>.</li>
+        <li>Si el cliente cambia de plan, se le aplica el descuento del nuevo plan contratado.</li>
         <li>Convive con adicionales de contenido (Max, NBA, Disney+, Universal+, etc.) e instalables (TV adicional, <a class="gl-link" href="#gl-wifipro">WiFi Pro</a>, Nuevo Totalplay TV).</li>
         <li>No convive con descuento a empleados ni gratuidades.</li>
       </ul>
@@ -5438,10 +5440,13 @@
         <ul>
           <li>Todos los planes TV + Internet e Internet, de 100 a 10,000 Megas.</li>
           <li>Aplica en oferta base, especiales, bundles y Nuevo Totalplay TV.</li>
+          <li>El beneficio se disfruta en la contratación del plan.</li>
           <li>No requiere venta exprés.</li>
           <li>Todos los canales de venta.</li>
+          <li>Es válida mientras la venta y la promoción estén dentro de la vigencia.</li>
+          <li>Convive con promociones nacionales en planes, de contenido y equipos instalables.</li>
         </ul>
-        <span class="model-code">ACTIVACIÓN SIN COSTO</span>
+        <span class="model-code">Mesa de Control la encuentra como: ACTIVACIÓN SIN COSTO</span>
       </div>
 
       <div class="promo-card" id="portabilidad">
@@ -5450,9 +5455,10 @@
         <ul>
           <li>Solo clientes nuevos, planes de 100 a 10,000 Megas.</li>
           <li>Se aplica al estado de cuenta siguiente, una vez concluida la portabilidad.</li>
-          <li>El cliente la sigue desde su App o Mi Totalplay.</li>
+          <li>El cliente hace el proceso desde su App de clientes o Mi Totalplay.</li>
+          <li>No convive con otras promociones de Portabilidad.</li>
         </ul>
-        <span class="model-code">Lo modela Centro de Soluciones (Portabilidad)</span>
+        <span class="model-code">Centro de Soluciones (Portabilidad) modela: DESCUENTO POR PORTABILIDAD</span>
       </div>
 
       <div class="promo-card" id="experiencia100">
@@ -5461,7 +5467,9 @@
         <ul>
           <li>Nuevo Totalplay TV (VSB) como equipo principal.</li>
           <li>Planes de TV de 150 a 350 Megas.</li>
-          <li>Clientes nuevos y actuales · precio por tiempo indefinido.</li>
+          <li>El cliente paga $100 adicionales a su plan, por tiempo indefinido.</li>
+          <li>Clientes nuevos y actuales.</li>
+          <li>Convive con otras promociones de adicionales de contenido e instalables.</li>
           <li>Aplica en oferta base, con Netflix, Amazon, Disney+, MAX Básico y Apple TV.</li>
         </ul>
         <span class="model-code">TU EXPERIENCIA AL 100</span>
@@ -5476,12 +5484,15 @@
       </div>
 
       <div class="promo-card" id="tv-incluido">
-        <h3>📡 Nuevo Totalplay TV Incluido</h3>
+        <h3 id="tvIncluidoTitulo">📡 Nuevo Totalplay TV Incluido</h3>
+        <p class="price-tag">Desde 350 Megas</p>
         <ul>
-          <li>Planes de TV de <strong>500 a 10,000 Megas</strong>: el Nuevo Totalplay TV sustituye a la caja 4K, sin costo extra.</li>
+          <li>Planes de TV de <strong>350 a 10,000 Megas</strong>: el cliente recibe el Nuevo Totalplay TV incluido como TV principal, en lugar de la caja 4K.</li>
           <li>Clientes nuevos y actuales.</li>
-          <li>Aplica con Netflix, Amazon, Disney+ y HBO Max Básico incluido.</li>
+          <li>Convive con otras promociones de adicionales de contenido e instalables.</li>
+          <li>Aplica en oferta base, Netflix, Amazon, Disney+ y HBO Max Básico incluido.</li>
         </ul>
+        <div class="mod-tip">💡 <strong>Argumento de venta:</strong> desde 350 Megas, el VSB ya va incluido como TV principal. Es el mejor pretexto para subir a tu cliente de 150 o 250 a 350 Megas.</div>
         <span class="model-code">NUEVO TOTALPLAY TV - INCLUIDO</span>
         <details class="lose-details">
           <summary>El cliente pierde la promo si…</summary>
@@ -5496,8 +5507,10 @@
         <h3>➕ Nuevo Totalplay TV Adicional</h3>
         <p class="price-tag">+$199 al mes</p>
         <ul>
-          <li>Como servicio de TV adicional, en planes de 100 a 10,000 Megas.</li>
-          <li>Clientes nuevos y actuales · precio por tiempo indefinido.</li>
+          <li>Como servicio de TV adicional, en planes con TV de 100 a 10,000 Megas.</li>
+          <li>El cliente paga $199 adicionales a su plan, por tiempo indefinido.</li>
+          <li>Clientes nuevos y actuales.</li>
+          <li>Convive con otras promociones de adicionales de contenido e instalables.</li>
           <li>Solo aplica en la 1ª TV adicional; la 2ª se cobra a precio regular ($280).</li>
           <li>Oferta base y especiales con Amazon, Netflix, Disney+, HBO Max Básico con anuncios y Apple TV.</li>
         </ul>
@@ -5541,7 +5554,7 @@
 
     <div class="promo-block" id="promo-contenido">
       <h3 id="promoContenidoTitulo">🎒 Promociones de Contenido</h3>
-      <p style="font-size:13.5px;color:#3d5a63;margin:-4px 0 16px;">Tres apps, mismo truco: <strong>50% de descuento en los primeros meses</strong> para que el cliente las pruebe sin miedo... y ya no las quiera soltar. Ideal para cerrar cuando el cliente duda por precio.</p>
+      <p style="font-size:13.5px;color:#3d5a63;margin:-4px 0 16px;">Cuatro apps, mismo truco: <strong>descuento en los primeros meses</strong> para que el cliente las pruebe sin miedo... y ya no las quiera soltar. Ideal para cerrar cuando el cliente duda por precio. Pregúntale qué le gusta: ¿novelas y series, deportes, conciertos o cantar en familia? Y ofrécele la que le va.</p>
 
       <div class="promo-grid">
         <div class="promo-card" id="hotgo">
@@ -5554,7 +5567,20 @@
             <li>Se contrata desde Telemarketing, App de Ventas, MC, STB y Dashboard Web.</li>
           </ul>
           <div class="mod-tip">💡 <strong>¿Qué es?</strong> HOT GO es la app de streaming de HOT (canal de entretenimiento en vivo): novelas, series y contenido exclusivo bajo demanda.</div>
-          <span class="model-code">HOTGO</span>
+          <span class="model-code">HOTGO 50% POR 3 MESES</span>
+        </div>
+
+        <div class="promo-card" id="fox-plus">
+          <h3 id="foxPlusTitulo">🏆 FOX+</h3>
+          <p class="price-tag">$149 al mes · 25% x 1 mes</p>
+          <ul>
+            <li>Precio de <strong>$149 al mes</strong>; el primer mes el cliente recibe <strong>25% de descuento</strong> sobre esos $149.</li>
+            <li>A partir del 2do mes, paga el precio vigente de $149.</li>
+            <li>Disponible solo en planes Totalplay TV + Internet.</li>
+            <li>Se contrata desde Telemarketing, App de Ventas, MC, STB y Dashboard Web.</li>
+          </ul>
+          <div class="mod-tip">💡 <strong>¿Qué es?</strong> FOX+ es el canal 100% dedicado a deportes: las ligas y eventos más importantes en un solo lugar, siempre con el evento estelar de la cartelera de FOX. Ofrécelo a todo cliente aficionado al deporte.</div>
+          <span class="model-code">FOX+ 25% POR 1 MES</span>
         </div>
 
         <div class="promo-card" id="stingray-qello">
@@ -5780,7 +5806,7 @@
   <section class="block" id="comisiones" style="padding:0 16px 30px;">
     <div class="com-widget">
       <div class="com-hero">
-        <div class="com-eyebrow">Cambaceo y Punto de Venta · Vigencia al 31 de agosto 2026</div>
+        <div class="com-eyebrow">Cambaceo y Punto de Venta · Vigencia al <span data-vigencia-fin>31 de agosto de 2026</span></div>
         <h3>Cada venta tiene su comisión. <span class="com-accent">Y de la 4ª en adelante, se dispara.</span></h3>
         <p>Elige la app, el tipo de plan y mira exactamente cuánto ganas. Abajo están también las comisiones de todos los adicionales.</p>
       </div>
@@ -5826,7 +5852,7 @@
   <section class="block" id="comisiones-tecnico" style="padding:0 16px 30px;">
     <div class="com-widget">
       <div class="com-hero">
-        <div class="com-eyebrow">Venta Técnico · Vigencia al 31 de agosto 2026</div>
+        <div class="com-eyebrow">Venta Técnico · Vigencia al <span data-vigencia-fin>31 de agosto de 2026</span></div>
         <h3>Instalas y comisionas. <span class="com-accent">Una sola comisión, clarita.</span></h3>
         <p>Aquí no hay escalones: cada plan instalado paga lo mismo desde el primero. Elige la app, el tipo de plan y mira cuánto te toca.</p>
       </div>
@@ -7517,7 +7543,8 @@ function c3Compartir(){
     'Disney+ Estándar con anuncios + Apple TV + Amazon Prime por solo $209 al mes 🍿\n\n' +
     'Por separado pagarías $447 al mes: te ahorras $238 cada mes, ¡casi 53%!\n\n' +
     'Aplica en planes de 100 a 10,000 megas, para clientes nuevos y actuales. ' +
-    'Vigente al 31 de octubre. ¿Te lo agrego?';
+    (finDeSeccion('combo3-seccion') ? 'Vigente al ' + fechaEnPalabras(finDeSeccion('combo3-seccion')).replace(/ de \d{4}$/, '') + '. ' : '') +
+    '¿Te lo agrego?';
   window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
   return false;
 }
@@ -7907,8 +7934,8 @@ const SECCIONES = [
   { id:'vsb-seccion',         nav:'navVsb',               nombre:'Totalplay VSB',               inicio:'2026-09-29', fin:'2026-10-15' },
   { id:'crecelo-seccion',     nav:'navCrecelo',           nombre:'Crécelo Simétrico',           fin:null },
   { id:'alexa-seccion',       nav:'navAlexa',             nombre:'Actualización VSB (Alexa)',   fin:null },
-  { id:'manteleta-seccion',   nav:'navManteleta',         nombre:'Manteleta · Oferta Base',     fin:'2026-10-31' },
-  { id:'consecutivo',         nav:'navConsecutivo',       nombre:'Consecutivo de Promociones',  fin:'2026-07-31',
+  { id:'manteleta-seccion',   nav:'navManteleta',         nombre:'Manteleta · Oferta Base',     inicio:'2026-09-29', fin:'2026-10-31' },
+  { id:'consecutivo',         nav:'navConsecutivo',       nombre:'Consecutivo de Promociones',  inicio:'2026-10-01', fin:'2026-10-31',
     navExtra:'navConsecutivoSub' },
   { id:'test-prospectos-seccion', nav:'navTestProspectos', nombre:'Test Prospectos',            fin:null },
   { id:'glosario',            nav:'navGlosario',          nombre:'Glosario',                    fin:null },
@@ -7920,6 +7947,7 @@ const SECCIONES = [
 // Bitácora de cambios. La entrada más reciente va arriba.
 // Cada vez que publiques una actualización, agrega una línea con un id nuevo.
 const AVISOS = [
+  { id:'2026-10-01-consecutivo',fecha:'1 de octubre 2026', texto:'Regresa el Consecutivo de Promociones, vigente del 1 al 31 de octubre. Cambios: el Nuevo Totalplay TV Incluido ahora aplica desde 350 Megas (antes 500), y vuelve FOX+ ($149 al mes) con 25% de descuento el primer mes en Promociones de Contenido. Además, las fechas de vigencia que ves en cada sección ahora se actualizan solas cuando se renueva la promoción.' },
   { id:'2026-10-01-combo3',fecha:'1 de octubre 2026', texto:'¡NUEVO! "Triple poder para tu venta": Combo Especial 3 Apps con Disney+ Estándar con anuncios, Apple TV y Amazon Prime por solo $209 al mes (tu cliente ahorra $238). Ya está al inicio de la carpeta con la cuenta de ahorro, un verificador de "¿le aplica?", las reglas de negocio, el speech y el mensaje listo para WhatsApp. Vigente del 1 al 31 de octubre.' },
   { id:'2026-09-29-vsb',fecha:'29 de septiembre 2026', texto:'La sección de VSB regresa al menú como "Totalplay VSB", ahora con la misma vigencia que el resto de los planes (15 de octubre). Al 350 Megas con VSB se le quitó la marca de agosto y se corrigieron sus apps: ahora es Netflix, Disney+ y Apple TV.' },
   { id:'2026-09-29-diversion',fecha:'29 de septiembre 2026', texto:'¡Nueva campaña! La portada ahora es "La Diversión Ya Está Incluida". En Planes y Megas cambió el reparto de apps: Disney+ sustituye a Universal+ en los planes de 150, 250 y 350 Megas, y en los planes de solo Internet Universal+ ya no viene incluido. Además, en todos los planes las apps se entregan en su versión con anuncios (antes 5,000 y 10,000 aparecían sin anuncios). Vigencia del 29 de septiembre al 15 de octubre.' },
@@ -7973,7 +8001,10 @@ const DIAS_NUEVO = 15;
 const NUEVOS = [
   { navId:'navCombo3',       tituloId:'c3-titulo',  fecha:'2026-10-01' },
   { navId:'navVsb',          tituloId:'vsb-intro-texto', fecha:'2026-09-29' },
-  { navId:'navPromoContenido', tituloId:'promoContenidoTitulo', fecha:'2026-08-18' },
+  { navId:'navConsecutivo',  tituloId:null,       fecha:'2026-10-01' },
+  { navId:'navFoxPlus',      tituloId:'foxPlusTitulo', fecha:'2026-10-01' },
+  { navId:'navTvIncluido',   tituloId:'tvIncluidoTitulo', fecha:'2026-10-01' },
+  { navId:'navPromoContenido', tituloId:'promoContenidoTitulo', fecha:'2026-10-01' },
   { navId:'navStreamingAds', tituloId:'sa-titulo',  fecha:'2026-08-13' },
   { navId:'navTipsApps',     tituloId:'da-titulo',  fecha:'2026-08-12' },
   { navId:'navBnJuegos',     tituloId:'bn-juegos',  fecha:'2026-08-14' },
@@ -8115,6 +8146,38 @@ function rangoVigenciaTexto(inicio, fin){
          ' al ' + fechaEnPalabras(fin) + '.';
 }
 
+// Todos los textos de fecha que ve el equipo salen de aquí, a partir de
+// las fechas de SECCIONES (o de las que guardó Administrar contenido, que
+// mandan). Así, al cambiar una vigencia desde Administrar contenido, el
+// texto cambia solo en toda la sección. Marca el texto con uno de estos:
+//   <span data-vigencia-texto>   →  "Vigente del 1 al 31 de octubre de 2026."
+//   <span data-vigencia-rango>   →  "Del 1 al 31 de octubre de 2026"
+//   <span data-vigencia-fin>     →  "31 de octubre de 2026"
+//   <span data-vigencia-fin="corta"> → "31 de octubre"
+function pintarTextosDeVigencia(seccion, item){
+  const texto = rangoVigenciaTexto(item.inicio, item.fin);
+  seccion.querySelectorAll('[data-vigencia-texto]').forEach(function(el){
+    el.textContent = texto;
+  });
+  seccion.querySelectorAll('[data-vigencia-rango]').forEach(function(el){
+    el.textContent = texto ? texto.replace(/^Vigente /, '').replace(/\.$/, '')
+                                  .replace(/^./, function(c){ return c.toUpperCase(); }) : '';
+  });
+  seccion.querySelectorAll('[data-vigencia-fin]').forEach(function(el){
+    if(!item.fin){ el.textContent = 'sin fecha de término'; return; }
+    const completa = fechaEnPalabras(item.fin);
+    el.textContent = el.getAttribute('data-vigencia-fin') === 'corta'
+      ? completa.replace(/ de \d{4}$/, '') : completa;
+  });
+}
+
+// Fecha de término vigente de una sección (la del archivo o la que guardó
+// Administrar contenido), para usarla en mensajes armados desde código.
+function finDeSeccion(id){
+  const s = SECCIONES.find(function(x){ return x.id === id; });
+  return s && s.fin ? s.fin : null;
+}
+
 function mostrarElemento(id, visible){
   if(!id) return;
   const el = document.getElementById(id);
@@ -8164,8 +8227,7 @@ function aplicarVigencias(){
     // Si la sección trae un [data-vigencia-texto], se mantiene sincronizado
     // con las fechas de arriba: al renovar o extender la promoción, este
     // texto cambia solo.
-    const textoVigencia = seccion.querySelector('[data-vigencia-texto]');
-    if(textoVigencia) textoVigencia.textContent = rangoVigenciaTexto(item.inicio, item.fin);
+    pintarTextosDeVigencia(seccion, item);
 
     // Eliminada por el administrador: fuera para todos.
     if(item.eliminada){
