@@ -2338,6 +2338,129 @@
     font-weight:700;
   }
 
+  /* ── COMBO ESPECIAL 3 APPS · TRIPLE PODER ── */
+  .c3-block{
+    --c3-lima:#8DD630;
+    --c3-rosa:#E6007E;
+    position:relative;
+    background:linear-gradient(170deg,#2B1470 0%,#4A1A8C 45%,#2A0F55 100%);
+    color:#fff;
+    border-radius:26px;
+    padding:22px 18px 22px;
+    overflow:hidden;
+    box-shadow:0 14px 34px rgba(43,20,112,.32);
+  }
+  .c3-block::before{
+    content:"";
+    position:absolute;inset:0;
+    background:
+      radial-gradient(circle at 12% 8%,rgba(141,214,48,.22),transparent 38%),
+      radial-gradient(circle at 92% 30%,rgba(230,0,126,.25),transparent 40%);
+    pointer-events:none;
+  }
+  .c3-block > *{position:relative;}
+  .c3-top{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin-bottom:6px;}
+  .c3-tag{
+    background:var(--c3-lima);color:#1d2b05;
+    font-weight:800;font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;
+    padding:5px 12px;border-radius:999px;
+  }
+  .c3-titulo-img{display:block;width:100%;max-width:440px;margin:4px auto 0;border-radius:14px;}
+  .c3-lema{text-align:center;font-size:15px;line-height:1.5;margin:12px auto 4px;max-width:520px;}
+  .c3-lema strong{color:var(--c3-lima);}
+  .c3-chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:12px 0 16px;}
+  .c3-chips span{
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);
+    font-size:12px;font-weight:700;padding:5px 11px;border-radius:999px;
+  }
+  .c3-card-img{margin:0 auto;max-width:480px;text-align:center;}
+  .c3-card-img img{width:100%;height:auto;display:block;border-radius:18px;}
+  .c3-card-img figcaption{font-size:13px;font-weight:800;margin-top:8px;}
+  .c3-card-img .zoom-pista{color:#d9c8ff;}
+
+  .c3-sub{
+    font-family:'Baloo 2',sans-serif;font-weight:800;font-size:19px;
+    margin:24px 0 10px;display:flex;align-items:center;gap:8px;
+  }
+  .c3-sub::before{content:"";width:6px;height:22px;border-radius:3px;background:var(--c3-lima);}
+
+  /* Ahorro */
+  .c3-ahorro{background:#fff;color:var(--ink);border-radius:18px;padding:16px 16px 14px;}
+  .c3-fila{display:flex;justify-content:space-between;align-items:center;gap:10px;
+    padding:8px 0;border-bottom:1px dashed #e3dcef;font-size:14px;}
+  .c3-fila b{font-family:'Space Grotesk',sans-serif;font-size:15px;}
+  .c3-fila.total{border-bottom:none;font-weight:800;}
+  .c3-fila.total b{text-decoration:line-through;text-decoration-color:var(--c3-rosa);text-decoration-thickness:2px;color:#7a6c8f;}
+  .c3-fila.combo{background:linear-gradient(90deg,#efffd9,#f7ffe9);border-radius:12px;padding:10px 12px;margin-top:4px;border:2px solid var(--c3-lima);}
+  .c3-fila.combo b{font-family:'Archivo Black',sans-serif;font-size:22px;color:#3e7d00;}
+  .c3-barras{margin:14px 0 4px;}
+  .c3-barra{height:14px;border-radius:999px;margin:6px 0 2px;}
+  .c3-barra.sep{background:#d8cfe6;width:100%;}
+  .c3-barra.cmb{background:linear-gradient(90deg,#6BB51E,var(--c3-lima));width:46.8%;}
+  .c3-barra-etq{font-size:11.5px;color:#5b5370;font-weight:700;}
+  .c3-ahorra{
+    margin-top:12px;text-align:center;
+    background:linear-gradient(90deg,#B0006A,var(--c3-rosa),#B0006A);
+    color:#fff;border-radius:14px;padding:12px 10px;
+    font-family:'Baloo 2',sans-serif;font-weight:800;font-size:18px;line-height:1.2;
+  }
+  .c3-ahorra small{display:block;font-family:'Nunito Sans',sans-serif;font-size:12.5px;font-weight:700;opacity:.92;margin-top:2px;}
+
+  /* Qué puede ver */
+  .c3-posters{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .c3-poster{margin:0;text-align:center;}
+  .c3-poster img{width:100%;aspect-ratio:7/10;object-fit:cover;border-radius:14px;display:block;
+    box-shadow:0 6px 16px rgba(0,0,0,.35);}
+  .c3-poster figcaption{font-size:12px;font-weight:800;margin-top:6px;line-height:1.25;}
+  .c3-poster figcaption span{display:block;font-weight:600;opacity:.8;font-size:11px;}
+
+  /* Verificador */
+  .c3-verif{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:14px;}
+  .c3-verif p{margin:0 0 10px;font-size:13.5px;}
+  .c3-opciones{display:flex;flex-wrap:wrap;gap:7px;}
+  .c3-op{
+    font:inherit;font-size:12.5px;font-weight:700;color:#fff;cursor:pointer;
+    background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.35);
+    border-radius:999px;padding:7px 12px;
+  }
+  .c3-op.activo{background:#fff;color:#2B1470;border-color:#fff;}
+  .c3-resp{display:none;margin-top:12px;border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.45;font-weight:700;}
+  .c3-resp.si{display:block;background:#efffd9;color:#2c5a00;border-left:6px solid var(--c3-lima);}
+  .c3-resp.no{display:block;background:#ffe3ef;color:#8a0049;border-left:6px solid var(--c3-rosa);}
+
+  .c3-reglas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;}
+  .c3-regla{background:#fff;color:var(--ink);border-radius:16px;padding:14px 14px 12px;border-top:6px solid var(--c3-lima);}
+  .c3-regla.no{border-top-color:var(--c3-rosa);}
+  .c3-regla h5{margin:0 0 6px;font-size:14.5px;font-family:'Baloo 2',sans-serif;}
+  .c3-regla ul{margin:0;padding-left:18px;font-size:13px;line-height:1.5;}
+  .c3-ojo{margin-top:10px;background:var(--sun);color:#3d2f00;border-radius:14px;padding:11px 14px;font-size:13px;line-height:1.45;}
+
+  /* Speech + llamada a la acción */
+  .c3-speech{counter-reset:paso;display:grid;gap:8px;}
+  .c3-paso{background:#fff;color:var(--ink);border-radius:14px;padding:12px 14px 12px 50px;position:relative;font-size:13.5px;line-height:1.5;}
+  .c3-paso::before{
+    counter-increment:paso;content:counter(paso);
+    position:absolute;left:12px;top:12px;width:26px;height:26px;border-radius:50%;
+    background:#2B1470;color:var(--c3-lima);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px;
+  }
+  .c3-paso b{display:block;color:#4A1A8C;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;}
+  .c3-paso q{font-style:italic;}
+  .c3-cta{
+    margin-top:20px;text-align:center;
+    background:linear-gradient(135deg,var(--c3-lima),#B9F25C);color:#1d2b05;
+    border-radius:20px;padding:18px 14px;
+  }
+  .c3-cta h4{margin:0 0 4px;font-family:'Baloo 2',sans-serif;font-size:21px;line-height:1.15;}
+  .c3-cta p{margin:0 0 12px;font-size:13.5px;font-weight:700;}
+  .c3-cta-btns{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+  .c3-cta-btns .gl-btn{font-size:13.5px;padding:11px 16px;}
+  .c3-cta-btns .gl-btn.ver{background:#2B1470;}
+  .c3-nota{font-size:11px;opacity:.75;text-align:center;margin:14px 0 0;}
+  @media (max-width:420px){
+    .c3-posters{gap:7px;}
+    .c3-fila.combo b{font-size:20px;}
+  }
+
   /* ── VENDE MÁS TIPS · HUB ── */
   .tips-hub{
     background:white;
@@ -3537,6 +3660,7 @@
   </div>
   <div class="nav-title">Ir a…</div>
   <a href="#inicio" onclick="closeNav()"><span class="nav-icon">🎒</span>Inicio</a>
+  <a href="#combo3-seccion" id="navCombo3" onclick="closeNav()"><span class="nav-icon">🔥</span>Combo 3 Apps · $209</a>
   <button type="button" class="nav-parent" id="navTips" onclick="toggleSubmenu(this)">
     <span class="nav-icon">🚀</span>Vende más TIPs
     <span class="nav-caret">▾</span>
@@ -3644,6 +3768,135 @@
     <h4>🔔 Novedades desde tu última visita</h4>
     <ul id="avisoCambiosLista"></ul>
   </div>
+
+  <section class="block" id="combo3-seccion" style="padding:24px 16px 10px;">
+    <div class="c3-block">
+      <div class="c3-top" id="c3-titulo">
+        <span class="c3-tag">🔥 Promo del mes</span>
+        <span class="c3-tag" style="background:#fff;color:#2B1470;">Combo Especial 3 Apps</span>
+      </div>
+      <img class="c3-titulo-img" src="combo3-titulo.jpg" alt="Triple poder para tu venta">
+      <p class="c3-lema">Un combo, tres universos: <strong>Disney+, Apple TV y Amazon Prime por solo $209 al mes.</strong> Triple poder para cerrar tu venta y obtener más comisiones. 💪</p>
+      <div class="c3-chips">
+        <span data-vigencia-texto>Vigente del 1 al 31 de octubre de 2026.</span>
+        <span>🇲🇽 Nacional</span>
+        <span>👥 Clientes nuevos y actuales</span>
+        <span>📶 Planes de 100 a 10,000 megas</span>
+        <span>📺 TV + Internet y solo Internet</span>
+      </div>
+
+      <figure class="c3-card-img">
+        <img class="zoomable" src="combo3-card.jpg"
+             data-titulo="Combo Especial 3 Apps · $209 al mes"
+             alt="Combo Especial 3 Apps: Disney+ Estándar con anuncios, Apple TV y Amazon Prime por solo $209 al mes" loading="lazy">
+        <figcaption><span class="zoom-pista">🔍 Toca para ampliar y enseñárselo a tu cliente</span></figcaption>
+      </figure>
+
+      <div class="c3-sub">💡 Tip de venta: haz la cuenta con tu cliente</div>
+      <div class="c3-ahorro">
+        <div class="c3-fila"><span>✨ Disney+ Estándar con anuncios</span><b>$149</b></div>
+        <div class="c3-fila"><span>🍎 Apple TV+</span><b>$199</b></div>
+        <div class="c3-fila"><span>📦 Amazon Prime</span><b>$99</b></div>
+        <div class="c3-fila total"><span>Por separado pagaría</span><b>$447 al mes</b></div>
+        <div class="c3-fila combo"><span><strong>Con el combo paga solo</strong></span><b>$209</b></div>
+        <div class="c3-barras">
+          <div class="c3-barra-etq">Por separado · $447</div>
+          <div class="c3-barra sep"></div>
+          <div class="c3-barra-etq">Con el combo · $209</div>
+          <div class="c3-barra cmb"></div>
+        </div>
+        <div class="c3-ahorra">¡Ahorra $238 cada mes, casi 53%!<small>En un año son $2,856 que se quedan en su bolsillo.</small></div>
+      </div>
+
+      <div class="c3-sub">🍿 ¿Qué puede ver tu cliente?</div>
+      <div class="c3-posters">
+        <figure class="c3-poster">
+          <img class="zoomable" src="combo3-toystory.jpg" data-titulo="Toy Story 5 · Disney+" alt="Toy Story 5, ya disponible en Disney+" loading="lazy">
+          <figcaption>Toy Story 5<span>Disney+</span></figcaption>
+        </figure>
+        <figure class="c3-poster">
+          <img class="zoomable" src="combo3-matchbox.jpg" data-titulo="Matchbox: La película · Apple TV" alt="Matchbox: La película, en Apple TV" loading="lazy">
+          <figcaption>Matchbox: La película<span>Apple TV</span></figcaption>
+        </figure>
+        <figure class="c3-poster">
+          <img class="zoomable" src="combo3-prefiero.jpg" data-titulo="Prefiero la muerte · Amazon Prime" alt="Prefiero la muerte, original de Amazon Prime" loading="lazy">
+          <figcaption>Prefiero la muerte<span>Amazon Prime</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="c3-sub">✅ ¿Le aplica a tu cliente? Revísalo en un toque</div>
+      <div class="c3-verif">
+        <p>¿Con qué oferta va el plan de tu cliente?</p>
+        <div class="c3-opciones">
+          <button type="button" class="c3-op" data-c3="si" onclick="c3Verificar(this)">Oferta base</button>
+          <button type="button" class="c3-op" data-c3="si" onclick="c3Verificar(this)">Netflix Estándar con anuncios</button>
+          <button type="button" class="c3-op" data-c3="si" onclick="c3Verificar(this)">Netflix Estándar 2 pantallas</button>
+          <button type="button" class="c3-op" data-c3="si" onclick="c3Verificar(this)">Netflix Premium</button>
+          <button type="button" class="c3-op" data-c3="si" onclick="c3Verificar(this)">HBO Max Básico con anuncios</button>
+          <button type="button" class="c3-op" data-c3="si" onclick="c3Verificar(this)">VSB incluido</button>
+          <button type="button" class="c3-op" data-c3="no-apps" onclick="c3Verificar(this)">Amazon incluido</button>
+          <button type="button" class="c3-op" data-c3="no-apps" onclick="c3Verificar(this)">Disney+ Estándar con anuncios</button>
+          <button type="button" class="c3-op" data-c3="no-apps" onclick="c3Verificar(this)">Apple TV</button>
+          <button type="button" class="c3-op" data-c3="no" onclick="c3Verificar(this)">Entretenimiento Intermedio</button>
+          <button type="button" class="c3-op" data-c3="no" onclick="c3Verificar(this)">Entretenimiento Avanzado</button>
+        </div>
+        <div class="c3-resp" id="c3Resp" aria-live="polite"></div>
+      </div>
+
+      <div class="c3-sub">📋 Reglas de negocio</div>
+      <div class="c3-reglas">
+        <div class="c3-regla">
+          <h5>✅ Aplica</h5>
+          <ul>
+            <li>Clientes <strong>nuevos y actuales</strong>.</li>
+            <li>Planes de <strong>100 a 10,000 megas</strong>, Totalplay TV + Internet y Totalplay Internet.</li>
+            <li>Oferta base, con Netflix (Estándar con anuncios, Estándar 2 pantallas y Premium), con HBO Max Básico con anuncios y con oferta VSB incluido.</li>
+          </ul>
+        </div>
+        <div class="c3-regla no">
+          <h5>❌ No aplica</h5>
+          <ul>
+            <li>En oferta con Amazon incluido, Disney+ Estándar con anuncios o Apple TV.</li>
+            <li>En Entretenimiento Intermedio y Avanzado.</li>
+          </ul>
+        </div>
+        <div class="c3-regla">
+          <h5>🤝 Sí convive con</h5>
+          <ul>
+            <li>Promociones de Más Apps: Universal+, Netflix y HBO Max.</li>
+            <li>Descuento por lealtad y Descuento por Portabilidad.</li>
+            <li>Promociones sobre adicionales instalables y de contenido.</li>
+            <li>Promociones sobre Nuevo Totalplay TV.</li>
+            <li>Descuento Especial por 5 meses, Precio Especial y promociones segmentadas.</li>
+          </ul>
+        </div>
+        <div class="c3-regla no">
+          <h5>🚫 No convive con</h5>
+          <ul>
+            <li>Promociones de Más Apps de <strong>Disney+</strong> y <strong>Apple TV</strong>.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="c3-ojo">⚠️ <strong>Avísale a tu cliente:</strong> las 3 apps van juntas. No se puede cancelar ni cambiar una sola app; la cancelación del combo se hace a través del Centro de Soluciones. El combo no se mezcla con los planes o promos de Más Apps que ya incluyen Disney+, Apple TV o Amazon, porque el cliente ya los lleva. Revisa en <a href="#planes" style="color:inherit;font-weight:800;">Planes y Megas</a> qué apps trae su plan.</div>
+
+      <div class="c3-sub">🎯 Así lo ofreces en 3 pasos</div>
+      <div class="c3-speech">
+        <div class="c3-paso"><b>Pregunta</b><q>¿Qué te gusta ver en casa: películas familiares, series, acción?</q> Conecta con lo que le gusta: Disney+ para la familia, Apple TV para series y películas originales, Amazon Prime para estrenos.</div>
+        <div class="c3-paso"><b>Haz la cuenta</b><q>Si contrataras Disney+, Apple TV+ y Amazon Prime por separado pagarías $447 al mes. Conmigo te llevas las tres por solo $209.</q> Enséñale la tarjeta y la barra de ahorro.</div>
+        <div class="c3-paso"><b>Cierra</b><q>Son $238 de ahorro cada mes, casi la mitad. ¿Te lo dejo agregado a tu plan?</q> Si ya es cliente, también le aplica: es tu oportunidad de crecer su cuenta.</div>
+      </div>
+
+      <div class="c3-cta">
+        <h4>Triple poder = más ventas y más comisiones 🚀</h4>
+        <p>Ofrécelo en cada visita y en cada llamada. Tienes hasta el 31 de octubre.</p>
+        <div class="c3-cta-btns">
+          <a href="#" class="gl-btn wa" onclick="return c3Compartir()">📲 Mándale la promo por WhatsApp</a>
+          <a href="#planes" class="gl-btn ver">📶 Ver Planes y Megas</a>
+        </div>
+      </div>
+      <p class="c3-nota">Comunicado Residencial Nacional "Triple poder para tu venta" · Del 1 al 31 de octubre de 2026 · Material de uso interno.</p>
+    </div>
+  </section>
 
   <section class="block" id="tips-seccion" style="padding:24px 16px 6px;">
     <div class="tips-hub">
@@ -7242,6 +7495,33 @@ function pintarPortabilidad(id){
   }
 }
 
+// Combo Especial 3 Apps: dice al momento si la oferta del cliente admite el combo.
+function c3Verificar(btn){
+  document.querySelectorAll('.c3-op').forEach(function(b){ b.classList.toggle('activo', b === btn); });
+  const resp = document.getElementById('c3Resp');
+  const oferta = btn.textContent.trim();
+  if(btn.dataset.c3 === 'si'){
+    resp.className = 'c3-resp si';
+    resp.textContent = '✅ ¡Sí aplica! Con ' + oferta + ' puedes agregarle el Combo 3 Apps por $209 al mes. ¡Ofrécelo!';
+  } else {
+    resp.className = 'c3-resp no';
+    resp.textContent = btn.dataset.c3 === 'no-apps'
+      ? '❌ No aplica con ' + oferta + ': tu cliente ya lleva esa app en su plan, así que no se mezcla con el combo.'
+      : '❌ No aplica con ' + oferta + ': el combo no se mezcla con esta oferta.';
+  }
+}
+
+// Combo Especial 3 Apps: abre WhatsApp con el mensaje listo para el cliente.
+function c3Compartir(){
+  const msg = '¡Hola! 👋 Este mes en Totalplay tengo para ti el Combo Especial 3 Apps: ' +
+    'Disney+ Estándar con anuncios + Apple TV + Amazon Prime por solo $209 al mes 🍿\n\n' +
+    'Por separado pagarías $447 al mes: te ahorras $238 cada mes, ¡casi 53%!\n\n' +
+    'Aplica en planes de 100 a 10,000 megas, para clientes nuevos y actuales. ' +
+    'Vigente al 31 de octubre. ¿Te lo agrego?';
+  window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+  return false;
+}
+
 function togglePort(){
   const btn   = document.getElementById('portBtn');
   const panel = document.getElementById('portPanel');
@@ -7610,6 +7890,7 @@ document.addEventListener('visibilitychange', function(){
 // el DIRECTOR DISTRITAL la sigue viendo, con un aviso de que ya terminó.
 
 const SECCIONES = [
+  { id:'combo3-seccion',          nav:'navCombo3',            nombre:'Combo Especial 3 Apps',        inicio:'2026-10-01', fin:'2026-10-31' },
   { id:'tips-seccion',            nav:null,                   nombre:'Vende más TIPs',              fin:null },
   { id:'superbundles-seccion',    nav:'navSuperBundles',      nombre:'Vende planes con TV',         fin:'2026-08-31' },
   { id:'tips-ahorra-seccion',     nav:'navTipsAhorra',        nombre:'Ahorra más con TV',           fin:'2026-08-31' },
@@ -7639,6 +7920,7 @@ const SECCIONES = [
 // Bitácora de cambios. La entrada más reciente va arriba.
 // Cada vez que publiques una actualización, agrega una línea con un id nuevo.
 const AVISOS = [
+  { id:'2026-10-01-combo3',fecha:'1 de octubre 2026', texto:'¡NUEVO! "Triple poder para tu venta": Combo Especial 3 Apps con Disney+ Estándar con anuncios, Apple TV y Amazon Prime por solo $209 al mes (tu cliente ahorra $238). Ya está al inicio de la carpeta con la cuenta de ahorro, un verificador de "¿le aplica?", las reglas de negocio, el speech y el mensaje listo para WhatsApp. Vigente del 1 al 31 de octubre.' },
   { id:'2026-09-29-vsb',fecha:'29 de septiembre 2026', texto:'La sección de VSB regresa al menú como "Totalplay VSB", ahora con la misma vigencia que el resto de los planes (15 de octubre). Al 350 Megas con VSB se le quitó la marca de agosto y se corrigieron sus apps: ahora es Netflix, Disney+ y Apple TV.' },
   { id:'2026-09-29-diversion',fecha:'29 de septiembre 2026', texto:'¡Nueva campaña! La portada ahora es "La Diversión Ya Está Incluida". En Planes y Megas cambió el reparto de apps: Disney+ sustituye a Universal+ en los planes de 150, 250 y 350 Megas, y en los planes de solo Internet Universal+ ya no viene incluido. Además, en todos los planes las apps se entregan en su versión con anuncios (antes 5,000 y 10,000 aparecían sin anuncios). Vigencia del 29 de septiembre al 15 de octubre.' },
   { id:'2026-09-29-manteleta',fecha:'29 de septiembre 2026', texto:'Se actualizó la Manteleta de Oferta Base con los precios y promociones vigentes del 29 de septiembre al 31 de octubre del 2026.' },
@@ -7689,6 +7971,7 @@ const AVISOS = [
 //      a los 15 días.
 const DIAS_NUEVO = 15;
 const NUEVOS = [
+  { navId:'navCombo3',       tituloId:'c3-titulo',  fecha:'2026-10-01' },
   { navId:'navVsb',          tituloId:'vsb-intro-texto', fecha:'2026-09-29' },
   { navId:'navPromoContenido', tituloId:'promoContenidoTitulo', fecha:'2026-08-18' },
   { navId:'navStreamingAds', tituloId:'sa-titulo',  fecha:'2026-08-13' },
