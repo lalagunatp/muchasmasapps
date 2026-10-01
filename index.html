@@ -2461,6 +2461,114 @@
     .c3-fila.combo b{font-size:20px;}
   }
 
+  /* ── LIGAS A LAS PLATAFORMAS (Conoce …) ── */
+  .conoce-link{
+    display:inline-flex;align-items:center;gap:5px;
+    font-size:12px;font-weight:800;text-decoration:none;
+    color:#fff;background:var(--app-color,var(--ocean-deep));
+    padding:6px 12px;border-radius:999px;margin:4px 4px 0 0;
+    box-shadow:0 2px 6px rgba(0,0,0,.15);
+  }
+  .conoce-link::after{content:"↗";font-size:11px;opacity:.9;}
+  .conoce-fila{display:flex;flex-wrap:wrap;gap:2px;margin-top:10px;}
+  .conoce-fila.centro{justify-content:center;}
+  a.tag-app{text-decoration:none;cursor:pointer;}
+  a.tag-app::after{content:" ↗";font-size:.85em;opacity:.75;}
+  a.app-pill{text-decoration:none;}
+  a.app-pill::after{content:"↗";font-size:11px;opacity:.6;margin-left:-2px;}
+  .conoce-pista{font-size:12px;font-weight:700;color:#5b7a85;margin:10px 0 0;text-align:center;}
+
+  /* ── NFL GAME PASS EN DAZN ── */
+  .dz-block{
+    --dz-am:#FFE600;
+    background:#050505;
+    color:#fff;
+    border-radius:26px;
+    overflow:hidden;
+    box-shadow:0 14px 34px rgba(0,0,0,.35);
+  }
+  .dz-hero{display:block;width:100%;height:auto;}
+  .dz-cuerpo{padding:4px 18px 22px;}
+  .dz-top{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0 4px;}
+  .dz-tag{background:var(--dz-am);color:#111;font-weight:800;font-size:11.5px;letter-spacing:1.5px;
+    text-transform:uppercase;padding:5px 12px;border-radius:999px;}
+  .dz-tag.sec{background:#1d1d1d;color:#fff;border:1px solid #3a3a3a;}
+  .dz-tag:empty{display:none;}
+  .dz-lema{text-align:center;font-size:15px;line-height:1.55;margin:10px auto 0;max-width:540px;}
+  .dz-lema strong{color:var(--dz-am);}
+  .dz-precio{
+    margin:18px auto 0;max-width:520px;text-align:center;
+    border:2px solid var(--dz-am);border-radius:20px;padding:16px 14px;
+    background:linear-gradient(180deg,#141400,#050505);
+  }
+  .dz-precio .dz-mas{font-family:'Archivo Black',sans-serif;font-size:44px;line-height:1;color:var(--dz-am);}
+  .dz-precio .dz-mas small{font-size:16px;color:#fff;font-family:'Nunito Sans',sans-serif;font-weight:800;}
+  .dz-precio p{margin:8px 0 0;font-size:13.5px;font-weight:700;}
+  .dz-comp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;}
+  .dz-comp div{border-radius:14px;padding:10px 8px;font-size:12px;font-weight:700;line-height:1.3;}
+  .dz-comp b{display:block;font-family:'Space Grotesk',sans-serif;font-size:19px;margin-top:2px;}
+  .dz-comp .directo{background:#1d1d1d;color:#bbb;}
+  .dz-comp .directo b{text-decoration:line-through;text-decoration-color:#ff4d4d;}
+  .dz-comp .tp{background:var(--dz-am);color:#111;}
+  .dz-ahorro{margin-top:10px;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:17px;color:var(--dz-am);}
+
+  .dz-sub{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:19px;margin:26px 0 10px;
+    display:flex;align-items:flex-start;gap:8px;}
+  .dz-sub::before{content:"";flex:none;width:6px;height:22px;margin-top:3px;border-radius:3px;background:var(--dz-am);}
+
+  .dz-tabs{display:flex;gap:6px;margin-bottom:10px;}
+  .dz-tabs button{flex:1;font:inherit;font-weight:800;font-size:13px;cursor:pointer;padding:9px 6px;border-radius:999px;
+    background:#1d1d1d;color:#fff;border:1.5px solid #3a3a3a;}
+  .dz-tabs button.activo{background:var(--dz-am);color:#111;border-color:var(--dz-am);}
+  .dz-tabla{display:none;width:100%;border-collapse:collapse;border:2px solid var(--dz-am);border-radius:16px;overflow:hidden;}
+  .dz-tabla.activo{display:table;}
+  .dz-tabla th{background:var(--dz-am);color:#111;font-size:11.5px;text-transform:uppercase;letter-spacing:1px;padding:8px 6px;}
+  .dz-tabla td{padding:9px 8px;border-top:1px solid #2a2a2a;font-size:13px;vertical-align:middle;}
+  .dz-tabla td:first-child{font-weight:800;white-space:nowrap;}
+  .dz-tabla td:first-child small{display:block;font-size:10px;color:#aaa;font-weight:700;}
+  .dz-tabla td.eq{font-size:11.5px;color:#ddd;line-height:1.35;}
+  .dz-tabla td.pp{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;text-align:right;color:var(--dz-am);white-space:nowrap;}
+  .dz-nota-tabla{font-size:11.5px;color:#bbb;margin:8px 0 0;}
+
+  .dz-benef{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px;}
+  .dz-benef li{background:#141414;border:1px solid #2a2a2a;border-radius:14px;padding:11px 12px 11px 40px;position:relative;font-size:13.5px;line-height:1.4;}
+  .dz-benef li::before{content:"🏈";position:absolute;left:12px;top:10px;}
+  .dz-benef strong{color:var(--dz-am);}
+  .dz-foto{display:block;width:100%;max-width:420px;margin:14px auto 0;border-radius:16px;}
+
+  .dz-incluye{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;}
+  .dz-caja{background:#fff;color:#111;border-radius:16px;padding:14px 14px 12px;border-top:6px solid #2fbf4a;}
+  .dz-caja.no{border-top-color:#ff3b3b;}
+  .dz-caja h5{margin:0 0 6px;font-family:'Baloo 2',sans-serif;font-size:15px;}
+  .dz-caja p, .dz-caja ul{margin:0;font-size:13px;line-height:1.5;}
+  .dz-caja ul{padding-left:18px;}
+  .dz-alerta{margin-top:10px;background:var(--dz-am);color:#111;border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.5;}
+  .dz-alerta.roja{background:#ffe0e0;color:#7a0000;border-left:6px solid #ff3b3b;}
+
+  .dz-faq details{background:#141414;border:1px solid #2a2a2a;border-radius:14px;margin-bottom:8px;}
+  .dz-faq summary{cursor:pointer;padding:12px 14px;font-weight:800;font-size:14px;list-style:none;}
+  .dz-faq summary::-webkit-details-marker{display:none;}
+  .dz-faq summary::after{content:"＋";float:right;color:var(--dz-am);}
+  .dz-faq details[open] summary::after{content:"－";}
+  .dz-faq details p{margin:0;padding:0 14px 12px;font-size:13.5px;line-height:1.5;color:#ddd;}
+
+  .dz-canales{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;}
+  .dz-canal{background:#141414;border:1px solid #2a2a2a;border-radius:16px;padding:12px 14px;}
+  .dz-canal h5{margin:0 0 6px;font-size:14px;color:var(--dz-am);}
+  .dz-canal p{margin:0;font-size:13px;line-height:1.5;}
+  .dz-reglas{margin:0;padding-left:18px;font-size:13px;line-height:1.55;color:#ddd;}
+  .dz-reglas li{margin-bottom:4px;}
+  .dz-reglas strong{color:#fff;}
+
+  .dz-speech{background:#141414;border-left:6px solid var(--dz-am);border-radius:14px;padding:14px;font-size:14px;line-height:1.55;}
+  .dz-speech q{font-style:italic;}
+  .dz-cta{margin-top:20px;text-align:center;background:var(--dz-am);color:#111;border-radius:20px;padding:18px 14px;}
+  .dz-cta h4{margin:0 0 4px;font-family:'Baloo 2',sans-serif;font-size:21px;line-height:1.15;}
+  .dz-cta p{margin:0 0 12px;font-size:13.5px;font-weight:700;}
+  .dz-cta .gl-btn{font-size:13.5px;padding:11px 16px;margin:4px;}
+  .dz-cta .gl-btn.ver{background:#111;}
+  .dz-pie{font-size:11px;opacity:.7;text-align:center;margin:14px 0 0;}
+
   /* ── VENDE MÁS TIPS · HUB ── */
   .tips-hub{
     background:white;
@@ -3661,6 +3769,7 @@
   <div class="nav-title">Ir a…</div>
   <a href="#inicio" onclick="closeNav()"><span class="nav-icon">🎒</span>Inicio</a>
   <a href="#combo3-seccion" id="navCombo3" onclick="closeNav()"><span class="nav-icon">🔥</span>Combo 3 Apps · $209</a>
+  <a href="#dazn-seccion" id="navDazn" onclick="closeNav()"><span class="nav-icon">🏈</span>NFL Game Pass en DAZN</a>
   <button type="button" class="nav-parent" id="navTips" onclick="toggleSubmenu(this)">
     <span class="nav-icon">🚀</span>Vende más TIPs
     <span class="nav-caret">▾</span>
@@ -3718,7 +3827,7 @@
     <a href="#tv-adicional" onclick="closeNav()"><span class="nav-icon">➕</span>Nuevo Totalplay TV Adicional</a>
     <a href="#totalplayers" onclick="closeNav()"><span class="nav-icon">💼</span>Promo Totalplayers 2026</a>
     <a href="#promo-contenido" id="navPromoContenido" onclick="closeNav()"><span class="nav-icon">🎬</span>Promociones de Contenido</a>
-    <a href="#fox-plus" id="navFoxPlus" onclick="closeNav()"><span class="nav-icon">🏆</span>FOX+ · $149 con 25% el 1er mes</a>
+    <a href="#fox-plus" id="navFoxPlus" onclick="closeNav()"><span class="nav-icon">🏆</span>FOX+ · $199 con 25% el 1er mes</a>
   </div>
 
   <a href="#test-prospectos-seccion" id="navTestProspectos" onclick="closeNav()"><span class="nav-icon">🧭</span>Test Prospectos</a>
@@ -3824,6 +3933,11 @@
           <figcaption>Prefiero la muerte<span>Amazon Prime</span></figcaption>
         </figure>
       </div>
+      <div class="conoce-fila centro">
+        <a class="conoce-link" data-app="disney"></a>
+        <a class="conoce-link" data-app="appletv"></a>
+        <a class="conoce-link" data-app="amazon"></a>
+      </div>
 
       <div class="c3-sub">✅ ¿Le aplica a tu cliente? Revísalo en un toque</div>
       <div class="c3-verif">
@@ -3896,6 +4010,140 @@
         </div>
       </div>
       <p class="c3-nota">Comunicado Residencial Nacional "Triple poder para tu venta" · <span data-vigencia-rango>Del 1 al 31 de octubre de 2026</span> · Material de uso interno.</p>
+    </div>
+  </section>
+
+  <section class="block" id="dazn-seccion" style="padding:14px 16px 10px;">
+    <div class="dz-block">
+      <img class="dz-hero" src="dazn-hero.jpg" alt="¡Touchdown para tu venta! NFL Game Pass en DAZN">
+      <div class="dz-cuerpo">
+        <div class="dz-top" id="dz-titulo">
+          <span class="dz-tag">🏈 Nuevo en Totalplay</span>
+          <span class="dz-tag sec">Disponible desde el 8 de septiembre de 2026</span>
+          <span class="dz-tag sec" data-vigencia-texto></span>
+        </div>
+        <p class="dz-lema"><strong>NFL Game Pass sólo por DAZN</strong> ya llegó a Totalplay. Es tu nueva jugada para conquistar a los fans del fútbol americano: súmalo a tu oferta, lanza el pase perfecto y lleva cada venta directo a la zona de anotación. 🏈</p>
+
+        <div class="dz-precio">
+          <div class="dz-mas">+$100 <small>al mes</small></div>
+          <p>adicionales al precio de su plan, y tu cliente disfruta NFL Game Pass en DAZN.</p>
+          <div class="dz-comp">
+            <div class="directo">Contratándolo directo<b>MX$3,100</b>por temporada</div>
+            <div class="tp">Con Totalplay<b>$100 al mes</b>sin plazo mínimo de permanencia</div>
+          </div>
+          <div class="dz-ahorro">💰 Tu cliente ahorra hasta $2,500</div>
+        </div>
+
+        <div class="dz-sub">💲 ¿Cuánto paga tu cliente con NFL Game Pass?</div>
+        <div class="dz-tabs">
+          <button type="button" class="activo" onclick="daznTab(this,'dzTablaTv')">📺 TV + Internet</button>
+          <button type="button" onclick="daznTab(this,'dzTablaNet')">🌐 Solo Internet</button>
+        </div>
+        <table class="dz-tabla activo" id="dzTablaTv">
+          <tr><th style="text-align:left;">Plan</th><th style="text-align:left;">Equipos</th><th style="text-align:right;">Pronto pago</th></tr>
+          <tr><td>150<small>megas simétricos</small></td><td class="eq">Totalplay TV</td><td class="pp">$699</td></tr>
+          <tr><td>250<small>megas simétricos</small></td><td class="eq">Totalplay TV</td><td class="pp">$799</td></tr>
+          <tr><td>350<small>megas simétricos</small></td><td class="eq">Nuevo Totalplay TV</td><td class="pp">$899</td></tr>
+          <tr><td>500<small>megas simétricos</small></td><td class="eq">Nuevo Totalplay TV<br>Totalplay Surround</td><td class="pp">$1,099</td></tr>
+          <tr><td>1,000<small>megas simétricos</small></td><td class="eq">Nuevo Totalplay TV<br>Totalplay Surround</td><td class="pp">$1,300</td></tr>
+          <tr><td>5,000<small>megas simétricos</small></td><td class="eq">Nuevo Totalplay TV<br>Totalplay Surround<br>TP Link 7</td><td class="pp">$2,599</td></tr>
+          <tr><td>10,000<small>megas simétricos</small></td><td class="eq">Nuevo Totalplay TV<br>Totalplay Surround<br>TP Link 7</td><td class="pp">$3,099</td></tr>
+        </table>
+        <table class="dz-tabla" id="dzTablaNet">
+          <tr><th style="text-align:left;">Plan</th><th style="text-align:right;">Pronto pago</th></tr>
+          <tr><td>150<small>megas simétricos</small></td><td class="pp">$560</td></tr>
+          <tr><td>250<small>megas simétricos</small></td><td class="pp">$660</td></tr>
+          <tr><td>350<small>megas simétricos</small></td><td class="pp">$760</td></tr>
+          <tr><td>500<small>megas simétricos</small></td><td class="pp">$960</td></tr>
+          <tr><td>1,000<small>megas simétricos</small></td><td class="pp">$1,100</td></tr>
+          <tr><td>5,000<small>megas simétricos</small></td><td class="pp">$2,099</td></tr>
+          <tr><td>10,000<small>megas simétricos</small></td><td class="pp">$2,599</td></tr>
+        </table>
+        <p class="dz-nota-tabla">Precio mensual de pronto pago con NFL Game Pass en DAZN ya sumado (precio del plan + $100).</p>
+
+        <div class="dz-sub">🏆 Beneficios de NFL Game Pass en DAZN</div>
+        <ul class="dz-benef">
+          <li>Todos los partidos de la NFL <strong>en vivo y bajo demanda</strong>.</li>
+          <li>Acceso a <strong>NFL RedZone, Playoffs y Super Bowl LXI</strong>.</li>
+          <li><strong>Transmisión en español</strong> y con audio original de Estados Unidos.</li>
+          <li>Calidad de video <strong>Full HD (1080p)</strong>.</li>
+          <li>Hasta <strong>2 dispositivos</strong> reproduciendo al mismo tiempo, desde una misma ubicación.</li>
+          <li><strong>Descarga de contenido</strong> para verlo donde quiera.</li>
+          <li>Disponible en <strong>más de 200 países</strong>.</li>
+        </ul>
+        <img class="dz-foto zoomable" src="dazn-accion1.jpg" data-titulo="NFL Game Pass en DAZN" alt="Jugada de un partido de la NFL" loading="lazy">
+
+        <div class="dz-sub">🔍 ¿Qué se lleva tu cliente y qué no?</div>
+        <div class="dz-incluye">
+          <div class="dz-caja">
+            <h5>✅ Acceso total a la NFL</h5>
+            <p>Todos los partidos de temporada regular en vivo y bajo demanda, transmisiones simultáneas con NFL RedZone, los Playoffs y el Super Bowl.</p>
+          </div>
+          <div class="dz-caja">
+            <h5>✅ Contenido adicional y original</h5>
+            <p>Documentales como <em>Hard Knocks</em> y <em>Mic'd Up</em>, análisis tácticos en <em>Coaches Film</em>, programación de NFL Network y repeticiones condensadas en 40 minutos.</p>
+          </div>
+          <div class="dz-caja">
+            <h5>✅ Contenido gratuito de DAZN</h5>
+            <p>Por el solo hecho de registrar su cuenta, tiene acceso a <strong>"DAZN Free"</strong>: resúmenes de otros deportes, canales sin costo como FIFA+ y, en ocasiones, peleas de boxeo gratuitas.</p>
+          </div>
+          <div class="dz-caja no">
+            <h5>❌ Lo que NO incluye</h5>
+            <p>Los eventos deportivos premium de DAZN (como las grandes carteleras de boxeo, MMA o rallies). Para ver esos deportes tendría que pagar por separado una suscripción regular de DAZN.</p>
+          </div>
+        </div>
+        <div class="dz-alerta">🧠 <strong>En pocas palabras:</strong> obtiene todo el universo del fútbol americano más la capa gratuita de DAZN, pero no los otros deportes de pago.</div>
+        <div class="dz-alerta roja">⚠️ <strong>Si tu cliente ya tiene una suscripción regular de DAZN:</strong> en México, los paquetes generales de DAZN (enfocados a boxeo y otros deportes) <strong>no incluyen la NFL</strong>. Para ver los partidos de fútbol americano necesita contratar el NFL Game Pass por separado o como complemento ("add-on"). Esta es tu oportunidad de venta.</div>
+
+        <div class="dz-sub">❓ Preguntas que te van a hacer</div>
+        <div class="dz-faq">
+          <details><summary>¿Lo puedo ver en mi decodificador Totalplay TV?</summary>
+            <p>Por el momento <strong>no</strong>. Desde Totalplay TV solo está disponible la compra, no la reproducción del contenido, hasta nuevo aviso. Díselo con claridad desde el inicio para evitar quejas.</p></details>
+          <details><summary>¿Me amarra a un plazo forzoso?</summary>
+            <p>No. Con Totalplay lo disfruta sin plazo mínimo de permanencia.</p></details>
+          <details><summary>¿Incluye boxeo, MMA u otros deportes de DAZN?</summary>
+            <p>No. Incluye la NFL completa y DAZN Free (resúmenes, canales sin costo como FIFA+ y algunas peleas gratuitas). Los eventos premium se pagan aparte con una suscripción regular de DAZN.</p></details>
+          <details><summary>Ya tengo DAZN, ¿ya incluye la NFL?</summary>
+            <p>No. En México la suscripción general de DAZN no incluye el NFL Game Pass; se contrata por separado o como complemento.</p></details>
+          <details><summary>¿En cuántas pantallas lo puedo ver?</summary>
+            <p>Hasta 2 dispositivos al mismo tiempo, desde una misma ubicación. Además puede descargar contenido para verlo donde quiera.</p></details>
+          <details><summary>¿Está en español?</summary>
+            <p>Sí. La transmisión está disponible en español y también con el audio original de Estados Unidos.</p></details>
+          <details><summary>¿Qué pasa si me atraso en mi pago?</summary>
+            <p>Si la cuenta entra en morosidad se suspende NFL Game Pass en DAZN. Cuando la cuenta sale de morosidad, la suscripción se reactiva sola.</p></details>
+          <details><summary>¿Cómo lo cancelo?</summary>
+            <p>Solo a través del Centro de Soluciones. Si la cuenta de Totalplay se cancela (voluntaria o involuntariamente), ya no tendrá acceso a la aplicación.</p></details>
+        </div>
+
+        <div class="dz-sub">📝 ¿Dónde se contrata?</div>
+        <div class="dz-canales">
+          <div class="dz-canal"><h5>🆕 Venta nueva</h5><p>Punto de Venta, Cambaceo, TLMK y Servicio a Clientes una vez instalado.</p></div>
+          <div class="dz-canal"><h5>🏠 Clientes de postventa</h5><p>Decodificador (STB), App Totalplay, Mi Totalplay (MTP) y Servicio a Clientes.</p></div>
+        </div>
+
+        <div class="dz-sub">📋 Reglas de negocio</div>
+        <ul class="dz-reglas">
+          <li>Disponible en planes de <strong>150 a 10,000 megas</strong> Totalplay TV + Internet y Totalplay Internet.</li>
+          <li>Solo disponible como <strong>contratación en Bundle</strong>; no está disponible a la carta.</li>
+          <li><strong>Convive</strong> con los Bundles de Netflix (Estándar con anuncios, Estándar y Premium), Amazon, Disney+ Estándar con anuncios, HBO Max Básico con anuncios y Apple TV.</li>
+          <li>Si la cuenta entra en morosidad se suspende el servicio; al salir de morosidad se reactiva automáticamente.</li>
+          <li>Toda cuenta cancelada, de forma voluntaria o involuntaria, deja de tener acceso a la aplicación.</li>
+          <li>La cancelación de NFL Game Pass en DAZN solo se hace por medio del Centro de Soluciones.</li>
+          <li>Desde Totalplay TV, por el momento, no está disponible la reproducción del contenido, solo la compra, hasta nuevo aviso.</li>
+        </ul>
+
+        <div class="dz-sub">🎯 Anota una venta con este argumento</div>
+        <div class="dz-speech"><q>¿Te gusta la NFL? Con Totalplay tienes NFL Game Pass en DAZN por solo $100 adicionales al mes. Si lo contrataras directo te costaría $3,100 por temporada: con nosotros ahorras hasta $2,500 y sin plazo forzoso. Todos los partidos en vivo, RedZone, Playoffs y el Super Bowl, en español. ¿Te lo sumo a tu plan?</q></div>
+        <img class="dz-foto zoomable" src="dazn-accion2.jpg" data-titulo="NFL Game Pass en DAZN" alt="Jugada de un partido de la NFL" loading="lazy">
+
+        <div class="dz-cta">
+          <h4>¡Haz la jugada y llévala hasta el touchdown! 🏈</h4>
+          <p>No dejes esta venta en la banca. En cada oportunidad, ofrece NFL Game Pass en DAZN y dale a tu cliente más NFL por menos.</p>
+          <a href="#" class="gl-btn wa" onclick="return daznCompartir()">📲 Mándale la promo por WhatsApp</a>
+          <a href="#planes" class="gl-btn ver">📶 Ver Planes y Megas</a>
+        </div>
+        <p class="dz-pie">Comunicado Nacional "NFL Game Pass en DAZN" · Vigente a partir del 8 de septiembre de 2026 · Material de uso interno · #VamosPorLaVenta</p>
+      </div>
     </div>
   </section>
 
@@ -4194,6 +4442,7 @@
         <div class="da-platform" style="--da-color:#1c1c1e;">
           <div class="da-head">
             <div class="da-logo">🍏 Apple TV</div>
+            <div class="conoce-fila" style="margin:0 0 6px;"><a class="conoce-link" data-app="appletv"></a></div>
             <p class="da-diff">Series y películas exclusivas con alta calidad.</p>
           </div>
           <ul class="da-features">
@@ -4221,6 +4470,7 @@
         <div class="da-platform" style="--da-color:#0063E5;">
           <div class="da-head">
             <div class="da-logo">🍿 Disney+</div>
+            <div class="conoce-fila" style="margin:0 0 6px;"><a class="conoce-link" data-app="disney"></a></div>
             <p class="da-diff">Entretenimiento para compartir en familia.</p>
           </div>
           <ul class="da-features">
@@ -4248,6 +4498,7 @@
         <div class="da-platform" style="--da-color:#E50914;">
           <div class="da-head">
             <div class="da-logo">🎬 Netflix</div>
+            <div class="conoce-fila" style="margin:0 0 6px;"><a class="conoce-link" data-app="netflix"></a></div>
             <p class="da-diff">Estrenos y tendencias de los que todos hablan.</p>
           </div>
           <ul class="da-features">
@@ -4276,6 +4527,7 @@
         <div class="da-platform" style="--da-color:#5A4FCF;">
           <div class="da-head">
             <div class="da-logo">🏆 HBO Max</div>
+            <div class="conoce-fila" style="margin:0 0 6px;"><a class="conoce-link" data-app="hbo"></a></div>
             <p class="da-diff">Series premiadas, grandes franquicias y las historias originales que solo HBO puede contar.</p>
           </div>
           <ul class="da-features">
@@ -4303,6 +4555,7 @@
         <div class="da-platform" style="--da-color:#6A5ACD;">
           <div class="da-head">
             <div class="da-logo">🎞️ Universal+</div>
+            <div class="conoce-fila" style="margin:0 0 6px;"><a class="conoce-link" data-app="universal"></a></div>
             <p class="da-diff">Series exclusivas de NBCUniversal y 5 canales premium incluidos en tu programación.</p>
           </div>
           <ul class="da-features">
@@ -4363,6 +4616,7 @@
         <div class="sa-platform" id="sa-netflix" style="--sa-color:#E50914;">
           <div class="sa-head">
             <div class="sa-logo">🔴 Netflix — Estándar con anuncios</div>
+            <div class="conoce-fila" style="margin:0 0 6px;"><a class="conoce-link" data-app="netflix"></a></div>
             <p class="sa-diff">🍿 Todo el entretenimiento de Netflix, pagando menos</p>
           </div>
           <p class="sa-intro">Amplia selección de películas, series y juegos a un precio más accesible que los planes sin publicidad. Ideal para quien quiere Netflix en casa y prefiere ahorrar en la mensualidad.</p>
@@ -4387,6 +4641,7 @@
         <div class="sa-platform" id="sa-disney" style="--sa-color:#0063E5;">
           <div class="sa-head">
             <div class="sa-logo">✨ Disney+ — Estándar con anuncios</div>
+            <div class="conoce-fila" style="margin:0 0 6px;"><a class="conoce-link" data-app="disney"></a></div>
             <p class="sa-diff">El universo Disney, Pixar, Marvel, Star Wars y mucho más</p>
           </div>
           <p class="sa-intro">Alternativa accesible para disfrutar del amplio catálogo de Disney+: Disney, Pixar, Marvel, Star Wars, National Geographic y Hulu, más contenido adicional según la región.</p>
@@ -4413,6 +4668,7 @@
         <div class="sa-platform" id="sa-universal" style="--sa-color:#6A5ACD;">
           <div class="sa-head">
             <div class="sa-logo">🎥 Universal+ — Estándar con anuncios</div>
+            <div class="conoce-fila" style="margin:0 0 6px;"><a class="conoce-link" data-app="universal"></a></div>
             <p class="sa-diff">Series, películas y realities para un entretenimiento diferente</p>
           </div>
           <p class="sa-intro">Combinación de estrenos, películas, series y realities del universo NBCUniversal, pensada para disfrutar en varios dispositivos a un precio más accesible.</p>
@@ -4463,6 +4719,7 @@
       <span class="bn-nuevo">🎮 NUEVO</span>
       <h3>Blacknut: videojuegos sin consola</h3>
       <p class="bn-lema">Blacknut llega a Totalplay. <strong>Sin descargas y sin instalar nada</strong>: se juega tan fácil como darle play. Es como tener una consola de videojuegos en la palma de la mano.</p>
+      <div class="conoce-fila" style="margin:-4px 0 14px;"><a class="conoce-link" data-app="blacknut"></a></div>
 
       <figure class="bn-hero-img" style="margin:0;">
         <img class="zoomable" src="bn_hero.jpg"
@@ -4828,6 +5085,7 @@
       <button class="active" onclick="showTab('tv')">📺 TV + Internet</button>
       <button onclick="showTab('net')">🌐 Solo Internet</button>
     </div>
+    <p class="conoce-pista">👆 Toca cualquier app de un plan para conocer todo lo que ofrece ↗</p>
 
     <button type="button" class="port-btn" id="portBtn" onclick="togglePort()" aria-expanded="false">
       <span>📱 Descuento de portabilidad: <strong id="portMonto">$200</strong></span>
@@ -5177,6 +5435,14 @@
     <div class="vsb-block" id="vsb">
       <h3 class="vsb-titulo">🔊 Totalplay VSB</h3>
       <p class="vsb-intro">Lleva a tu cliente una experiencia que lo tiene todo: internet de alta velocidad, imagen UHD y sonido envolvente con el Video Sound Box. <span id="vsb-intro-texto" data-vigencia-texto>Vigente del 29 de septiembre al 15 de octubre de 2026.</span></p>
+      <div class="conoce-fila" style="margin:0 0 14px;">
+        <a class="conoce-link" data-app="netflix"></a>
+        <a class="conoce-link" data-app="disney"></a>
+        <a class="conoce-link" data-app="appletv"></a>
+        <a class="conoce-link" data-app="universal"></a>
+        <a class="conoce-link" data-app="hbo"></a>
+        <a class="conoce-link" data-app="amazon"></a>
+      </div>
 
       <div class="vsb-grid">
         <div class="vsb-card destacada">
@@ -5567,19 +5833,21 @@
             <li>Se contrata desde Telemarketing, App de Ventas, MC, STB y Dashboard Web.</li>
           </ul>
           <div class="mod-tip">💡 <strong>¿Qué es?</strong> HOT GO es la app de streaming de HOT (canal de entretenimiento en vivo): novelas, series y contenido exclusivo bajo demanda.</div>
+          <div class="conoce-fila" style="margin:0 0 10px;"><a class="conoce-link" data-app="hotgo"></a></div>
           <span class="model-code">HOTGO 50% POR 3 MESES</span>
         </div>
 
         <div class="promo-card" id="fox-plus">
           <h3 id="foxPlusTitulo">🏆 FOX+</h3>
-          <p class="price-tag">$149 al mes · 25% x 1 mes</p>
+          <p class="price-tag">$199 al mes · 25% x 1 mes</p>
           <ul>
-            <li>Precio de <strong>$149 al mes</strong>; el primer mes el cliente recibe <strong>25% de descuento</strong> sobre esos $149.</li>
-            <li>A partir del 2do mes, paga el precio vigente de $149.</li>
+            <li>Precio de <strong>$199 al mes</strong>; el primer mes el cliente recibe <strong>25% de descuento</strong> (paga alrededor de $149).</li>
+            <li>A partir del 2do mes, paga el precio vigente de $199.</li>
             <li>Disponible solo en planes Totalplay TV + Internet.</li>
             <li>Se contrata desde Telemarketing, App de Ventas, MC, STB y Dashboard Web.</li>
           </ul>
           <div class="mod-tip">💡 <strong>¿Qué es?</strong> FOX+ es el canal 100% dedicado a deportes: las ligas y eventos más importantes en un solo lugar, siempre con el evento estelar de la cartelera de FOX. Ofrécelo a todo cliente aficionado al deporte.</div>
+          <div class="conoce-fila" style="margin:0 0 10px;"><a class="conoce-link" data-app="fox"></a></div>
           <span class="model-code">FOX+ 25% POR 1 MES</span>
         </div>
 
@@ -5593,6 +5861,7 @@
             <li>Se contrata desde Telemarketing, App de Ventas, MC, STB y Dashboard Web.</li>
           </ul>
           <div class="mod-tip">💡 <strong>¿Qué es?</strong> Qello es la app de conciertos en vivo y documentales musicales: el cliente ve a sus artistas favoritos como si estuviera en primera fila, desde el sillón de su casa.</div>
+          <div class="conoce-fila" style="margin:0 0 10px;"><a class="conoce-link" data-app="qello"></a></div>
           <span class="model-code">STINGRAY QELLO 50% POR 2 MESES</span>
         </div>
 
@@ -5606,6 +5875,7 @@
             <li>Se contrata desde Telemarketing, App de Ventas, MC, STB y Dashboard Web.</li>
           </ul>
           <div class="mod-tip">💡 <strong>¿Qué es?</strong> Karaoke convierte la sala en un antro propio: catálogo enorme de canciones con letra en pantalla, para las reuniones familiares o con amigos.</div>
+          <div class="conoce-fila" style="margin:0 0 10px;"><a class="conoce-link" data-app="karaoke"></a></div>
           <span class="model-code">STINGRAY KARAOKE 50% POR 2 MESES</span>
         </div>
       </div>
@@ -7549,6 +7819,84 @@ function c3Compartir(){
   return false;
 }
 
+// ═══════════════════════════════════════════════════════════════════
+//  LIGAS A LAS PLATAFORMAS  ·  único lugar donde viven las URLs
+// ═══════════════════════════════════════════════════════════════════
+// Las etiquetas de apps de los planes (.card-apps .tag) y las píldoras de
+// la portada (.app-pill) se vuelven ligas solas según su texto. Para poner
+// un botón "Conoce …" en cualquier parte: <a class="conoce-link" data-app="netflix"></a>
+// Si cambia una URL o llega una plataforma nueva, se corrige solo aquí.
+const LIGAS_APPS = {
+  netflix:   { nombre:'Netflix',          color:'#E50914', url:'https://www.totalplay.com.mx/netflix' },
+  appletv:   { nombre:'Apple TV',         color:'#1c1c1e', url:'https://www.totalplay.com.mx/appletvplus' },
+  amazon:    { nombre:'Amazon Prime',     color:'#00A8E1', url:'https://www.totalplay.com.mx/amazon' },
+  hbo:       { nombre:'HBO Max',          color:'#5A4FCF', url:'https://totalplay.com.mx/hbo' },
+  disney:    { nombre:'Disney+',          color:'#0063E5', url:'https://www.totalplay.com.mx/disneyplus' },
+  universal: { nombre:'Universal+',       color:'#6A5ACD', url:'https://totalplay.com.mx/universal' },
+  qello:     { nombre:'Stingray Qello',   color:'#C2185B', url:'https://totalplay.com.mx/qello' },
+  fox:       { nombre:'FOX+',             color:'#0B2D6B', url:'https://totalplay.com.mx/foxmas' },
+  hotgo:     { nombre:'HOT GO',           color:'#D81B60', url:'https://totalplay.com.mx/hotpack' },
+  blacknut:  { nombre:'Blacknut',         color:'#111111', url:'https://www.totalplay.com.mx/blacknut' },
+  karaoke:   { nombre:'Stingray Karaoke', color:'#7B1FA2', url:'https://totalplay.com.mx/stingraykaraoke' }
+};
+
+function appDeTexto(t){
+  t = (t || '').toLowerCase();
+  if(t.indexOf('netflix') !== -1)   return 'netflix';
+  if(t.indexOf('apple') !== -1)     return 'appletv';
+  if(t.indexOf('amazon') !== -1)    return 'amazon';
+  if(t.indexOf('hbo') !== -1)       return 'hbo';
+  if(t.indexOf('disney') !== -1)    return 'disney';
+  if(t.indexOf('universal') !== -1) return 'universal';
+  return null;
+}
+
+function ligarApps(){
+  function abrirEnNueva(a, app){
+    a.href = app.url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.title = 'Conoce ' + app.nombre + ' en totalplay.com.mx';
+  }
+  // Botones "Conoce …" explícitos.
+  document.querySelectorAll('a.conoce-link[data-app]').forEach(function(a){
+    const app = LIGAS_APPS[a.getAttribute('data-app')];
+    if(!app){ a.style.display = 'none'; return; }
+    abrirEnNueva(a, app);
+    a.style.setProperty('--app-color', app.color);
+    if(!a.textContent.trim()) a.textContent = 'Conoce ' + app.nombre;
+  });
+  // Etiquetas de apps en los planes y píldoras de la portada.
+  document.querySelectorAll('.card-apps span.tag, div.app-pill').forEach(function(el){
+    const app = LIGAS_APPS[appDeTexto(el.textContent)];
+    if(!app) return;
+    const a = document.createElement('a');
+    a.className = el.className + (el.classList.contains('tag') ? ' tag-app' : '');
+    a.innerHTML = el.innerHTML;
+    abrirEnNueva(a, app);
+    el.replaceWith(a);
+  });
+}
+if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ligarApps);
+else ligarApps();
+
+// NFL Game Pass en DAZN: alterna la tabla de precios TV + Internet / Internet.
+function daznTab(btn, idTabla){
+  btn.parentNode.querySelectorAll('button').forEach(function(b){ b.classList.toggle('activo', b === btn); });
+  document.querySelectorAll('#dazn-seccion .dz-tabla').forEach(function(t){ t.classList.toggle('activo', t.id === idTabla); });
+}
+
+// NFL Game Pass en DAZN: abre WhatsApp con el mensaje listo para el cliente.
+function daznCompartir(){
+  const msg = '¡Hola! 🏈 ¿Eres fan de la NFL? Ya puedes tener NFL Game Pass en DAZN con tu Totalplay ' +
+    'por solo $100 adicionales al mes.\n\n' +
+    'Todos los partidos en vivo y bajo demanda, NFL RedZone, Playoffs y Super Bowl, en español y en Full HD.\n\n' +
+    'Contratado directo cuesta $3,100 por temporada: con Totalplay ahorras hasta $2,500 y sin plazo forzoso. ' +
+    '¿Te lo sumo a tu plan?';
+  window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+  return false;
+}
+
 function togglePort(){
   const btn   = document.getElementById('portBtn');
   const panel = document.getElementById('portPanel');
@@ -7918,6 +8266,7 @@ document.addEventListener('visibilitychange', function(){
 
 const SECCIONES = [
   { id:'combo3-seccion',          nav:'navCombo3',            nombre:'Combo Especial 3 Apps',        inicio:'2026-10-01', fin:'2026-10-31' },
+  { id:'dazn-seccion',            nav:'navDazn',              nombre:'NFL Game Pass en DAZN',        inicio:'2026-09-08', fin:null },
   { id:'tips-seccion',            nav:null,                   nombre:'Vende más TIPs',              fin:null },
   { id:'superbundles-seccion',    nav:'navSuperBundles',      nombre:'Vende planes con TV',         fin:'2026-08-31' },
   { id:'tips-ahorra-seccion',     nav:'navTipsAhorra',        nombre:'Ahorra más con TV',           fin:'2026-08-31' },
@@ -7947,7 +8296,9 @@ const SECCIONES = [
 // Bitácora de cambios. La entrada más reciente va arriba.
 // Cada vez que publiques una actualización, agrega una línea con un id nuevo.
 const AVISOS = [
-  { id:'2026-10-01-consecutivo',fecha:'1 de octubre 2026', texto:'Regresa el Consecutivo de Promociones, vigente del 1 al 31 de octubre. Cambios: el Nuevo Totalplay TV Incluido ahora aplica desde 350 Megas (antes 500), y vuelve FOX+ ($149 al mes) con 25% de descuento el primer mes en Promociones de Contenido. Además, las fechas de vigencia que ves en cada sección ahora se actualizan solas cuando se renueva la promoción.' },
+  { id:'2026-10-01-ligas-apps',fecha:'1 de octubre 2026', texto:'¡Conoce cada plataforma! Ahora las apps de los planes (Netflix, Disney+, Apple TV, HBO Max, Universal+ y Amazon) son ligas: tócalas y te llevan a la página de Totalplay con todo lo que ofrece cada una. También hay botones "Conoce…" en Combo 3 Apps, Streaming con anuncios, Destacados de tus apps, VSB, Blacknut y en HOT GO, FOX+, Qello y Karaoke.' },
+  { id:'2026-10-01-dazn',fecha:'1 de octubre 2026', texto:'¡NUEVA sección "NFL Game Pass en DAZN"! Por solo $100 adicionales al mes tu cliente tiene toda la NFL (contratado directo cuesta $3,100 por temporada). Trae precios por plan, beneficios, qué incluye y qué no, preguntas frecuentes, reglas de negocio, el argumento de venta y el mensaje listo para WhatsApp. Además, FOX+ queda en $199 al mes con 25% de descuento el primer mes.' },
+  { id:'2026-10-01-consecutivo',fecha:'1 de octubre 2026', texto:'Regresa el Consecutivo de Promociones, vigente del 1 al 31 de octubre. Cambios: el Nuevo Totalplay TV Incluido ahora aplica desde 350 Megas (antes 500), y vuelve FOX+ ($199 al mes) con 25% de descuento el primer mes en Promociones de Contenido. Además, las fechas de vigencia que ves en cada sección ahora se actualizan solas cuando se renueva la promoción.' },
   { id:'2026-10-01-combo3',fecha:'1 de octubre 2026', texto:'¡NUEVO! "Triple poder para tu venta": Combo Especial 3 Apps con Disney+ Estándar con anuncios, Apple TV y Amazon Prime por solo $209 al mes (tu cliente ahorra $238). Ya está al inicio de la carpeta con la cuenta de ahorro, un verificador de "¿le aplica?", las reglas de negocio, el speech y el mensaje listo para WhatsApp. Vigente del 1 al 31 de octubre.' },
   { id:'2026-09-29-vsb',fecha:'29 de septiembre 2026', texto:'La sección de VSB regresa al menú como "Totalplay VSB", ahora con la misma vigencia que el resto de los planes (15 de octubre). Al 350 Megas con VSB se le quitó la marca de agosto y se corrigieron sus apps: ahora es Netflix, Disney+ y Apple TV.' },
   { id:'2026-09-29-diversion',fecha:'29 de septiembre 2026', texto:'¡Nueva campaña! La portada ahora es "La Diversión Ya Está Incluida". En Planes y Megas cambió el reparto de apps: Disney+ sustituye a Universal+ en los planes de 150, 250 y 350 Megas, y en los planes de solo Internet Universal+ ya no viene incluido. Además, en todos los planes las apps se entregan en su versión con anuncios (antes 5,000 y 10,000 aparecían sin anuncios). Vigencia del 29 de septiembre al 15 de octubre.' },
@@ -7999,6 +8350,7 @@ const AVISOS = [
 //      a los 15 días.
 const DIAS_NUEVO = 15;
 const NUEVOS = [
+  { navId:'navDazn',         tituloId:'dz-titulo',  fecha:'2026-10-01' },
   { navId:'navCombo3',       tituloId:'c3-titulo',  fecha:'2026-10-01' },
   { navId:'navVsb',          tituloId:'vsb-intro-texto', fecha:'2026-09-29' },
   { navId:'navConsecutivo',  tituloId:null,       fecha:'2026-10-01' },
