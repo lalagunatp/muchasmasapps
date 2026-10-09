@@ -6,7 +6,7 @@
    número de CACHE (v2 → v3 → v4…). Ese cambio es lo que hace que los
    celulares que ya lo tienen instalado reciban la versión nueva. */
 
-const CACHE = 'tp-fuerzaventas-v46';
+const CACHE = 'tp-fuerzaventas-v47';
 
 const ARCHIVOS = [
   './',
