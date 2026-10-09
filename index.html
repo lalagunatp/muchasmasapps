@@ -2689,6 +2689,7 @@
   .dz-cta p{margin:0 0 12px;font-size:13.5px;font-weight:700;}
   .dz-cta .gl-btn{font-size:13.5px;padding:11px 16px;margin:4px;}
   .dz-cta .gl-btn.ver{background:#111;}
+  .dz-cta .conoce-link{font-size:13.5px;padding:11px 16px;margin:4px;}
   .dz-pie{font-size:11px;opacity:.7;text-align:center;margin:14px 0 0;}
 
   /* ── VENDE MÁS TIPS · HUB ── */
@@ -4153,6 +4154,7 @@
           <span class="dz-tag sec" data-vigencia-texto></span>
         </div>
         <p class="dz-lema"><strong>NFL Game Pass sólo por DAZN</strong> ya llegó a Totalplay. Es tu nueva jugada para conquistar a los fans del fútbol americano: súmalo a tu oferta, lanza el pase perfecto y lleva cada venta directo a la zona de anotación. 🏈</p>
+        <div class="conoce-fila" style="margin:0 0 12px;"><a class="conoce-link" data-app="dazn"></a></div>
 
         <div class="dz-precio">
           <div class="dz-mas">+$100 <small>al mes</small></div>
@@ -4270,6 +4272,7 @@
           <h4>¡Haz la jugada y llévala hasta el touchdown! 🏈</h4>
           <p>No dejes esta venta en la banca. En cada oportunidad, ofrece NFL Game Pass en DAZN y dale a tu cliente más NFL por menos.</p>
           <a href="#" class="gl-btn wa" onclick="return daznCompartir()">📲 Mándale la promo por WhatsApp</a>
+          <a class="conoce-link" data-app="dazn"></a>
           <a href="#planes" class="gl-btn ver">📶 Ver Planes y Megas</a>
         </div>
         <p class="dz-pie">Comunicado Nacional "NFL Game Pass en DAZN" · Vigente a partir del 8 de septiembre de 2026 · Material de uso interno · #VamosPorLaVenta</p>
@@ -8094,7 +8097,8 @@ const LIGAS_APPS = {
   hotgo:     { nombre:'HOT GO',           color:'#D81B60', url:'https://totalplay.com.mx/hotpack' },
   blacknut:  { nombre:'Blacknut',         color:'#111111', url:'https://www.totalplay.com.mx/blacknut' },
   karaoke:   { nombre:'Stingray Karaoke', color:'#7B1FA2', url:'https://totalplay.com.mx/stingraykaraoke' },
-  paramount: { nombre:'Paramount+',       color:'#0064FF', url:'https://www.totalplay.com.mx/paramountplus' }
+  paramount: { nombre:'Paramount+',       color:'#0064FF', url:'https://www.totalplay.com.mx/paramountplus' },
+  dazn:      { nombre:'DAZN',             color:'#111111', url:'https://www.totalplay.com.mx/dazn' }
 };
 
 function appDeTexto(t){
@@ -8661,10 +8665,10 @@ const SECCIONES = [
   { id:'dazn-seccion',            nav:'navDazn',              nombre:'NFL Game Pass en DAZN',        inicio:'2026-09-08', fin:null },
   { id:'paramount-seccion',       nav:'navParamount',         nombre:'UFC y ZUFFA por Paramount+',   inicio:'2026-10-01', fin:'2026-10-31' },
   { id:'tips-seccion',            nav:null,                   nombre:'Vende más TIPs',              fin:null },
-  { id:'superbundles-seccion',    nav:'navSuperBundles',      nombre:'Vende planes con TV',         inicio:'2026-09-29', fin:'2026-10-15' },
-  { id:'tips-ahorra-seccion',     nav:'navTipsAhorra',        nombre:'Ahorra más con TV',           inicio:'2026-09-29', fin:'2026-10-15' },
-  { id:'tips-comparativo-seccion',nav:'navTipsComparativo',   nombre:'150 vs 350 megas',            inicio:'2026-09-29', fin:'2026-10-15' },
-  { id:'tips-apps-seccion',       nav:'navTipsApps',          nombre:'Destacados de tus apps',       inicio:'2026-09-29', fin:'2026-10-15' },
+  { id:'superbundles-seccion',    nav:'navSuperBundles',      nombre:'Vende planes con TV',         inicio:'2026-09-29', fin:'2026-10-31' },
+  { id:'tips-ahorra-seccion',     nav:'navTipsAhorra',        nombre:'Ahorra más con TV',           inicio:'2026-09-29', fin:'2026-10-31' },
+  { id:'tips-comparativo-seccion',nav:'navTipsComparativo',   nombre:'150 vs 350 megas',            inicio:'2026-09-29', fin:'2026-10-31' },
+  { id:'tips-apps-seccion',       nav:'navTipsApps',          nombre:'Destacados de tus apps',       inicio:'2026-09-29', fin:'2026-10-31' },
   { id:'streaming-anuncios-seccion', nav:'navStreamingAds',   nombre:'Streaming con anuncios',       fin:null,
     navExtra:'navStreamingAdsSub' },
   { id:'blacknut-seccion',    nav:'navBlacknut',          nombre:'Blacknut',                    fin:'2026-09-30',
@@ -8693,6 +8697,7 @@ const SECCIONES = [
 // ignoran solos y se pueden borrar de esta lista sin problema.
 const DIAS_AVISOS = 30;
 const AVISOS = [
+  { id:'2026-10-09-dazn-liga',fecha:'9 de octubre 2026', texto:'La sección "NFL Game Pass en DAZN" ya trae su botón "Conoce DAZN", arriba y en el cierre: tócalo y te lleva a la página de DAZN en totalplay.com.mx para enseñarle a tu cliente todo lo que incluye.' },
   { id:'2026-10-09-destacados',fecha:'9 de octubre 2026', texto:'"Destacados de tus apps" trae los estrenos de octubre, tomados de las páginas de Totalplay: Animales, La Diplomática y Lupin Parte 4 en Netflix; The Mandalorian and Grogu en Disney+; Mayday en Apple TV; Evil Dead: En llamas en HBO Max; Crystal Lake en Universal+ y más. Se suma Amazon Prime, que tu cliente obtiene con el Combo 3 Apps, con Carrie, la nueva serie que se estrenó el 7 de octubre.' },
   { id:'2026-10-09-tips',fecha:'9 de octubre 2026', texto:'Regresa "Vende más TIPs" con la oferta vigente: Disney+ con anuncios sustituye a Universal+ en las cuentas de "Ahorra más con TV" y "150 vs 350 megas" (Netflix $110 + Disney+ $149 + Apple TV $139 = $398 al mes). En 350 megas Netflix y Apple TV son de por vida y Disney+ va por 5 meses con TV o 3 sin TV. Nuevo argumento: entre 250 y 350 megas, con sus 3 apps, el de 250 paga $159 más al mes. En "Destacados de tus apps" y "Streaming con anuncios" ya ves en qué planes viene cada app.' },
   { id:'2026-10-01-modelado',fecha:'1 de octubre 2026', texto:'¡Nuevo "Cómo modelar los planes"! Eliges la velocidad (150 a 10,000 megas) y si va con TV o sin TV, y te muestra los 3 pasos, las promociones que debes capturar en Descuentos Especiales (palomeándolas conforme avanzas) y las pantallas reales de la App. Sustituye la guía anterior de 5,000 y 10,000 megas: ahora todos los planes se modelan con Netflix Estándar con anuncios.' },
