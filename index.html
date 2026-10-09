@@ -8508,8 +8508,8 @@ function toTitleCase(str){
   }).join(' ');
 }
 
-// ── SESIÓN: se cierra sola tras 2 minutos sin actividad real ──
-const SESION_MINUTOS = 2;
+// ── SESIÓN: se cierra sola tras 20 minutos sin actividad real ──
+const SESION_MINUTOS = 20;
 const SESION_KEY = 'tp_sesion';
 let vigilante = null;
 
