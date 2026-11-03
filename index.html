@@ -6250,7 +6250,9 @@
 
       <div class="md-paso-sel">1 · Velocidad</div>
       <div class="md-ops" id="mdVel">
+        <button type="button" class="md-op" data-vel="100" onclick="mdElegir('vel',this)">100 megas</button>
         <button type="button" class="md-op" data-vel="150" onclick="mdElegir('vel',this)">150 y 250 megas</button>
+        <button type="button" class="md-op" data-vel="250nf" onclick="mdElegir('vel',this)">250 megas con Netflix</button>
         <button type="button" class="md-op" data-vel="350" onclick="mdElegir('vel',this)">350 megas</button>
         <button type="button" class="md-op" data-vel="500" onclick="mdElegir('vel',this)">500 megas</button>
         <button type="button" class="md-op" data-vel="1000" onclick="mdElegir('vel',this)">1,000 a 10,000 megas</button>
@@ -8955,7 +8957,7 @@ const MODELADO = {
     apps:['Netflix Estándar con anuncios','Apple TV','Universal+ con anuncios'],
     paso1:'Después de seleccionar la velocidad y elegir el plan <strong>con TV</strong>, modela <strong>Netflix Estándar con anuncios</strong>.',
     paso2:'Confirma que hayas modelado el plan con <strong>Netflix Estándar con anuncios</strong>.',
-    codigos:[['MÁS APPS - APPLE TV POR 5 MESES'],['MÁS APPS - NETFLIX ADS POR 5 MESES'],['MÁS APPS - UNIVERSAL+ INCLUIDO','con TV queda por 5 meses'],['PRECIO ESPECIAL','solo en 250 megas']],
+    codigos:[['MÁS APPS - APPLE TV INCLUIDO','con TV queda por 5 meses'],['MÁS APPS - NETFLIX INCLUIDO','con TV queda por 5 meses'],['MÁS APPS - UNIVERSAL+ INCLUIDO','con TV queda por 5 meses'],['PRECIO ESPECIAL','solo en 250 megas']],
     auto:'Al modelar las promociones de Apple TV y Universal+, los adicionales se modelan en automático.',
     nota:'Con TV las apps van por <strong>5 meses</strong>. El <strong>Precio Especial</strong> solo aplica en el plan de 250 megas.'
   },
@@ -8964,16 +8966,48 @@ const MODELADO = {
     apps:['Netflix Estándar con anuncios','Apple TV','Universal+ con anuncios'],
     paso1:'Después de seleccionar la velocidad y elegir el plan <strong>sin TV</strong>, modela <strong>Netflix Estándar con anuncios</strong>.',
     paso2:'Confirma que hayas modelado el plan con <strong>Netflix Estándar con anuncios</strong>.',
-    codigos:[['MÁS APPS - APPLE TV POR 3 MESES'],['MÁS APPS - NETFLIX ADS POR 3 MESES'],['MÁS APPS - UNIVERSAL+ INCLUIDO','sin TV queda por 3 meses'],['PRECIO ESPECIAL','solo en 250 megas']],
+    codigos:[['MÁS APPS - APPLE TV INCLUIDO','sin TV queda por 3 meses'],['MÁS APPS - NETFLIX INCLUIDO','sin TV queda por 3 meses'],['MÁS APPS - UNIVERSAL+ INCLUIDO','sin TV queda por 3 meses'],['PRECIO ESPECIAL','solo en 250 megas']],
     auto:'Al modelar las promociones de Apple TV y Universal+, los adicionales se modelan en automático.',
     nota:'Sin TV las apps van por <strong>3 meses</strong>. El <strong>Precio Especial</strong> solo aplica en el plan de 250 megas.'
+  },
+  '100-tv': {
+    titulo:'Plan 100 megas con streaming incluido · con TV',
+    apps:['HBO Max o Universal+ · elige 1'],
+    paso1:'Pregúntale a tu cliente qué app prefiere: <strong>HBO Max</strong> o <strong>Universal+</strong> (solo una). Después selecciona <strong>100 megas</strong> y elige el plan <strong>con TV</strong>.',
+    paso2:'Confirma que hayas seleccionado <strong>100 megas con TV</strong>.',
+    codigos:[['TU PLAN CON UNIVERSAL+','si eligió Universal+'],['TU PLAN CON HBO MAX','si eligió HBO Max']],
+    nota:'Modela <strong>solo una</strong> de las dos promociones, la de la app que eligió tu cliente; no se combinan entre ellas. Es para <strong>clientes nuevos</strong> y la app se queda de manera indefinida con un precio especial de $100 adicionales. Su precio es <strong>$590 al mes</strong>, como en Planes y Megas.'
+  },
+  '100-sintv': {
+    titulo:'Plan 100 megas con streaming incluido · sin TV',
+    apps:['HBO Max o Universal+ · elige 1'],
+    paso1:'Pregúntale a tu cliente qué app prefiere: <strong>HBO Max</strong> o <strong>Universal+</strong> (solo una). Después selecciona <strong>100 megas</strong> y la opción <strong>"Sin TV"</strong>.',
+    paso2:'Confirma que hayas seleccionado <strong>100 megas sin TV</strong>.',
+    codigos:[['TU PLAN CON UNIVERSAL+','si eligió Universal+'],['TU PLAN CON HBO MAX','si eligió HBO Max']],
+    nota:'Modela <strong>solo una</strong> de las dos promociones, la de la app que eligió tu cliente; no se combinan entre ellas. Es para <strong>clientes nuevos</strong> y la app se queda de manera indefinida con un precio especial de $100 adicionales. Su precio es <strong>$499 al mes</strong>, como en Planes y Megas.'
+  },
+  '250nf-tv': {
+    titulo:'Plan 250 megas con Netflix Estándar con anuncios · con TV',
+    apps:['Netflix Estándar con anuncios'],
+    paso1:'Después de seleccionar <strong>250 megas</strong> y elegir el plan <strong>con TV</strong>, suma <strong>Netflix Estándar con anuncios</strong>.',
+    paso2:'Confirma que hayas modelado el plan con <strong>Netflix Estándar con anuncios</strong>.',
+    codigos:[['VELOZ NETFLIX ADS ESPECIAL','Netflix queda de manera indefinida con un precio especial de $80 adicionales'],['PRECIO ESPECIAL']],
+    nota:'Este plan <strong>no lleva promociones de Más Apps</strong>: no modeles Apple TV ni Universal+. Su precio es <strong>$779 al mes</strong>, como en Planes y Megas.'
+  },
+  '250nf-sintv': {
+    titulo:'Plan 250 megas con Netflix Estándar con anuncios · sin TV',
+    apps:['Netflix Estándar con anuncios'],
+    paso1:'Después de seleccionar <strong>250 megas</strong>, selecciona la opción <strong>"Sin TV"</strong> y suma <strong>Netflix Estándar con anuncios</strong>.',
+    paso2:'Confirma que hayas modelado el plan con <strong>Netflix Estándar con anuncios</strong>.',
+    codigos:[['VELOZ NETFLIX ADS ESPECIAL','Netflix queda de manera indefinida con un precio especial de $80 adicionales'],['PRECIO ESPECIAL']],
+    nota:'Este plan <strong>no lleva promociones de Más Apps</strong>: no modeles Apple TV ni Universal+. Su precio es <strong>$640 al mes</strong>, como en Planes y Megas.'
   },
   '350-tv': {
     titulo:'Planes 350 megas con TV', img:'mod-350-vsb.jpg',
     apps:['Netflix Estándar con anuncios','Apple TV','Universal+ con anuncios'],
     paso1:'Después de seleccionar la velocidad y elegir el plan <strong>con TV</strong>, suma <strong>Netflix Estándar con anuncios</strong>.',
     paso2:'Confirma que hayas modelado el plan con <strong>Netflix Estándar con anuncios</strong>.',
-    codigos:[['MÁS APPS - APPLE TV INCLUIDO'],['MÁS APPS - NETFLIX ADS INCLUIDO'],['MÁS APPS - UNIVERSAL+ INCLUIDO','con TV queda por 5 meses'],['PRECIO ESPECIAL']],
+    codigos:[['MÁS APPS - APPLE TV INCLUIDO'],['MÁS APPS - NETFLIX INCLUIDO'],['MÁS APPS - UNIVERSAL+ INCLUIDO','con TV queda por 5 meses'],['PRECIO ESPECIAL']],
     auto:'Al modelar las promociones de Apple TV y Universal+, los adicionales se modelan en automático.',
     nota:'El 350 megas ya <strong>no trae el Nuevo Totalplay TV incluido</strong>. Si tu cliente lo quiere como TV principal, ofrécele <strong>Nuevo Totalplay TV por $50</strong>, <strong>Tu Experiencia al 100</strong> o el <strong>Kit VSB + Totalplay Surround</strong> del Consecutivo de Promociones.'
   },
@@ -8982,7 +9016,7 @@ const MODELADO = {
     apps:['Netflix Estándar con anuncios','Apple TV','Universal+ con anuncios'],
     paso1:'Después de seleccionar la velocidad, selecciona la opción <strong>"Sin TV"</strong> y suma <strong>Netflix Estándar con anuncios</strong>.',
     paso2:'Confirma que hayas modelado el plan con <strong>Netflix Estándar con anuncios</strong>.',
-    codigos:[['MÁS APPS - APPLE TV INCLUIDO'],['MÁS APPS - NETFLIX ADS INCLUIDO'],['MÁS APPS - UNIVERSAL+ INCLUIDO','sin TV queda por 3 meses'],['PRECIO ESPECIAL']],
+    codigos:[['MÁS APPS - APPLE TV INCLUIDO'],['MÁS APPS - NETFLIX INCLUIDO'],['MÁS APPS - UNIVERSAL+ INCLUIDO','sin TV queda por 3 meses'],['PRECIO ESPECIAL']],
     auto:'Al modelar las promociones de Apple TV y Universal+, los adicionales se modelan en automático.'
   },
   '500-tv': {
@@ -8990,7 +9024,7 @@ const MODELADO = {
     apps:['Netflix Estándar con anuncios','Apple TV','Disney+ Estándar con anuncios','Universal+ con anuncios'],
     paso1:'Después de seleccionar la velocidad, selecciona <strong>Nuevo Totalplay TV</strong> y suma <strong>Netflix Estándar con anuncios</strong> y <strong>Disney+ Estándar con anuncios</strong>.',
     paso2:'Confirma que hayas modelado el plan con <strong>Netflix Estándar con anuncios</strong> y <strong>Disney+ Estándar con anuncios</strong>.',
-    codigos:[['MÁS APPS - APPLE TV INCLUIDO'],['MÁS APPS - NETFLIX ADS INCLUIDO'],['MÁS APPS - UNIVERSAL+ INCLUIDO'],['MÁS APPS - DISNEY ADS INCLUIDO'],['NUEVO TOTALPLAY TV INCLUIDO'],['SPEAKERS INCLUIDO']],
+    codigos:[['MÁS APPS - APPLE TV INCLUIDO'],['MÁS APPS - NETFLIX INCLUIDO'],['MÁS APPS - UNIVERSAL+ INCLUIDO'],['MÁS APPS - DISNEY+ INCLUIDO'],['NUEVO TOTALPLAY TV INCLUIDO'],['SPEAKERS INCLUIDO']],
     auto:'Al modelar las promociones de Apple TV y Universal+, los adicionales se modelan en automático.'
   },
   '500-sintv': {
@@ -8998,7 +9032,7 @@ const MODELADO = {
     apps:['Netflix Estándar con anuncios','Apple TV','Universal+ con anuncios'],
     paso1:'Después de seleccionar la velocidad, selecciona la opción <strong>"Sin TV"</strong> y suma <strong>Netflix Estándar con anuncios</strong>.',
     paso2:'Confirma que hayas modelado el plan con <strong>Netflix Estándar con anuncios</strong>.',
-    codigos:[['MÁS APPS - APPLE TV INCLUIDO'],['MÁS APPS - NETFLIX ADS INCLUIDO'],['MÁS APPS - UNIVERSAL+ INCLUIDO']],
+    codigos:[['MÁS APPS - APPLE TV INCLUIDO'],['MÁS APPS - NETFLIX INCLUIDO'],['MÁS APPS - UNIVERSAL+ INCLUIDO']],
     auto:'Al modelar las promociones de Apple TV y Universal+, los adicionales se modelan en automático.'
   },
   '1000-tv': {
@@ -9006,7 +9040,7 @@ const MODELADO = {
     apps:['Netflix Estándar con anuncios','Apple TV','Disney+ Estándar con anuncios','Universal+ con anuncios','HBO Max Básico con anuncios'],
     paso1:'Después de seleccionar la velocidad, selecciona <strong>Nuevo Totalplay TV</strong> y suma <strong>Netflix Estándar con anuncios</strong>, <strong>Disney+ Estándar con anuncios</strong> y <strong>HBO Max Básico con anuncios</strong>.',
     paso2:'Confirma que hayas modelado el plan con <strong>Netflix Estándar con anuncios</strong>, <strong>Disney+ Estándar con anuncios</strong> y <strong>HBO Max Básico con anuncios</strong>.',
-    codigos:[['MÁS APPS - APPLE TV INCLUIDO'],['MÁS APPS - NETFLIX ADS INCLUIDO'],['MÁS APPS - UNIVERSAL+ INCLUIDO'],['MÁS APPS - DISNEY ADS INCLUIDO'],['MÁS APPS - MAX BÁSICO INCLUIDO'],['NUEVO TOTALPLAY TV INCLUIDO'],['SPEAKERS INCLUIDO'],['PRECIO ESPECIAL']],
+    codigos:[['MÁS APPS - APPLE TV INCLUIDO'],['MÁS APPS - NETFLIX INCLUIDO'],['MÁS APPS - UNIVERSAL+ INCLUIDO'],['MÁS APPS - DISNEY+ INCLUIDO'],['MÁS APPS - MAX BÁSICO INCLUIDO'],['NUEVO TOTALPLAY TV INCLUIDO'],['SPEAKERS INCLUIDO'],['PRECIO ESPECIAL']],
     auto:'Al modelar las promociones de Apple TV y Universal+, los adicionales se modelan en automático.'
   },
   '1000-sintv': {
@@ -9014,7 +9048,7 @@ const MODELADO = {
     apps:['Netflix Estándar con anuncios','Apple TV','Universal+ con anuncios','HBO Max Básico con anuncios'],
     paso1:'Después de seleccionar la velocidad, selecciona la opción <strong>"Sin TV"</strong> y suma <strong>Netflix Estándar con anuncios</strong> y <strong>HBO Max Básico con anuncios</strong>.',
     paso2:'Confirma que hayas modelado el plan con <strong>Netflix Estándar con anuncios</strong> y <strong>HBO Max Básico con anuncios</strong>.',
-    codigos:[['MÁS APPS - APPLE TV INCLUIDO'],['MÁS APPS - NETFLIX ADS INCLUIDO'],['MÁS APPS - UNIVERSAL+ INCLUIDO'],['MÁS APPS - MAX BÁSICO INCLUIDO'],['PRECIO ESPECIAL']],
+    codigos:[['MÁS APPS - APPLE TV INCLUIDO'],['MÁS APPS - NETFLIX INCLUIDO'],['MÁS APPS - UNIVERSAL+ INCLUIDO'],['MÁS APPS - MAX BÁSICO INCLUIDO'],['PRECIO ESPECIAL']],
     auto:'Al modelar las promociones de Apple TV y Universal+, los adicionales se modelan en automático.'
   }
 };
@@ -9043,11 +9077,11 @@ function mdPintar(){
         '<p class="md-pista">👆 Toca cada promoción conforme la vayas modelando para palomearla.</p>' +
       '</div></div>' +
     '</div>' +
-    '<div class="md-auto">⚡ ' + d.auto + '</div>' +
+    (d.auto ? '<div class="md-auto">⚡ ' + d.auto + '</div>' : '') +
     (d.nota ? '<div class="md-auto">📌 ' + d.nota + '</div>' : '') +
     '<div class="md-total">💡 <strong>No te asustes con el total de "Confirma tu plan":</strong> ahí todavía no vienen los descuentos. Al modelar las promociones de Descuentos Especiales, el precio baja al del plan.</div>' +
-    '<figure class="md-foto"><img class="zoomable" src="' + d.img + '" data-titulo="Modelado · ' + d.titulo + '" alt="Pantallas del modelado: ' + d.titulo + '" loading="lazy">' +
-      '<figcaption><span class="zoom-pista">🔍 Toca para ver las pantallas en grande</span></figcaption></figure>' +
+    (d.img ? '<figure class="md-foto"><img class="zoomable" src="' + d.img + '" data-titulo="Modelado · ' + d.titulo + '" alt="Pantallas del modelado: ' + d.titulo + '" loading="lazy">' +
+      '<figcaption><span class="zoom-pista">🔍 Toca para ver las pantallas en grande</span></figcaption></figure>' : '') +
     '<div class="md-listo">🎯 ¡Listo! Ya puedes continuar tu venta de manera normal.</div>';
   caja.innerHTML = h;
   caja.style.display = '';
