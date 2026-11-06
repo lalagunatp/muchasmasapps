@@ -8224,16 +8224,17 @@ function avisoAdmin(texto, error){
 }
 
 // Manda el cambio a la hoja para que aplique a todo el equipo.
-// El Apps Script exige el número de quien hace el cambio, para dejarlo
-// anotado en la hoja; por eso siempre va "num".
+// El Apps Script exige la sesión (token del login con PIN) y de ahí saca
+// quién hace el cambio: ya no basta con mandar el número del administrador.
+// "num" se sigue mandando para el Apps Script anterior mientras se publica el nuevo.
 function mandarCambio(id, fin, eliminada, mensajeOk, permanente){
   const quien = normId(empleadoActual);
-  if(!quien){
-    avisoAdmin('No se pudo guardar: vuelve a entrar con tu número de empleado.', true);
+  if(!quien || !TOKEN_NIP){
+    avisoAdmin('No se pudo guardar: vuelve a entrar con tu número de empleado y PIN.', true);
     return;
   }
   avisoAdmin('Guardando…', false);
-  llamarBitacora({ accion: 'guardar', num: quien, empleado: quien,
+  llamarBitacora({ accion: 'guardar', token: TOKEN_NIP, num: quien, empleado: quien,
                    usuario: quien, quien: quien,
                    id: id, fin: fin || '',
                    eliminada: (eliminada || permanente) ? 'SI' : '',
