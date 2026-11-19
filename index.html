@@ -1377,6 +1377,268 @@
   .alexa-cierre span{display:block;font-size:13px;color:#cfdde6;font-weight:600;}
 
   /* ── BLACKNUT ── letra grande y bloques simples, pensado para leerse fácil */
+  /* ═══ UPSELL · Manual Sales Cloud (cambio de plan y adicionales) ═══
+     Colores del manual: morado Sales Cloud + verde lima de los resaltes. */
+  .up-block{
+    --up-lima:#8DD13A;
+    background:linear-gradient(168deg,#22104F 0%,#3F2680 42%,#5B4FA3 100%);
+    border-radius:22px;
+    padding:26px 18px 28px;
+    color:#fff;
+    overflow:hidden;
+    position:relative;
+  }
+  .up-block::before{
+    content:"";position:absolute;width:300px;height:300px;border-radius:50%;
+    background:radial-gradient(circle,rgba(141,209,58,.30),transparent 70%);
+    top:-120px;right:-100px;pointer-events:none;
+  }
+  .up-hero{display:grid;gap:18px;align-items:center;position:relative;}
+  @media (min-width:700px){ .up-hero{grid-template-columns:1.2fr .8fr;} }
+  .up-chip-nuevo{
+    display:inline-block;background:var(--up-lima);color:#1D0F40;
+    font-family:'Baloo 2',sans-serif;font-weight:800;font-size:13px;letter-spacing:.06em;
+    padding:5px 14px;border-radius:999px;margin-bottom:10px;
+  }
+  .up-block h3{
+    font-family:'Baloo 2',sans-serif;font-size:clamp(30px,6.5vw,42px);
+    line-height:1.02;margin:0 0 10px;color:#fff;
+  }
+  .up-block h3 .up-resalta{color:var(--up-lima);}
+  .up-lema{font-size:17px;line-height:1.55;color:#E6E0F7;margin:0 0 16px;}
+  .up-lema strong{color:#fff;}
+  .up-hero-chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .up-hero-chips span{
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);
+    padding:6px 12px;border-radius:999px;font-size:13.5px;font-weight:700;
+  }
+  .up-hero-img{margin:0;}
+  .up-hero-img img{
+    width:100%;max-width:330px;display:block;margin:0 auto;border-radius:22px;
+    filter:drop-shadow(0 14px 26px rgba(0,0,0,.4));
+  }
+
+  .up-menu{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:24px 0 4px;}
+  @media (min-width:640px){ .up-menu{grid-template-columns:repeat(4,1fr);} }
+  .up-menu a{
+    display:flex;flex-direction:column;gap:3px;background:#fff;color:#2A1659;
+    text-decoration:none;border-radius:16px;padding:12px 14px;font-weight:800;
+    font-size:14.5px;line-height:1.25;box-shadow:0 4px 0 rgba(0,0,0,.22);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .up-menu a:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.22);}
+  .up-menu a span{font-size:24px;}
+
+  .up-sub{
+    font-family:'Baloo 2',sans-serif;font-size:24px;color:var(--up-lima);
+    margin:34px 0 6px;line-height:1.15;scroll-margin-top:20px;
+  }
+  .up-sub-lema{font-size:15.5px;line-height:1.5;color:#DCD5F0;margin:0 0 14px;}
+  .up-sub-lema strong{color:#fff;}
+
+  .up-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;}
+  .up-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:16px;}
+  .up-card .ico{font-size:30px;display:block;margin-bottom:6px;}
+  .up-card h4{margin:0 0 4px;font-size:17px;color:#fff;}
+  .up-card p{margin:0;font-size:15px;line-height:1.5;color:#DCD5F0;}
+
+  .up-senales{display:grid;gap:10px;}
+  @media (min-width:640px){ .up-senales{grid-template-columns:1fr 1fr;} }
+  .up-senal{background:#fff;color:#2A1659;border-radius:16px;padding:14px 16px;display:grid;gap:8px;}
+  .up-senal q{font-style:italic;font-size:15.5px;line-height:1.4;color:#3a2a63;}
+  .up-ofrece{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-weight:800;font-size:14px;color:#6a5b93;}
+  .up-ofrece b{background:#E9F7D6;color:#3F6E0E;padding:3px 10px;border-radius:999px;font-size:13.5px;}
+
+  .up-semaforo{display:grid;gap:12px;}
+  @media (min-width:700px){ .up-semaforo{grid-template-columns:repeat(3,1fr);} }
+  .up-luz{border-radius:18px;padding:16px;background:#fff;color:#2A1659;display:flex;flex-direction:column;gap:8px;border-top:9px solid;}
+  .up-luz.rojo{border-color:#E5484D;}
+  .up-luz.verde{border-color:var(--up-lima);}
+  .up-luz h4{margin:0;font-size:17px;line-height:1.3;}
+  .up-luz p{margin:0;font-size:15px;line-height:1.5;color:#463a6b;}
+  .up-luz img{width:100%;max-width:230px;margin:4px auto 0;display:block;border-radius:12px;}
+
+  .up-tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:6px 0 16px;}
+  .up-tab{
+    font-family:inherit;border:2px solid rgba(255,255,255,.35);background:transparent;color:#fff;
+    border-radius:16px;padding:12px 8px;font-weight:800;font-size:15.5px;cursor:pointer;line-height:1.2;
+    display:flex;flex-direction:column;align-items:center;gap:3px;
+  }
+  .up-tab span{font-size:28px;}
+  .up-tab small{font-weight:700;font-size:12.5px;opacity:.85;}
+  .up-tab.activa{background:var(--up-lima);border-color:var(--up-lima);color:#1D0F40;box-shadow:0 6px 18px rgba(141,209,58,.35);}
+
+  .up-car-top{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+  .up-car-cont{font-weight:800;font-size:14px;white-space:nowrap;}
+  .up-car-barra{flex:1;height:8px;background:rgba(255,255,255,.18);border-radius:999px;overflow:hidden;}
+  .up-car-barra i{display:block;height:100%;width:0;background:var(--up-lima);border-radius:999px;transition:width .25s ease;}
+  .up-carril{
+    position:relative;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
+    padding:4px 8% 12px;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  }
+  .up-carril::-webkit-scrollbar{display:none;}
+  .up-diapo{
+    flex:0 0 84%;max-width:340px;scroll-snap-align:center;background:#fff;color:#2A1659;
+    border-radius:20px;padding:14px;display:flex;flex-direction:column;gap:10px;
+    opacity:.5;transform:scale(.95);transition:opacity .25s ease, transform .25s ease;
+  }
+  .up-diapo.activa{opacity:1;transform:none;}
+  .up-diapo-cab{display:flex;gap:10px;align-items:flex-start;}
+  .up-num{
+    flex-shrink:0;width:38px;height:38px;border-radius:50%;background:#4A2E8A;color:#fff;
+    font-family:'Baloo 2',sans-serif;font-weight:800;font-size:19px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .up-diapo p{margin:0;font-size:15.5px;line-height:1.45;}
+  .up-diapo p strong{color:#4A2E8A;}
+  .up-diapo img{display:block;max-width:100%;max-height:430px;width:auto;margin:auto;border-radius:12px;background:#f3f1f8;}
+  .up-tip{background:#FFF4CC;border-radius:10px;padding:8px 10px;font-size:13.5px;line-height:1.4;color:#5a4400;}
+  .up-diapo.fin{background:linear-gradient(160deg,#9BE04A,#5E9A1C);color:#14300A;justify-content:center;text-align:center;}
+  .up-diapo.fin .big{font-size:60px;line-height:1;}
+  .up-diapo.fin h4{font-family:'Baloo 2',sans-serif;font-size:27px;margin:0;line-height:1.1;}
+  .up-diapo.fin p strong{color:#14300A;}
+  .up-car-btns{display:flex;gap:10px;}
+  .up-car-btns button{
+    font-family:inherit;flex:1;border:none;border-radius:12px;padding:11px;
+    font-weight:800;font-size:15px;cursor:pointer;background:#fff;color:#2A1659;
+  }
+  .up-car-btns button.sig{background:var(--up-lima);color:#1D0F40;}
+  .up-car-btns button:disabled{opacity:.35;cursor:default;}
+
+  .up-extra{margin-top:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:16px;}
+  .up-extra h4{margin:0 0 6px;font-size:18px;color:#fff;}
+  .up-extra p, .up-extra li{font-size:15px;line-height:1.5;color:#E6E0F7;margin:0 0 8px;}
+  .up-extra strong{color:#fff;}
+  .up-extra ul{margin:6px 0 0;padding-left:20px;}
+  .up-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;}
+  .up-mini figure{margin:0;text-align:center;}
+  .up-mini img{width:100%;border-radius:10px;display:block;}
+  .up-mini figcaption{font-size:12.5px;margin-top:5px;color:#DCD5F0;line-height:1.3;}
+  .up-img-ancha{display:block;width:100%;max-width:420px;margin:10px auto 0;border-radius:12px;}
+
+  .up-ficha{display:grid;gap:14px;}
+  @media (min-width:700px){ .up-ficha{grid-template-columns:230px 1fr;align-items:start;} }
+  .up-ficha > img{width:100%;max-width:250px;margin:0 auto;display:block;border-radius:14px;background:#fff;}
+  .up-ficha ol{list-style:none;margin:0;padding:0;display:grid;gap:10px;}
+  .up-ficha li{background:#fff;color:#2A1659;border-radius:14px;padding:12px 14px 12px 50px;position:relative;font-size:15px;line-height:1.45;}
+  .up-ficha li::before{
+    content:attr(data-n);position:absolute;left:12px;top:12px;width:28px;height:28px;border-radius:50%;
+    background:#2A1659;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px;
+  }
+  .up-ficha li strong{color:#4A2E8A;}
+  .up-ficha li mark{background:#E9F7D6;color:#2F5A0A;font-weight:800;padding:0 4px;border-radius:4px;}
+  .up-tabla{width:100%;border-collapse:collapse;background:#fff;color:#2A1659;border-radius:14px;overflow:hidden;font-size:15px;margin-top:12px;}
+  .up-tabla td{padding:9px 14px;border-bottom:1px solid #ece8f5;}
+  .up-tabla td:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .up-tabla tr.tot td{font-weight:800;border-top:2px solid #2A1659;}
+  .up-tabla tr.pp td{background:#E9F7D6;font-weight:800;border-bottom:none;}
+
+  .up-esc-ctl{background:#fff;color:#2A1659;border-radius:18px;padding:14px;}
+  .up-esc-ctl .lbl{display:block;font-weight:800;font-size:14px;margin:0 0 6px;}
+  .up-seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#EFEBF8;border-radius:12px;padding:4px;margin-bottom:12px;}
+  .up-seg button{font-family:inherit;border:none;background:transparent;border-radius:9px;padding:9px;font-weight:800;font-size:14.5px;color:#4A2E8A;cursor:pointer;}
+  .up-seg button.activa{background:#4A2E8A;color:#fff;}
+  .up-vels{display:flex;flex-wrap:wrap;gap:6px;}
+  .up-vels button{
+    font-family:inherit;border:2px solid #D9D2EE;background:#fff;color:#2A1659;border-radius:10px;
+    padding:7px 9px;font-weight:800;font-size:14px;cursor:pointer;min-width:58px;
+  }
+  .up-vels button.activa{border-color:#4A2E8A;background:#4A2E8A;color:#fff;}
+  .up-esc{display:flex;flex-direction:column;gap:6px;margin-top:14px;}
+  .up-pelda{
+    display:grid;grid-template-columns:96px 1fr;gap:10px;align-items:center;border-radius:12px;
+    padding:9px 12px;background:rgba(255,255,255,.07);border:2px solid transparent;
+    transition:background .2s ease, opacity .2s ease;
+  }
+  .up-pelda .r{font-weight:800;font-size:15px;line-height:1.15;}
+  .up-pelda .r small{display:block;font-weight:700;font-size:11.5px;opacity:.85;margin-top:2px;}
+  .up-pelda .vs{display:flex;flex-wrap:wrap;gap:5px;}
+  .up-pelda .vs span{background:rgba(255,255,255,.14);border-radius:8px;padding:3px 8px;font-size:13px;font-weight:800;}
+  .up-pelda.sube{background:rgba(141,209,58,.18);border-color:rgba(141,209,58,.6);}
+  .up-pelda.sube .vs span{background:var(--up-lima);color:#1D0F40;}
+  .up-pelda.actual{background:#FFD23F;color:#2A1659;}
+  .up-pelda.actual .vs span{background:rgba(42,22,89,.12);}
+  .up-pelda.actual .vs span.hoy{background:#2A1659;color:#fff;}
+  .up-pelda.actual .vs span.estrella{background:#fff;color:#2A1659;outline:2px dashed #2A1659;}
+  .up-pelda.baja{opacity:.38;}
+  .up-pelda .vs span.no{text-decoration:line-through;opacity:.6;background:rgba(255,255,255,.12);color:inherit;}
+  .up-esc-res{margin-top:12px;background:#fff;color:#2A1659;border-radius:16px;padding:14px 16px;font-size:15px;line-height:1.5;}
+  .up-esc-res p{margin:0 0 8px;}
+  .up-esc-res p:last-child{margin:0;}
+  .up-esc-res strong{color:#4A2E8A;}
+  .up-esc-nota{font-size:13px;line-height:1.45;color:#DCD5F0;margin:10px 0 0;}
+  .up-btn{font-family:inherit;border:none;background:#4A2E8A;color:#fff;border-radius:10px;padding:9px 14px;font-weight:800;cursor:pointer;font-size:14px;}
+
+  .up-pago{background:#fff;color:#2A1659;border-radius:18px;padding:16px;display:grid;gap:12px;}
+  .up-pago-in{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .up-pago-in label{font-weight:800;font-size:13.5px;display:flex;flex-direction:column;gap:4px;line-height:1.25;}
+  .up-pago-in input{
+    font-family:inherit;font-size:18px;font-weight:800;padding:10px 12px;border:2px solid #D9D2EE;
+    border-radius:12px;color:#2A1659;width:100%;min-width:0;
+  }
+  .up-pago-res{border-radius:14px;padding:12px 14px;font-size:15.5px;line-height:1.45;font-weight:700;}
+  .up-pago-res.ok{background:#E9F7D6;color:#2F5A0A;}
+  .up-pago-res.no{background:#FDE4E4;color:#8A1C1C;}
+  .up-pago-res.nada{background:#EFEBF8;color:#4A2E8A;}
+  .up-cuenta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+  .up-cuenta span{border-radius:999px;padding:5px 11px;font-size:13.5px;font-weight:800;}
+  .up-cuenta .si{background:var(--up-lima);color:#1D0F40;}
+  .up-cuenta .no{background:rgba(255,255,255,.14);color:#fff;text-decoration:line-through;}
+
+  .up-dos{display:grid;gap:12px;}
+  @media (min-width:640px){ .up-dos{grid-template-columns:160px 1fr;align-items:start;} }
+  .up-dos img{width:100%;max-width:170px;display:block;margin:0 auto;border-radius:12px;}
+
+  .up-reto{background:#fff;color:#2A1659;border-radius:20px;padding:18px;}
+  .up-reto-prog{display:flex;gap:5px;margin-bottom:12px;}
+  .up-reto-prog i{flex:1;height:7px;border-radius:999px;background:#EFEBF8;}
+  .up-reto-prog i.ok{background:#8DD13A;}
+  .up-reto-prog i.mal{background:#E5484D;}
+  .up-reto-prog i.aqui{background:#4A2E8A;}
+  .up-reto-n{font-size:13px;font-weight:800;color:#6a5b93;margin:0 0 4px;}
+  .up-reto h4{font-size:18px;line-height:1.35;margin:0 0 12px;}
+  .up-opc{display:grid;gap:8px;}
+  .up-opc button{
+    font-family:inherit;text-align:left;border:2px solid #D9D2EE;background:#fff;color:#2A1659;
+    border-radius:12px;padding:11px 14px;font-size:15px;font-weight:700;cursor:pointer;line-height:1.35;
+  }
+  .up-opc button.ok{border-color:#5E9A1C;background:#E9F7D6;}
+  .up-opc button.mal{border-color:#E5484D;background:#FDE4E4;}
+  .up-opc button:disabled{cursor:default;}
+  .up-expl{margin-top:12px;border-radius:12px;padding:11px 14px;background:#EFEBF8;font-size:14.5px;line-height:1.5;}
+  .up-reto-sig{margin-top:12px;width:100%;font-family:inherit;border:none;border-radius:12px;padding:12px;font-weight:800;font-size:16px;background:#4A2E8A;color:#fff;cursor:pointer;}
+  .up-reto-fin{text-align:center;}
+  .up-reto-fin .big{font-size:62px;line-height:1;}
+  .up-reto-fin h4{font-family:'Baloo 2',sans-serif;font-size:27px;margin:6px 0;}
+  .up-reto-fin p{font-size:15.5px;line-height:1.5;margin:0 0 6px;}
+
+  .up-faq{display:flex;flex-direction:column;gap:10px;}
+  .up-pregunta{background:rgba(255,255,255,.08);border:1px solid rgba(141,209,58,.35);border-radius:16px;overflow:hidden;}
+  .up-pregunta summary{
+    cursor:pointer;list-style:none;padding:15px 18px;font-size:16px;font-weight:800;color:#fff;
+    display:flex;align-items:center;gap:10px;line-height:1.35;
+  }
+  .up-pregunta summary::-webkit-details-marker{display:none;}
+  .up-pregunta summary::before{content:'▸';color:var(--up-lima);font-size:22px;line-height:1;flex-shrink:0;transition:transform .2s ease;}
+  .up-pregunta[open] summary::before{transform:rotate(90deg);}
+  .up-pregunta[open] summary{color:var(--up-lima);}
+  .up-pregunta p{margin:0 18px 14px 44px;font-size:15px;line-height:1.55;color:#E6E0F7;}
+  .up-pregunta strong{color:#fff;}
+
+  .up-cierre{
+    margin:32px 0 0;text-align:center;font-family:'Baloo 2',sans-serif;
+    font-size:clamp(23px,5.5vw,32px);line-height:1.12;color:#fff;
+  }
+  .up-cierre span{color:var(--up-lima);}
+  .up-pie{font-size:12.5px;opacity:.7;margin:14px 0 0;text-align:center;line-height:1.45;}
+
+  .up-confeti{position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden;}
+  .up-confeti span{position:absolute;top:-40px;font-size:24px;animation:upCae linear forwards;}
+  @keyframes upCae{ to{ transform:translateY(112vh) rotate(540deg); } }
+  @media (prefers-reduced-motion: reduce){
+    .up-diapo, .up-car-barra i{transition:none;}
+  }
+
   .bn-block{
     background:linear-gradient(165deg,#1A0A14,#2E0F22);
     border-radius:22px;
@@ -4221,6 +4483,21 @@
   </div>
   <div class="nav-title">Ir a…</div>
   <a href="#inicio" onclick="closeNav()"><span class="nav-icon">🎒</span>Inicio</a>
+  <button type="button" class="nav-parent" id="navUpsell" onclick="toggleSubmenu(this)">
+    <span class="nav-icon">🚀</span>Upsell · Cambio de plan
+    <span class="nav-caret">▾</span>
+  </button>
+  <div class="nav-submenu" id="navUpsellSub">
+    <a href="#upsell-seccion" onclick="closeNav()"><span class="nav-icon">📄</span>Ver todo</a>
+    <a href="#up-semaforo" onclick="closeNav()"><span class="nav-icon">🚦</span>Antes de empezar</a>
+    <a href="#up-jugada" data-up-tab="ad" onclick="closeNav()"><span class="nav-icon">➕</span>Agregar adicionales</a>
+    <a href="#up-jugada" data-up-tab="cp" onclick="closeNav()"><span class="nav-icon">🔄</span>Cambio de plan</a>
+    <a href="#up-ficha" onclick="closeNav()"><span class="nav-icon">🧾</span>Ficha del cliente</a>
+    <a href="#up-escalera" onclick="closeNav()"><span class="nav-icon">🧗</span>¿A qué plan puede subir?</a>
+    <a href="#up-pago" onclick="closeNav()"><span class="nav-icon">💰</span>La regla del pago</a>
+    <a href="#up-reto" onclick="closeNav()"><span class="nav-icon">🏆</span>Ponte a prueba</a>
+    <a href="#up-faq" onclick="closeNav()"><span class="nav-icon">❓</span>Dudas comunes</a>
+  </div>
   <a href="#foxone-seccion" id="navFoxOne" onclick="closeNav()"><span class="nav-icon">⚽</span>FOX ONE · $145 al mes</a>
   <a href="#combo3-seccion" id="navCombo3" onclick="closeNav()"><span class="nav-icon">🔥</span>Combo 3 Apps · $209</a>
   <a href="#beisbol-seccion" id="navBeisbol" onclick="closeNav()"><span class="nav-icon">⚾</span>1Baseball Network · Sin costo</a>
@@ -4343,6 +4620,302 @@
     <h4>🔑 Gente de tu equipo que olvidó su PIN</h4>
     <div id="avisoResetLista"></div>
   </div>
+
+  <!-- ═══ UPSELL · Cambio de plan y adicionales (Manual de Upsell Sales Cloud) ═══
+       Capturas recortadas del manual: up-*.jpg. Reglas de rangos en UP_RANGOS (JS). -->
+  <section class="block" id="upsell-seccion" style="padding:24px 16px 10px;">
+    <div class="up-block">
+
+      <div class="up-hero">
+        <div>
+          <span class="up-chip-nuevo">🚀 SALES CLOUD · UPSELL</span>
+          <h3 id="up-titulo">Tu próxima venta <span class="up-resalta">ya es cliente</span></h3>
+          <p class="up-lema">Con <strong>Upsell</strong> le subes el plan o le agregas apps, canales y equipos a quien <strong>ya tiene Totalplay</strong>. No hay que convencerlo de cambiarse de compañía: ya nos conoce y ya confía. Todo se hace desde tu app <strong>Sales Cloud</strong>, en el botón <strong>“Upsell o cambio de plan”</strong>.</p>
+          <div class="up-hero-chips">
+            <span>📱 Lo buscas con su número</span>
+            <span>🔐 Se valida con código por SMS</span>
+            <span>⚡ Sin equipo, se activa al momento</span>
+          </div>
+        </div>
+        <figure class="up-hero-img">
+          <img class="zoomable" src="up-portada.jpg" data-titulo="Sales Cloud · botón Upsell o cambio de plan" alt="Celular con la app Sales Cloud y el botón Upsell o cambio de plan resaltado" loading="lazy">
+        </figure>
+      </div>
+
+      <div class="up-menu">
+        <a href="#up-semaforo"><span>🚦</span>Antes de empezar</a>
+        <a href="#up-jugada" data-up-tab="ad"><span>➕</span>Agregar adicionales</a>
+        <a href="#up-jugada" data-up-tab="cp"><span>🔄</span>Cambio de plan</a>
+        <a href="#up-ficha"><span>🧾</span>Ficha del cliente</a>
+        <a href="#up-escalera"><span>🧗</span>¿A qué plan puede subir?</a>
+        <a href="#up-pago"><span>💰</span>La regla del pago</a>
+        <a href="#up-reto"><span>🏆</span>Ponte a prueba</a>
+        <a href="#up-faq"><span>❓</span>Dudas comunes</a>
+      </div>
+
+      <div class="up-sub">💡 ¿Por qué hacer Upsell?</div>
+      <div class="up-cards">
+        <div class="up-card"><span class="ico">🤝</span><h4>Ya te abrió la puerta</h4><p>Es cliente, ya vive Totalplay. Solo le ofreces algo que le hace falta: más megas, más apps, otra tele.</p></div>
+        <div class="up-card"><span class="ico">⚡</span><h4>Es rápido</h4><p>Su número de teléfono, un código de 4 dígitos y listo: ves su plan, lo que paga y qué le puedes ofrecer.</p></div>
+        <div class="up-card"><span class="ico">📈</span><h4>Cada sí suma</h4><p>Cada cliente que atiendes, por cualquier motivo, es una oportunidad de venta. No lo dejes ir sin preguntarle.</p></div>
+      </div>
+
+      <div class="up-sub">🔎 Detecta la oportunidad</div>
+      <p class="up-sub-lema">Escucha lo que te dice el cliente: cada queja o comentario es una puerta para el Upsell.</p>
+      <div class="up-senales">
+        <div class="up-senal"><q>En la casa todos nos conectamos al mismo tiempo y se traba.</q><div class="up-ofrece">Ofrécele → <b>🔄 Más megas</b></div></div>
+        <div class="up-senal"><q>El WiFi no llega bien a todos los cuartos.</q><div class="up-ofrece">Ofrécele → <b>📶 WiFi Pro / WiFi Pro 6</b></div></div>
+        <div class="up-senal"><q>Pago Netflix, Disney+ y otras apps por fuera.</q><div class="up-ofrece">Ofrécele → <b>🎬 Bundles y apps a la carta</b></div></div>
+        <div class="up-senal"><q>Quiero tele en la recámara de los niños.</q><div class="up-ofrece">Ofrécele → <b>📺 TV Adicional / Nuevo Totalplay TV</b></div></div>
+        <div class="up-senal"><q>Me gusta ver el futbol y las películas con buen sonido.</q><div class="up-ofrece">Ofrécele → <b>🔊 Totalplay Surround</b></div></div>
+        <div class="up-senal"><q>Quiero cuidar la entrada de la casa.</q><div class="up-ofrece">Ofrécele → <b>📷 TV CAM</b></div></div>
+      </div>
+
+      <div class="up-sub" id="up-semaforo">🚦 Antes de empezar: el semáforo</div>
+      <p class="up-sub-lema">Al buscar la cuenta, la app revisa esto primero. Si sale en rojo, ahí se detiene.</p>
+      <div class="up-semaforo">
+        <div class="up-luz rojo">
+          <h4>🔴 Tiene adeudo</h4>
+          <p>Si el cliente <strong>debe algo a Totalplay</strong>, no se puede hacer ni cambio de plan ni Upsell hasta que regularice su cuenta.</p>
+          <img class="zoomable" src="up-deuda.jpg" data-titulo="Aviso de adeudo: no se puede modelar hasta que sea regularizada" alt="Aviso de la app: la cuenta tiene un adeudo y no se puede modelar" loading="lazy">
+        </div>
+        <div class="up-luz rojo">
+          <h4>🔴 Es Micronegocio</h4>
+          <p>Si tiene plan <strong>Micronegocio</strong>, no se puede hacer el cambio. Tampoco se puede pasar un plan residencial a micronegocio.</p>
+          <img class="zoomable" src="up-micronegocio.jpg" data-titulo="Aviso: la oferta de micronegocio no se encuentra disponible" alt="Aviso de la app: la oferta de micronegocio no se encuentra disponible" loading="lazy">
+        </div>
+        <div class="up-luz verde">
+          <h4>🟢 Residencial y al corriente</h4>
+          <p>¡Adelante! Puedes <strong>agregar adicionales</strong> o hacer un <strong>cambio de plan</strong>, siempre con combinaciones permitidas y con un pago mensual que suba.</p>
+          <p style="font-size:30px;text-align:center;margin-top:auto;">🚀</p>
+        </div>
+      </div>
+
+      <div class="up-sub" id="up-jugada">🎯 Elige tu jugada</div>
+      <p class="up-sub-lema">Desliza las tarjetas o usa los botones para ver cada paso. Toca cualquier captura para verla en grande.</p>
+      <div class="up-tabs" role="tablist">
+        <button type="button" class="up-tab activa" data-tab="ad" role="tab" aria-selected="true" onclick="upJugada('ad')"><span>➕</span>Agregar adicionales<small>Apps, canales y equipos</small></button>
+        <button type="button" class="up-tab" data-tab="cp" role="tab" aria-selected="false" onclick="upJugada('cp')"><span>🔄</span>Cambio de plan<small>Más megas, TV y streaming</small></button>
+      </div>
+
+      <!-- Pestaña: AGREGAR ADICIONALES -->
+      <div class="up-panel" data-panel="ad">
+        <div class="up-carrusel">
+          <div class="up-car-top"><span class="up-car-cont"></span><span class="up-car-barra"><i></i></span></div>
+          <div class="up-carril">
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">1</span><p>En Sales Cloud, da clic en <strong>“Upsell o cambio de plan”</strong>.</p></div>
+              <img class="zoomable" src="up-ad-1.jpg" data-titulo="Adicionales · Paso 1: Upsell o cambio de plan" alt="Pantalla de inicio de Sales Cloud con el botón Upsell o cambio de plan" loading="lazy"></div>
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">2</span><p>Busca la cuenta con el <strong>número de teléfono del cliente</strong> y selecciónala.</p></div>
+              <img class="zoomable" src="up-ad-2.jpg" data-titulo="Adicionales · Paso 2: busca la cuenta por teléfono" alt="Búsqueda de la cuenta por número de teléfono" loading="lazy"></div>
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">3</span><p>La app le enviará un <strong>código de confirmación</strong> al celular del cliente. Da clic en <strong>“Aceptar”</strong>.</p></div>
+              <img class="zoomable" src="up-ad-3a.jpg" data-titulo="Adicionales · Paso 3: aviso de envío del código" alt="Aviso: se enviará un código de confirmación al número del cliente" loading="lazy"></div>
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">4</span><p>El cliente te dicta el <strong>código de 4 dígitos</strong> que le llegó. Captúralo y da clic en <strong>“Validar”</strong>.</p></div>
+              <img class="zoomable" src="up-ad-3b.jpg" data-titulo="Adicionales · Paso 4: captura el código de 4 dígitos" alt="Captura del código de confirmación de 4 dígitos" loading="lazy"></div>
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">5</span><p>Verás los adicionales <strong>compatibles con su plan</strong>: bundles, apps a la carta, canales y dispositivos.</p></div>
+              <img class="zoomable" src="up-ad-4.jpg" data-titulo="Adicionales · Paso 5: adicionales compatibles" alt="Lista de adicionales compatibles: bundles, apps, canales y dispositivos" loading="lazy"></div>
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">6</span><p>Selecciona los que le interesan al cliente. Abajo ves el <strong>costo total</strong> de los nuevos adicionales.</p></div>
+              <img class="zoomable" src="up-ad-5.jpg" data-titulo="Adicionales · Paso 6: selecciona y ve el costo total" alt="Selección de TV adicional y costo total de los adicionales" loading="lazy"></div>
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">7</span><p>Confirma la información con el cliente y da clic en <strong>“Aceptar”</strong>. Se crea un <strong>ticket</strong> con los nuevos adicionales.</p></div>
+              <img class="zoomable" src="up-ad-6.jpg" data-titulo="Adicionales · Paso 7: confirma tus adicionales" alt="Ventana Confirma tus adicionales con el botón Aceptar" loading="lazy"></div>
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">8</span><p>Activa los adicionales que lo requieran con el botón <strong>“Activar”</strong>.</p></div>
+              <img class="zoomable" src="up-ad-7.jpg" data-titulo="Adicionales · Paso 8: activa los adicionales" alt="Ventana Configura tus adicionales con el botón Activar" loading="lazy"></div>
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">9</span><p>Al terminar verás <strong>“Finalizar”</strong>: se agregaron y configuraron con éxito. Da clic en <strong>“Aceptar”</strong>.</p></div>
+              <img class="zoomable" src="up-ad-8.jpg" data-titulo="Adicionales · Paso 9: finalizar" alt="Mensaje Finalizar: se han agregado y configurado tus adicionales" loading="lazy"></div>
+            <div class="up-diapo fin" data-confeti><span class="big">🎉</span><h4>¡Upsell hecho!</h4><p>Tu cliente ya disfruta lo nuevo. ¿Y si le preguntas si quiere <strong>subir de megas</strong> también?</p>
+              <button type="button" class="up-btn" onclick="upJugada('cp', true)">Ver cambio de plan →</button></div>
+          </div>
+          <div class="up-car-btns"><button type="button" class="ant" aria-label="Paso anterior">← Anterior</button><button type="button" class="sig" aria-label="Paso siguiente">Siguiente →</button></div>
+        </div>
+
+        <div class="up-extra">
+          <h4>📅 ¿El adicional necesita visita técnica?</h4>
+          <p>Si alguno de los adicionales necesita un técnico para configurarse, en lugar de “Activar” verás el botón <strong>“Agendamiento”</strong>.</p>
+          <div class="up-mini">
+            <figure><img class="zoomable" src="up-agenda-a.jpg" data-titulo="Visita técnica · a) botón Agendamiento" alt="Botón Agendamiento en la ventana de configuración" loading="lazy"><figcaption>a) Da clic en Agendamiento</figcaption></figure>
+            <figure><img class="zoomable" src="up-agenda-b.jpg" data-titulo="Visita técnica · b) elige día y turno" alt="Calendario para elegir día y turno de la visita" loading="lazy"><figcaption>b) Elige día y turno con el cliente</figcaption></figure>
+            <figure><img class="zoomable" src="up-agenda-c.jpg" data-titulo="Visita técnica · c) folio y ticket" alt="Agendamiento exitoso con folio y ticket" loading="lazy"><figcaption>c) Anota el folio y el ticket</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="up-extra">
+          <h4>⚠️ Ojo al combinar dispositivos</h4>
+          <ul>
+            <li>En un mismo ticket <strong>no puedes juntar dispositivos con distinto tipo y subtipo</strong>.</li>
+            <li>Si lo intentas, aparece un aviso con los dispositivos en conflicto y <strong>no podrás crear el ticket</strong> hasta resolverlo.</li>
+            <li><strong>Excepción:</strong> Totalplay Surround + Nuevo Totalplay TV sí se pueden agregar juntos (van en combo). En el agendamiento se conserva el tipo y subtipo del Surround.</li>
+          </ul>
+          <img class="zoomable up-img-ancha" src="up-conflicto.jpg" data-titulo="Aviso de inconveniencias entre adicionales" alt="Aviso: se han detectado inconveniencias entre los adicionales seleccionados" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Pestaña: CAMBIO DE PLAN -->
+      <div class="up-panel" data-panel="cp" hidden>
+        <div class="up-carrusel">
+          <div class="up-car-top"><span class="up-car-cont"></span><span class="up-car-barra"><i></i></span></div>
+          <div class="up-carril">
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">1</span><p>En Sales Cloud, selecciona <strong>“Upsell o cambio de plan”</strong>.</p></div>
+              <img class="zoomable" src="up-cp-1.jpg" data-titulo="Cambio de plan · Paso 1: Upsell o cambio de plan" alt="Pantalla de inicio de Sales Cloud con el botón Upsell o cambio de plan" loading="lazy"></div>
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">2</span><p>Busca la cuenta del cliente por <strong>número telefónico</strong> (y valida el código de 4 dígitos).</p></div>
+              <img class="zoomable" src="up-cp-2.jpg" data-titulo="Cambio de plan · Paso 2: busca la cuenta" alt="Búsqueda de la cuenta por número telefónico" loading="lazy"></div>
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">3</span><p>Elige qué vas a hacer: <strong>“Cambio de plan”</strong>. Si eliges “Adicionales”, el flujo es el de siempre.</p></div>
+              <img class="zoomable" src="up-cp-3.jpg" data-titulo="Cambio de plan · Paso 3: elige Cambio de plan" alt="Ventana para elegir entre Adicionales y Cambio de plan" loading="lazy"></div>
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">4</span><p>Junto con el cliente elige la <strong>velocidad</strong>, el tipo de TV, streaming y bundles. Solo aparecen las velocidades permitidas.</p></div>
+              <div class="up-tip">💡 Toca la <strong>«i» azul</strong> de arriba para ver en cualquier momento lo que el cliente tiene contratado.</div>
+              <img class="zoomable" src="up-cp-4.jpg" data-titulo="Cambio de plan · Paso 4: elige la velocidad" alt="Pantalla Configura tu plan con las velocidades de internet" loading="lazy"></div>
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">5</span><p>Abajo ves el <strong>plan seleccionado y su precio</strong>. Da clic en <strong>“Continuar”</strong>.</p></div>
+              <img class="zoomable" src="up-cp-5a.jpg" data-titulo="Cambio de plan · Paso 5: plan y precio" alt="Plan seleccionado y precio con el botón Continuar" loading="lazy"></div>
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">6</span><p>Confirma el nuevo plan con <strong>“Aceptar”</strong>.</p></div>
+              <img class="zoomable" src="up-cp-5b.jpg" data-titulo="Cambio de plan · Paso 6: confirma tu plan" alt="Ventana Confirma tu plan con el botón Aceptar" loading="lazy"></div>
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">7</span><p>Si el cliente quiere, agrega <strong>adicionales que conviven</strong> con el nuevo plan (bundles, apps, canales, dispositivos).</p></div>
+              <img class="zoomable" src="up-cp-6a.jpg" data-titulo="Cambio de plan · Paso 7: adicionales del nuevo plan" alt="Bundles disponibles para el nuevo plan" loading="lazy"></div>
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">8</span><p>Revisa el resumen y da clic en <strong>“Continuar”</strong>.</p></div>
+              <div class="up-tip">⚡ Si el plan <strong>no requiere configurar equipos</strong>, se activa directo y verás “Se ha realizado tu cambio de plan de forma exitosa”.</div>
+              <img class="zoomable" src="up-cp-6b.jpg" data-titulo="Cambio de plan · Paso 8: resumen y continuar" alt="Resumen del nuevo plan con adicionales y botón Continuar" loading="lazy"></div>
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">9</span><p>Si lleva un equipo que se instala, da clic en <strong>“Aceptar”</strong> para hacer el agendamiento.</p></div>
+              <img class="zoomable" src="up-cp-7.jpg" data-titulo="Cambio de plan · Paso 9: aviso de agendamiento" alt="Aviso: se realizará un agendamiento para finalizar el cambio de plan" loading="lazy"></div>
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">10</span><p>Selecciona junto con el cliente el <strong>día y el turno</strong> disponible.</p></div>
+              <img class="zoomable" src="up-cp-8.jpg" data-titulo="Cambio de plan · Paso 10: día y turno" alt="Calendario con día y turno para la visita técnica" loading="lazy"></div>
+            <div class="up-diapo"><div class="up-diapo-cab"><span class="up-num">11</span><p>¡Listo! Verás la <strong>Orden de Servicio</strong> (folio OS) y el ticket que creaste.</p></div>
+              <img class="zoomable" src="up-cp-9.jpg" data-titulo="Cambio de plan · Paso 11: orden de servicio" alt="Agendamiento exitoso con folio de orden de servicio y ticket" loading="lazy"></div>
+            <div class="up-diapo fin" data-confeti><span class="big">🏆</span><h4>¡Cliente subido de nivel!</h4><p>Más megas, más contenido y un cliente más contento. <strong>¡Así se hace!</strong></p>
+              <button type="button" class="up-btn" onclick="irASeccion('#up-reto')">Ponte a prueba →</button></div>
+          </div>
+          <div class="up-car-btns"><button type="button" class="ant" aria-label="Paso anterior">← Anterior</button><button type="button" class="sig" aria-label="Paso siguiente">Siguiente →</button></div>
+        </div>
+
+        <div class="up-extra">
+          <h4>✅ Activación directa</h4>
+          <p>Cuando el nuevo plan no requiere configurar equipos, no hay que agendar nada: verás este mensaje y listo.</p>
+          <img class="zoomable up-img-ancha" src="up-cp-fin.jpg" data-titulo="Se ha realizado tu cambio de plan de forma exitosa" alt="Mensaje: se ha realizado tu cambio de plan de forma exitosa" loading="lazy">
+        </div>
+      </div>
+
+      <div class="up-sub" id="up-ficha">🧾 La ficha del cliente: tu radiografía</div>
+      <p class="up-sub-lema">Aparece al presionar <strong>Modificar el plan</strong> y también puedes abrirla durante el flujo con la <strong>«i» azul</strong>. Es solo informativa: <strong>no cambia nada</strong> en la cuenta.</p>
+      <div class="up-ficha">
+        <img class="zoomable" src="up-ficha-1.jpg" data-titulo="Ficha del cliente: plan actual y facturación" alt="Resumen del cliente: plan actual, facturación mensual y servicios" loading="lazy">
+        <ol>
+          <li data-n="1"><strong>Plan actual.</strong> Nombre comercial, tipo de oferta (Doble o Triple Play) y velocidad. “Ver qué incluye el plan” muestra el detalle.</li>
+          <li data-n="2"><strong>Facturación mensual.</strong> Lo que paga cada mes, con impuestos: renta del plan + adicionales − descuentos y promociones = total precio lista.</li>
+          <li data-n="3"><strong>Total pronto pago.</strong> Lo que paga si paga a tiempo. <mark>Es el monto contra el que se compara el cambio de plan.</mark> También ves la fecha de la próxima facturación.</li>
+          <li data-n="4"><strong>Servicios en la cuenta.</strong> Internet, telefonía, televisión (con número de equipos) y apps.</li>
+        </ol>
+      </div>
+      <table class="up-tabla" aria-label="Ejemplo de facturación mensual">
+        <tr><td>Renta del plan</td><td>$1,409.00</td></tr>
+        <tr><td>+ Adicionales</td><td>$756.01</td></tr>
+        <tr><td>− Descuentos y promociones</td><td>−$639.12</td></tr>
+        <tr class="tot"><td>Total precio lista</td><td>$1,525.89</td></tr>
+        <tr><td>− Descuento por pronto pago</td><td>−$50.00</td></tr>
+        <tr class="pp"><td>Total pronto pago ⭐</td><td>$1,475.89</td></tr>
+      </table>
+
+      <div class="up-ficha" style="margin-top:16px;">
+        <img class="zoomable" src="up-ficha-2.jpg" data-titulo="Ficha del cliente: adicionales y promociones" alt="Resumen del cliente: adicionales contratados y promociones" loading="lazy">
+        <ol>
+          <li data-n="1"><strong>Precio por adicional.</strong> Cada adicional muestra lo que cuesta al mes.</li>
+          <li data-n="2"><strong>Promoción aplicada.</strong> Si el adicional tiene descuento, se ve junto al precio (por ejemplo, ViX Premium sin costo por promoción).</li>
+          <li data-n="3"><strong>Combos.</strong> Las apps de un combo salen juntas en una línea, con el nombre del combo, sus apps y su precio.</li>
+          <li data-n="4"><strong>Promociones.</strong> Las promociones vigentes en la cuenta, tal como están en facturación.</li>
+        </ol>
+      </div>
+      <div class="up-extra">
+        <h4>🗣️ Cómo usarla con el cliente</h4>
+        <ul>
+          <li>Confirma con él <strong>cuánto paga hoy</strong> antes de proponer el cambio.</li>
+          <li>Identifica qué adicionales <strong>ya tiene</strong>, para no ofrecérselos de nuevo.</li>
+          <li>Ubica <strong>promociones que podrían terminar</strong> y que conviene mencionar.</li>
+        </ul>
+        <p style="margin-top:10px;"><strong>📺 TV adicional:</strong> la programación y el equipo salen en una sola línea con la leyenda “incluye equipo” y el precio sumado.</p>
+        <p style="margin:0;"><strong>⚠️ Sin facturación:</strong> si no se puede consultar, verás “Por el momento no podemos darte la información de facturación, consulta con tu cliente”. La ficha sale sin montos y el flujo continúa.</p>
+      </div>
+
+      <div class="up-sub" id="up-escalera">🧗 ¿A qué plan puede subir tu cliente?</div>
+      <p class="up-sub-lema">La regla general: el cambio de plan debe ser a un <strong>rango superior</strong>. Elige lo que tiene hoy tu cliente y mira hasta dónde puede llegar.</p>
+      <div class="up-esc-ctl">
+        <span class="lbl">1. ¿Qué tiene hoy?</span>
+        <div class="up-seg" id="upSegTipo">
+          <button type="button" data-tipo="dp" onclick="upTipoPlan('dp')">🌐 Doble Play<br><small style="font-weight:700;">Internet + teléfono</small></button>
+          <button type="button" data-tipo="tp" class="activa" onclick="upTipoPlan('tp')">📺 Triple Play<br><small style="font-weight:700;">Con televisión</small></button>
+        </div>
+        <span class="lbl">2. ¿Cuántos megas tiene?</span>
+        <div class="up-vels" id="upVels"></div>
+      </div>
+      <div class="up-esc" id="upEsc"></div>
+      <div class="up-esc-res" id="upEscRes"></div>
+      <p class="up-esc-nota">Doble / Triple Play: se permite conservar la velocidad o elegir una mayor. Además, la combinación debe estar permitida en la matriz y el pago mensual debe subir. Las reglas las define el negocio y pueden cambiar: la app siempre tiene la última palabra.</p>
+
+      <div class="up-extra">
+        <h4>🧱 “Selecciona otra combinación de plan”</h4>
+        <div class="up-dos">
+          <img class="zoomable" src="up-bloqueo-matriz.jpg" data-titulo="Selecciona otra combinación de plan" alt="Aviso: la combinación seleccionada no está permitida" loading="lazy">
+          <div>
+            <p>Sale cuando la combinación elegida <strong>no está permitida</strong> para el plan actual del cliente. Usa <strong>“Cambiar”</strong> para elegir otra velocidad u otra opción de televisión.</p>
+            <p><strong>Ejemplo:</strong> cliente con Triple Play 500 (Sónico). Ve la opción de 500 megas porque está disponible <strong>sin televisión</strong> (Doble Play), pero <strong>con Totalplay TV debe subir a 1,000 o más</strong>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="up-sub" id="up-pago">💰 La regla del pago: siempre hacia arriba</div>
+      <p class="up-sub-lema">La app compara el <strong>total pronto pago</strong> de hoy contra el nuevo, incluyendo adicionales y promociones. Si no sube, se bloquea. Haz la cuenta antes de ofrecer:</p>
+      <div class="up-pago">
+        <div class="up-pago-in">
+          <label>Paga hoy (pronto pago)<input type="number" id="upPagoHoy" inputmode="decimal" min="0" step="0.01" value="1526.95" oninput="upCalcPago()"></label>
+          <label>Pagaría con el cambio<input type="number" id="upPagoNuevo" inputmode="decimal" min="0" step="0.01" value="1436.99" oninput="upCalcPago()"></label>
+        </div>
+        <div class="up-pago-res" id="upPagoRes"></div>
+      </div>
+      <div class="up-extra">
+        <div class="up-dos">
+          <img class="zoomable" src="up-bloqueo-fact.jpg" data-titulo="Atención: este cambio no incrementa la facturación mensual del cliente" alt="Aviso: este cambio no incrementa la facturación mensual del cliente" loading="lazy">
+          <div>
+            <h4>¿Te salió el bloqueo? Esto haces:</h4>
+            <ul>
+              <li>Elige una <strong>velocidad o plan de mayor valor</strong>, o agrega servicios compatibles: <strong>apps, canales o equipos</strong>.</li>
+              <li>Regresa con la flecha, ajusta la selección y continúa.</li>
+              <li>Las <strong>promociones</strong> que se agregan en el cambio sí se descuentan, aunque sean temporales.</li>
+              <li>Si no carga la facturación del cliente, aparece el aviso y esta validación <strong>no detiene</strong> el cambio.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="up-extra">
+        <h4>🎬 ¿Qué cuenta como app de streaming?</h4>
+        <p>Para subir <strong>dentro del mismo rango</strong> (Doble Play 800, Triple Play 400 y Triple Play 800) la app te pide <strong>“Agrega una app de streaming”</strong>. Cuentan:</p>
+        <div class="up-cuenta">
+          <span class="si">Netflix*</span><span class="si">Amazon Prime*</span><span class="si">ViX</span><span class="si">Max</span><span class="si">Disney+</span><span class="si">Apple TV+</span><span class="si">Combos</span><span class="si">Apps a la carta</span><span class="si">Promociones</span><span class="no">Canales</span>
+        </div>
+        <p style="margin:8px 0 0;font-size:13px;">*Incluidos en el plan nuevo, si no estaban en el anterior.</p>
+      </div>
+
+      <div class="up-sub" id="up-reto">🏆 Ponte a prueba</div>
+      <p class="up-sub-lema">7 situaciones reales. ¿Cuántas resuelves sin que la app te bloquee?</p>
+      <div class="up-reto" id="upReto"></div>
+
+      <div class="up-sub" id="up-faq">❓ Dudas comunes</div>
+      <div class="up-faq">
+        <details class="up-pregunta"><summary>¿El resumen cambia algo en la cuenta del cliente?</summary>
+          <p><strong>No.</strong> Es solo informativo: muestra lo que el cliente tiene y paga hoy según su facturación.</p></details>
+        <details class="up-pregunta"><summary>¿Por qué no aparece 1.2 GB (1,200 megas)?</summary>
+          <p>Por ahora <strong>no se ofrece como plan destino</strong>. Puede volver a habilitarse más adelante sin actualizar la app. Los clientes que ya lo tienen sí pueden subir de rango.</p></details>
+        <details class="up-pregunta"><summary>¿Por qué no aparecen velocidades más bajas o iguales a la del cliente?</summary>
+          <p>Porque un cambio de plan debe <strong>subir al cliente de rango</strong>. Las velocidades que no cumplen la regla no se muestran.</p></details>
+        <details class="up-pregunta"><summary>Elegí una velocidad y apareció “Selecciona otra combinación de plan”</summary>
+          <p>La combinación no está permitida para el plan actual del cliente. Usa <strong>Cambiar</strong> para elegir otra velocidad u otra opción de televisión.</p></details>
+        <details class="up-pregunta"><summary>La app me pide “Agrega una app de streaming”</summary>
+          <p>Solo pasa en tres casos donde la subida es <strong>dentro del mismo rango</strong>: Doble Play 800, Triple Play 400 y Triple Play 800. Agrega al menos una app (los canales no cuentan).</p></details>
+        <details class="up-pregunta"><summary>¿Las promociones temporales cuentan en la comparación de facturación?</summary>
+          <p><strong>Sí.</strong> Las promociones que se agregan en el cambio se descuentan aunque sean temporales.</p></details>
+        <details class="up-pregunta"><summary>¿Qué pasa si no carga la facturación del cliente?</summary>
+          <p>Aparece el aviso “Por el momento no podemos darte información de facturación, consulta con tu cliente”. El resumen sale sin montos y la validación de facturación <strong>no bloquea</strong> el cambio.</p></details>
+        <details class="up-pregunta"><summary>¿Cambió algo en el flujo de adicionales?</summary>
+          <p><strong>No.</strong> Agregar adicionales funciona igual que siempre; lo nuevo es la opción de cambio de plan.</p></details>
+      </div>
+
+      <p class="up-cierre">Cada cliente que atiendes<br>es <span>un Upsell esperando.</span> 🚀</p>
+      <p class="up-pie">Fuente: Manual de Upsell · Cambio de plan/adicionales (Sales Cloud). Capturas de cuentas de prueba con datos de contacto ocultos; los montos son ilustrativos.</p>
+    </div>
+  </section>
 
   <section class="block" id="foxone-seccion" style="padding:24px 16px 10px;">
     <div class="fx-block">
@@ -7841,6 +8414,320 @@ document.addEventListener('keydown', function(e){
 // ── VISOR DE IMÁGENES ── fin
 
 // ═══════════════════════════════════════════════════════════════════
+//  UPSELL  ·  pestañas, carruseles de pasos, escalera de rangos,
+//  calculadora del pago y reto. Todo vive en #upsell-seccion.
+// ═══════════════════════════════════════════════════════════════════
+
+// Rangos de velocidad del Manual de Upsell (pág. 18). Si el negocio cambia
+// los rangos, solo se toca aquí.
+const UP_RANGOS = {
+  dp:[ {n:'100',v:[100]}, {n:'150',v:[150]}, {n:'Veloz',v:[250]}, {n:'Turbo',v:[350]},
+       {n:'Sónico',v:[500,700]}, {n:'Relámpago',v:[800,900,1000,1200]},
+       {n:'5 GB',v:[5000]}, {n:'10 GB',v:[10000]} ],
+  tp:[ {n:'100',v:[100]}, {n:'150',v:[150]}, {n:'Veloz',v:[200,250,300]}, {n:'Turbo',v:[350]},
+       {n:'Sónico',v:[400,500,700]}, {n:'Relámpago',v:[800,900,1000,1200]},
+       {n:'5 GB',v:[5000]}, {n:'10 GB',v:[10000]} ]
+};
+// Subir dentro del mismo rango: solo estos casos y con una app de streaming.
+const UP_MISMO_RANGO = { 'dp-800':[900,1000], 'tp-400':[500,700], 'tp-800':[900,1000] };
+// Velocidades que hoy no se ofrecen como destino.
+const UP_SIN_DESTINO = [1200];
+
+let upTipo = 'tp';
+let upVel  = 500;
+
+function upFmt(m){ return Number(m).toLocaleString('es-MX'); }
+
+function upJugada(cual, ir){
+  const sec = document.getElementById('upsell-seccion');
+  if(!sec) return;
+  sec.querySelectorAll('.up-tab').forEach(function(b){
+    const on = b.getAttribute('data-tab') === cual;
+    b.classList.toggle('activa', on);
+    b.setAttribute('aria-selected', on ? 'true' : 'false');
+  });
+  sec.querySelectorAll('.up-panel').forEach(function(p){
+    p.hidden = p.getAttribute('data-panel') !== cual;
+  });
+  const carril = sec.querySelector('.up-panel[data-panel="' + cual + '"] .up-carril');
+  if(carril){ carril.scrollLeft = 0; carril.dispatchEvent(new Event('scroll')); }
+  if(ir) irASeccion('#up-jugada');
+}
+
+// Las ligas del menú (y de las tarjetas de la sección) que llevan a una
+// pestaña la abren antes de que irASeccion haga el salto.
+document.querySelectorAll('a[data-up-tab]').forEach(function(a){
+  a.addEventListener('click', function(){ upJugada(a.getAttribute('data-up-tab')); });
+});
+
+// Lluvia de emojis al terminar un flujo o el reto.
+function upConfeti(){
+  try{
+    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  }catch(e){}
+  const caja = document.createElement('div');
+  caja.className = 'up-confeti';
+  const emojis = ['🎉','✨','💜','💚','🚀','⭐'];
+  for(let i = 0; i < 32; i++){
+    const s = document.createElement('span');
+    s.textContent = emojis[i % emojis.length];
+    s.style.left = (Math.random() * 100) + '%';
+    s.style.animationDuration = (1.6 + Math.random() * 1.4) + 's';
+    s.style.animationDelay = (Math.random() * 0.4) + 's';
+    caja.appendChild(s);
+  }
+  document.body.appendChild(caja);
+  setTimeout(function(){ caja.remove(); }, 3600);
+}
+
+// Carruseles de pasos: contador, barra de avance y botones.
+document.querySelectorAll('#upsell-seccion .up-carrusel').forEach(function(car){
+  const carril = car.querySelector('.up-carril');
+  const diapos = carril.querySelectorAll('.up-diapo');
+  const cont   = car.querySelector('.up-car-cont');
+  const barra  = car.querySelector('.up-car-barra i');
+  const ant    = car.querySelector('.up-car-btns .ant');
+  const sig    = car.querySelector('.up-car-btns .sig');
+  let ultimo = -1;
+
+  function actual(){
+    const centro = carril.scrollLeft + carril.clientWidth / 2;
+    let mejor = 0, dist = Infinity;
+    diapos.forEach(function(d, i){
+      const m = d.offsetLeft + d.offsetWidth / 2;
+      const dd = Math.abs(m - centro);
+      if(dd < dist){ dist = dd; mejor = i; }
+    });
+    return mejor;
+  }
+  function pintar(){
+    const i = actual();
+    const total = diapos.length;
+    const esFin = diapos[i].hasAttribute('data-confeti');
+    cont.textContent = esFin ? '¡Terminaste!' : 'Paso ' + (i + 1) + ' de ' + (total - 1);
+    barra.style.width = ((i + 1) / total * 100) + '%';
+    ant.disabled = i === 0;
+    sig.disabled = i === total - 1;
+    diapos.forEach(function(d, k){ d.classList.toggle('activa', k === i); });
+    if(esFin && ultimo !== i && ultimo !== -1) upConfeti();
+    ultimo = i;
+  }
+  function ir(i){
+    const d = diapos[Math.max(0, Math.min(diapos.length - 1, i))];
+    carril.scrollTo({ left: d.offsetLeft - (carril.clientWidth - d.offsetWidth) / 2, behavior:'smooth' });
+  }
+  ant.addEventListener('click', function(){ ir(actual() - 1); });
+  sig.addEventListener('click', function(){ ir(actual() + 1); });
+  let cuadro = 0;
+  carril.addEventListener('scroll', function(){
+    cancelAnimationFrame(cuadro);
+    cuadro = requestAnimationFrame(pintar);
+  }, { passive:true });
+  pintar();
+});
+
+// ── Escalera: ¿a qué plan puede subir? ──
+function upTipoPlan(t){
+  upTipo = t;
+  document.querySelectorAll('#upSegTipo button').forEach(function(b){
+    b.classList.toggle('activa', b.getAttribute('data-tipo') === t);
+  });
+  const todas = [].concat.apply([], UP_RANGOS[t].map(function(r){ return r.v; }));
+  if(todas.indexOf(upVel) === -1){
+    // la velocidad no existe en este tipo de plan: toma la más cercana hacia abajo
+    upVel = todas.filter(function(v){ return v <= upVel; }).pop() || todas[0];
+  }
+  upPintarEscalera();
+}
+function upElegirVel(v){ upVel = v; upPintarEscalera(); }
+
+function upPintarEscalera(){
+  const velsBox = document.getElementById('upVels');
+  const esc = document.getElementById('upEsc');
+  const res = document.getElementById('upEscRes');
+  if(!velsBox || !esc || !res) return;
+  const rangos = UP_RANGOS[upTipo];
+  const todas = [].concat.apply([], rangos.map(function(r){ return r.v; }));
+
+  velsBox.innerHTML = todas.map(function(v){
+    return '<button type="button" class="' + (v === upVel ? 'activa' : '') +
+           '" onclick="upElegirVel(' + v + ')">' + upFmt(v) + '</button>';
+  }).join('');
+
+  const idx = rangos.findIndex(function(r){ return r.v.indexOf(upVel) !== -1; });
+  const mismo = UP_MISMO_RANGO[upTipo + '-' + upVel] || [];
+  const mismoRangoAlto = upTipo === 'tp' && upVel >= 5000;
+
+  let filas = '';
+  for(let i = rangos.length - 1; i >= 0; i--){
+    const r = rangos[i];
+    const cls = i > idx ? 'sube' : (i === idx ? 'actual' : 'baja');
+    const etiqueta = i > idx ? '✅ Puede subir' : (i === idx ? '📍 Su rango hoy' : '');
+    const chips = r.v.map(function(v){
+      let c = '', txt = upFmt(v);
+      if(i === idx && v === upVel){ c = 'hoy'; txt = 'Hoy · ' + txt; }
+      else if(i === idx && mismo.indexOf(v) !== -1){ c = 'estrella'; txt = '⭐ ' + txt; }
+      else if(UP_SIN_DESTINO.indexOf(v) !== -1 && i >= idx){ c = 'no'; }
+      return '<span class="' + c + '"' + (c === 'no' ? ' title="No disponible como destino"' : '') + '>' + txt + '</span>';
+    }).join('');
+    filas += '<div class="up-pelda ' + cls + '"><div class="r">' + r.n +
+             (etiqueta ? '<small>' + etiqueta + '</small>' : '') + '</div><div class="vs">' + chips + '</div></div>';
+  }
+  esc.innerHTML = filas;
+
+  const tipoTxt = upTipo === 'dp' ? 'Doble Play' : 'Triple Play';
+  const arriba = rangos.slice(idx + 1).map(function(r){
+    const vs = r.v.filter(function(v){ return UP_SIN_DESTINO.indexOf(v) === -1; });
+    if(!vs.length) return null;
+    return '<strong>' + r.n + '</strong>: ' + vs.map(upFmt).join(', ') + ' megas';
+  }).filter(Boolean);
+
+  let html = '<p>Tu cliente está en <strong>' + rangos[idx].n + '</strong> (' + tipoTxt + ' ' + upFmt(upVel) + ' megas).</p>';
+  if(arriba.length){
+    html += '<p>✅ <strong>Puede subir a:</strong><br>' + arriba.join('<br>') + '</p>';
+  }
+  if(mismo.length){
+    html += '<p>⭐ <strong>Dentro de su rango</strong> también puede ir a ' + mismo.map(upFmt).join(' o ') +
+            ' megas, <strong>solo si agrega una app de streaming</strong> (los canales no cuentan).</p>';
+  }
+  if(mismoRangoAlto){
+    html += '<p>↔️ Por ser Triple Play ' + rangos[idx].n + ', puede cambiar a otro plan <strong>dentro del mismo rango</strong>.</p>';
+  }
+  if(upVel === 1200){
+    html += '<p>ℹ️ 1.2 GB ya no se ofrece como plan destino, pero tu cliente sí puede subir de rango.</p>';
+  }
+  if(!arriba.length && !mismo.length){
+    html += '<p>🏔️ Ya está en lo más alto en velocidad. ¡Súbele el valor con <strong>adicionales</strong>!</p>' +
+            '<p><button type="button" class="up-btn" onclick="upJugada(\'ad\', true)">Ver cómo agregar adicionales →</button></p>';
+  }
+  res.innerHTML = html;
+}
+upTipoPlan(upTipo);
+
+// ── Regla del pago ──
+function upCalcPago(){
+  const hoy = parseFloat(document.getElementById('upPagoHoy').value);
+  const nuevo = parseFloat(document.getElementById('upPagoNuevo').value);
+  const caja = document.getElementById('upPagoRes');
+  if(!caja) return;
+  if(isNaN(hoy) || isNaN(nuevo)){
+    caja.className = 'up-pago-res nada';
+    caja.textContent = 'Escribe los dos montos para ver si el cambio pasa.';
+    return;
+  }
+  const dif = nuevo - hoy;
+  const money = function(n){ return '$' + Math.abs(n).toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2}); };
+  if(dif > 0){
+    caja.className = 'up-pago-res ok';
+    caja.innerHTML = '✅ ¡Pasa! El pago mensual sube <strong>' + money(dif) + '</strong>. Adelante con el cambio.';
+  } else {
+    caja.className = 'up-pago-res no';
+    caja.innerHTML = '🚫 La app lo bloquea: ' + (dif === 0 ? 'el pago queda igual' : 'el pago baja <strong>' + money(dif) + '</strong>') +
+                     '. Sube la velocidad o agrega apps, canales o equipos.';
+  }
+}
+upCalcPago();
+
+// ── Reto: situaciones del manual ──
+const UP_RETO = [
+  { p:'Buscas la cuenta y sale: “La cuenta tiene un adeudo, no se puede modelar hasta que sea regularizada”. ¿Qué haces?',
+    o:['Le agrego solo adicionales, esos sí pasan',
+       'Que el cliente se ponga al corriente primero: con adeudo no hay cambio de plan ni Upsell',
+       'Hago el cambio de plan y el adeudo se suma al recibo'], c:1,
+    e:'Con adeudo no se permite ni el cambio de plan ni agregar adicionales. Primero tiene que regularizar su cuenta.' },
+  { p:'Tu cliente tiene Doble Play de 800 megas y quiere 1,000. ¿Qué te va a pedir la app?',
+    o:['Nada, 1,000 megas es un rango superior',
+       'Agregar al menos una app de streaming, porque sube dentro del mismo rango',
+       'Agregar un canal, como HOTGO'], c:1,
+    e:'800, 900 y 1,000 megas están en el mismo rango (Relámpago). Para subir dentro del rango hace falta una app de streaming; los canales no cuentan.' },
+  { p:'Hoy paga $1,526.95 de pronto pago y con el cambio pagaría $1,436.99. ¿Qué pasa?',
+    o:['Pasa, porque le estás dando más megas',
+       'La app lo bloquea: el pago mensual debe subir',
+       'Pasa si el cliente está de acuerdo'], c:1,
+    e:'El cambio debe aumentar la facturación. Sube la velocidad o agrega apps, canales o equipos hasta que el pago sea mayor.' },
+  { p:'¿Cuál de estos NO cuenta como app de streaming para subir dentro del mismo rango?',
+    o:['Un combo de apps', 'Disney+', 'Un canal'], c:2,
+    e:'Los canales no cuentan. Sí cuentan ViX, Max, Disney+, Apple TV+, combos, apps a la carta y promociones; Netflix o Amazon Prime si son nuevos en el plan.' },
+  { p:'Abres la ficha del cliente para revisar su plan. ¿Se modifica algo en su cuenta?',
+    o:['Sí, se reinicia su facturación', 'No, es solo informativa', 'Solo si das clic en “Ver qué incluye el plan”'], c:1,
+    e:'La ficha solo muestra lo que tiene y paga hoy. Úsala para saber cuánto paga, qué adicionales ya tiene y qué promociones podrían terminar.' },
+  { p:'Agregas TV CAM y WiFi Extender y sale un aviso de “inconveniencias” entre ellos. ¿Qué sigue?',
+    o:['Continúo, el sistema lo arregla solo',
+       'Quito uno: no puedo crear el ticket mientras haya conflicto de tipo y subtipo',
+       'Los capturo en dos cuentas distintas'], c:1,
+    e:'En un mismo ticket no pueden ir dispositivos con distinto tipo y subtipo. La excepción es Totalplay Surround + Nuevo Totalplay TV, que van en combo.' },
+  { p:'Tu cliente tiene plan Micronegocio y quiere más megas. ¿Puedes hacer el cambio de plan en Upsell?',
+    o:['Sí, igual que con un residencial', 'No, el sistema avisa que no es posible el cambio', 'Sí, si le agrego una app de streaming'], c:1,
+    e:'Con plan Micronegocio no se puede hacer el cambio, y tampoco se puede pasar un plan residencial a micronegocio.' }
+];
+let upRetoI = 0, upRetoRes = [], upRetoOrden = [];
+
+function upMezclar(n){
+  const a = []; for(let i = 0; i < n; i++) a.push(i);
+  for(let i = n - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); const t = a[i]; a[i] = a[j]; a[j] = t; }
+  return a;
+}
+function upRetoInicio(){ upRetoI = 0; upRetoRes = []; upRetoPintar(); }
+
+function upRetoPintar(){
+  const caja = document.getElementById('upReto');
+  if(!caja) return;
+  const prog = UP_RETO.map(function(_, i){
+    const c = upRetoRes[i] === true ? 'ok' : (upRetoRes[i] === false ? 'mal' : (i === upRetoI ? 'aqui' : ''));
+    return '<i class="' + c + '"></i>';
+  }).join('');
+
+  if(upRetoI >= UP_RETO.length){
+    const bien = upRetoRes.filter(Boolean).length;
+    let mejor = bien;
+    try{
+      const prev = parseInt(localStorage.getItem('up-reto-mejor'), 10);
+      if(!isNaN(prev) && prev > mejor) mejor = prev;
+      localStorage.setItem('up-reto-mejor', String(mejor));
+    }catch(e){}
+    const total = UP_RETO.length;
+    const nivel = bien === total ? ['🏆','¡Maestro del Upsell!','No se te escapa ni una. Sal y súbele el plan a tus clientes.']
+                : bien >= total - 2 ? ['🚀','¡Muy bien!','Ya casi lo dominas. Repasa las que fallaste y vuelve a intentarlo.']
+                : ['💪','¡Vas por buen camino!','Repasa los pasos y las reglas de arriba y vuelve a intentarlo.'];
+    caja.innerHTML = '<div class="up-reto-prog">' + prog + '</div><div class="up-reto-fin"><div class="big">' + nivel[0] + '</div>' +
+      '<h4>' + nivel[1] + '</h4><p><strong>' + bien + ' de ' + total + '</strong> correctas.</p><p>' + nivel[2] + '</p>' +
+      (mejor > bien ? '<p style="font-size:13px;opacity:.75;">Tu mejor marca: ' + mejor + ' de ' + total + '</p>' : '') +
+      '<button type="button" class="up-reto-sig" onclick="upRetoInicio()">Volver a intentarlo</button></div>';
+    if(bien >= total - 2) upConfeti();
+    return;
+  }
+
+  const q = UP_RETO[upRetoI];
+  upRetoOrden = upMezclar(q.o.length);
+  caja.innerHTML = '<div class="up-reto-prog">' + prog + '</div>' +
+    '<p class="up-reto-n">Situación ' + (upRetoI + 1) + ' de ' + UP_RETO.length + '</p>' +
+    '<h4>' + q.p + '</h4><div class="up-opc">' +
+    upRetoOrden.map(function(k){
+      return '<button type="button" data-k="' + k + '" onclick="upRetoResponder(' + k + ')">' + q.o[k] + '</button>';
+    }).join('') + '</div>';
+}
+
+function upRetoResponder(k){
+  const caja = document.getElementById('upReto');
+  const q = UP_RETO[upRetoI];
+  const ok = k === q.c;
+  upRetoRes[upRetoI] = ok;
+  caja.querySelectorAll('.up-opc button').forEach(function(b){
+    const bk = parseInt(b.getAttribute('data-k'), 10);
+    b.disabled = true;
+    if(bk === q.c) b.classList.add('ok');
+    else if(bk === k) b.classList.add('mal');
+  });
+  const ultimo = upRetoI === UP_RETO.length - 1;
+  caja.insertAdjacentHTML('beforeend',
+    '<div class="up-expl">' + (ok ? '✅ <strong>¡Correcto!</strong> ' : '❌ <strong>Casi.</strong> ') + q.e + '</div>' +
+    '<button type="button" class="up-reto-sig" onclick="upRetoI++;upRetoPintar()">' + (ultimo ? 'Ver mi resultado 🏁' : 'Siguiente →') + '</button>');
+  const barras = caja.querySelectorAll('.up-reto-prog i');
+  if(barras[upRetoI]) barras[upRetoI].className = ok ? 'ok' : 'mal';
+}
+upRetoInicio();
+
+// ═══════════════════════════════════════════════════════════════════
 //  BITÁCORA DE ACCESOS  ·  quién entra y cuándo
 // ═══════════════════════════════════════════════════════════════════
 // Dirección del Apps Script publicado y la clave (debe ser idéntica
@@ -9654,6 +10541,8 @@ document.addEventListener('visibilitychange', function(){
 // el DIRECTOR DISTRITAL la sigue viendo, con un aviso de que ya terminó.
 
 const SECCIONES = [
+  { id:'upsell-seccion',          nav:'navUpsell',            nombre:'Upsell · Cambio de plan',      inicio:'2026-11-19', fin:null,
+    navExtra:'navUpsellSub' },
   { id:'foxone-seccion',          nav:'navFoxOne',            nombre:'FOX ONE · Todo el deporte',    inicio:'2026-10-27', fin:null },
   { id:'combo3-seccion',          nav:'navCombo3',            nombre:'Combo Especial 3 Apps',        inicio:'2026-11-01', fin:'2026-11-30' },
   { id:'beisbol-seccion',         nav:'navBeisbol',           nombre:'1Baseball Network sin costo',  fin:'2026-11-15' },
@@ -9692,6 +10581,7 @@ const SECCIONES = [
 // ignoran solos y se pueden borrar de esta lista sin problema.
 const DIAS_AVISOS = 30;
 const AVISOS = [
+  { id:'2026-11-19-upsell',fecha:'19 de noviembre 2026', texto:'¡Nueva sección Upsell · Cambio de plan! Todo el Manual de Upsell de Sales Cloud paso a paso y con sus capturas: cómo agregar adicionales, cómo hacer un cambio de plan, la ficha del cliente, el semáforo (adeudo y micronegocio), una escalera para saber a qué plan puede subir tu cliente, la calculadora de la regla del pago y un reto de 7 situaciones para ponerte a prueba.' },
   { id:'2026-11-05-comisiones',fecha:'5 de noviembre 2026', texto:'Se actualizaron las Comisiones de Cambaceo y Punto de Venta y las de Venta Técnico con las tablas de noviembre, vigentes al 31 de enero de 2027. Relámpago ahora es de 1,000 megas ($1,200 con TV y $1,000 sin TV en oferta base), cambian precios y comisiones de los planes con Amazon, Netflix y bundles con speakers, y en adicionales entran Fox One, NFL Game Pass en DAZN, Koiplay y el Combo Especial 3 Apps. Ojo: Apple TV y Universal+ con meses incluidos en 150 y 250 megas no se comisionan.' },
   { id:'2026-11-03-manteleta',fecha:'3 de noviembre 2026', texto:'Se actualizó la Manteleta de Oferta Base "Buen Mes · La promoción ganadora", vigente del 2 al 30 de noviembre del 2026: precios de pronto pago y de lista, descuento por lealtad y ahorro mensual en apps por plan, canales incluidos, apps empaquetadas, precios por separado y complementos (TV adicional, Nuevo Totalplay TV, WiFi Pro y Kit Surround).' },
   { id:'2026-11-03-buenmes',fecha:'3 de noviembre 2026', texto:'¡Es el BUEN MES! Planes y Megas, del 2 al 30 de noviembre: Universal+ con anuncios sustituye a Disney+ en 150, 250 y 350 megas (5 meses con TV, 3 sin TV) y en todos los planes de solo Internet. El 350 megas ya no trae VSB incluido; de 500 megas en adelante con TV vienen Nuevo Totalplay TV, Totalplay Surround y WiFi 7. Nuevas opciones: 100 megas con HBO Max o Universal+ ($590 con TV, $499 sin TV) y 250 megas solo con Netflix ($779 con TV, $640 sin TV). El modelador ya usa MÁS APPS - UNIVERSAL+ INCLUIDO, y regresan los TIPs con las cuentas en Universal+ ($129).' },
@@ -9728,6 +10618,7 @@ const AVISOS = [
 //      a los 15 días.
 const DIAS_NUEVO = 15;
 const NUEVOS = [
+  { navId:'navUpsell',       tituloId:'up-titulo',  fecha:'2026-11-19' },
   { navId:'navFoxOne',       tituloId:'fx-titulo',  fecha:'2026-10-27' },
   { navId:'navBeisbol',      tituloId:'hr-titulo',  fecha:'2026-10-12' },
   { navId:'navModelado',     tituloId:'md-titulo',  fecha:'2026-10-01' },
